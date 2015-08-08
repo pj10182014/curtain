@@ -1,0 +1,63 @@
+.carousel {	
+	position: relative;
+	float:left;
+	padding-left:10px;
+}
+.carousel button { /*Don't remove this. we still use this for individual demos. only the front pages use images as of now*/
+	float: left;
+}
+.carousel a.prev, .carousel a.next {
+	display: block;
+	float: left;
+	width: 30px;
+	height: 118px;
+	text-decoration: none;
+	background: url("/images/carousel_img/prev_button.gif") left no-repeat;
+}
+.carousel a.next {
+	background: url("/images/carousel_img/next_button.gif") right no-repeat;
+}
+.carousel a.next:hover {
+	background-image: url("/images/carousel_img/next_button_on.gif");
+}
+.carousel a.prev:hover {
+	background-image: url("/images/carousel_img/prev_button_on.gif");
+}
+.carousel a:hover, .carousel a:active {
+	border: none;
+	outline: none;
+}
+.carousel .jCarouselLite {	
+	float: left;
+	/* Needed for rendering without flicker */
+    position: relative;
+	visibility: hidden;
+	left: -5000px;
+}
+.carousel ul {
+	margin: 0;
+}
+.carousel li img,  .carousel li p {
+	background-color: #fff;
+	width: 125px;
+	height: 100px;
+	margin: 6px;
+}
+.widget img {
+	cursor: pointer;
+}
+.mid {
+	margin-left: 80px;
+	width: 400px;
+	height: 300px;
+}
+.vertical {
+	margin-left: 170px;
+}
+.vertical .jCarouselLite {   /* so that in IE 6, the carousel div doesnt expand to fill the space */
+	width: 170px;
+}
+.imageSlider li img,  .imageSlider li p,  .imageSliderExt li img,  .imageSliderExt li p {
+	width: 400px;
+	height: 300px;
+}

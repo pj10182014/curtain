@@ -1,0 +1,63 @@
+/* YELLOW BOX */
+b.bt_yellow, b.bt_yellow b, b.bb_yellow, b.bb_yellow b {
+    display: block; height: 10px;font-size: 1px;
+    background:url(../images/outline_corners_yellow.gif) no-repeat;
+    position:relative}
+b.bt_yellow {top: -3px; left: -3px}
+b.bt_yellow b {background-position:100% -10px; left: 6px}
+b.bb_yellow {background-position:0 -20px; top:3px; left: -3px}
+b.bb_yellow b {background-position:100% -30px; left: 6px}
+#yellow_box {border: #A5A5A5 1px solid; background-color:#FFFF00; height:100%; padding:2px}
+#yellow_box_fullwidth {border: #cccccc 1px solid; background-color:#f0f0f0; margin:0px 0px 0px 0px; height:100%;}
+
+
+/* BLUE */
+b.bt_blue, b.bt_blue b, b.bb_blue, b.bb_blue b {
+    display: block; height: 10px;font-size: 1px;
+    background:url(../images/outline_corners_blue.gif) no-repeat;
+    position:relative}
+b.bt_blue {top: -3px; left: -3px}
+b.bt_blue b {background-position:100% -10px; left: 6px}
+b.bb_blue {background-position:0 -20px; top:3px; left: -3px}
+b.bb_blue b {background-position:100% -30px; left: 6px}
+#blue_box {border: #0000CC 1px solid; background-color:#0000CC; height:100%; padding:2px;}
+#blue_box_fullwidth {border: #0000CC 1px solid; background-color:#0000CC; margin:0px 0px 0px 0px; height:100%;}
+
+
+/* ORANGE */
+b.bt_orange, b.bt_orange b, b.bb_orange, b.bb_orange b {
+    display: block; height: 10px;font-size: 1px;
+    background:url(../images/outline_corners_orange.gif) no-repeat;
+    position:relative}
+b.bt_orange {top: -3px; left: -3px}
+b.bt_orange b {background-position:100% -10px; left: 6px}
+b.bb_orange {background-position:0 -20px; top:3px; left: -3px}
+b.bb_orange b {background-position:100% -30px; left: 6px}
+#orange_box {border: #FF6600 1px solid; background-color:#FF6600; height:100%; padding:2px;}
+#orange_box_fullwidth {border: #FF6600 1px solid; background-color:#FF6600; margin:0px 0px 0px 0px; height:100%;}
+
+
+/* BOX CONTENT CONTAINERS */
+.box_content_featurednews {padding:15px 15px 10px 15px; font-size:12px;}
+.box_content_promotions {padding:5px 10px 0px 10px; font-size:12px;}
+.box_content_standard {padding:5px 10px 5px 10px;}
+.box_pr_image {	padding:0;	float:right;	width:200px; margin:10px 0px 10px 10px;}
+.box_pr_image img.pr_image { padding:2px; border: solid 1px #eeeeee;}
+
+.bestsellers-box {
+	padding:10px;
+	background-color:#ffff09;
+	border:3px #ccc solid;
+	-moz-border-radius: 5px;  
+-khtml-border-radius: 5px;  
+-webkit-border-radius: 5px; 
+}
+
+.companynews-box {
+	padding:10px;
+	background-color:#f4f2f2;
+	border:3px #ccc solid;
+	-moz-border-radius: 5px;  
+-khtml-border-radius: 5px;  
+-webkit-border-radius: 5px; 
+}

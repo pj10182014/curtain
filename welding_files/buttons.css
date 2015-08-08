@@ -1,0 +1,106 @@
+.sc-buttons{display:block;width:220px;padding:5px;font-weight:bolder;border:3px #ccc solid;text-align:center;text-decoration:none;
+	-moz-border-radius: 15px;  
+-khtml-border-radius: 15px;  
+-webkit-border-radius: 15px; }
+
+.button-order-now {		color:#fff;		background-color:red;	}
+
+a.sc-button {text-decoration:none;}
+
+
+a.button{
+	background:url(/images/buttons_img/button.gif);
+	display:block;
+	color:#555555;
+	font-weight:bold;
+	height:30px;
+	line-height:29px;
+	margin-bottom:14px;
+	text-decoration:none;
+	width:191px;
+	float:left;
+	margin-right:5px;
+	font-size:10px;
+	font-weight:bolder;
+}
+a:visited.button{
+	background:url(/images/buttons_img/button.gif);
+	display:block;
+	color:#555555;
+	font-weight:bold;
+	height:30px;
+	line-height:29px;
+	margin-bottom:14px;
+	text-decoration:none;
+	width:191px;
+	float:left;
+	margin-right:5px;
+}
+a:hover.button, a:active.button{
+	color:#0066CC;
+	background:url(/images/buttons_img/button.gif);
+	display:block;	
+	font-weight:bold;
+	height:30px;
+	line-height:29px;
+	margin-bottom:14px;
+	text-decoration:none;
+	width:191px;
+	float:left;
+	margin-right:5px;
+}
+
+/* -------------------- */
+/* CLASSES				*/
+/* -------------------- */
+	.add{
+		background:url(/images/buttons_img/add.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+	.delete{
+		background:url(/images/buttons_img/delete.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+	.user{
+		background:url(/images/buttons_img/user.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+	.alert{
+		background:url(/images/buttons_img/alert.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+	.msg{
+		background:url(/images/buttons_img/msg.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+	.download{
+		background:url(/images/buttons_img/download.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+
+	.lens{
+		background:url(/images/buttons_img/lens.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+	.info{
+		background:url(/images/buttons_img/info.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+	.order{
+		background:url(/images/buttons_img/cart.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+	.back{
+		background:url(/images/buttons_img/back.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
