@@ -25,7 +25,7 @@
     <!-- -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="./uwd_style.css">
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="jquery.js"></script>
     <!-- -->
 <script language="javascript" type="text/javascript" src="./welding_files/quotator.js"></script>
 <script language="javascript" src="./welding_files/jquery.tweet.js" type="text/javascript"></script>
@@ -228,13 +228,15 @@ $(".jCarouselLite").jCarouselLite({
                 <div class="step-headers">Select Curtain Layout</div>
             </header>
 
-            <!-- Help notes-->
-            <div class="help-header">Please select the sides needed</div>
-            <div class="help">Help</div>
-            <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
-
             <!-- Selections-->
             <div class="step1-selections">
+                <!-- Help notes-->
+                <div class="help-header">Please select the sides needed</div>
+                <div class="help">Help</div>
+                <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
+
+                <!-- Sides Selections -->
+                <div class="clear"></div>
                 <div class="single-side"><input type="image" src="./sample-images/two-sided.png" alt="" /><p>Single Curtain</p></div>
                 <div class="two-sided"><input type="image" img src="./sample-images/two-sided.png" alt="" /><p>2-sided Station</p></div>
                 <div class="three-sided"><input type="image" img src="./sample-images/two-sided.png" alt="" /><p>3-Sided Station</p></div>
@@ -242,7 +244,7 @@ $(".jCarouselLite").jCarouselLite({
             </div><!-- end selections -->
         </article>  <!-- end step 1 article-->
 
-        <div class="clear"></div>
+        <div class="clearWmarginForSteps"></div>
 
         <article id="step2">
             <!-- Header-->
@@ -259,6 +261,7 @@ $(".jCarouselLite").jCarouselLite({
                 <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
 
                 <!-- Dimension Selection-->
+                <div class="clear"></div>
                 <div class="dimensions-side-a">
                     <p class="sideABCD-header">Side A</p>
                     <div class="dimension-width">
@@ -321,6 +324,7 @@ $(".jCarouselLite").jCarouselLite({
                 <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
 
                 <!-- Color Selection-->
+                <div class="clear"></div>
                 <div class="dimensions-side-a">
                     <p class="sideABCD-header">Side A</p>
                     <div class="dimension-width">
@@ -360,7 +364,7 @@ $(".jCarouselLite").jCarouselLite({
             </div> <!-- end selections -->
         </article>  <!-- end step 2 article-->
 
-        <div class="clear"></div>
+        <div class="clearWmarginForSteps"></div>
 
         <article id="step3">
              <!--Header-->
@@ -435,6 +439,7 @@ pageTracker._trackPageview();
 <script type="text/javascript">
     $(document).ready(function(){
         $('.number-of-color-field').hide();
+        $('.help-notes').hide();
 
         $('.number-of-colors').on('change', function(){
             var $clicked = $(this);
@@ -442,6 +447,11 @@ pageTracker._trackPageview();
             $clicked.closest('div').find('.number-of-color-field').show();
             console.log(value);
         });
+
+        $( ".help" ).on('click', function(){
+            $(this).next('div').slideToggle( "slow" );
+        });
+
     });
 </script>
 <!--ET-->

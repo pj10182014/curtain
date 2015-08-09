@@ -13,7 +13,8 @@
     .step-arrows {font-size:24px; color: #404040; font-weight: 400; line-height: 134%; width: 30%; background-color: yellow; text-align: center;}
     .step-arrows::after {content: ""; border-top: 16px solid transparent; border-bottom: 18px solid transparent; border-left: 26px solid yellow; position: absolute; left: 30%;}
     .step-headers {font-size:24px; color: #FFF; font-weight: 300; line-height: 134%; position: absolute; left: 35%; top: 0;}
-    div.clear{clear:both; margin-bottom: 50px;}
+    div.clearWmarginForSteps {clear:both; margin-bottom: 50px;}
+    div.clear{clear:both;}
 
     .sideABCD-header {font-size: 15px; color: #636363; line-height: 134%; font-weight: 400; margin:0;}
 
