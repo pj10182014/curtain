@@ -1,7 +1,9 @@
 
+div#product-summary{float:right; height: 150px; width: 150px; border: 1px solid blue;}
+
 
 /* Sizing for the whole four step selections */
-#three-steps-curtain-selections{font-family: 'roboto';width:700px;}
+#three-steps-curtain-selections{font-family: 'roboto';width:700px; float: left;}
 
     /* Global CSS for all curtain selections */
     /*****************************************/
@@ -13,8 +15,10 @@
     .step-arrows {font-size:24px; color: #404040; font-weight: 400; line-height: 134%; width: 30%; background-color: yellow; text-align: center;}
     .step-arrows::after {content: ""; border-top: 16px solid transparent; border-bottom: 18px solid transparent; border-left: 26px solid yellow; position: absolute; left: 30%;}
     .step-headers {font-size:24px; color: #FFF; font-weight: 300; line-height: 134%; position: absolute; left: 35%; top: 0;}
+    .step1-selections, .step2-selections, .step3-selections {font-size:16px; color: #636363; font-weight: 500; line-height: 132%;}
     div.clearWmarginForSteps {clear:both; margin-bottom: 50px;}
     div.clear{clear:both;}
+
 
     .sideABCD-header {font-size: 15px; color: #636363; line-height: 134%; font-weight: 400; margin:0;}
 
@@ -25,7 +29,6 @@
 
         /*Css for all step 1 - curtain selection*/
         /*article#step1{height: 370px;}*/
-        .step1-selections{font-size:16px; color: #636363; font-weight: 500; line-height: 132%;}
         .single-side, .two-sided, .three-sided, .four-sided{float: left;}
 
         /*Css for all step 2 - enter  dimensions & colors  */
@@ -36,9 +39,10 @@
         /*Only for dimensions*/
         div.dimension-width, div.dimension-height{float: left; font-size: 15px;}
         span.foot-inches{font-size: 21px; font-weight: 500;}
-        input.dimension-input{font-size: 16px; color: #636363; line-height: 132%; font-weight: 300; width: 20px; background: #EAEAEA; border-radius: 5px; border: 0;}
+        input.dimension-input, input.dimension-input-foot, input.dimension-input-inch{font-size: 16px; color: #636363; line-height: 132%; font-weight: 300; width: 20px; background: #EAEAEA; border-radius: 5px; border: 0;}
         /*Only for colors*/
         .number-of-colors{width: 150px;}
+        .number-of-color-field{height: 150px; border: 1px solid grey;}
 
         /*Css for all step 3 - Choose a Track & Trolley Kit*/
         .mount-image{width: 100%;}
