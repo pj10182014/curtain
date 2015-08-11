@@ -41,6 +41,9 @@ div#product-summary{float:right; height: 150px; width: 150px; border: 1px solid 
         span.foot-inches{font-size: 21px; font-weight: 500;}
         input.dimension-input, input.dimension-input-foot, input.dimension-input-inch{font-size: 16px; color: #636363; line-height: 132%; font-weight: 300; width: 20px; background: #EAEAEA; border-radius: 5px; border: 0;}
         /*Only for colors*/
+        .color-side-a, .color-side-b, .color-side-c, .color-side-d{float: left; width:165px; border-right: 1px dashed lightgray;}
+        .color-side-b, .color-side-c, .color-side-d{padding-left: 10px;}
+        .color-side-d{border-right: 0;}
         .number-of-colors{width: 150px;}
         .number-of-color-field{height: 150px; border: 1px solid grey;}
 

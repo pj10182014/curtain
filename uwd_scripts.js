@@ -1,138 +1,29 @@
 $(document).ready(function(){
 
-    //var valueTotalA = Number(0);
-    //var $dimensionsSideAFootInput = $('.dimensions-side-a .dimension-width .dimension-input-foot');
-    //$dimensionsSideAFootInput.focusout(function() {
-    //    var value = Number($dimensionsSideAFootInput.val());
-    //    if(value == ""){
-    //        value = Number(0);
-    //    }
-    //    return valueTotalA += value;
-    //});
-    //var $dimensionsSideAInchInput = $('.dimensions-side-a .dimension-width .dimension-input-inch');
-    //$dimensionsSideAInchInput.focusout(function() {
-    //    var value = Number($dimensionsSideAInchInput.val());
-    //    if(value == ""){
-    //        value = Number(0);
-    //    }
-    //    return valueTotalA += value;
-    //});
 
-
-    $('.alertTest').click(function(){
-        alertTest('.dimensions-side-a');
+    $('.step2-selections input').on('keyup', function(){
+        var sideAtotal = singlePrice($('.dimensions-side-a input'));
+        var sideBtotal = singlePrice($('.dimensions-side-b input'));
+        var sideCtotal = singlePrice($('.dimensions-side-c input'));
+        var sideDtotal = singlePrice($('.dimensions-side-d input'));
+        var sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal +sideDtotal);
+        $('.price').empty().append(sideABCDtotal);
     });
 
-    function alertTest(side){
-        alert(parseInt($(side + '.dimension-width .dimension-input-foot').val()));
-
+    function singlePrice(side){
+            var values = [];
+            side.each(function() {
+                if(($(this).val() == "") || (isNaN($(this).val()))){
+                    values.push(parseInt(0));
+                }else {
+                    values.push(parseInt($(this).val()));
+                }
+            });
+            values[1] = values[1]/12;
+            values[3] = values[3]/12;
+            var total = ((values[0]+values[1])*(values[2]+values[3])) * 1.6;
+            return total;
     }
-
-
-    $('.check-price').on('click', function(){
-        /*Side A Calculation*/
-        var $sideAFootValueW = parseInt($('.dimensions-side-a .dimension-width .dimension-input-foot').val());
-        var $sideAInchValueW = parseInt($('.dimensions-side-a .dimension-width .dimension-input-inch').val());
-
-        if(($sideAFootValueW == "") || (!$.isNumeric($sideAFootValueW))){
-            $sideAFootValueW = 0;
-        }
-
-        if(($sideAInchValueW == "") || (!$.isNumeric($sideAInchValueW))){
-            $sideAInchValueW = 0;
-        }else{
-            $sideAInchValueW = $sideAInchValueW/12;
-        }
-
-        var totalFootAW = $sideAFootValueW + $sideAInchValueW;
-
-        var $sideAFootValueH = parseInt($('.dimensions-side-a .dimension-height .dimension-input-foot').val());
-        var $sideAInchValueH = parseInt($('.dimensions-side-a .dimension-height .dimension-input-inch').val());
-
-        if(($sideAFootValueH == "") || (!$.isNumeric($sideAFootValueH))){
-            $sideAFootValueH = 0;
-        }
-
-        if(($sideAInchValueH == "") || (!$.isNumeric($sideAInchValueH))){
-            $sideAInchValueH = 0;
-        }else{
-            $sideAInchValueH = $sideAInchValueH/12;
-        }
-
-        var totalFootAH = $sideAFootValueH + $sideAInchValueH;
-
-        var sideATotal = totalFootAH * totalFootAW * 1.6;
-
-        /*Side B Calculation*/
-        var $sideBFootValueW = parseInt($('.dimensions-side-b .dimension-width .dimension-input-foot').val());
-        var $sideBInchValueW = parseInt($('.dimensions-side-b .dimension-width .dimension-input-inch').val());
-
-        if(($sideBFootValueW == "") || (!$.isNumeric($sideBFootValueW))){
-            $sideBFootValueW = 0;
-        }
-
-        if(($sideBInchValueW == "") || (!$.isNumeric($sideBInchValueW))){
-            $sideBInchValueW = 0;
-        }else{
-            $sideBInchValueW = $sideBInchValueW/12;
-        }
-
-        var totalFootBW = $sideBFootValueW + $sideBInchValueW;
-
-        var $sideBFootValueH = parseInt($('.dimensions-side-b .dimension-height .dimension-input-foot').val());
-        var $sideBInchValueH = parseInt($('.dimensions-side-b .dimension-height .dimension-input-inch').val());
-
-        if(($sideBFootValueH == "") || (!$.isNumeric($sideBFootValueH))){
-            $sideBFootValueH = 0;
-        }
-
-        if(($sideBInchValueH == "") || (!$.isNumeric($sideBInchValueH))){
-            $sideBInchValueH = 0;
-        }else{
-            $sideBInchValueH = $sideBInchValueH/12;
-        }
-
-        var totalFootBH = $sideBFootValueH + $sideBInchValueH;
-
-        var sideBTotal = totalFootBH * totalFootBW * 1.6;
-
-        /*Side C Calculation*/
-        var $sideCFootValueW = parseInt($('.dimensions-side-c .dimension-width .dimension-input-foot').val());
-        var $sideCInchValueW = parseInt($('.dimensions-side-c .dimension-width .dimension-input-inch').val());
-
-        if(($sideCFootValueW == "") || (!$.isNumeric($sideCFootValueW))){
-            $sideCFootValueW = 0;
-        }
-
-        if(($sideCInchValueW == "") || (!$.isNumeric($sideCInchValueW))){
-            $sideCInchValueW = 0;
-        }else{
-            $sideCInchValueW = $sideCInchValueW/12;
-        }
-
-        var totalFootCW = $sideCFootValueW + $sideCInchValueW;
-
-        var $sideCFootValueH = parseInt($('.dimensions-side-c .dimension-height .dimension-input-foot').val());
-        var $sideCInchValueH = parseInt($('.dimensions-side-c .dimension-height .dimension-input-inch').val());
-
-        if(($sideCFootValueH == "") || (!$.isNumeric($sideCFootValueH))){
-            $sideCFootValueH = 0;
-        }
-
-        if(($sideCInchValueH == "") || (!$.isNumeric($sideCInchValueH))){
-            $sideCInchValueH = 0;
-        }else{
-            $sideCInchValueH = $sideCInchValueH/12;
-        }
-
-        var totalFootCH = $sideCFootValueH + $sideCInchValueH;
-
-        var sideCTotal = totalFootCH * totalFootCW * 1.6;
-
-        $('.price').empty();
-        $('.price').append(sideATotal+sideBTotal+sideCTotal);
-
-    });
 
     function printColor(color) {
         var text = "You chose... " + color.toHexString();
