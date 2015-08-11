@@ -1,6 +1,12 @@
 $(document).ready(function(){
+    $('.help-notes').hide();             // hide the notes for help
 
+    /*Toggles the help-notes div when help is clicked*/
+    $( ".help" ).on('click', function(){
+        $(this).next('div').slideToggle( "slow" );
+    });
 
+    /*Uses singlePrice() here to get price for all 4 sides when input keyup*/
     $('.step2-selections input').on('keyup', function(){
         var sideAtotal = singlePrice($('.dimensions-side-a input'));
         var sideBtotal = singlePrice($('.dimensions-side-b input'));
@@ -10,6 +16,7 @@ $(document).ready(function(){
         $('.price').empty().append(sideABCDtotal);
     });
 
+    /*Function to gets the price for single Side*/
     function singlePrice(side){
             var values = [];
             side.each(function() {
@@ -25,27 +32,7 @@ $(document).ready(function(){
             return total;
     }
 
-    function printColor(color) {
-        var text = "You chose... " + color.toHexString();
-        $(".label").text(text);
-        $('.color1').css({'background-color': color});
-    };
-
-    $(".colorPalette").spectrum({
-        showPaletteOnly: true,
-        showPalette:true,
-        hideAfterPaletteSelect:true,
-        color: "black",
-        change: function(color) {
-            printColor(color);
-        },
-        palette: [
-            ["yellow", "blue", "brown", "gray", "green", "white", "orange"]
-        ]
-    });
-
-    $('input[name=color1], input[name=color2], input[name=color3]').next().hide();
-    $('.help-notes').hide();             // hide the notes for help
+    $('div.color1 div.color2 div.color3').hide();
 
     /* Open the color selection field after number of colors is selected */
     $('.number-of-colors').on('change', function(){
@@ -55,33 +42,24 @@ $(document).ready(function(){
         var value = $clicked.val();
 
         if(value == 1){
-            $closestDiv.find("input[name='color1']").next().show();
-            $closestDiv.find('.sp-replacer.sp-light').css({'display': 'block'});
-            $closestDiv.find('.sp-preview').css({'width': '85%'});
-            $closestDiv.find("input[name='color2'], input[name='color3']").next().hide();
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
+            $closestDiv.find('div.color2').hide();
+            $closestDiv.find('div.color3').hide();
         }else if(value == 2){
-            $closestDiv.find("input[name='color1'], input[name='color2']").next().show();
-            $closestDiv.find('.sp-replacer.sp-light').css({'display': 'block'});
-            $closestDiv.find('.sp-preview').css({'width': '85%'});
-            $closestDiv.find("input[name='color3']").next().hide();
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "50%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
+            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "50%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
+            $closestDiv.find('div.color3').hide();
         }else if(value == 3){
-            $closestDiv.find("input[name='color1'], input[name='color2'], input[name='color3']").next().show();
-            $closestDiv.find('.sp-preview').css({'width': '85%'});
-            $closestDiv.find('.sp-replacer.sp-light').css({'display': 'block'});
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
+            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
+            $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
         }else{
-            $('input[name=color1], input[name=color2], input[name=color3]').next().hide();
+            $closestDiv.find('div.color1').hide();
+            $closestDiv.find('div.color2').hide();
+            $closestDiv.find('div.color3').hide();
         }
-        console.log(value);
     });
 
-    /*Toggles the help-notes div when help is clicked*/
-    $( ".help" ).on('click', function(){
-        $(this).next('div').slideToggle( "slow" );
-    });
-
-
-
-
-
+    $('.colorSelectBox').hide();
 
 });
