@@ -1,5 +1,7 @@
 
-div#product-summary{float:right; height: 150px; width: 150px; border: 1px solid blue;}
+div#product-summary{font-family: 'roboto'; float:right; height: 185px; width: 185px; background-color: #2020C5; border-radius: 5px; text-align: center; color: #FFF;}
+#product-summary>header {color: yellow; font-size: 20px; padding-top: 10px;}
+#product-summary .price{padding: 15px 0; font-size: 23px;}
 
 
 /* Sizing for the whole four step selections */
@@ -13,7 +15,7 @@ div#product-summary{float:right; height: 150px; width: 150px; border: 1px solid 
     /*.step-headers{font-size:24px; color: #FFF; font-weight: 300; line-height: 134%;}*/
     .curtain-selection-headers {background-color: black; position: relative; white-space: nowrap;}
     .step-arrows {font-size:24px; color: #404040; font-weight: 400; line-height: 134%; width: 30%; background-color: yellow; text-align: center;}
-    .step-arrows::after {content: ""; border-top: 16px solid transparent; border-bottom: 18px solid transparent; border-left: 26px solid yellow; position: absolute; left: 30%;}
+    .step-arrows::after {content: ""; border-top: 16px solid transparent; border-bottom: 17px solid transparent; border-left: 16px solid yellow; position: absolute; left: 30%;}
     .step-headers {font-size:24px; color: #FFF; font-weight: 300; line-height: 134%; position: absolute; left: 35%; top: 0;}
     .step1-selections, .step2-selections, .step3-selections {font-size:16px; color: #636363; font-weight: 500; line-height: 132%;}
     div.clearWmarginForSteps {clear:both; margin-bottom: 50px;}
@@ -50,6 +52,17 @@ div#product-summary{float:right; height: 150px; width: 150px; border: 1px solid 
         .colorSelectBox>div{font-size: 14px; font-weight: 300; color: #636363; line-height: 136%;}
         .colorSelectBox>div>div{float: left; width: 20px; height: 20px; border-radius: 5px; border: 1px solid lightgrey; margin-right: 3px;}
         .colorSelectBox .pink{background-color: pink;}
+        .colorSelectBox .black{background-color: black;}
+        .colorSelectBox .yellow{background-color: yellow;}
+        .colorSelectBox{
+            position:absolute;
+            z-index:10;
+            background-color: #FFF;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            padding: 15px;
+            display:none;
+        }
 
         /*Css for all step 3 - Choose a Track & Trolley Kit*/
         .mount-image{width: 100%;}
