@@ -54,6 +54,7 @@ div#product-summary{font-family: 'roboto'; float:right; height: 185px; width: 18
         .colorSelectBox .pink{background-color: pink;}
         .colorSelectBox .black{background-color: black;}
         .colorSelectBox .yellow{background-color: yellow;}
+        .colorSelectBox .red{background-color: red;}
         .colorSelectBox{position:absolute;z-index:99999;background-color: #FFF;border: 1px solid lightgray;border-radius: 5px;padding: 15px;}
 
         /*Css for all step 3 - Choose a Track & Trolley Kit*/

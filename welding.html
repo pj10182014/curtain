@@ -220,265 +220,268 @@ $(".jCarouselLite").jCarouselLite({
 });
 </script><div id="main">
   <div class="interior_full_pane" style="font-size:14px; color:#000000; background-color:white; background-image:none;">
+      <form action="toCart.php" method="POST">
+          <div id="product-summary">
+              <header>Product Summary</header>
+              <div class="price" name="product-summary-price">$0.00</div>
+              <header>Have Questions?</header>
+              <p>Call our Product Experts<br> 1-877-270-3311</p>
+          </div>
 
-      <div id="product-summary">
-          <header>Product Summary</header>
-          <div class="price">$0.00</div>
-          <header>Have Questions?</header>
-          <p>Call our Product Experts<br> 1-877-270-3311</p>
-      </div>
+          <div id="three-steps-curtain-selections">
+              <article id="step1">
+                  <!-- Header-->
+                  <header class="curtain-selection-headers">
+                      <div class="step-arrows">Step 1</div>
+                      <div class="step-headers">Select Curtain Layout</div>
+                  </header>
 
-    <div id="three-steps-curtain-selections">
-        <article id="step1">
-            <!-- Header-->
-            <header class="curtain-selection-headers">
-                <div class="step-arrows">Step 1</div>
-                <div class="step-headers">Select Curtain Layout</div>
-            </header>
+                  <!-- Selections-->
+                  <div class="step1-selections">
+                      <!-- Help notes-->
+                      <div class="help-header">Please select the sides needed</div>
+                      <div class="help">Help</div>
+                      <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
 
-            <!-- Selections-->
-            <div class="step1-selections">
-                <!-- Help notes-->
-                <div class="help-header">Please select the sides needed</div>
-                <div class="help">Help</div>
-                <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
+                      <!-- Sides Selections -->
+                      <div class="clear"></div>
+                      <div class="single-side"><input type="image" src="./sample-images/two-sided.png" alt="" /><p>Single Curtain</p></div>
+                      <div class="two-sided"><input type="image" img src="./sample-images/two-sided.png" alt="" /><p>2-sided Station</p></div>
+                      <div class="three-sided"><input type="image" img src="./sample-images/two-sided.png" alt="" /><p>3-Sided Station</p></div>
+                      <div class="four-sided"><input type="image" img src="./sample-images/two-sided.png" alt="" /><p>4-sided Station</p></div>
+                  </div><!-- end selections -->
+              </article>  <!-- end step 1 article-->
 
-                <!-- Sides Selections -->
-                <div class="clear"></div>
-                <div class="single-side"><input type="image" src="./sample-images/two-sided.png" alt="" /><p>Single Curtain</p></div>
-                <div class="two-sided"><input type="image" img src="./sample-images/two-sided.png" alt="" /><p>2-sided Station</p></div>
-                <div class="three-sided"><input type="image" img src="./sample-images/two-sided.png" alt="" /><p>3-Sided Station</p></div>
-                <div class="four-sided"><input type="image" img src="./sample-images/two-sided.png" alt="" /><p>4-sided Station</p></div>
-            </div><!-- end selections -->
-        </article>  <!-- end step 1 article-->
+              <div class="clearWmarginForSteps"></div>
 
-        <div class="clearWmarginForSteps"></div>
+              <article id="step2">
+                  <!-- Header-->
+                  <header class="curtain-selection-headers">
+                      <div class="step-arrows">Step 2</div>
+                      <div class="step-headers">Enter Your Dimensions & Colors</div>
+                  </header>
 
-        <article id="step2">
-            <!-- Header-->
-             <header class="curtain-selection-headers">
-                <div class="step-arrows">Step 2</div>
-                <div class="step-headers">Enter Your Dimensions & Colors</div>
-            </header>
+                  <!-- Selections-->
+                  <div class="step2-selections">
+                      <!-- Help notes-->
+                      <div class="help-header">Enter Dimensions</div>
+                      <div class="help">Help</div>
+                      <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
 
-            <!-- Selections-->
-            <div class="step2-selections">
-                <!-- Help notes-->
-                <div class="help-header">Enter Dimensions</div>
-                <div class="help">Help</div>
-                <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
+                      <!-- Dimension Selection-->
+                      <div class="clear"></div>
+                      <div class="dimensions-side-a">
+                          <p class="sideABCD-header">Side A</p>
+                          <div class="dimension-width">
+                              <p class="dimension-WHC">Width</p>
+                              <input class='dimension-input-foot' name="a-width-foot" type="text"><span class="foot-inches">'</span>
+                              <input class='dimension-input-inch' name="a-width-inch" type="text"><span class="foot-inches">"</span>
+                          </div>
+                          <div class="dimension-height">
+                              <p class="dimension-WHC">Height</p>
+                              <input class='dimension-input-foot' name="a-height-foot" type="text"><span class="foot-inches">'</span>
+                              <input class='dimension-input-inch' name="a-height-inch" type="text"><span class="foot-inches">"</span>
+                          </div>
+                      </div> <!-- end side a -->
 
-                <!-- Dimension Selection-->
-                <div class="clear"></div>
-                <div class="dimensions-side-a">
-                    <p class="sideABCD-header">Side A</p>
-                    <div class="dimension-width">
-                        <p class="dimension-WHC">Width</p>
-                        <input class='dimension-input-foot' type="text"><span class="foot-inches">'</span>
-                        <input class='dimension-input-inch' type="text"><span class="foot-inches">"</span>
-                    </div>
-                    <div class="dimension-height">
-                        <p class="dimension-WHC">Height</p>
-                        <input class='dimension-input-foot' type="text"><span class="foot-inches">'</span>
-                        <input class='dimension-input-inch' type="text"><span class="foot-inches">"</span>
-                    </div>
-                </div> <!-- end side a -->
+                      <div class="dimensions-side-b">
+                          <p class="sideABCD-header">Side B</p>
+                          <div class="dimension-width">
+                              <p class="dimension-WHC">Width</p>
+                              <input class='dimension-input-foot' name="b-width-foot"  type="text"><span class="foot-inches">'</span>
+                              <input class='dimension-input-inch' name="b-width-inch" type="text"><span class="foot-inches">"</span>
+                          </div>
+                          <div class="dimension-height">
+                              <p class="dimension-WHC">Height</p>
+                              <input class='dimension-input-foot' name="b-height-foot" type="text"><span class="foot-inches">'</span>
+                              <input class='dimension-input-inch' name="b-height-inch" type="text"><span class="foot-inches">"</span>
+                          </div>
+                      </div><!-- end side b -->
 
-                <div class="dimensions-side-b">
-                    <p class="sideABCD-header">Side B</p>
-                    <div class="dimension-width">
-                        <p class="dimension-WHC">Width</p>
-                        <input class='dimension-input-foot' type="text"><span class="foot-inches">'</span>
-                        <input class='dimension-input-inch' type="text"><span class="foot-inches">"</span>
-                    </div>
-                    <div class="dimension-height">
-                        <p class="dimension-WHC">Height</p>
-                        <input class='dimension-input-foot' type="text"><span class="foot-inches">'</span>
-                        <input class='dimension-input-inch' type="text"><span class="foot-inches">"</span>
-                    </div>
-                </div><!-- end side b -->
+                      <div class="dimensions-side-c">
+                          <p class="sideABCD-header">Side C</p>
+                          <div class="dimension-width">
+                              <p class="dimension-WHC">Width</p>
+                              <input class='dimension-input-foot' name="c-width-foot" type="text"><span class="foot-inches">'</span>
+                              <input class='dimension-input-inch' name="c-width-inch" type="text"><span class="foot-inches">"</span>
+                          </div>
+                          <div class="dimension-height">
+                              <p class="dimension-WHC">Height</p>
+                              <input class='dimension-input-foot' name="c-height-foot" type="text"><span class="foot-inches">'</span>
+                              <input class='dimension-input-inch' name="c-height-inch" type="text"><span class="foot-inches">"</span>
+                          </div>
+                      </div><!-- end side c -->
 
-                <div class="dimensions-side-c">
-                    <p class="sideABCD-header">Side C</p>
-                    <div class="dimension-width">
-                        <p class="dimension-WHC">Width</p>
-                        <input class='dimension-input-foot' type="text"><span class="foot-inches">'</span>
-                        <input class='dimension-input-inch' type="text"><span class="foot-inches">"</span>
-                    </div>
-                    <div class="dimension-height">
-                        <p class="dimension-WHC">Height</p>
-                        <input class='dimension-input-foot' type="text"><span class="foot-inches">'</span>
-                        <input class='dimension-input-inch' type="text"><span class="foot-inches">"</span>
-                    </div>
-                </div><!-- end side c -->
+                      <div class="dimensions-side-d">
+                          <p class="sideABCD-header">Side D</p>
+                          <div class="dimension-width">
+                              <p class="dimension-WHC">Width</p>
+                              <input class='dimension-input-foot' name="d-width-foot" type="text"><span class="foot-inches">'</span>
+                              <input class='dimension-input-inch' name="d-width-inch" type="text"><span class="foot-inches">"</span>
+                          </div>
+                          <div class="dimension-height">
+                              <p class="dimension-WHC">Height</p>
+                              <input class='dimension-input-foot' name="d-height-foot" type="text"><span class="foot-inches">'</span>
+                              <input class='dimension-input-inch' name="d-height-inch" type="text"><span class="foot-inches">"</span>
+                          </div>
+                      </div><!-- end side d -->
 
-                <div class="dimensions-side-d">
-                    <p class="sideABCD-header">Side D</p>
-                    <div class="dimension-width">
-                        <p class="dimension-WHC">Width</p>
-                        <input class='dimension-input-foot' type="text"><span class="foot-inches">'</span>
-                        <input class='dimension-input-inch' type="text"><span class="foot-inches">"</span>
-                    </div>
-                    <div class="dimension-height">
-                        <p class="dimension-WHC">Height</p>
-                        <input class='dimension-input-foot' type="text"><span class="foot-inches">'</span>
-                        <input class='dimension-input-inch' type="text"><span class="foot-inches">"</span>
-                    </div>
-                </div><!-- end side d -->
+                      <!-- Help notes-->
+                      <div class="help-header">Choose Number of Colors</div>
+                      <div class="help">Help</div>
+                      <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
 
-                <!-- Help notes-->
-                <div class="help-header">Choose Number of Colors</div>
-                <div class="help">Help</div>
-                <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
+                      <!-- Color Selection-->
+                      <div class="clear"></div>
+                      <div class="color-side-a">
+                          <p class="sideABCD-header">Side A</p>
+                          <div class="dimension-width">
+                              <p class="dimension-WHC">Colors</p>
+                              <select name="number-of-colors" class="number-of-colors">
+                                  <option value="" group="1">Select A Number</option>
+                                  <option value="1" group="1">1</option>
+                                  <option value="2" group="1">2</option>
+                                  <option value="3" group="1">3</option>
+                              </select>
+                              <div class="number-of-color-field">
+                                  <div name="color1" class="sideA color1"></div>
+                                  <div name="color2" class="sideA color2"></div>
+                                  <div name="color3" class="sideA color3"></div>
+                              </div>
+                          </div>
+                      </div><!-- end side A -->
 
-                <!-- Color Selection-->
-                <div class="clear"></div>
-                <div class="color-side-a">
-                    <p class="sideABCD-header">Side A</p>
-                    <div class="dimension-width">
-                        <p class="dimension-WHC">Colors</p>
-                        <select name="number-of-colors" class="number-of-colors">
-                            <option value="" group="1">Select A Number</option>
-                            <option value="1" group="1">1</option>
-                            <option value="2" group="1">2</option>
-                            <option value="3" group="1">3</option>
-                        </select>
-                        <div class="number-of-color-field">
-                            <div name="color1" class="sideA color1"></div>
-                            <div name="color2" class="sideA color2"></div>
-                            <div name="color3" class="sideA color3"></div>
-                        </div>
-                    </div>
-                </div><!-- end side A -->
+                      <div class="color-side-b">
+                          <p class="sideABCD-header">Side B</p>
+                          <div class="dimension-width">
+                              <p class="dimension-WHC">Colors</p>
+                              <select name="number-of-colors" class="number-of-colors">
+                                  <option value="" group="colors">Select A Number</option>
+                                  <option value="1" group="colors">1</option>
+                                  <option value="2" group="colors">2</option>
+                                  <option value="3" group="colors">3</option>
+                              </select>
+                              <div class="number-of-color-field">
+                                  <div name="color1" class="sideB color1"></div>
+                                  <div name="color2" class="sideB color2"></div>
+                                  <div name="color3" class="sideB color3"></div>
+                              </div>
+                          </div>
+                      </div><!-- end side B -->
 
-                <div class="color-side-b">
-                    <p class="sideABCD-header">Side B</p>
-                    <div class="dimension-width">
-                        <p class="dimension-WHC">Colors</p>
-                        <select name="number-of-colors" class="number-of-colors">
-                            <option value="" group="colors">Select A Number</option>
-                            <option value="1" group="colors">1</option>
-                            <option value="2" group="colors">2</option>
-                            <option value="3" group="colors">3</option>
-                        </select>
-                        <div class="number-of-color-field">
-                            <div name="color1" class="sideB color1"></div>
-                            <div name="color2" class="sideB color2"></div>
-                            <div name="color3" class="sideB color3"></div>
-                        </div>
-                    </div>
-                </div><!-- end side B -->
+                      <div class="color-side-c">
+                          <p class="sideABCD-header">Side C</p>
+                          <div class="dimension-width">
+                              <p class="dimension-WHC">Colors</p>
+                              <select name="number-of-colors" class="number-of-colors">
+                                  <option value="" group="colors">Select A Number</option>
+                                  <option value="1" group="colors">1</option>
+                                  <option value="2" group="colors">2</option>
+                                  <option value="3" group="colors">3</option>
+                              </select>
+                              <div class="number-of-color-field">
+                                  <div name="color1" class="sideC color1"></div>
+                                  <div name="color2" class="sideC color2"></div>
+                                  <div name="color3" class="sideC color3"></div>
+                              </div>
+                          </div>
+                      </div><!-- end side c -->
 
-                <div class="color-side-c">
-                    <p class="sideABCD-header">Side C</p>
-                    <div class="dimension-width">
-                        <p class="dimension-WHC">Colors</p>
-                        <select name="number-of-colors" class="number-of-colors">
-                            <option value="" group="colors">Select A Number</option>
-                            <option value="1" group="colors">1</option>
-                            <option value="2" group="colors">2</option>
-                            <option value="3" group="colors">3</option>
-                        </select>
-                        <div class="number-of-color-field">
-                            <div name="color1" class="sideC color1"></div>
-                            <div name="color2" class="sideC color2"></div>
-                            <div name="color3" class="sideC color3"></div>
-                        </div>
-                    </div>
-                </div><!-- end side c -->
+                      <div class="color-side-d">
+                          <p class="sideABCD-header">Side D</p>
+                          <div class="dimension-width">
+                              <p class="dimension-WHC">Colors</p>
+                              <select name="number-of-colors" class="number-of-colors">
+                                  <option value="" group="colors">Select A Number</option>
+                                  <option value="1" group="colors">1</option>
+                                  <option value="2" group="colors">2</option>
+                                  <option value="3" group="colors">3</option>
+                              </select>
+                              <div class="number-of-color-field">
+                                  <div name="color1" class="sideD color1"></div>
+                                  <div name="color2" class="sideD color2"></div>
+                                  <div name="color3" class="sideD color3"></div>
+                              </div>
+                          </div>
+                      </div><!-- end side d -->
 
-                <div class="color-side-d">
-                    <p class="sideABCD-header">Side D</p>
-                    <div class="dimension-width">
-                        <p class="dimension-WHC">Colors</p>
-                        <select name="number-of-colors" class="number-of-colors">
-                            <option value="" group="colors">Select A Number</option>
-                            <option value="1" group="colors">1</option>
-                            <option value="2" group="colors">2</option>
-                            <option value="3" group="colors">3</option>
-                        </select>
-                        <div class="number-of-color-field">
-                            <div name="color1" class="sideD color1"></div>
-                            <div name="color2" class="sideD color2"></div>
-                            <div name="color3" class="sideD color3"></div>
-                        </div>
-                    </div>
-                </div><!-- end side d -->
+                      <div class="clear"></div>
+                      <div class="colorSelectBox">
+                          <div>14 Guage Semi-Transparent</div>
+                          <div>
+                              <div class="pink" value="pink"></div>
+                              <div class="black" value="black"></div>
+                              <div class="yellow" value="yellow"></div>
+                          </div>
+                          <div class="clear"></div>
+                          <div>18 oz Industrial Stength Viyl Coated</div>
+                          <div>
+                              <div class="red" value="red"></div>
+                              <div class="blue"></div>
+                              <div class="grey"></div>
+                              <div class="green"></div>
+                              <div class="white"></div>
+                          </div>
+                      </div>
 
-                <div class="clear"></div>
-                <div class="colorSelectBox">
-                    <div>14 Guage Semi-Transparent</div>
-                    <div>
-                        <div class="pink" value="pink"></div>
-                        <div class="black" value="black"></div>
-                        <div class="yellow" value="yellow"></div>
-                    </div>
-                    <div class="clear"></div>
-                    <div>18 oz Industrial Stength Viyl Coated</div>
-                    <div>
-                        <div class="red"></div>
-                        <div class="blue"></div>
-                        <div class="grey"></div>
-                        <div class="green"></div>
-                        <div class="white"></div>
-                    </div>
-                </div>
+                  </div> <!-- end selections -->
+              </article>  <!-- end step 2 article-->
 
-            </div> <!-- end selections -->
-        </article>  <!-- end step 2 article-->
+              <div class="clearWmarginForSteps"></div>
 
-        <div class="clearWmarginForSteps"></div>
+              <article id="step3">
+                  <!--Header-->
+                  <header class="curtain-selection-headers">
+                      <div class="step-arrows">Step 3</div>
+                      <div class="step-headers">Choose Track & Trolley kit (Optional)</div>
+                  </header>
 
-        <article id="step3">
-             <!--Header-->
-            <header class="curtain-selection-headers">
-                <div class="step-arrows">Step 3</div>
-                <div class="step-headers">Choose Track & Trolley kit (Optional)</div>
-            </header>
+                  <!-- Help notes-->
+                  <div class="help-header">Choose Track & Trolley Kit</div>
+                  <div class="help">Help</div>
+                  <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
 
-            <!-- Help notes-->
-            <div class="help-header">Choose Track & Trolley Kit</div>
-            <div class="help">Help</div>
-            <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
+                  <!-- Image showing the different mounts-->
+                  <img class="mount-image" src="./sample-images/mounts.png" alt="4 different mount options">
 
-            <!-- Image showing the different mounts-->
-            <img class="mount-image" src="./sample-images/mounts.png" alt="4 different mount options">
+                  <!-- Selections-->
+                  <div class="step3-selections">
+                      <div class="dimensions-side-a">
+                          <p class="sideABCD-header">Side A</p>
+                          <div class="dimension-width">
+                              <select name="mount-selections" class="mount-selections">
+                                  <option value="" group="mounts">Select A Mount</option>
+                                  <option value="wm" group="mounts">Wall Mount</option>
+                                  <option value="trm" group="mounts">Threaded Rod Mount</option>
+                                  <option value="cm" group="mounts">Ceiling Mount</option>
+                                  <option value="clm" group="mounts">Chain Link Mount</option>
+                              </select>
+                          </div>
+                      </div><!-- end side A -->
 
-            <!-- Selections-->
-            <div class="step3-selections">
-                <div class="dimensions-side-a">
-                    <p class="sideABCD-header">Side A</p>
-                    <div class="dimension-width">
-                        <select name="mount-selections" class="mount-selections">
-                            <option value="" group="mounts">Select A Mount</option>
-                            <option value="wm" group="mounts">Wall Mount</option>
-                            <option value="trm" group="mounts">Threaded Rod Mount</option>
-                            <option value="cm" group="mounts">Ceiling Mount</option>
-                            <option value="clm" group="mounts">Chain Link Mount</option>
-                        </select>
-                    </div>
-                </div><!-- end side A -->
+                      <div class="dimensions-side-b">
+                          <p class="sideABCD-header">Side B</p>
+                          <div class="dimension-width">
+                              <select name="mount-selections" class="mount-selections">
+                                  <option value="" group="mounts">Select A Mount</option>
+                                  <option value="wm" group="mounts">Wall Mount</option>
+                                  <option value="trm" group="mounts">Threaded Rod Mount</option>
+                                  <option value="cm" group="mounts">Ceiling Mount</option>
+                                  <option value="clm" group="mounts">Chain Link Mount</option>
+                              </select>
+                          </div>
+                      </div><!-- end side B -->
 
-                <div class="dimensions-side-b">
-                    <p class="sideABCD-header">Side B</p>
-                    <div class="dimension-width">
-                        <select name="mount-selections" class="mount-selections">
-                            <option value="" group="mounts">Select A Mount</option>
-                            <option value="wm" group="mounts">Wall Mount</option>
-                            <option value="trm" group="mounts">Threaded Rod Mount</option>
-                            <option value="cm" group="mounts">Ceiling Mount</option>
-                            <option value="clm" group="mounts">Chain Link Mount</option>
-                        </select>
-                    </div>
-                </div><!-- end side B -->
+                  </div><!-- end selections -->
+              </article>  <!-- end step 3 article-->
 
-            </div><!-- end selections -->
-        </article>  <!-- end step 3 article-->
 
-        <div class="clear"></div>
-        <button type="submit" class="add-to-cart">Add to Cart</button>
+          </div> <!-- end three steps div -->
 
-    </div> <!-- end three steps div -->
+          <div class="clear"></div>
+          <button type="submit" class="add-to-cart">Add to Cart</button>
+      </form>
+
 
 
 

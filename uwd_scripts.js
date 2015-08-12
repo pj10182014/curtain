@@ -44,6 +44,8 @@ $(document).ready(function(){
     /***************************/
     /****Pick Color Section*****/
     /***************************/
+    $('.colorSelectBox').hide();  //Hides the picker box
+
     $('div.color1 div.color2 div.color3').hide();  //hide number of colors until a value is selected
     var colorHolder = null; //used to store the location where color is picked
 
@@ -59,7 +61,11 @@ $(document).ready(function(){
     }
     /* Function which then determine what color is clicked and return the color to the div selected as the div's background color */
     function colorPickerOnClick(side){
-        $('div.black').add('div.yellow').on('click', function(){
+        $('div.black')
+            .add('div.yellow')
+            .add('div.pink')
+            .add('div.red')
+            .on('click', function(){
             var colorAttr = $(this).attr('value');
             var splitClass = colorHolder.split(" ");
             side.closest('div').find('.'+splitClass[0] + '.'+splitClass[1]).css({"background": colorAttr}).attr('value', colorAttr);
@@ -99,8 +105,11 @@ $(document).ready(function(){
         }
     });
 
-    $('.colorSelectBox').hide();
-
-
+    $('.add-to-cart').on('click', function(){
+        //$.post('toCart.php',{ name: "John", time: "2pm" })
+        //.done(function() {
+        //        window.location.href = "toCart.php";
+        //})
+    })
 
 });
