@@ -42,30 +42,50 @@ $(document).ready(function(){
     $('div.color1 div.color2 div.color3').hide();  //hide number of colors until a value is selected
     var colorHolder = null; //used to store the location where color is picked
 
-    $('.color-side-a .number-of-color-field > div').on('click', function(){
+    /*Side A Color Picker*/
+    $('.color-side-a .number-of-color-field > div').on('click', function(event){
        colorHolder = $(this).attr('class');
-       $('.colorSelectBox').css({"left": "100px", "top": "570px"}).toggle();
+        var yVal = (event.pageY - 250) + "px";
+        var xVal = (event.pageX / 3) + "px";
+       $('.colorSelectBox').css({"left": xVal, "top": yVal}).toggle();
 
        $('div.black').add('div.yellow').on('click', function(){
            var colorAttr = $(this).attr('value');
            var splitClass = colorHolder.split(" ");
            $('.color-side-a').closest('div').find('.'+splitClass[0] + '.'+splitClass[1]).css({"background": colorAttr}).attr('value', colorAttr);
+           $('.colorSelectBox').css({"display": "none"});
        });
-
-
     });
 
-    $('.color-side-b .number-of-color-field > div').on('click', function(){
+    /*Side B Color Picker*/
+    $('.color-side-b .number-of-color-field > div').on('click', function(event){
         colorHolder = $(this).attr('class');
-        $('.colorSelectBox').css({"left": "100px", "top": "570px"}).toggle();
+        var yVal = (event.pageY - 225) + "px";
+        var xVal = (event.pageX / 2) + "px";
+        $('.colorSelectBox').css({"left": xVal, "top": yVal}).toggle();
 
         $('div.black').add('div.yellow').on('click', function(){
             var colorAttr = $(this).attr('value');
             var splitClass = colorHolder.split(" ");
             $('.color-side-b').closest('div').find('.'+splitClass[0] + '.'+splitClass[1]).css({"background": colorAttr}).attr('value', colorAttr);
+            $('.colorSelectBox').css({"display": "none"});
         });
+    });
 
 
+    /*Side C Color Picker*/
+    $('.color-side-c .number-of-color-field > div').on('click', function(event){
+        colorHolder = $(this).attr('class');
+        var yVal = (event.pageY - 250) + "px";
+        var xVal = (event.pageX / 1.5) + "px";
+        $('.colorSelectBox').css({"left": xVal, "top": yVal}).toggle();
+
+        $('div.black').add('div.yellow').on('click', function(){
+            var colorAttr = $(this).attr('value');
+            var splitClass = colorHolder.split(" ");
+            $('.color-side-c').closest('div').find('.'+splitClass[0] + '.'+splitClass[1]).css({"background": colorAttr}).attr('value', colorAttr);
+            $('.colorSelectBox').css({"display": "none"});
+        });
     });
 
     /* Open the color selection field after number of colors is selected */
