@@ -6,6 +6,9 @@ $(document).ready(function(){
         $(this).next('div').slideToggle( "slow" );
     });
 
+    /******************************************************************/
+    /****Foot /Inches input Section + Product Summary price output*****/
+    /******************************************************************/
     /*Uses singlePrice() here to get price for all 4 sides when input keyup*/
     $('.step2-selections input').on('keyup', function(){
         var sideAtotal = singlePrice($('.dimensions-side-a input'));
@@ -38,55 +41,37 @@ $(document).ready(function(){
     }
 
 
-
+    /***************************/
+    /****Pick Color Section*****/
+    /***************************/
     $('div.color1 div.color2 div.color3').hide();  //hide number of colors until a value is selected
     var colorHolder = null; //used to store the location where color is picked
 
-    /*Side A Color Picker*/
-    $('.color-side-a .number-of-color-field > div').on('click', function(event){
-       colorHolder = $(this).attr('class');
-        var yVal = (event.pageY - 250) + "px";
-        var xVal = (event.pageX / 3) + "px";
-       $('.colorSelectBox').css({"left": xVal, "top": yVal}).toggle();
-
-       $('div.black').add('div.yellow').on('click', function(){
-           var colorAttr = $(this).attr('value');
-           var splitClass = colorHolder.split(" ");
-           $('.color-side-a').closest('div').find('.'+splitClass[0] + '.'+splitClass[1]).css({"background": colorAttr}).attr('value', colorAttr);
-           $('.colorSelectBox').css({"display": "none"});
-       });
-    });
-
-    /*Side B Color Picker*/
-    $('.color-side-b .number-of-color-field > div').on('click', function(event){
-        colorHolder = $(this).attr('class');
-        var yVal = (event.pageY - 225) + "px";
-        var xVal = (event.pageX / 2) + "px";
-        $('.colorSelectBox').css({"left": xVal, "top": yVal}).toggle();
-
+    /* Function checks which side's div is clicked and pop put the colorSelectBox with the position of the div popping out */
+    function colorFieldPicker(onClickSide, xValInput, yValInput,side){
+        onClickSide.on('click', function(event){
+            colorHolder = $(this).attr('class');
+            var yVal = (event.pageY - yValInput) + "px";
+            var xVal = (event.pageX / xValInput) + "px";
+            $('.colorSelectBox').css({"left": xVal, "top": yVal}).toggle();
+            colorPickerOnClick(side);
+        });
+    }
+    /* Function which then determine what color is clicked and return the color to the div selected as the div's background color */
+    function colorPickerOnClick(side){
         $('div.black').add('div.yellow').on('click', function(){
             var colorAttr = $(this).attr('value');
             var splitClass = colorHolder.split(" ");
-            $('.color-side-b').closest('div').find('.'+splitClass[0] + '.'+splitClass[1]).css({"background": colorAttr}).attr('value', colorAttr);
+            side.closest('div').find('.'+splitClass[0] + '.'+splitClass[1]).css({"background": colorAttr}).attr('value', colorAttr);
             $('.colorSelectBox').css({"display": "none"});
         });
-    });
+    }
 
-
-    /*Side C Color Picker*/
-    $('.color-side-c .number-of-color-field > div').on('click', function(event){
-        colorHolder = $(this).attr('class');
-        var yVal = (event.pageY - 250) + "px";
-        var xVal = (event.pageX / 1.5) + "px";
-        $('.colorSelectBox').css({"left": xVal, "top": yVal}).toggle();
-
-        $('div.black').add('div.yellow').on('click', function(){
-            var colorAttr = $(this).attr('value');
-            var splitClass = colorHolder.split(" ");
-            $('.color-side-c').closest('div').find('.'+splitClass[0] + '.'+splitClass[1]).css({"background": colorAttr}).attr('value', colorAttr);
-            $('.colorSelectBox').css({"display": "none"});
-        });
-    });
+    /* Enabling the function to choose colors */
+    colorFieldPicker($('.color-side-a .number-of-color-field > div'), 3, 250, $('.color-side-a'));
+    colorFieldPicker($('.color-side-b .number-of-color-field > div'), 2, 225, $('.color-side-b'));
+    colorFieldPicker($('.color-side-c .number-of-color-field > div'), 1.5, 250, $('.color-side-c'));
+    colorFieldPicker($('.color-side-d .number-of-color-field > div'), 1.5, 235, $('.color-side-d'));
 
     /* Open the color selection field after number of colors is selected */
     $('.number-of-colors').on('change', function(){
