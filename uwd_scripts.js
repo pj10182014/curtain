@@ -15,24 +15,58 @@ $(document).ready(function(){
         var sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal +sideDtotal).toFixed(2);
         $('.price').empty().append("$" + sideABCDtotal);
     });
-
     /*Function to gets the price for single Side*/
-    function singlePrice(side){
+    //Each side has 4 values
+    //Saves the 4 values inside a value[]
+    //Width     value[0] and value[1] ---> index 0 is foot, 1 is inches
+    //Height    value[2] and value[3] ---> index 2 is foot, 3 is inches
+    //value[1]/[3] are inches and always needs to be converted to foot by dividing 12
+    function singlePrice(sideInput){
             var values = [];
-            side.each(function() {
+            sideInput.each(function() {
                 if(($(this).val() == "") || (isNaN($(this).val()))){
                     values.push(parseInt(0));
                 }else {
                     values.push(parseInt($(this).val()));
                 }
             });
+
             values[1] = values[1]/12;
             values[3] = values[3]/12;
-            var total = ((values[0]+values[1])*(values[2]+values[3])) * 1.6;
-            return total;
+            var sideTotal = ((values[0]+values[1])*(values[2]+values[3])) * 1.6;
+            return sideTotal;
     }
 
+
+
     $('div.color1 div.color2 div.color3').hide();  //hide number of colors until a value is selected
+    var colorHolder = null; //used to store the location where color is picked
+
+    $('.color-side-a .number-of-color-field > div').on('click', function(){
+       colorHolder = $(this).attr('class');
+       $('.colorSelectBox').css({"left": "100px", "top": "570px"}).toggle();
+
+       $('div.black').add('div.yellow').on('click', function(){
+           var colorAttr = $(this).attr('value');
+           var splitClass = colorHolder.split(" ");
+           $('.color-side-a').closest('div').find('.'+splitClass[0] + '.'+splitClass[1]).css({"background": colorAttr}).attr('value', colorAttr);
+       });
+
+
+    });
+
+    $('.color-side-b .number-of-color-field > div').on('click', function(){
+        colorHolder = $(this).attr('class');
+        $('.colorSelectBox').css({"left": "100px", "top": "570px"}).toggle();
+
+        $('div.black').add('div.yellow').on('click', function(){
+            var colorAttr = $(this).attr('value');
+            var splitClass = colorHolder.split(" ");
+            $('.color-side-b').closest('div').find('.'+splitClass[0] + '.'+splitClass[1]).css({"background": colorAttr}).attr('value', colorAttr);
+        });
+
+
+    });
 
     /* Open the color selection field after number of colors is selected */
     $('.number-of-colors').on('change', function(){
@@ -45,40 +79,10 @@ $(document).ready(function(){
             $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
             $closestDiv.find('div.color2').hide();
             $closestDiv.find('div.color3').hide();
-
-
-            //$closestDiv.find('div.color1').on('click', function(){
-            //    $('.colorSelectBox').css({"left": "100px","top": "570px"}).toggle();
-            //});
-            //
-            //$('div.black')
-            //    .add('div.pink')
-            //    .add('div.yellow')
-            //    .on('click', function(){
-            //    var attrValue = $(this).attr('value');
-            //    $closestDiv.find('div.color1').css({"background-color": attrValue});
-            //});
-
         }else if(chooseColorValue == 2){
             $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "50%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
             $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "50%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
             $closestDiv.find('div.color3').hide();
-
-            $(document).on('click', 'div.number-of-color-field > div', function(){
-                $('.colorSelectBox').css({"left": "100px","top": "570px"}).toggle();
-            });
-
-            // Bind click event to each color box
-            $(document).on('click', 'div.colorSelectBox > div > div', function() {
-                // Empty parent
-                //$(this).parent().empty();
-
-                console.log($(this).attr('value'));
-                // Assign colour to color field
-                $('div.number-of-color-field > div.' + $(this).attr('data-target')).css('background-color', $(this).attr('value'));
-            });
-
-
         }else if(chooseColorValue == 3){
             $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
             $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
@@ -90,7 +94,7 @@ $(document).ready(function(){
         }
     });
 
-    //$('.colorSelectBox').hide();
+    $('.colorSelectBox').hide();
 
 
 
