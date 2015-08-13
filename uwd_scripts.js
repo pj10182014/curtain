@@ -27,7 +27,9 @@ $(document).ready(function(){
     function singlePrice(sideInput){
             var values = [];
             sideInput.each(function() {
-                if(($(this).val() == "") || (isNaN($(this).val()))){
+                var $keyUp = $(this);
+                if(($keyUp.val() == "") || (isNaN($keyUp.val()))
+                || ($keyUp.val() > 20)){
                     values.push(parseInt(0));
                 }else {
                     values.push(parseInt($(this).val()));
@@ -36,9 +38,20 @@ $(document).ready(function(){
 
             values[1] = values[1]/12;
             values[3] = values[3]/12;
-            var sideTotal = ((values[0]+values[1])*(values[2]+values[3])) * 1.6;
-            return sideTotal;
+            return ((values[0]+values[1])*(values[2]+values[3])) * 1.6;
     }
+
+
+    /*Validation for only one input*/
+    var inputAWF = $("input[name='a-width-foot']");
+    inputAWF.on('keyup', function(){
+       if(inputAWF.val() > 20){
+           inputAWF.css({"border":"1px solid red"});
+       }else{
+           inputAWF.css({"border":"none"});
+       }
+    });
+
 
 
     /***************************/
@@ -106,10 +119,11 @@ $(document).ready(function(){
     });
 
     $('.add-to-cart').on('click', function(){
-        //$.post('toCart.php',{ name: "John", time: "2pm" })
-        //.done(function() {
-        //        window.location.href = "toCart.php";
-        //})
+        var sideA_color1_val = $(".color-side-a .number-of-color-field div[name='color1']").attr('value');
+        $.post('toCart.php',{ sideA_Color1_val: sideA_color1_val })
+        .done(function() {
+                window.location.href = "cartPage.php";
+        })
     })
 
 });
