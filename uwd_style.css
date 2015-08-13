@@ -1,4 +1,4 @@
-
+/* product summary div*/
 div#product-summary{font-family: 'roboto'; float:right; height: 185px; width: 185px; background-color: #2020C5; border-radius: 5px; text-align: center; color: #FFF;}
 #product-summary>header {color: yellow; font-size: 20px; padding-top: 10px;}
 #product-summary .price{padding: 15px 0; font-size: 23px;}

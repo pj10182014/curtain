@@ -6,6 +6,9 @@ $(document).ready(function(){
         $(this).next('div').slideToggle( "slow" );
     });
 
+    /******************************************************/
+    /****** Enable / Disabling Sides with Its inputs ******/
+    /******************************************************/
     /*
     * Function to disable side with it's inputs and selections
     * @param side           the side to be disabled
@@ -19,6 +22,7 @@ $(document).ready(function(){
     */
     function disableSides(side,dimension,color,mount){
         $(side).css({"opacity":".5"});
+        $(side).attr('disabled', 'disabled');
 
         $(dimension).css({"opacity":".5"});
         var dimensionInput = (dimension + " input");
@@ -34,21 +38,97 @@ $(document).ready(function(){
 
     }
 
-    //$(".two-sided [type='image']").disable();
-    //$('.three-sided').hide();
-    //$('.four-sided').hide();
+    /*
+    * Function to enable side with it's inputs and selections
+    * @param side           the side to be disabled
+    *                       '.two-sided'
+    * @param dimension      the dimension div to be disabled
+    *                       '.dimensions-side-b
+    * @param color          the color div to be disabled
+    *                       '.color-side-b'
+    * @param mount          the mount div to be disabled
+    *                       '.mount-side-b'
+    */
+    function enableSides(side,dimension,color,mount){
+        $(side).css({"opacity":"1"});
+        $(side).removeAttr('disabled');
+
+        $(dimension).css({"opacity":"1"});
+        var dimensionInput = (dimension + " input");
+        $(dimensionInput).removeAttr('disabled');
+
+        $(color).css({"opacity":"1"});
+        var colorSelect = (color + " select");
+        $(colorSelect).removeAttr('disabled');
+
+        $(mount).css({"opacity":"1"});
+        var mountSelect = (mount + " select");
+        $(mountSelect).removeAttr('disabled');
+
+    }
+
+    var twoSides        = '.two-sided';
+    var dimensionSideB  = '.dimensions-side-b';
+    var colorSideB      = '.color-side-b';
+    var mountSideB      = '.mount-side-b';
+
+    var threeSides      = '.three-sided';
+    var dimensionSideC  = '.dimensions-side-c';
+    var colorSideC      = '.color-side-c';
+    var mountSideC      = '.mount-side-c';
+
     /*Disable sides using the disableSides()*/
-    disableSides('.two-sided','.dimensions-side-b','.color-side-b','.mount-side-b');
-    disableSides('.three-sided','.dimensions-side-c','.color-side-c','.mount-side-c');
+    disableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
+    disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
     disableSides('.four-sided','.dimensions-side-d','.color-side-d','.mount-side-d');
 
+    $(twoSides).on('click', function(e){
+        e.preventDefault();
+        var disabledAttr = $(twoSides).attr('disabled');
 
-    //$('.dimensions-side-b').css({"opacity":".5"});
-    //$('.dimensions-side-b input').attr('disabled', 'disabled');
-    //$('.color-side-b').css({"opacity":".5"});
-    //$('.color-side-b select').attr('disabled', 'disabled');
-    //$('.mount-side-b').css({"opacity":".5"});
-    //$('.mount-side-b select').attr('disabled', 'disabled');
+        if(disabledAttr == 'disabled'){
+            enableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
+
+            // if three sides is clicked
+            $(threeSides).on('click', function(e){
+                e.preventDefault();
+                var disabledAttr = $(threeSides).attr('disabled');
+
+                if(disabledAttr == 'disabled'){
+                    enableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
+                    console.log(disabledAttr);
+                    console.log('three enabled');
+                }else{
+                    disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
+                    console.log(disabledAttr);
+                    console.log('three disabled');
+                }
+            });
+        }else{
+            disableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
+            disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
+        }
+    });
+
+    //$(threeSides).on('click', function(){
+    //    var disabledAttr = $(threeSides).attr('disabled');
+    //
+    //    if((typeof(disabledAttr) !== typeof(undefined)) && (disabledAttr !== false)){
+    //        if(disabledAttr == 'disabled'){
+    //            enableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
+    //        }
+    //    }else{
+    //        disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
+    //    }
+    //});
+
+    function toggleSides(){
+
+    }
+
+
+//if(typeof(disabledAttr) == 'undefined'){
+
 
     /******************************************************************/
     /****Foot /Inches input Section + Product Summary price output*****/
