@@ -34,9 +34,12 @@ div#product-summary{font-family: 'roboto'; float:right; height: 185px; width: 18
         .single-side, .two-sided, .three-sided, .four-sided{float: left;}
 
         /*Css for all step 2 - enter  dimensions & colors  */
-        .dimensions-side-a, .dimensions-side-b, .dimensions-side-c, .dimensions-side-d{float: left; width:165px; border-right: 1px dashed lightgray;}
-        .dimensions-side-b, .dimensions-side-c, .dimensions-side-d{padding-left: 10px;}
-        .dimensions-side-d{border-right: 0;}
+        .dimensions-side-a, .dimensions-side-b, .dimensions-side-c, .dimensions-side-d,
+        .mount-side-a, .mount-side-b, .mount-side-c, .mount-side-d{float: left; width:165px; border-right: 1px dashed lightgray;}
+        .dimensions-side-b, .dimensions-side-c, .dimensions-side-d,
+        .mount-side-b, .mount-side-c, .mount-side-d{padding-left: 10px;}
+        .dimensions-side-d,
+        .mount-side-d{border-right: 0;}
         .dimension-WHC{font-size: 14px; color: #A9A6A6; font-weight: 300; line-height: 136%; margin: 0;}
         /*Only for dimensions*/
         div.dimension-width, div.dimension-height{float: left; font-size: 15px;}

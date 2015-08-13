@@ -6,6 +6,50 @@ $(document).ready(function(){
         $(this).next('div').slideToggle( "slow" );
     });
 
+    /*
+    * Function to disable side with it's inputs and selections
+    * @param side           the side to be disabled
+    *                       '.two-sided'
+    * @param dimension      the dimension div to be disabled
+    *                       '.dimensions-side-b
+    * @param color          the color div to be disabled
+    *                       '.color-side-b'
+    * @param mount          the mount div to be disabled
+    *                       '.mount-side-b'
+    */
+    function disableSides(side,dimension,color,mount){
+        $(side).css({"opacity":".5"});
+
+        $(dimension).css({"opacity":".5"});
+        var dimensionInput = (dimension + " input");
+        $(dimensionInput).attr('disabled', 'disabled');
+
+        $(color).css({"opacity":".5"});
+        var colorSelect = (color + " select");
+        $(colorSelect).attr('disabled', 'disabled');
+
+        $(mount).css({"opacity":".5"});
+        var mountSelect = (mount + " select");
+        $(mountSelect).attr('disabled', 'disabled');
+
+    }
+
+    //$(".two-sided [type='image']").disable();
+    //$('.three-sided').hide();
+    //$('.four-sided').hide();
+    /*Disable sides using the disableSides()*/
+    disableSides('.two-sided','.dimensions-side-b','.color-side-b','.mount-side-b');
+    disableSides('.three-sided','.dimensions-side-c','.color-side-c','.mount-side-c');
+    disableSides('.four-sided','.dimensions-side-d','.color-side-d','.mount-side-d');
+
+
+    //$('.dimensions-side-b').css({"opacity":".5"});
+    //$('.dimensions-side-b input').attr('disabled', 'disabled');
+    //$('.color-side-b').css({"opacity":".5"});
+    //$('.color-side-b select').attr('disabled', 'disabled');
+    //$('.mount-side-b').css({"opacity":".5"});
+    //$('.mount-side-b select').attr('disabled', 'disabled');
+
     /******************************************************************/
     /****Foot /Inches input Section + Product Summary price output*****/
     /******************************************************************/
