@@ -22,19 +22,20 @@ $(document).ready(function(){
     */
     function disableSides(side,dimension,color,mount){
         $(side).css({"opacity":".5"});
-        $(side).attr('disabled', 'disabled');
+        $(side).attr('disabled', true);
 
         $(dimension).css({"opacity":".5"});
         var dimensionInput = (dimension + " input");
-        $(dimensionInput).attr('disabled', 'disabled');
+        $(dimensionInput).attr('disabled', true);
 
         $(color).css({"opacity":".5"});
         var colorSelect = (color + " select");
-        $(colorSelect).attr('disabled', 'disabled');
+        $(colorSelect).attr('disabled', true);
 
         $(mount).css({"opacity":".5"});
         var mountSelect = (mount + " select");
-        $(mountSelect).attr('disabled', 'disabled');
+        $(mountSelect).attr('disabled', true);
+        return false;
 
     }
 
@@ -64,8 +65,13 @@ $(document).ready(function(){
         $(mount).css({"opacity":"1"});
         var mountSelect = (mount + " select");
         $(mountSelect).removeAttr('disabled');
-
+        return true;
     }
+
+    var singleSides     = '.single-side';
+    var dimensionSideA  = '.dimensions-side-a';
+    var colorSideA      = '.color-side-a';
+    var mountSideA      = '.mount-side-a';
 
     var twoSides        = '.two-sided';
     var dimensionSideB  = '.dimensions-side-b';
@@ -77,57 +83,79 @@ $(document).ready(function(){
     var colorSideC      = '.color-side-c';
     var mountSideC      = '.mount-side-c';
 
+    var fourSided       = '.four-sided';
+    var dimensionSideD  = '.dimensions-side-d';
+    var colorSideD      = '.color-side-d';
+    var mountSideD      = '.mount-side-d';
+
     /*Disable sides using the disableSides()*/
+    //disableSides(singleSides,dimensionSideA,colorSideA,mountSideA);
     disableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
     disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
-    disableSides('.four-sided','.dimensions-side-d','.color-side-d','.mount-side-d');
+    disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
 
-    $(twoSides).on('click', function(e){
-        e.preventDefault();
-        var disabledAttr = $(twoSides).attr('disabled');
-
-        if(disabledAttr == 'disabled'){
-            enableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
-
-            // if three sides is clicked
-            $(threeSides).on('click', function(e){
-                e.preventDefault();
-                var disabledAttr = $(threeSides).attr('disabled');
-
-                if(disabledAttr == 'disabled'){
-                    enableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
-                    console.log(disabledAttr);
-                    console.log('three enabled');
-                }else{
-                    disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
-                    console.log(disabledAttr);
-                    console.log('three disabled');
-                }
-            });
-        }else{
-            disableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
-            disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
-        }
-    });
-
-    //$(threeSides).on('click', function(){
-    //    var disabledAttr = $(threeSides).attr('disabled');
+    //$('.three-sided').unbind('click');
+    //$('.four-sided').unbind('click');
     //
-    //    if((typeof(disabledAttr) !== typeof(undefined)) && (disabledAttr !== false)){
-    //        if(disabledAttr == 'disabled'){
-    //            enableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
-    //        }
+    //$(twoSides).on('click', function(){
+    //    var disabledAttr = $(this).attr('disabled');
+    //    if(disabledAttr == 'disabled'){
+    //        enableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
+    //
+    //        // enable three sides click
+    //        $(threeSides).on('click', function(){
+    //            var disabledAttr = $(this).attr('disabled');
+    //            if(disabledAttr == 'disabled') {
+    //                enableSides(threeSides, dimensionSideC, colorSideC, mountSideC);
+    //
+    //                //enable four sides click
+    //                $(fourSided).on('click', function(){
+    //                    var disabledAttr = $(this).attr('disabled');
+    //                    if(disabledAttr == 'disabled'){
+    //                        enableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
+    //                    }else{
+    //                        disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
+    //                    }
+    //                })
+    //            }else{
+    //                disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
+    //                disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
+    //                $(fourSided).unbind('click');
+    //            }
+    //        })
     //    }else{
+    //        disableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
     //        disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
+    //        disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
+    //        $(threeSides).unbind('click');
+    //        $(fourSided).unbind('click');
     //    }
     //});
 
-    function toggleSides(){
 
-    }
+    $(twoSides).on('click', function(){
+        var disabledAttr = $(this).attr('disabled');
 
+        if((typeof(disabledAttr) !== typeof(undefined)) && (disabledAttr !== false)){
+            if(disabledAttr == 'disabled'){
+                enableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
+            }
+        }else{
+            disableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
+        }
+    });
 
-//if(typeof(disabledAttr) == 'undefined'){
+    $(threeSides).on('click', function(){
+        var disabledAttr = $(this).attr('disabled');
+
+        if((typeof(disabledAttr) !== typeof(undefined)) && (disabledAttr !== false)){
+            if(disabledAttr == 'disabled'){
+                enableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
+            }
+        }else{
+            disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
+        }
+    });
 
 
     /******************************************************************/

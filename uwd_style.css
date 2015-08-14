@@ -35,7 +35,6 @@ div#product-summary{font-family: 'roboto'; float:right; height: 185px; width: 18
     .help-notes{clear: both; font-size: 12px; color: #7676A9; line-height: 150%; border: 1px solid blue; border-radius: 5px; background-color: #EEECFF; padding: 10px; margin-bottom: 20px;}
 
         /*Css for all step 1 - curtain selection*/
-        /*article#step1{height: 370px;}*/
         .single-side, .two-sided, .three-sided, .four-sided{float: left;}
         div > input[type='image'] + p {text-align: center;}
 
