@@ -66,5 +66,5 @@ div#product-summary{font-family: 'roboto'; float:right; height: 185px; width: 18
         .colorSelectBox{position:absolute;z-index:99999;background-color: #FFF;border: 1px solid lightgray;border-radius: 5px;padding: 15px;}
 
         /*Css for all step 3 - Choose a Track & Trolley Kit*/
-        .mount-image{width: 100%;}
+        .mount-image{width: 100%; background: #EEECFF; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px;}
 
