@@ -34,10 +34,12 @@ $(document).ready(function(){
         $(mount).css({"opacity":".5"});
         var mountSelect = (mount + " select");
         $(mountSelect).attr('disabled', true);
+
+        $("input[name='b-width-foot']").val("");
+        console.log($("input[name='b-width-foot']").val())
         return false;
 
     }
-
     /*
     * Function to enable side with it's inputs and selections
     * @param side           the side to be disabled
@@ -66,7 +68,6 @@ $(document).ready(function(){
         $(mountSelect).removeAttr('disabled');
         return true;
     }
-
     var singleSide     = '.single-side';
     var dimensionSideA  = '.dimensions-side-a';
     var colorSideA      = '.color-side-a';
@@ -93,11 +94,13 @@ $(document).ready(function(){
     disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
     disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
 
+    /*Function to make the curtain side selection opacity lower than usual and disable attribute to true*/
     function curtainFadeOutAndDisabled(side){
         $(side).css({"opacity":".5"});
         $(side).attr('disabled', true);
     }
 
+    //Start making the clicks to work when selecting different side of curtains
     $(singleSide).on('click', function(){
         var attrDisabled = $(this).attr('disabled');
 
@@ -110,7 +113,6 @@ $(document).ready(function(){
             disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
         }
     });
-
     $(twoSides).on('click', function(){
         var attrDisabled = $(this).attr('disabled');
 
@@ -124,7 +126,6 @@ $(document).ready(function(){
             disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
         }
     });
-
     $(threeSides).on('click', function(){
         var attrDisabled = $(this).attr('disabled');
 
@@ -139,7 +140,6 @@ $(document).ready(function(){
             disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
         }
     });
-
     $(fourSided).on('click', function(){
         var attrDisabled = $(this).attr('disabled');
 
@@ -154,6 +154,7 @@ $(document).ready(function(){
             curtainFadeOutAndDisabled(threeSides);
         }
     });
+    //Done with making the curtain selections
 
     /*****************************/
     /********SINGLE DISABLE*******/
@@ -169,20 +170,8 @@ $(document).ready(function(){
     //        disableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
     //    }
     //});
-    //
-    //$(threeSides).on('click', function(){
-    //    var disabledAttr = $(this).attr('disabled');
-    //
-    //    if((typeof(disabledAttr) !== typeof(undefined)) && (disabledAttr !== false)){
-    //        if(disabledAttr == 'disabled'){
-    //            enableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
-    //        }
-    //    }else{
-    //        disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
-    //    }
-    //});
     /*****************************/
-    /********SINGLE DISABLE*******/
+    /*****END SINGLE DISABLE******/
     /*****************************/
 
 
@@ -223,14 +212,44 @@ $(document).ready(function(){
 
 
     /*Validation for only one input*/
-    var inputAWF = $("input[name='a-width-foot']");
-    inputAWF.on('keyup', function(){
-       if(inputAWF.val() > 20){
-           inputAWF.css({"border":"1px solid red"});
-       }else{
-           inputAWF.css({"border":"none"});
-       }
-    });
+    //var inputAWF = $("input[name='a-width-foot']");
+    //inputAWF.on('keyup', function(){
+    //   if(inputAWF.val() > 20){
+    //       inputAWF.css({"border":"1px solid red"});
+    //   }else{
+    //       inputAWF.css({"border":"none"});
+    //   }
+    //});
+
+    /*Function to validate all width height inch foot input fields*/
+    function widthHeightInputValidation(inputWH){
+        inputWH.on('keyup', function(){
+            if(inputWH.val() > 20){
+                inputWH.css({"border":"1px solid red"});
+            }else{
+                inputWH.css({"border":"none"});
+            }
+        });
+    }
+    widthHeightInputValidation($("input[name='a-width-foot']"));
+    widthHeightInputValidation($("input[name='a-width-inch']"));
+    widthHeightInputValidation($("input[name='a-height-foot']"));
+    widthHeightInputValidation($("input[name='a-height-inch']"));
+
+    widthHeightInputValidation($("input[name='b-width-foot']"));
+    widthHeightInputValidation($("input[name='b-width-inch']"));
+    widthHeightInputValidation($("input[name='b-height-foot']"));
+    widthHeightInputValidation($("input[name='b-height-inch']"));
+
+    widthHeightInputValidation($("input[name='c-width-foot']"));
+    widthHeightInputValidation($("input[name='c-width-inch']"));
+    widthHeightInputValidation($("input[name='c-height-foot']"));
+    widthHeightInputValidation($("input[name='c-height-inch']"));
+
+    widthHeightInputValidation($("input[name='d-width-foot']"));
+    widthHeightInputValidation($("input[name='d-width-inch']"));
+    widthHeightInputValidation($("input[name='d-height-foot']"));
+    widthHeightInputValidation($("input[name='d-height-inch']"));
 
 
 
