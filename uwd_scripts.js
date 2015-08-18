@@ -23,22 +23,19 @@ $(document).ready(function(){
     function disableSides(side,dimension,color,mount){
         curtainFadeOutAndDisabled(side);
 
-        $(dimension).css({"opacity":".5"});
+        $(dimension).css({"opacity":".3"});
         var dimensionInput = (dimension + " input");
         $(dimensionInput).attr('disabled', true);
 
-        $(color).css({"opacity":".5"});
+        $(color).css({"opacity":".3"});
         var colorSelect = (color + " select");
         $(colorSelect).attr('disabled', true);
 
-        $(mount).css({"opacity":".5"});
+        $(mount).css({"opacity":".3"});
         var mountSelect = (mount + " select");
         $(mountSelect).attr('disabled', true);
 
-        $("input[name='b-width-foot']").val("");
-        console.log($("input[name='b-width-foot']").val())
         return false;
-
     }
     /*
     * Function to enable side with it's inputs and selections
@@ -88,17 +85,16 @@ $(document).ready(function(){
     var colorSideD      = '.color-side-d';
     var mountSideD      = '.mount-side-d';
 
-    /*Disable sides using the disableSides()*/
-    //disableSides(singleSide,dimensionSideA,colorSideA,mountSideA);
-    disableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
-    disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
-    disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
-
     /*Function to make the curtain side selection opacity lower than usual and disable attribute to true*/
     function curtainFadeOutAndDisabled(side){
-        $(side).css({"opacity":".5"});
+        $(side).css({"opacity":".3"});
         $(side).attr('disabled', true);
     }
+
+    //Fading curtain single, two and three so on start page will start with 4 sides enabled
+    curtainFadeOutAndDisabled(singleSide);
+    curtainFadeOutAndDisabled(twoSides);
+    curtainFadeOutAndDisabled(threeSides);
 
     //Start making the clicks to work when selecting different side of curtains
     $(singleSide).on('click', function(){
@@ -268,6 +264,7 @@ $(document).ready(function(){
             var yVal = (event.pageY - yValInput) + "px";
             var xVal = (event.pageX / xValInput) + "px";
             $('.colorSelectBox').css({"left": xVal, "top": yVal}).toggle();
+            $(this).closest('div').empty();
             colorPickerOnClick(side);
         });
     }
@@ -299,17 +296,17 @@ $(document).ready(function(){
         var chooseColorValue = $clicked.val();
 
         if(chooseColorValue == 1){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append('Click To Choose Colors');
             $closestDiv.find('div.color2').hide();
             $closestDiv.find('div.color3').hide();
         }else if(chooseColorValue == 2){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "50%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
-            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "50%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "50%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append('Click To Choose Colors');
+            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "50%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append('Click To Choose Colors');
             $closestDiv.find('div.color3').hide();
         }else if(chooseColorValue == 3){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
-            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
-            $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"});
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append('Click To Choose Colors');
+            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append('Click To Choose Colors');
+            $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append('Click To Choose Colors');
         }else{
             $closestDiv.find('div.color1').hide();
             $closestDiv.find('div.color2').hide();
