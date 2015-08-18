@@ -14,13 +14,14 @@ div#product-summary{font-family: 'roboto'; float:right; height: 185px; width: 18
     /*****************************************/
     .curtain-selection-headers {background-color: #404040; position: relative; white-space: nowrap; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
     .step-arrows {
-        background: -webkit-linear-gradient(left, #C2CE00, #F9FF00); /* For Safari*/
-        background: -o-linear-gradient(right, #C2CE00, #F9FF00);     /* For Opera*/
-        background: -moz-linear-gradient(right, #C2CE00, #F9FF00);   /* For Firefox*/
-        background: linear-gradient(to right, #C2CE00 , #F9FF00);    /* Standard syntax */
+        background: -webkit-linear-gradient(left, #9BA309, #F9FF00); /* For Safari*/
+        background: -o-linear-gradient(right, #9BA309, #F9FF00);     /* For Opera*/
+        background: -moz-linear-gradient(right, #9BA309, #F9FF00);   /* For Firefox*/
+        background: linear-gradient(to right, #9BA309 , #F9FF00);    /* Standard syntax */
         font-size:24px; color: #404040; font-weight: 400; line-height: 55px; width: 180px; height: 55px; text-align: center; border-top-left-radius: 5px; border-bottom-left-radius: 5px;}
     .step-arrows::after {content: ""; border-top: 28px solid transparent; border-bottom: 29px solid transparent; border-left: 28px solid #F9FF00; position: absolute; left: 180px;}
     .step-headers {font-size:24px; color: #FFF; font-weight: 300; line-height: 55px; position: absolute; left: 35%; top: 0;}
+    .checkMark:after{ font-family: FontAwesome; content: "\f00c"; color: blue; font-size: 30px;}
     .step1-selections, .step2-selections, .step3-selections {font-size:16px; color: #636363; font-weight: 500; line-height: 132%;}
     .clearWmarginForSteps {clear:both; margin-bottom: 50px;}
     .clear{clear:both;}
@@ -31,11 +32,13 @@ div#product-summary{font-family: 'roboto'; float:right; height: 185px; width: 18
     .help-section {clear: both; margin-top: 10px;}
     .help-header{float: left;}
     .help{float: right; color: #2A0092; font-size: 13px;}
-    .help:after{content:url(sample-images/help.png);}
+    span.fa.fa-question-circle{margin-left: 5px; font-size: 15px;}
     .help-notes{clear: both; font-size: 12px; color: #7676A9; line-height: 150%; border: 1px solid blue; border-radius: 5px; background-color: #EEECFF; padding: 10px; margin-bottom: 20px;}
 
         /*Css for all step 1 - curtain selection*/
         .single-side, .two-sided, .three-sided, .four-sided{float: left;}
+        /*.single-side:after{    font-family: FontAwesome;*/
+            /*content: "\f00c";}*/
         div > input[type='image'] + p {text-align: center;}
 
         /*Css for all step 2 - enter  dimensions & colors  */

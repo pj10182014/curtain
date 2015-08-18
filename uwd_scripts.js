@@ -89,6 +89,18 @@ $(document).ready(function(){
     function curtainFadeOutAndDisabled(side){
         $(side).css({"opacity":".3"});
         $(side).attr('disabled', true);
+        // Removes the checkMark class
+        delCheckMarkForCurtainSelection(side);
+    }
+
+    /*Function to add class to certain side section's p element which will show a blue checkmark at the end of p element*/
+    function addCheckMarkForCurtainSelection(side){
+        $(side).children().next().addClass('checkMark');
+    }
+
+    /*Function to remove the class when side is not selected this function is used inside curtainFadeOutAndDisabled function*/
+    function delCheckMarkForCurtainSelection(side){
+        $(side).children().next().removeClass('checkMark');
     }
 
     //Fading curtain single, two and three so on start page will start with 4 sides enabled
@@ -107,6 +119,8 @@ $(document).ready(function(){
             disableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
             disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
             disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
+            // Adds the checkMark class
+            addCheckMarkForCurtainSelection(singleSide);
         }
     });
     $(twoSides).on('click', function(){
@@ -120,6 +134,8 @@ $(document).ready(function(){
             // disables both three and four sides
             disableSides(threeSides,dimensionSideC,colorSideC,mountSideC);
             disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
+            // Adds the checkMark class
+            addCheckMarkForCurtainSelection(twoSides);
         }
     });
     $(threeSides).on('click', function(){
@@ -134,6 +150,8 @@ $(document).ready(function(){
             curtainFadeOutAndDisabled(twoSides);
             // disables four sides
             disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
+            // Adds the checkMark class
+            addCheckMarkForCurtainSelection(threeSides);
         }
     });
     $(fourSided).on('click', function(){
@@ -148,6 +166,8 @@ $(document).ready(function(){
             curtainFadeOutAndDisabled(singleSide);
             curtainFadeOutAndDisabled(twoSides);
             curtainFadeOutAndDisabled(threeSides);
+            // Adds the checkMark class
+            addCheckMarkForCurtainSelection(fourSided);
         }
     });
     //Done with making the curtain selections
