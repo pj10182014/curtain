@@ -292,10 +292,13 @@ $(document).ready(function(){
     /* Function checks which side's div is clicked and pop put the colorSelectBox with the position of the div popping out */
     function colorFieldPicker(onClickSide, xValInput, yValInput,side){
         onClickSide.on('click', function(event){
+            //store the class of the colorHolder to a global variable
             colorHolder = $(this).attr('class');
+            //x and y value of position where the color picker should pop up / toggle
             var yVal = (event.pageY - yValInput) + "px";
             var xVal = (event.pageX / xValInput) + "px";
             $('.colorSelectBox').css({"left": xVal, "top": yVal}).toggle();
+            //empty the field where it says 'Click to choose colors'
             $(this).closest('div').empty();
             colorPickerOnClick(side);
         });
@@ -305,12 +308,23 @@ $(document).ready(function(){
         $('div.black')
             .add('div.yellow')
             .add('div.pink')
-            .add('div.red')
             .on('click', function(){
             var colorAttr = $(this).attr('value');
             var splitClass = colorHolder.split(" ");
-            side.closest('div').find('.'+splitClass[0] + '.'+splitClass[1]).css({"background": colorAttr}).attr('value', colorAttr);
+            side.closest('div').find('.'+splitClass[0] + '.'+splitClass[1])
+                .css({"background": colorAttr})
+                .attr({"value": colorAttr, "data-semi": true, "data-coated": false});
             $('.colorSelectBox').css({"display": "none"});
+        });
+
+        $('div.red')
+            .on('click', function(){
+                var colorAttr = $(this).attr('value');
+                var splitClass = colorHolder.split(" ");
+                side.closest('div').find('.'+splitClass[0] + '.'+splitClass[1])
+                    .css({"background": colorAttr})
+                    .attr({"value": colorAttr, "data-semi": false, "data-coated": true});
+                $('.colorSelectBox').css({"display": "none"});
         });
     }
 
@@ -328,17 +342,17 @@ $(document).ready(function(){
         var chooseColorValue = $clicked.val();
 
         if(chooseColorValue == 1){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append('Click To Choose Colors');
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
             $closestDiv.find('div.color2').hide();
             $closestDiv.find('div.color3').hide();
         }else if(chooseColorValue == 2){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "50%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append('Click To Choose Colors');
-            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "50%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append('Click To Choose Colors');
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": "cyan", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": "yellow", "border": "1px solid lightgrey", "border-radius": "5px", "margin-top": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
             $closestDiv.find('div.color3').hide();
         }else if(chooseColorValue == 3){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append('Click To Choose Colors');
-            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append('Click To Choose Colors');
-            $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "33%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append('Click To Choose Colors');
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": "cyan", "border": "1px solid lightgrey", "border-radius": "5px", "margin": "5px 0"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": "yellow", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
         }else{
             $closestDiv.find('div.color1').hide();
             $closestDiv.find('div.color2').hide();
@@ -346,12 +360,15 @@ $(document).ready(function(){
         }
     });
 
+
+    /***************************/
+    /********** Cart ***********/
+    /***************************/
     $('.add-to-cart').on('click', function(){
         var sideA_color1_val = $(".color-side-a .number-of-color-field div[name='color1']").attr('value');
         $.post('toCart.php',{ sideA_Color1_val: sideA_color1_val })
         .done(function() {
                 window.location.href = "cartPage.php";
         })
-    })
-
+    });
 });

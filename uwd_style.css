@@ -4,8 +4,9 @@ div#product-summary{font-family: 'roboto'; height: 185px; width: 185px; backgrou
 #product-summary .price{padding: 35px 0 20px 0; font-size: 23px;}
 
 /* Add to cart */
-.add-to-cart:after{content:url(sample-images/cart-yellow.png); position: relative; top: 3px; left: 10px;}
+/*.add-to-cart:after{content:url(sample-images/cart-yellow.png); position: relative; top: 3px; left: 10px;}*/
 .add-to-cart{font-family: roboto; font-weight: 400; color: #FFFF09; font-size: 24px; text-align: center; height: 55px; width: 260px; background-color: #2A0092; padding: 0; border: none; border-radius: 5px; margin-top: 50px; margin-left: 215px;}
+.add-to-cart>span{font-size: 30px;}
 
 /* Sizing for the whole four step selections */
 #three-steps-curtain-selections{font-family: 'roboto';width:700px; float: left;}
@@ -61,6 +62,7 @@ div#product-summary{font-family: 'roboto'; height: 185px; width: 185px; backgrou
         .number-of-color-field{height: 125px;}
         .number-of-color-field input{border: none;}
         .number-of-color-field > div {font-size: 12px; text-align: center;}
+        .choose-color-message {position: relative; top: 30%;}
         .colorSelectBox>div{font-size: 14px; font-weight: 300; color: #636363; line-height: 136%;}
         .colorSelectBox>div>div{float: left; width: 20px; height: 20px; border-radius: 5px; border: 1px solid lightgrey; margin-right: 3px;}
         .colorSelectBox .pink{background-color: pink;}
