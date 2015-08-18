@@ -121,6 +121,17 @@ $(document).ready(function(){
             disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
             // Adds the checkMark class
             addCheckMarkForCurtainSelection(singleSide);
+            // Only calculate the input values for side a then append it
+            sideABCDtotal = (sideAtotal).toFixed(2);
+            $('.price').empty().append("$" + sideABCDtotal);
+            // Remove the input values for side b, c and d
+            emptyInputValue($('.dimensions-side-b input'));
+            emptyInputValue($('.dimensions-side-c input'));
+            emptyInputValue($('.dimensions-side-d input'));
+            // Clear the total for side b, c and d
+            sideBtotal = 0;
+            sideCtotal = 0;
+            sideDtotal = 0;
         }
     });
     $(twoSides).on('click', function(){
@@ -136,6 +147,15 @@ $(document).ready(function(){
             disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
             // Adds the checkMark class
             addCheckMarkForCurtainSelection(twoSides);
+            // Only calculate the input values for side a and b then append it
+            sideABCDtotal = (sideAtotal + sideBtotal).toFixed(2);
+            $('.price').empty().append("$" + sideABCDtotal);
+            // Remove the input values for side c and d
+            emptyInputValue($('.dimensions-side-c input'));
+            emptyInputValue($('.dimensions-side-d input'));
+            // Clear the total for side c and d
+            sideCtotal = 0;
+            sideDtotal = 0;
         }
     });
     $(threeSides).on('click', function(){
@@ -152,6 +172,13 @@ $(document).ready(function(){
             disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
             // Adds the checkMark class
             addCheckMarkForCurtainSelection(threeSides);
+            // Only calculate the input values for side a b and c and append it
+            sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal).toFixed(2);
+            $('.price').empty().append("$" + sideABCDtotal);
+            // Removes the input values for side d
+            emptyInputValue($('.dimensions-side-d input'));
+            // Clear the total for side d
+            sideDtotal = 0;
         }
     });
     $(fourSided).on('click', function(){
@@ -172,35 +199,24 @@ $(document).ready(function(){
     });
     //Done with making the curtain selections
 
-    /*****************************/
-    /********SINGLE DISABLE*******/
-    /*****************************/
-    //$(twoSides).on('click', function(){
-    //    var disabledAttr = $(this).attr('disabled');
-    //
-    //    if((typeof(disabledAttr) !== typeof(undefined)) && (disabledAttr !== false)){
-    //        if(disabledAttr == 'disabled'){
-    //            enableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
-    //        }
-    //    }else{
-    //        disableSides(twoSides,dimensionSideB,colorSideB,mountSideB);
-    //    }
-    //});
-    /*****************************/
-    /*****END SINGLE DISABLE******/
-    /*****************************/
-
-
     /******************************************************************/
     /****Foot /Inches input Section + Product Summary price output*****/
     /******************************************************************/
+
+    /*Global Variables for the totals*/
+    var sideABCDtotal   = 0;
+    var sideAtotal      = 0;
+    var sideBtotal      = 0;
+    var sideCtotal      = 0;
+    var sideDtotal      = 0;
+
     /*Uses singlePrice() here to get price for all 4 sides when input keyup*/
     $('.step2-selections input').on('keyup', function(){
-        var sideAtotal = singlePrice($('.dimensions-side-a input'));
-        var sideBtotal = singlePrice($('.dimensions-side-b input'));
-        var sideCtotal = singlePrice($('.dimensions-side-c input'));
-        var sideDtotal = singlePrice($('.dimensions-side-d input'));
-        var sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal +sideDtotal).toFixed(2);
+        sideAtotal = singlePrice($('.dimensions-side-a input'));
+        sideBtotal = singlePrice($('.dimensions-side-b input'));
+        sideCtotal = singlePrice($('.dimensions-side-c input'));
+        sideDtotal = singlePrice($('.dimensions-side-d input'));
+        sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal +sideDtotal).toFixed(2);
         $('.price').empty().append("$" + sideABCDtotal);
     });
     /*Function to gets the price for single Side*/
@@ -226,16 +242,12 @@ $(document).ready(function(){
             return ((values[0]+values[1])*(values[2]+values[3])) * 1.6;
     }
 
-
-    /*Validation for only one input*/
-    //var inputAWF = $("input[name='a-width-foot']");
-    //inputAWF.on('keyup', function(){
-    //   if(inputAWF.val() > 20){
-    //       inputAWF.css({"border":"1px solid red"});
-    //   }else{
-    //       inputAWF.css({"border":"none"});
-    //   }
-    //});
+    /*Function to empty all the value input of one side*/
+    function emptyInputValue(sideInput){
+        sideInput.each(function(){
+            $(this).val('');
+        });
+    }
 
     /*Function to validate all width height inch foot input fields*/
     function widthHeightInputValidation(inputWH){
