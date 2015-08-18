@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    var resetValueToZero = 0;
+
     $('.help-notes').hide();             // hide the notes for help
 
     /*Toggles the help-notes div when help is clicked*/
@@ -129,9 +131,9 @@ $(document).ready(function(){
             emptyInputValue($('.dimensions-side-c input'));
             emptyInputValue($('.dimensions-side-d input'));
             // Clear the total for side b, c and d
-            sideBtotal = 0;
-            sideCtotal = 0;
-            sideDtotal = 0;
+            sideBtotal = resetValueToZero;
+            sideCtotal = resetValueToZero;
+            sideDtotal = resetValueToZero;
         }
     });
     $(twoSides).on('click', function(){
@@ -154,8 +156,8 @@ $(document).ready(function(){
             emptyInputValue($('.dimensions-side-c input'));
             emptyInputValue($('.dimensions-side-d input'));
             // Clear the total for side c and d
-            sideCtotal = 0;
-            sideDtotal = 0;
+            sideCtotal = resetValueToZero;
+            sideDtotal = resetValueToZero;
         }
     });
     $(threeSides).on('click', function(){
@@ -178,7 +180,7 @@ $(document).ready(function(){
             // Removes the input values for side d
             emptyInputValue($('.dimensions-side-d input'));
             // Clear the total for side d
-            sideDtotal = 0;
+            sideDtotal = resetValueToZero;
         }
     });
     $(fourSided).on('click', function(){
@@ -204,11 +206,11 @@ $(document).ready(function(){
     /******************************************************************/
 
     /*Global Variables for the totals*/
-    var sideABCDtotal   = 0;
-    var sideAtotal      = 0;
-    var sideBtotal      = 0;
-    var sideCtotal      = 0;
-    var sideDtotal      = 0;
+    var sideABCDtotal   = resetValueToZero;
+    var sideAtotal      = resetValueToZero;
+    var sideBtotal      = resetValueToZero;
+    var sideCtotal      = resetValueToZero;
+    var sideDtotal      = resetValueToZero;
 
     /*Uses singlePrice() here to get price for all 4 sides when input keyup*/
     $('.step2-selections input').on('keyup', function(){
@@ -216,8 +218,9 @@ $(document).ready(function(){
         sideBtotal = singlePrice($('.dimensions-side-b input'));
         sideCtotal = singlePrice($('.dimensions-side-c input'));
         sideDtotal = singlePrice($('.dimensions-side-d input'));
-        sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal +sideDtotal).toFixed(2);
-        $('.price').empty().append("$" + sideABCDtotal);
+        sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal +sideDtotal);
+        priceSummary = (Number(mountABCDtotal) + Number(sideABCDtotal)).toFixed(2);
+        $('.price').empty().append("$" + priceSummary);
     });
     /*Function to gets the price for single Side*/
     //Each side has 4 values
@@ -230,7 +233,7 @@ $(document).ready(function(){
             sideInput.each(function() {
                 var $keyUp = $(this);
                 if(($keyUp.val() == "") || (isNaN($keyUp.val()))
-                || ($keyUp.val() > 20)){
+                || ($keyUp.val() > 20) || ($keyUp.val() < 0)){
                     values.push(parseInt(0));
                 }else {
                     values.push(parseInt($(this).val()));
@@ -252,7 +255,7 @@ $(document).ready(function(){
     /*Function to validate all width height inch foot input fields*/
     function widthHeightInputValidation(inputWH){
         inputWH.on('keyup', function(){
-            if(inputWH.val() > 20){
+            if((inputWH.val() > 20) || (inputWH.val() < 0)){
                 inputWH.css({"border":"1px solid red"});
             }else{
                 inputWH.css({"border":"none"});
@@ -364,11 +367,11 @@ $(document).ready(function(){
     /**** Mounting Select Calculation ****/
     /*************************************/
 
-    var mountSideA = 0;
-    var mountSideB = 0;
-    var mountSideC = 0;
-    var mountSideD = 0;
-    var mountABCDtotal = 0;
+    var mountSideA = resetValueToZero;
+    var mountSideB = resetValueToZero;
+    var mountSideC = resetValueToZero;
+    var mountSideD = resetValueToZero;
+    var mountABCDtotal = resetValueToZero;
     var diffMountNames = ['', 'wm', 'trm', 'cm', 'clm'];
     var diffMountPricing = [0,20,33,21,17];
 
