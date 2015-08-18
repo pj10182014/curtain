@@ -360,6 +360,58 @@ $(document).ready(function(){
         }
     });
 
+    /*************************************/
+    /**** Mounting Select Calculation ****/
+    /*************************************/
+
+    var mountSideA = 0;
+    var mountSideB = 0;
+    var mountSideC = 0;
+    var mountSideD = 0;
+    var mountABCDtotal = 0;
+    var diffMountNames = ['', 'wm', 'trm', 'cm', 'clm'];
+    var diffMountPricing = [0,20,33,21,17];
+
+    $('.mount-selections').on('change', function(){
+        var $clicked = $(this);
+        var valueSelected = $clicked.val();
+        var priceIndex = 0;
+        var selectedMountPrice = 0;
+
+        $.each(diffMountNames, function(index, value){
+            if(valueSelected == value){
+                priceIndex = index;
+            }
+        });
+
+        $.each(diffMountPricing, function(index, value){
+           if(priceIndex == index){
+               selectedMountPrice = value;
+           }
+        });
+
+        var myClass = $clicked.attr('class');
+        var splitClass = myClass.split(" ");
+        var sc1 = splitClass[1];
+
+        if(sc1 == 'mount-a'){
+            mountSideA = selectedMountPrice;
+        }else if(sc1 == 'mount-b'){
+            mountSideB = selectedMountPrice;
+        }else if(sc1 == 'mount-c'){
+            mountSideC = selectedMountPrice;
+        }else if(sc1 == 'mount-d'){
+            mountSideD = selectedMountPrice;
+        }
+
+        mountABCDtotal = (mountSideA + mountSideB + mountSideC + mountSideD);
+
+        priceSummary = (Number(sideABCDtotal) + mountABCDtotal).toFixed(2);
+        $('.price').empty().append("$" + priceSummary);
+    });
+
+    var priceSummary = mountABCDtotal + sideABCDtotal;
+
 
     /***************************/
     /********** Cart ***********/
