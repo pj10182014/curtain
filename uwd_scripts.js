@@ -1,6 +1,8 @@
 $(document).ready(function(){
     var resetValueToZero = 0;
 
+    var priceSummary = mountABCDtotal + sideABCDtotal;
+
     $('.help-notes').hide();             // hide the notes for help
 
     /*Toggles the help-notes div when help is clicked*/
@@ -126,14 +128,17 @@ $(document).ready(function(){
             // Only calculate the input values for side a then append it
             sideABCDtotal = (sideAtotal).toFixed(2);
             $('.price').empty().append("$" + sideABCDtotal);
-            // Remove the input values for side b, c and d
-            emptyInputValue($('.dimensions-side-b input'));
-            emptyInputValue($('.dimensions-side-c input'));
-            emptyInputValue($('.dimensions-side-d input'));
+            // Remove the input values for side b, c, d and mount b, c, d
+            emptyInputValue($('.dimensions-side-b input'), $('.mount-b'));
+            emptyInputValue($('.dimensions-side-c input'), $('.mount-c'));
+            emptyInputValue($('.dimensions-side-d input'), $('.mount-d'));
             // Clear the total for side b, c and d
             sideBtotal = resetValueToZero;
             sideCtotal = resetValueToZero;
             sideDtotal = resetValueToZero;
+            mountSideBPrice = resetValueToZero;
+            mountSideCPrice = resetValueToZero;
+            mountSideDPrice = resetValueToZero;
         }
     });
     $(twoSides).on('click', function(){
@@ -152,12 +157,14 @@ $(document).ready(function(){
             // Only calculate the input values for side a and b then append it
             sideABCDtotal = (sideAtotal + sideBtotal).toFixed(2);
             $('.price').empty().append("$" + sideABCDtotal);
-            // Remove the input values for side c and d
-            emptyInputValue($('.dimensions-side-c input'));
-            emptyInputValue($('.dimensions-side-d input'));
-            // Clear the total for side c and d
+            // Remove the input values for side c, d and mount c, d
+            emptyInputValue($('.dimensions-side-c input'), $('.mount-c'));
+            emptyInputValue($('.dimensions-side-d input'), $('.mount-d'));
+            // Clear the total for side c, d and mount c, d
             sideCtotal = resetValueToZero;
             sideDtotal = resetValueToZero;
+            mountSideCPrice = resetValueToZero;
+            mountSideDPrice = resetValueToZero;
         }
     });
     $(threeSides).on('click', function(){
@@ -178,9 +185,10 @@ $(document).ready(function(){
             sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal).toFixed(2);
             $('.price').empty().append("$" + sideABCDtotal);
             // Removes the input values for side d
-            emptyInputValue($('.dimensions-side-d input'));
-            // Clear the total for side d
+            emptyInputValue($('.dimensions-side-d input'), $('.mount-d'));
+            // Clear the total for side d and mount d
             sideDtotal = resetValueToZero;
+            mountSideDPrice = resetValueToZero;
         }
     });
     $(fourSided).on('click', function(){
@@ -246,10 +254,12 @@ $(document).ready(function(){
     }
 
     /*Function to empty all the value input of one side*/
-    function emptyInputValue(sideInput){
+    function emptyInputValue(sideInput, mountInput){
         sideInput.each(function(){
             $(this).val('');
         });
+
+        mountInput.val('');
     }
 
     /*Function to validate all width height inch foot input fields*/
@@ -367,53 +377,69 @@ $(document).ready(function(){
     /**** Mounting Select Calculation ****/
     /*************************************/
 
-    var mountSideA = resetValueToZero;
-    var mountSideB = resetValueToZero;
-    var mountSideC = resetValueToZero;
-    var mountSideD = resetValueToZero;
+    /*Set default values of each mount sides and total is 0 too*/
+    var mountSideAPrice = resetValueToZero;
+    var mountSideBPrice = resetValueToZero;
+    var mountSideCPrice = resetValueToZero;
+    var mountSideDPrice = resetValueToZero;
     var mountABCDtotal = resetValueToZero;
+
+    //putting the name of mount in array and price will correspond to the same array index
     var diffMountNames = ['', 'wm', 'trm', 'cm', 'clm'];
     var diffMountPricing = [0,20,33,21,17];
 
     $('.mount-selections').on('change', function(){
         var $clicked = $(this);
-        var valueSelected = $clicked.val();
-        var priceIndex = 0;
-        var selectedMountPrice = 0;
+        var valueSelected = $clicked.val();     //check the value being selected
+        var priceIndex = 0;                     //use to get the index of the price
+        var selectedMountPrice = 0;             //price set to 0 initially
 
+        //in the array if the value selected matches to the one in the array saves the index to priceIndex
         $.each(diffMountNames, function(index, value){
             if(valueSelected == value){
                 priceIndex = index;
             }
         });
 
+        //uses the priceIndex found above and loop through the array to find the corresponding index which will the the price of the product
         $.each(diffMountPricing, function(index, value){
            if(priceIndex == index){
                selectedMountPrice = value;
            }
         });
 
+        //find the class being clicked and split it to check exactly with side is clicked
+        //then use the class to decide which side variable is used to store the price of the mount selected
         var myClass = $clicked.attr('class');
         var splitClass = myClass.split(" ");
         var sc1 = splitClass[1];
 
         if(sc1 == 'mount-a'){
-            mountSideA = selectedMountPrice;
+            mountSideAPrice = selectedMountPrice;
         }else if(sc1 == 'mount-b'){
-            mountSideB = selectedMountPrice;
+            mountSideBPrice = selectedMountPrice;
         }else if(sc1 == 'mount-c'){
-            mountSideC = selectedMountPrice;
+            mountSideCPrice = selectedMountPrice;
         }else if(sc1 == 'mount-d'){
-            mountSideD = selectedMountPrice;
+            mountSideDPrice = selectedMountPrice;
         }
 
-        mountABCDtotal = (mountSideA + mountSideB + mountSideC + mountSideD);
+        //always calculate the total of all mount sides
+        mountABCDtotal = (mountSideAPrice + mountSideBPrice + mountSideCPrice + mountSideDPrice);
 
-        priceSummary = (Number(sideABCDtotal) + mountABCDtotal).toFixed(2);
-        $('.price').empty().append("$" + priceSummary);
+        //price of the mount plus price of the sides gives the price summary
+        //priceSummary = (Number(sideABCDtotal) + mountABCDtotal).toFixed(2);
+        //$('.price').empty().append("$" + priceSummary);
+
+        printPriceSummary();
     });
 
-    var priceSummary = mountABCDtotal + sideABCDtotal;
+    function printPriceSummary(){
+        priceSummary = (Number(sideABCDtotal) + mountABCDtotal).toFixed(2);
+        $('.price').empty().append("$" + priceSummary);
+    }
+
+
 
 
     /***************************/
