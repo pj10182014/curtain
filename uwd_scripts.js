@@ -127,7 +127,9 @@ $(document).ready(function(){
             addCheckMarkForCurtainSelection(singleSide);
             // Only calculate the input values for side a then append it
             sideABCDtotal = (sideAtotal).toFixed(2);
-            $('.price').empty().append("$" + sideABCDtotal);
+            mountABCDtotal = (mountSideAPrice).toFixed(2);
+            priceSummary = (Number(mountABCDtotal) + Number(sideABCDtotal)).toFixed(2);
+            $('.price').empty().append("$" + priceSummary);
             // Remove the input values for side b, c, d and mount b, c, d
             emptyInputValue($('.dimensions-side-b input'), $('.mount-b'));
             emptyInputValue($('.dimensions-side-c input'), $('.mount-c'));
@@ -156,7 +158,9 @@ $(document).ready(function(){
             addCheckMarkForCurtainSelection(twoSides);
             // Only calculate the input values for side a and b then append it
             sideABCDtotal = (sideAtotal + sideBtotal).toFixed(2);
-            $('.price').empty().append("$" + sideABCDtotal);
+            mountABCDtotal = (mountSideAPrice + mountSideBPrice).toFixed(2);
+            priceSummary = (Number(mountABCDtotal) + Number(sideABCDtotal)).toFixed(2);
+            $('.price').empty().append("$" + priceSummary);
             // Remove the input values for side c, d and mount c, d
             emptyInputValue($('.dimensions-side-c input'), $('.mount-c'));
             emptyInputValue($('.dimensions-side-d input'), $('.mount-d'));
@@ -181,9 +185,11 @@ $(document).ready(function(){
             disableSides(fourSided,dimensionSideD,colorSideD,mountSideD);
             // Adds the checkMark class
             addCheckMarkForCurtainSelection(threeSides);
-            // Only calculate the input values for side a b and c and append it
+            // Only calculate the input values for side a, b, c and append it
             sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal).toFixed(2);
-            $('.price').empty().append("$" + sideABCDtotal);
+            mountABCDtotal = (mountSideAPrice + mountSideBPrice + mountSideCPrice).toFixed(2);
+            priceSummary = (Number(mountABCDtotal) + Number(sideABCDtotal)).toFixed(2);
+            $('.price').empty().append("$" + priceSummary);
             // Removes the input values for side d
             emptyInputValue($('.dimensions-side-d input'), $('.mount-d'));
             // Clear the total for side d and mount d
@@ -227,6 +233,7 @@ $(document).ready(function(){
         sideCtotal = singlePrice($('.dimensions-side-c input'));
         sideDtotal = singlePrice($('.dimensions-side-d input'));
         sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal +sideDtotal);
+
         priceSummary = (Number(mountABCDtotal) + Number(sideABCDtotal)).toFixed(2);
         $('.price').empty().append("$" + priceSummary);
     });
@@ -355,17 +362,17 @@ $(document).ready(function(){
         var chooseColorValue = $clicked.val();
 
         if(chooseColorValue == 1){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": "pink", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
             $closestDiv.find('div.color2').hide();
             $closestDiv.find('div.color3').hide();
         }else if(chooseColorValue == 2){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": "cyan", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": "yellow", "border": "1px solid lightgrey", "border-radius": "5px", "margin-top": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": "cyan", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": "yellow", "border-radius": "5px", "margin-top": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
             $closestDiv.find('div.color3').hide();
         }else if(chooseColorValue == 3){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": "pink", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": "cyan", "border": "1px solid lightgrey", "border-radius": "5px", "margin": "5px 0"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-            $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": "yellow", "border": "1px solid lightgrey", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": "pink", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": "cyan", "border-radius": "5px", "margin": "5px 0"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": "yellow", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
         }else{
             $closestDiv.find('div.color1').hide();
             $closestDiv.find('div.color2').hide();
