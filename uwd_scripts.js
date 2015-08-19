@@ -128,8 +128,7 @@ $(document).ready(function(){
             // Only calculate the input values for side a then append it
             sideABCDtotal = (sideAtotal).toFixed(2);
             mountABCDtotal = (mountSideAPrice).toFixed(2);
-            priceSummary = (Number(mountABCDtotal) + Number(sideABCDtotal)).toFixed(2);
-            $('.price').empty().append("$" + priceSummary);
+            appendPriceSummary();
             // Remove the input values for side b, c, d and mount b, c, d
             emptyInputValue($('.dimensions-side-b input'), $('.mount-b'));
             emptyInputValue($('.dimensions-side-c input'), $('.mount-c'));
@@ -159,8 +158,7 @@ $(document).ready(function(){
             // Only calculate the input values for side a and b then append it
             sideABCDtotal = (sideAtotal + sideBtotal).toFixed(2);
             mountABCDtotal = (mountSideAPrice + mountSideBPrice).toFixed(2);
-            priceSummary = (Number(mountABCDtotal) + Number(sideABCDtotal)).toFixed(2);
-            $('.price').empty().append("$" + priceSummary);
+            appendPriceSummary();
             // Remove the input values for side c, d and mount c, d
             emptyInputValue($('.dimensions-side-c input'), $('.mount-c'));
             emptyInputValue($('.dimensions-side-d input'), $('.mount-d'));
@@ -186,10 +184,9 @@ $(document).ready(function(){
             // Adds the checkMark class
             addCheckMarkForCurtainSelection(threeSides);
             // Only calculate the input values for side a, b, c and append it
-            sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal).toFixed(2);
-            mountABCDtotal = (mountSideAPrice + mountSideBPrice + mountSideCPrice).toFixed(2);
-            priceSummary = (Number(mountABCDtotal) + Number(sideABCDtotal)).toFixed(2);
-            $('.price').empty().append("$" + priceSummary);
+            sideABCDtotal -= sideDtotal.toFixed(2);
+            mountABCDtotal -= mountSideDPrice.toFixed(2);
+            appendPriceSummary();
             // Removes the input values for side d
             emptyInputValue($('.dimensions-side-d input'), $('.mount-d'));
             // Clear the total for side d and mount d
@@ -234,8 +231,7 @@ $(document).ready(function(){
         sideDtotal = singlePrice($('.dimensions-side-d input'));
         sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal +sideDtotal);
 
-        priceSummary = (Number(mountABCDtotal) + Number(sideABCDtotal)).toFixed(2);
-        $('.price').empty().append("$" + priceSummary);
+        appendPriceSummary();
     });
     /*Function to gets the price for single Side*/
     //Each side has 4 values
@@ -438,11 +434,11 @@ $(document).ready(function(){
         //priceSummary = (Number(sideABCDtotal) + mountABCDtotal).toFixed(2);
         //$('.price').empty().append("$" + priceSummary);
 
-        printPriceSummary();
+        appendPriceSummary();
     });
 
-    function printPriceSummary(){
-        priceSummary = (Number(sideABCDtotal) + mountABCDtotal).toFixed(2);
+    function appendPriceSummary(){
+        priceSummary = (Number(sideABCDtotal) + Number(mountABCDtotal)).toFixed(2);
         $('.price').empty().append("$" + priceSummary);
     }
 
