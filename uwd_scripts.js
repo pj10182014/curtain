@@ -1,9 +1,15 @@
 $(document).ready(function(){
     var resetValueToZero = 0;
+    var maxWidthHeight = 20;
+    var minWidthHeight = 0;
+    var defaultColorPickerField1 = "pink";
+    var defaultColorPickerField2 = "cyan";
+    var defaultColorPickerField3 = "yellow";
 
     var priceSummary = mountABCDtotal + sideABCDtotal;
 
     $('.help-notes').hide();             // hide the notes for help
+    $('.cart-info').hide();
 
     /*Toggles the help-notes div when help is clicked*/
     $( ".help" ).on('click', function(){
@@ -268,7 +274,7 @@ $(document).ready(function(){
     /*Function to validate all width height inch foot input fields*/
     function widthHeightInputValidation(inputWH){
         inputWH.on('keyup', function(){
-            if((inputWH.val() > 20) || (inputWH.val() < 0)){
+            if((inputWH.val() > maxWidthHeight) || (inputWH.val() < minWidthHeight)){
                 inputWH.css({"border":"1px solid red"});
             }else{
                 inputWH.css({"border":"none"});
@@ -358,17 +364,17 @@ $(document).ready(function(){
         var chooseColorValue = $clicked.val();
 
         if(chooseColorValue == 1){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": "pink", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": defaultColorPickerField1, "border-radius": "5px"}).attr({"value": defaultColorPickerField1}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
             $closestDiv.find('div.color2').hide();
             $closestDiv.find('div.color3').hide();
         }else if(chooseColorValue == 2){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": "cyan", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": "yellow", "border-radius": "5px", "margin-top": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField2, "border-radius": "5px"}).attr({"value": defaultColorPickerField2}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField3, "border-radius": "5px", "margin-top": "5px"}).attr({"value": defaultColorPickerField3}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
             $closestDiv.find('div.color3').hide();
         }else if(chooseColorValue == 3){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": "pink", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": "cyan", "border-radius": "5px", "margin": "5px 0"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-            $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": "yellow", "border-radius": "5px"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField1, "border-radius": "5px"}).attr({"value": defaultColorPickerField1}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField2, "border-radius": "5px", "margin": "5px 0"}).attr({"value": defaultColorPickerField2}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+            $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField3, "border-radius": "5px"}).attr({"value": defaultColorPickerField3}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
         }else{
             $closestDiv.find('div.color1').hide();
             $closestDiv.find('div.color2').hide();
@@ -448,11 +454,119 @@ $(document).ready(function(){
     /***************************/
     /********** Cart ***********/
     /***************************/
-    $('.add-to-cart').on('click', function(){
+    $('.add-to-cart').on('click', function(e){
+        e.preventDefault();
+        //var sideA_color1_val = $(".color-side-a .number-of-color-field div[name='color1']").attr('value');
+        //console.log(sideA_color1_val);
+        //$.post('toCart.php',{ sideA_Color1_val: sideA_color1_val })
+        ////window.location.href='toCart.php';
+        //.done(function() {
+        //        //window.location.href = "cartPage.php";
+        //    window.location.href='toCart.php';
+        //})
+
         var sideA_color1_val = $(".color-side-a .number-of-color-field div[name='color1']").attr('value');
-        $.post('toCart.php',{ sideA_Color1_val: sideA_color1_val })
-        .done(function() {
-                window.location.href = "cartPage.php";
-        })
+
+        var getSideText = null;  //Get the text of the side chosen e.g. single curtain, 2-sided station
+
+        /*Get the text of how many side chosen*/
+        $('.chooseSides p').each(function(){
+           var sideChosen = $(this).hasClass('checkMark');
+            if(sideChosen){
+                getSideText = $(this).text();
+            }
+        });
+
+        /*Gets all the inputs for one side*/
+        function getInputsForOneSide(side){
+            var inputs = [];
+            side.each(function(){
+                var value = $(this).val();
+                if((value == '') || (isNaN(value)) ||
+                    (value > maxWidthHeight) || (value < minWidthHeight)){
+                    value = resetValueToZero;
+                }
+                inputs.push(value);
+            });
+            return inputs;
+        }
+
+        /*Get the inputs of each side and store them into an array variable*/
+        var inputsA = getInputsForOneSide($('.dimensions-side-a input'));
+        var inputsB = getInputsForOneSide($('.dimensions-side-b input'));
+        var inputsC = getInputsForOneSide($('.dimensions-side-c input'));
+        var inputsD = getInputsForOneSide($('.dimensions-side-d input'));
+
+
+        var semiArray = [];
+        var coatedArray = [];
+        var bgArray = [];
+
+        $('.number-of-color-field .sideA').each(function(){
+            var semi = $(this).attr('data-semi');
+            var coated = $(this).attr('data-coated');
+            var bg = $(this).attr('value');
+
+            if(typeof(semi) == 'undefined'){
+                semi = 'false';
+            }
+            if(typeof(coated) == 'undefined'){
+                coated = 'false';
+            }
+            if(typeof(bg) == 'undefined'){
+                bg = 'non chosen';
+            }
+
+            semiArray.push(semi);
+            coatedArray.push(coated);
+            bgArray.push(bg);
+        });
+
+        $.ajax({
+            method: 'post',
+            url: "ajaxCart.php",
+            data: {getSideText: getSideText,
+                    inputsA: inputsA,
+                    inputsB: inputsB,
+                    inputsC: inputsC,
+                    inputsD: inputsD,
+                    bgArray: bgArray},
+            dataType: 'json',
+            success: function (data) {
+                $('.interior_full_pane').empty();
+                $('.cart-info').show();
+                //how many sides chosen
+                $('.cart-info .sides span').append(data['sideChosen']);
+
+                //width height for input A
+                $('.cart-info .inputA .w').append(data['inputsA'][0] + "'" + data['inputsA'][1] + "\"");
+                $('.cart-info .inputA .h').append(data['inputsA'][2] + "'" + data['inputsA'][3] + "\"");
+                //$('.cart-info .colorA .sideAcolor1').append(data['bgColor'][0]);
+                $('.cart-info .colorA div').each(function(index, value){
+                    var myClass = $(this).attr('class');
+                    //var selector = $("'."+myClass+"'");
+                    //console.log(selector);
+                    if(myClass == 'sideAcolor1'){
+                        $('.sideAcolor1').append(index);
+                    }else if(myClass == 'sideAcolor2'){
+                        $('.sideAcolor2').append(index);
+                    }
+                    //$(myClass).append('testing' + index);
+
+                });
+
+                //width height for input B
+                $('.cart-info .inputB .w').append(data['inputsB'][0] + "'" + data['inputsB'][1] + "\"");
+                $('.cart-info .inputB .h').append(data['inputsB'][2] + "'" + data['inputsB'][3] + "\"");
+
+                //width height for input C
+                $('.cart-info .inputC .w').append(data['inputsC'][0] + "'" + data['inputsC'][1] + "\"");
+                $('.cart-info .inputC .h').append(data['inputsC'][2] + "'" + data['inputsC'][3] + "\"");
+
+                //width height for input D
+                $('.cart-info .inputD .w').append(data['inputsD'][0] + "'" + data['inputsD'][1] + "\"");
+                $('.cart-info .inputD .h').append(data['inputsD'][2] + "'" + data['inputsD'][3] + "\"");
+            }
+        });
     });
 });

@@ -5,7 +5,7 @@ div#product-summary{font-family: 'roboto'; height: 185px; width: 185px; backgrou
 
 /* Add to cart */
 /*.add-to-cart:after{content:url(sample-images/cart-yellow.png); position: relative; top: 3px; left: 10px;}*/
-.add-to-cart{font-family: roboto; font-weight: 400; color: #FFFF09; font-size: 24px; text-align: center; height: 55px; width: 260px; background-color: #2A0092; padding: 0; border: none; border-radius: 5px; margin-top: 50px; margin-left: 215px;}
+.add-to-cart{font-family: roboto; font-weight: 400; color: #FFFF09; font-size: 24px; text-align: center; height: 55px; width: 260px; background-color: #2A0092; padding: 0; border: none; border-radius: 5px; margin-top: 50px; margin-left: 215px; cursor: pointer;}
 .add-to-cart>span{font-size: 30px;}
 
 /* Sizing for the whole four step selections */
