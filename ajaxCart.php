@@ -13,5 +13,20 @@ $data['inputsA'] = $_POST['inputsA'];
 $data['inputsB'] = $_POST['inputsB'];
 $data['inputsC'] = $_POST['inputsC'];
 $data['inputsD'] = $_POST['inputsD'];
-$data['bgColor'] = $_POST['bgArray'];
+$data['bgColors'] = $_POST['bgArray'];
+$data['mountValues'] = [];
+foreach($_POST['mountArray'] as $key => $value){
+    if($value == 'wm'){
+        $data['mountValues'][$key] = 'Wall Mount';
+    }else if($value == 'trm'){
+        $data['mountValues'][$key] = 'Threaded Rod Mount';
+    }else if($value == 'cm'){
+        $data['mountValues'][$key] = 'Ceiling Mount';
+    }else if($value == 'clm'){
+        $data['mountValues'][$key] = 'Chain link Mount';
+    }else{
+        $data['mountValues'][$key] = 'None Chosen';
+    }
+}
+//$data['mountValues'] = $_POST['mountArray'];
 echo json_encode($data);

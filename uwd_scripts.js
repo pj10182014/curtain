@@ -514,12 +514,24 @@ $(document).ready(function(){
                 coated = 'false';
             }
             if(typeof(bg) == 'undefined'){
-                bg = 'non chosen';
+                bg = 'None Chosen';
             }
 
             semiArray.push(semi);
             coatedArray.push(coated);
             bgArray.push(bg);
+        });
+
+        var mountArray = [];
+
+        $('.select-mounts').each(function(){
+            var myClass = $(this).attr('class');
+            var splitClass = myClass.split(" ");
+            var mountSideClass = ("."+splitClass[1]);
+            //if($(mountSideClass).val() == ''){
+            //    $(mountSideClass).val("none");
+            //}
+            mountArray.push($(mountSideClass).val());
         });
 
         $.ajax({
@@ -530,7 +542,8 @@ $(document).ready(function(){
                     inputsB: inputsB,
                     inputsC: inputsC,
                     inputsD: inputsD,
-                    bgArray: bgArray},
+                    bgArray: bgArray,
+                    mountArray: mountArray},
             dataType: 'json',
             success: function (data) {
                 $('.interior_full_pane').empty();
@@ -541,32 +554,33 @@ $(document).ready(function(){
                 //width height for input A
                 $('.cart-info .inputA .w').append(data['inputsA'][0] + "'" + data['inputsA'][1] + "\"");
                 $('.cart-info .inputA .h').append(data['inputsA'][2] + "'" + data['inputsA'][3] + "\"");
-                //$('.cart-info .colorA .sideAcolor1').append(data['bgColor'][0]);
-                $('.cart-info .colorA div').each(function(index, value){
-                    var myClass = $(this).attr('class');
-                    //var selector = $("'."+myClass+"'");
-                    //console.log(selector);
-                    if(myClass == 'sideAcolor1'){
-                        $('.sideAcolor1').append(index);
-                    }else if(myClass == 'sideAcolor2'){
-                        $('.sideAcolor2').append(index);
-                    }
-                    //$(myClass).append('testing' + index);
+
+                //3 colors chosen for side A
+                $('.cart-info .colorA div').each(function(index){
+                    var myColorClass = $(this).attr('class');
+                    $("."+myColorClass).append(data['bgColors'][index]);
 
                 });
 
-                //width height for input B
-                $('.cart-info .inputB .w').append(data['inputsB'][0] + "'" + data['inputsB'][1] + "\"");
-                $('.cart-info .inputB .h').append(data['inputsB'][2] + "'" + data['inputsB'][3] + "\"");
+                //$('.cart-info .mountA').append(data['mountValues'][0]);
 
-                //width height for input C
-                $('.cart-info .inputC .w').append(data['inputsC'][0] + "'" + data['inputsC'][1] + "\"");
-                $('.cart-info .inputC .h').append(data['inputsC'][2] + "'" + data['inputsC'][3] + "\"");
+                //mount chosen
+                $('.mount-selected').each(function(index, value){
+                   $(this).append(data['mountValues'][index]);
+                });
 
-                //width height for input D
-                $('.cart-info .inputD .w').append(data['inputsD'][0] + "'" + data['inputsD'][1] + "\"");
-                $('.cart-info .inputD .h').append(data['inputsD'][2] + "'" + data['inputsD'][3] + "\"");
+                ////width height for input B
+                //$('.cart-info .inputB .w').append(data['inputsB'][0] + "'" + data['inputsB'][1] + "\"");
+                //$('.cart-info .inputB .h').append(data['inputsB'][2] + "'" + data['inputsB'][3] + "\"");
+                //
+                ////width height for input C
+                //$('.cart-info .inputC .w').append(data['inputsC'][0] + "'" + data['inputsC'][1] + "\"");
+                //$('.cart-info .inputC .h').append(data['inputsC'][2] + "'" + data['inputsC'][3] + "\"");
+                //
+                ////width height for input D
+                //$('.cart-info .inputD .w').append(data['inputsD'][0] + "'" + data['inputsD'][1] + "\"");
+                //$('.cart-info .inputD .h').append(data['inputsD'][2] + "'" + data['inputsD'][3] + "\"");
             }
-        });
-    });
+        });// end ajax
+    });// end cart on click
 });
