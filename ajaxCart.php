@@ -24,6 +24,12 @@ $data['bgColorsB'] = $_POST['bgArrayB'];
 $data['bgColorsC'] = $_POST['bgArrayC'];
 $data['bgColorsD'] = $_POST['bgArrayD'];
 
+/*Check if the side has any of the semi colors*/
+$data['semiBooleanA'] = in_array('true', $_POST['semiArrayA']);
+
+/*Check if the side has any of the coated colors*/
+$data['coatedBooleanA'] = in_array('true', $_POST['coatedArrayA']);
+
 /*All the chosen mount value's shorthand but changes them to proper name before passing back to front end*/
 $data['mountValues'] = [];
 foreach($_POST['mountArray'] as $key => $value){
