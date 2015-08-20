@@ -443,6 +443,7 @@ $(document).ready(function(){
         appendPriceSummary();
     });
 
+    /*Function to append price summary into the price summary div*/
     function appendPriceSummary(){
         priceSummary = (Number(sideABCDtotal) + Number(mountABCDtotal)).toFixed(2);
         $('.price').empty().append("$" + priceSummary);
@@ -497,33 +498,57 @@ $(document).ready(function(){
         var inputsC = getInputsForOneSide($('.dimensions-side-c input'));
         var inputsD = getInputsForOneSide($('.dimensions-side-d input'));
 
+        //Arrays to check if color chosen is semi or coated
+        var semiArrayA = [];
+        var coatedArrayA = [];
+        var semiArrayB = [];
+        var coatedArrayB = [];
+        var semiArrayC = [];
+        var coatedArrayC = [];
+        var semiArrayD = [];
+        var coatedArrayD = [];
+        //Get the value of the background color
+        var bgArrayA = [];
+        var bgArrayB = [];
+        var bgArrayC = [];
+        var bgArrayD = [];
 
-        var semiArray = [];
-        var coatedArray = [];
-        var bgArray = [];
+        /*Checks the value for attribute of data-semi, data-coated and value
+         * if semi and coated is undefined, the value will change to false
+         * as for the bg, if undefined that means the user didn't choose the color*/
+        function getColorFieldValues(side,pushSemi,pushCoated,pushBg){
+            side.each(function(){
+                var semi = $(this).attr('data-semi');
+                var coated = $(this).attr('data-coated');
+                var bg = $(this).attr('value');
 
-        $('.number-of-color-field .sideA').each(function(){
-            var semi = $(this).attr('data-semi');
-            var coated = $(this).attr('data-coated');
-            var bg = $(this).attr('value');
+                if(typeof(semi) == 'undefined'){
+                    semi = 'false';
+                }
+                if(typeof(coated) == 'undefined'){
+                    coated = 'false';
+                }
+                if(typeof(bg) == 'undefined'){
+                    bg = 'None Chosen';
+                }
 
-            if(typeof(semi) == 'undefined'){
-                semi = 'false';
-            }
-            if(typeof(coated) == 'undefined'){
-                coated = 'false';
-            }
-            if(typeof(bg) == 'undefined'){
-                bg = 'None Chosen';
-            }
+                pushSemi.push(semi);
+                pushCoated.push(coated);
+                pushBg.push(bg);
+            });
+        }
 
-            semiArray.push(semi);
-            coatedArray.push(coated);
-            bgArray.push(bg);
-        });
+        /*Get the value of the color field selected*/
+        getColorFieldValues($('.number-of-color-field .sideA'),semiArrayA, coatedArrayA, bgArrayA);
+        getColorFieldValues($('.number-of-color-field .sideB'),semiArrayB, coatedArrayB, bgArrayB);
+        getColorFieldValues($('.number-of-color-field .sideC'),semiArrayC, coatedArrayC, bgArrayC);
+        getColorFieldValues($('.number-of-color-field .sideD'),semiArrayD, coatedArrayD, bgArrayD);
 
-        var mountArray = [];
 
+
+        var mountArray = [];        //array to store the mount value selected
+
+        /*Pushes the value of the mount stored into the mountArray array variable*/
         $('.select-mounts').each(function(){
             var myClass = $(this).attr('class');
             var splitClass = myClass.split(" ");
@@ -542,7 +567,10 @@ $(document).ready(function(){
                     inputsB: inputsB,
                     inputsC: inputsC,
                     inputsD: inputsD,
-                    bgArray: bgArray,
+                    bgArrayA: bgArrayA,
+                    bgArrayB: bgArrayB,
+                    bgArrayC: bgArrayC,
+                    bgArrayD: bgArrayD,
                     mountArray: mountArray},
             dataType: 'json',
             success: function (data) {
@@ -551,35 +579,39 @@ $(document).ready(function(){
                 //how many sides chosen
                 $('.cart-info .sides span').append(data['sideChosen']);
 
-                //width height for input A
-                $('.cart-info .inputA .w').append(data['inputsA'][0] + "'" + data['inputsA'][1] + "\"");
-                $('.cart-info .inputA .h').append(data['inputsA'][2] + "'" + data['inputsA'][3] + "\"");
+                /*Function to append all the inputs for the sides' width and height*/
+                function appendSideInputs(sideInputW, sideInputH,sideInputs){
+                    //width height for inputs
+                    sideInputW.append(sideInputs[0] + "'" + sideInputs[1] + "\"");
+                    sideInputH.append(sideInputs[2] + "'" + sideInputs[3] + "\"");
+                }
 
-                //3 colors chosen for side A
-                $('.cart-info .colorA div').each(function(index){
-                    var myColorClass = $(this).attr('class');
-                    $("."+myColorClass).append(data['bgColors'][index]);
+                /*Append all 4 sides' input even if empty*/
+                appendSideInputs($('.cart-info .inputA .w'),$('.cart-info .inputA .h'),data['inputsA']);
+                appendSideInputs($('.cart-info .inputB .w'),$('.cart-info .inputB .h'),data['inputsB']);
+                appendSideInputs($('.cart-info .inputC .w'),$('.cart-info .inputC .h'),data['inputsC']);
+                appendSideInputs($('.cart-info .inputD .w'),$('.cart-info .inputD .h'),data['inputsD']);
 
+
+                /*Function to append the color values for the sides*/
+                function appendSideColors(side,appendData){
+                    side.each(function(index){
+                        var myColorClass = $(this).attr('class');
+                        $("." + myColorClass).append(appendData[index]);
+
+                    });
+                }
+
+                /*Append all 4 sides' color value even if empty*/
+                appendSideColors($('.cart-info .colorA div'),data['bgColorsA']);
+                appendSideColors($('.cart-info .colorB div'),data['bgColorsB']);
+                appendSideColors($('.cart-info .colorC div'),data['bgColorsC']);
+                appendSideColors($('.cart-info .colorD div'),data['bgColorsD']);
+
+                //Append all mount chosen even if empty
+                $('.cart-info .mount-selected').each(function(index){
+                    $(this).children().append(data['mountValues'][index]);
                 });
-
-                //$('.cart-info .mountA').append(data['mountValues'][0]);
-
-                //mount chosen
-                $('.mount-selected').each(function(index, value){
-                   $(this).append(data['mountValues'][index]);
-                });
-
-                ////width height for input B
-                //$('.cart-info .inputB .w').append(data['inputsB'][0] + "'" + data['inputsB'][1] + "\"");
-                //$('.cart-info .inputB .h').append(data['inputsB'][2] + "'" + data['inputsB'][3] + "\"");
-                //
-                ////width height for input C
-                //$('.cart-info .inputC .w').append(data['inputsC'][0] + "'" + data['inputsC'][1] + "\"");
-                //$('.cart-info .inputC .h').append(data['inputsC'][2] + "'" + data['inputsC'][3] + "\"");
-                //
-                ////width height for input D
-                //$('.cart-info .inputD .w').append(data['inputsD'][0] + "'" + data['inputsD'][1] + "\"");
-                //$('.cart-info .inputD .h').append(data['inputsD'][2] + "'" + data['inputsD'][3] + "\"");
             }
         });// end ajax
     });// end cart on click
