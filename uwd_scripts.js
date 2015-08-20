@@ -544,8 +544,6 @@ $(document).ready(function(){
         getColorFieldValues($('.number-of-color-field .sideC'),semiArrayC, coatedArrayC, bgArrayC);
         getColorFieldValues($('.number-of-color-field .sideD'),semiArrayD, coatedArrayD, bgArrayD);
 
-
-
         var mountArray = [];        //array to store the mount value selected
 
         /*Pushes the value of the mount stored into the mountArray array variable*/
@@ -582,8 +580,8 @@ $(document).ready(function(){
                 /*Function to append all the inputs for the sides' width and height*/
                 function appendSideInputs(sideInputW, sideInputH,sideInputs){
                     //width height for inputs
-                    sideInputW.append(sideInputs[0] + "'" + sideInputs[1] + "\"");
-                    sideInputH.append(sideInputs[2] + "'" + sideInputs[3] + "\"");
+                    sideInputW.append(sideInputs[0] + "<span class='dimension-symbol'>'</span>" + sideInputs[1] + "<span class='dimension-symbol'>\"</span>");
+                    sideInputH.append(sideInputs[2] + "<span class='dimension-symbol'>'</span>" + sideInputs[3] + "<span class='dimension-symbol'>\"</span>");
                 }
 
                 /*Append all 4 sides' input even if empty*/

@@ -75,3 +75,11 @@ div#product-summary{font-family: 'roboto'; height: 185px; width: 185px; backgrou
         /*.mount-image{width: 100%; background: #EEECFF; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px;}*/
         .mount-names{width: 100%; background: #EEECFF; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; font-size: 15px; color: #636363; line-height: 134%; font-weight: 400; height: 210px; margin-bottom: 15px;}
         .mount-names > div {float:left; margin-left: 50px;}
+
+/*Cart info after clicking add to cart*/
+.cart-info > h1 {font-size: 22px; text-align: center; text-decoration: underline;}
+.cart-info .sides{font-size: 20px; font-style: italic; padding-left: 100px;}
+.cart-info .sides > span{font-size: 18px; font-style: normal; background-color: lightskyblue;}
+.side-info{font-family: 'roboto';font-size: 14px; float:left; padding: 20px; border-right: 1px dashed lightgray;}
+.side-info header{font-size: 15px;font-style: italic;font-weight: 500;text-decoration: underline; margin-top: 5px;}
+.side-info span.dimension-symbol{font-size: 17px;}
