@@ -620,5 +620,15 @@ $(document).ready(function(){
                 });
             }
         });// end ajax
+
+        //only allowed the user to click the button once
+        $(this).unbind('click');
+        //reset all the field for input and select to empty string so when restart is clicked the inputs will be empty
+        $('body input').val('');
+        $('body select').val('');
     });// end cart on click
+
+    $('.btn-restart').on('click', function(){
+        location.reload();
+    })
 });
