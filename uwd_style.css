@@ -1,5 +1,6 @@
 /* product summary div*/
-div#product-summary{font-family: 'roboto'; height: 185px; width: 185px; background-color: #2A0092; border-radius: 5px; text-align: center; color: #FFF; position: fixed; top: 250px; left: 985px;}
+#product-summary-position{float: right; height: 185px; width: 185px;}
+div#product-summary{font-family: 'roboto'; height: 185px; width: 185px; background-color: #2A0092; border-radius: 5px; text-align: center; color: #FFF; position: fixed; top: 250px;}
 #product-summary>header {color: yellow; font-size: 20px; padding-top: 10px;}
 #product-summary .price{padding: 35px 0 20px 0; font-size: 23px;}
 

@@ -404,7 +404,7 @@ $(document).ready(function(){
     var diffMountNames = ['', 'wm', 'trm', 'cm', 'clm'];
     var diffMountPricing = [0,20,33,21,17];
 
-    $('.mount-selections').on('change', function(){
+    $('.select-mounts').on('change', function(){
         var $clicked = $(this);
         var valueSelected = $clicked.val();     //check the value being selected
         var priceIndex = 0;                     //use to get the index of the price
@@ -448,6 +448,7 @@ $(document).ready(function(){
         //$('.price').empty().append("$" + priceSummary);
 
         appendPriceSummary();
+        console.log(mountABCDtotal);
     });
 
     /*Function to append price summary into the price summary div*/
