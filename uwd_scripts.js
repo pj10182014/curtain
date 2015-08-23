@@ -271,9 +271,9 @@ $(document).ready(function(){
 
         mountInput.val('');
         numberOfColorInput.val('');
-        numberOfColorInput.closest('div').find('.color1').attr({"data-semi": "false", "data-coated": "false"}).hide();
-        numberOfColorInput.closest('div').find('.color2').attr({"data-semi": "false", "data-coated": "false"}).hide();
-        numberOfColorInput.closest('div').find('.color3').attr({"data-semi": "false", "data-coated": "false"}).hide();
+        numberOfColorInput.closest('div').find('.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+        numberOfColorInput.closest('div').find('.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+        numberOfColorInput.closest('div').find('.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
     }
 
     /*Function to validate all width height inch foot input fields*/
@@ -372,20 +372,20 @@ $(document).ready(function(){
 
         if(chooseColorValue == 1){
             $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": defaultColorPickerField1, "border-radius": "5px"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-            $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false"}).hide();
-            $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false"}).hide();
+            $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+            $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
         }else if(chooseColorValue == 2){
             $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField2, "border-radius": "5px"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
             $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField3, "border-radius": "5px", "margin-top": "5px"}).attr({"value": defaultColorPickerField3, "data-semi": "true"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-            $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false"}).hide();
+            $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
         }else if(chooseColorValue == 3){
             $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField1, "border-radius": "5px"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
             $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField2, "border-radius": "5px", "margin": "5px 0"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
             $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField3, "border-radius": "5px"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
         }else{
-            $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false"}).hide();
-            $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false"}).hide();
-            $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false"}).hide();
+            $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+            $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+            $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
         }
     });
 
