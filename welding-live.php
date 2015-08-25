@@ -953,6 +953,7 @@
         function emptyInputValue(sideInput, mountInput, numberOfColorInput){
             sideInput.each(function(){
                 $(this).val('');
+                $(this).css({"border": "none"});
             });
 
             mountInput.val('No Mount');

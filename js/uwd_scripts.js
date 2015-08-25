@@ -267,6 +267,7 @@ $(document).ready(function(){
     function emptyInputValue(sideInput, mountInput, numberOfColorInput){
         sideInput.each(function(){
             $(this).val('');
+            $(this).css({"border": "none"});
         });
 
         mountInput.val('');
@@ -279,7 +280,7 @@ $(document).ready(function(){
     /*Function to validate all width height inch foot input fields*/
     function widthHeightInputValidation(inputWH){
         inputWH.on('keyup', function(){
-            if((inputWH.val() > maxWidthHeight) || (inputWH.val() < minWidthHeight)){
+            if((inputWH.val() > maxWidthHeight) || (inputWH.val() < minWidthHeight) || (!($.isNumeric(inputWH.val())))){
                 inputWH.css({"border":"1px solid red"});
             }else{
                 inputWH.css({"border":"none"});
