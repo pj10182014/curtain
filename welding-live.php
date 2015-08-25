@@ -478,7 +478,7 @@
         <input class="amount" type="hidden" name="amount" value="0" />
     <input type="hidden" name="item_name" value="stript-curtain" />
         <!-- <input type="hidden" name="refer" value="replacementStrips.php" /> -->
-        <input type="hidden" name="sku" value="UWD-random SKU" />
+        <input type="hidden" name="sku" value="WHDIV-STR001" />
         <!-- <input type='hidden' name='unit' value='2' /> -->
         <input type="hidden" name="weight" value="" />
     <input type="hidden" name="action" id="action" value="add" /> 
