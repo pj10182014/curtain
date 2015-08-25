@@ -146,22 +146,37 @@
             var sideDDetails = printOneSideDetails('SideD', inputsD, bgArrayD, 3);
             var descOutput = null;
 
-            var emptyInputValues = [];  //use to store inputs of width / height
-            /*Checks if the value of the input is empty, if it is empty then it is false and it'll be stored in the emptyInputValues array*/
-            function validateInputValueEmpty(sideInputs){
+
+            /*Checks if the value of the input is empty, if it is empty then it is false and it'll be stored in the storeEmptyInputValues array*/
+            // function validateInputValueEmpty(sideInputs){
+            //   sideInputs.each(function(){
+            //     if(!$(this).val()){
+            //       storeEmptyInputValues.push($(this).val());
+            //     }
+            //   })
+            // }
+
+
+            // function validateInputValueRange(sideInputs){
+            //   sideInputs.each(function(){
+            //     var value = $(this).val();
+            //     if((value > maxWidthHeight) || (value < minWidthHeight) || (!($.isNumeric(value)))){
+            //       storeBadInputValueInBoolean.push(false);
+            //     }
+            //   })
+            // }
+
+
+            var storeEmptyInputValues = [];  //use to store inputs of width / height if empty
+            var storeBadInputValueInBoolean = []; //use to store if value is too low / high or not value
+            function validateWHinputsBeforeSubmit(sideInputs){
                 sideInputs.each(function(){
                     if(!$(this).val()){
-                        emptyInputValues.push($(this).val());
+                        storeEmptyInputValues.push($(this).val());
                     }
-                })
-            }
-
-            var badInputValue = [];
-            function validateInputValueRange(sideInputs){
-                sideInputs.each(function(){
                     var value = $(this).val();
                     if((value > maxWidthHeight) || (value < minWidthHeight) || (!($.isNumeric(value)))){
-                        badInputValue.push(false);
+                        storeBadInputValueInBoolean.push(false);
                     }
                 })
             }
@@ -177,54 +192,40 @@
                 var attr = $(this).attr('disabled');
                 if(attr != 'disabled'){
                     if(index == 0){
-                        //uses the function to check empty inputs of side a
-                        validateInputValueEmpty($sideAinput);
-                        //uses the function to check input ranges of side a
-                        validateInputValueRange($sideAinput);
+                        //input validation for side a
+                        validateWHinputsBeforeSubmit($sideAinput);
                         //output description for side a
                         descOutput = sideADetails;
                     }else if(index == 1){
-                        //uses the function to check inputs of side a, b
-                        validateInputValueEmpty($sideAinput);
-                        validateInputValueEmpty($sideBinput);
-                        //uses the function to check input ranges of side a, b
-                        validateInputValueRange($sideAinput);
-                        validateInputValueRange($sideBinput);
+                        //input validation for side a, b
+                        validateWHinputsBeforeSubmit($sideAinput);
+                        validateWHinputsBeforeSubmit($sideBinput);
                         //output description for side a, b
                         descOutput = sideADetails + sideBDetails;
                     }else if(index == 2){
-                        //uses the function to check inputs of side a, b, c
-                        validateInputValueEmpty($sideAinput);
-                        validateInputValueEmpty($sideBinput);
-                        validateInputValueEmpty($sideCinput);
-                        //uses the function to check input ranges of side a, b, c
-                        validateInputValueRange($sideAinput);
-                        validateInputValueRange($sideBinput);
-                        validateInputValueRange($sideCinput);
+                        //input validation for side a, b, c
+                        validateWHinputsBeforeSubmit($sideAinput);
+                        validateWHinputsBeforeSubmit($sideBinput);
+                        validateWHinputsBeforeSubmit($sideCinput);
                         //output description for side a, b, c
                         descOutput = sideADetails + sideBDetails + sideCDetails;
                     }else if(index == 3){
-                        //uses the function to check inputs of side a, b, c, d
-                        validateInputValueEmpty($sideAinput);
-                        validateInputValueEmpty($sideBinput);
-                        validateInputValueEmpty($sideCinput);
-                        validateInputValueEmpty($sideDinput);
-                        //uses the function to check input ranges of side a, b, c, d
-                        validateInputValueRange($sideAinput);
-                        validateInputValueRange($sideBinput);
-                        validateInputValueRange($sideCinput);
-                        validateInputValueRange($sideDinput);
+                        //input validation for side a, b, c, d
+                        validateWHinputsBeforeSubmit($sideAinput);
+                        validateWHinputsBeforeSubmit($sideBinput);
+                        validateWHinputsBeforeSubmit($sideCinput);
+                        validateWHinputsBeforeSubmit($sideDinput);
                         //output description for side a, b, c, d
                         descOutput = sideADetails + sideBDetails + sideCDetails + sideDDetails;
                     }
                 }
             });
 
-            //checks if the array of emptyInputValues has any empty string, if there is an alert will happen and stop the form from submitting
-            if(jQuery.inArray("", emptyInputValues) !== -1){
+            //checks if the array of storeEmptyInputValues has any empty string, if there is an alert will happen and stop the form from submitting
+            if(jQuery.inArray("", storeEmptyInputValues) !== -1){
                 alert('Please Do not leave any input (feet/inches) fields empty.');
                 return false;
-            }else if(jQuery.inArray(false, badInputValue) !== -1){
+            }else if(jQuery.inArray(false, storeBadInputValueInBoolean) !== -1){
                 alert('Please enter number in between ' + minWidthHeight + " - " + maxWidthHeight + " for width and height!");
                 return false;
             }else{
