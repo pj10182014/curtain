@@ -160,7 +160,7 @@
             function validateInputValueRange(sideInputs){
                 sideInputs.each(function(){
                     var value = $(this).val();
-                    if((value > 20) || (value < 0)){
+                    if((value > maxWidthHeight) || (value < minWidthHeight) || (!($.isNumeric(value)))){
                         badInputValue.push(false);
                     }
                 })
@@ -225,7 +225,7 @@
                 alert('Please Do not leave any input (feet/inches) fields empty.');
                 return false;
             }else if(jQuery.inArray(false, badInputValue) !== -1){
-                alert('Please enter in range of ' + minWidthHeight + "-" + maxWidthHeight + " for width and height!");
+                alert('Please enter number in between ' + minWidthHeight + " - " + maxWidthHeight + " for width and height!");
                 return false;
             }else{
                 //outputs the descripts into the cart
@@ -964,7 +964,7 @@
         /*Function to validate all width height inch foot input fields*/
         function widthHeightInputValidation(inputWH){
             inputWH.on('keyup', function(){
-                if((inputWH.val() > maxWidthHeight) || (inputWH.val() < minWidthHeight)){
+                if((inputWH.val() > maxWidthHeight) || (inputWH.val() < minWidthHeight) || (!($.isNumeric(inputWH.val())))){
                     inputWH.css({"border":"1px solid red"});
                 }else{
                     inputWH.css({"border":"none"});
