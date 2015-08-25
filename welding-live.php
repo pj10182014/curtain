@@ -43,12 +43,12 @@
 </script>
 
 
-	<!-- ET -->
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="/css/welding.css">
-	<link rel="stylesheet" href="/css/font-awesome.min.css">
-	<!-- <script src="js/jquery.js"></script> -->
-	<!-- ET -->
+  <!-- ET -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/css/welding.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <!-- <script src="js/jquery.js"></script> -->
+  <!-- ET -->
 
 
 <link href="/scripts/tweet/jquery.tweet.css" media="all" rel="stylesheet" type="text/css"/>
@@ -110,60 +110,60 @@
     <div class="imrcmain0 imgl" style="width:877px;z-index:999999;position:relative;"><div class="imcm imde" id="imouter0"><ul id="imenus0">
 <li class="imatm"  style="width:162px;"><a href="/proCat/" style="border-color:#dfdfdf;border-style:solid;border-width:0px 1px 0px 0px;"><span class="imea imeam"><span></span></span>PRODUCT CATALOGUE</a>
 
-	<div class="imsc"><div class="imsubc" style="width:162px;top:0px;left:0px;"><ul style="">
+  <div class="imsc"><div class="imsubc" style="width:162px;top:0px;left:0px;"><ul style="">
     
     <li><a href="/proCat/stripDoors.php"><span class="imea imeas"><span></span></span>Strip Doors</a>
 
-		<div class="imsc"><div class="imsubc" style="width:160px;top:-29px;left:160px;"><ul style="">
-			<li><a href="/proCat/stripdoors/Stripdoorsonline.php">Custom Kit Configurator</a></li>
-			<li><a href="/proCat/stripDoors.php">All Mount Kits</a></li>
-		<li><a href="/proCat/stripDoors_loopMountKits.php">Loop Mount Kits</a></li>
-		<li><a href="/proCat/stripDoors_standOffMountKits.php">Stand Off Mount Kits</a></li>
-		<li><a href="/proCat/stripDoors_accordionMountKits.php">Accordion Mount Kits</a></li>
-		<li><a href="/proCat/stripDoors_slidingMountKits.php">Sliding Strip Kits</a></li>
-		<li><a href="/order/stripDoors_1.php?kit=yellow_amber">Yellow &amp; Amber Kits</a></li>
-		<li><a href="/order/stripDoors_1.php?kit=black_opaque">Black Opaque Kits</a></li>
-		<li class="dvs"><a href="/order/stripDoors_1.php?kit=anti_static">Anti Static Kits</a></li>
-		<li><a href="/proCat/img_stripDoors/stripDoorPics.php">Picture Gallery</a></li>
-		<li><a href="/testimonials.php">View Testimonials</a></li>
-		</ul></div></div></li>
+    <div class="imsc"><div class="imsubc" style="width:160px;top:-29px;left:160px;"><ul style="">
+      <li><a href="/proCat/stripdoors/Stripdoorsonline.php">Custom Kit Configurator</a></li>
+      <li><a href="/proCat/stripDoors.php">All Mount Kits</a></li>
+    <li><a href="/proCat/stripDoors_loopMountKits.php">Loop Mount Kits</a></li>
+    <li><a href="/proCat/stripDoors_standOffMountKits.php">Stand Off Mount Kits</a></li>
+    <li><a href="/proCat/stripDoors_accordionMountKits.php">Accordion Mount Kits</a></li>
+    <li><a href="/proCat/stripDoors_slidingMountKits.php">Sliding Strip Kits</a></li>
+    <li><a href="/order/stripDoors_1.php?kit=yellow_amber">Yellow &amp; Amber Kits</a></li>
+    <li><a href="/order/stripDoors_1.php?kit=black_opaque">Black Opaque Kits</a></li>
+    <li class="dvs"><a href="/order/stripDoors_1.php?kit=anti_static">Anti Static Kits</a></li>
+    <li><a href="/proCat/img_stripDoors/stripDoorPics.php">Picture Gallery</a></li>
+    <li><a href="/testimonials.php">View Testimonials</a></li>
+    </ul></div></div></li>
         
-	<li><a href="/proCat/replacementStrips.php">Replacement Strips</a></li>
-	<li><a href="/proCat/stripDoorHardware.php">PVC Strip Hardware</a></li>
-	<li><a href="/proCat/pvcStripEncl.php">PVC / Strip Enclosures</a></li>
-	<li><a href="/proCat/bulkPVCRolls.php">Bulk PVC Rolls</a></li>
-	<li><a href="/proCat/warehouseDividers.php">Warehouse Dividers</a></li>
-	<li><a href="/proCat/bodyShopStyleCur.php">Body Shop Style Curtains</a></li>
-	<li><a href="/proCat/awnings.php">Awnings</a></li>    
-    	<li><a href="/order/track_trolley_hardware.php">Track and Trolley Hardware</a></li>
-	<li><a href="/proCat/pvcSwingDoors.php">PVC Swing Doors</a>
+  <li><a href="/proCat/replacementStrips.php">Replacement Strips</a></li>
+  <li><a href="/proCat/stripDoorHardware.php">PVC Strip Hardware</a></li>
+  <li><a href="/proCat/pvcStripEncl.php">PVC / Strip Enclosures</a></li>
+  <li><a href="/proCat/bulkPVCRolls.php">Bulk PVC Rolls</a></li>
+  <li><a href="/proCat/warehouseDividers.php">Warehouse Dividers</a></li>
+  <li><a href="/proCat/bodyShopStyleCur.php">Body Shop Style Curtains</a></li>
+  <li><a href="/proCat/awnings.php">Awnings</a></li>    
+      <li><a href="/order/track_trolley_hardware.php">Track and Trolley Hardware</a></li>
+  <li><a href="/proCat/pvcSwingDoors.php">PVC Swing Doors</a>
     
     <div class="imsc"><div class="imsubc" style="width:160px;top:-29px;left:160px;"><ul style="">
-		<li><a href="/proCat/pvcSwingDoors.php">SC PVC Swing Doors</a></li>
-		<li><a href="/order/swingdoors-aluminum.php">SC Aluminum Swing Doors</a></li>
-		<li><a href="/order/swingdoors-flexible.php">SC Flexible Swing Doors</a></li>
-		<li><a href="/order/swingdoors-retailtraffic.php">SC Retail High Traffic Swing Doors</a></li>
-		<li><a href="/order/swingdoors-solidcore.php">SC Solid Core Swing Doors</a></li>
-		<li><a href="/order/swingdoors-econoclear.php">SC EconoClear Swing Doors</a></li>
-		</ul></div></div>  
+    <li><a href="/proCat/pvcSwingDoors.php">SC PVC Swing Doors</a></li>
+    <li><a href="/order/swingdoors-aluminum.php">SC Aluminum Swing Doors</a></li>
+    <li><a href="/order/swingdoors-flexible.php">SC Flexible Swing Doors</a></li>
+    <li><a href="/order/swingdoors-retailtraffic.php">SC Retail High Traffic Swing Doors</a></li>
+    <li><a href="/order/swingdoors-solidcore.php">SC Solid Core Swing Doors</a></li>
+    <li><a href="/order/swingdoors-econoclear.php">SC EconoClear Swing Doors</a></li>
+    </ul></div></div>  
     </li>
 
-	<li><a href="/proCat/pvcSlidingWindows.php">PVC Sliding Windows </a></li>
-	<li><a href="/proCat/pvcHighSpeedDoors.php">PVC High Speed Doors</a></li>
-	<li><a href="/proCat/pvcMeshDoors.php">PVC Mesh Door </a></li>
-	<li><a href="/proCat/dockSealsAccess.php">Dock Seals &amp; Accessories </a></li>
-	<li><a href="/proCat/airCurtains.php">Air Curtains</a></li>
-	</ul></div></div></li>
+  <li><a href="/proCat/pvcSlidingWindows.php">PVC Sliding Windows </a></li>
+  <li><a href="/proCat/pvcHighSpeedDoors.php">PVC High Speed Doors</a></li>
+  <li><a href="/proCat/pvcMeshDoors.php">PVC Mesh Door </a></li>
+  <li><a href="/proCat/dockSealsAccess.php">Dock Seals &amp; Accessories </a></li>
+  <li><a href="/proCat/airCurtains.php">Air Curtains</a></li>
+  </ul></div></div></li>
 
 
 <li class="imatm"  style="width:145px;"><a href="/requestQuote/" style="border-color:#dfdfdf;border-style:solid;border-width:0px 1px 0px 0px;">REQUEST QUOTE</a></li>
 <li class="imatm"  style="width:145px;"><a class="" href="/resources/" style="border-color:#dfdfdf;border-style:solid;border-width:0px 1px 0px 0px;"><span class="imea imeam"><span></span></span>DOWNLOADS</a>
 
-	<div class="imsc"><div class="imsubc" style="width:145px;top:-1px;left:0px;"><ul style="">
-	<li><a href="/resources/">Instructions &amp; Applications</a></li>
-	<li><a href="/resources/">Order Forms</a></li>
-	<li><a href="/resources/">MSDS Sheets</a></li>
-	</ul></div></div></li>
+  <div class="imsc"><div class="imsubc" style="width:145px;top:-1px;left:0px;"><ul style="">
+  <li><a href="/resources/">Instructions &amp; Applications</a></li>
+  <li><a href="/resources/">Order Forms</a></li>
+  <li><a href="/resources/">MSDS Sheets</a></li>
+  </ul></div></div></li>
 
 
 <li class="imatm"  style="width:101px;"><a href="/promos/" style="border-color:#dfdfdf;border-style:solid;border-width:0px 1px 0px 0px;">PROMOTIONS</a></li>
@@ -171,18 +171,18 @@
 
 <div class="imsc"><div class="imsubc" style="width:145px;top:-1px;left:0px;"><ul style="">
 <li><a href="/about/product-portfolio.php">Product Portfolio</a></li>
-	</ul></div></div>		
+  </ul></div></div>   
 </li>
 <li class="imatm"  style="width:125px;"><a class="" href="/contact/"><span class="imea imeam"><span></span></span>CONTACT US</a>
 
-	<div class="imsc"><div class="imsubc" style="width:125px;top:;left:;"><ul style="">
-	<li><a href="/contact/">Contact Inquiry</a></li>
-	<li><a href="/requestQuote/">Request for Quote</a></li>
-	<li><a href="/shipping.php">Shipping Info</a></li>
-	<li><a href="/track_orders.php">Track Your Orders</a></li>
-	<li><a href="/services.php">Services &amp; Installation</a></li>
-	<li><a href="/salesTerms.php">Sales Terms</a></li>
-	</ul></div></div></li>
+  <div class="imsc"><div class="imsubc" style="width:125px;top:;left:;"><ul style="">
+  <li><a href="/contact/">Contact Inquiry</a></li>
+  <li><a href="/requestQuote/">Request for Quote</a></li>
+  <li><a href="/shipping.php">Shipping Info</a></li>
+  <li><a href="/track_orders.php">Track Your Orders</a></li>
+  <li><a href="/services.php">Services &amp; Installation</a></li>
+  <li><a href="/salesTerms.php">Sales Terms</a></li>
+  </ul></div></div></li>
 </ul><div class="imclear">&nbsp;</div></div></div>    <!--  ****** Menus Scripted Settings (Hybrid Version) ****** --> 
     <script language="JavaScript" type="text/javascript" src="/scripts/menu.js"></script> 
   </div>
@@ -212,8 +212,8 @@
 $(".jCarouselLite").jCarouselLite({
     btnNext: ".next",
     btnPrev: ".prev",
-	visible: 6,
-	easing: "backout"
+  visible: 6,
+  easing: "backout"
 });
 </script>
 
@@ -225,14 +225,14 @@ $(".jCarouselLite").jCarouselLite({
     var getSideText = null;  //Get the text of the side chosen e.g. single curtain, 2-sided station
 
     function getHowManySides(){
-    	/*Get the text of how many side chosen*/
+      /*Get the text of how many side chosen*/
         $('.chooseSides p').each(function(){
            var sideChosen = $(this).hasClass('checkMark');
             if(sideChosen){
                 getSideText = $(this).text();
             }
-       	});
-       	return "*" + getSideText + "*";
+        });
+        return "*" + getSideText + "*";
     }
 
     /*Gets all the inputs for one side*/
@@ -249,7 +249,7 @@ $(".jCarouselLite").jCarouselLite({
         return inputs;
     }
 
-    //Arrays to check if color chosen is semi or coated
+    //Arrays to check if color chosen is semi or coated *NOT USED YET*
     var semiArrayA = [];
     var coatedArrayA = [];
     var semiArrayB = [];
@@ -289,56 +289,70 @@ $(".jCarouselLite").jCarouselLite({
 
     /*Outputs: width (0 feet 0 inches) height (0 feet 0 inches)*/
     function printInputs(side, sideInput){
-    	return (". " + side + " - " + " width: ("+ sideInput[0] + " feet " + sideInput[1] + " inches). height: (" + sideInput[2] + " feet " + sideInput[3] + " inches) ");
+      return (". " + side + " - " + " width: ("+ sideInput[0] + " feet " + sideInput[1] + " inches). height: (" + sideInput[2] + " feet " + sideInput[3] + " inches) ");
     }
 
     /*Outputs: Color-1: red. Color-2: yellow. Color-3: None Chosen*/
     function printColorValues(colorArrayValue){
-    	return "Color-1: " + colorArrayValue[0] + ". Color-2: " + colorArrayValue[1] + ". Color-3: " +colorArrayValue[2];
+      return "Color-1: " + colorArrayValue[0] + ". Color-2: " + colorArrayValue[1] + ". Color-3: " +colorArrayValue[2];
     }
 
-    /*Outputs: */
+    /*Outputs: Mount: No Mounts or the mount's name*/
     function printMountValue(index){
-		return ". Mount: " + mountArray[index];
+    return ". Mount: " + mountArray[index];
     }
 
+    /*Combines all three prints, printInputs, printColorValues and printMountValue into one function and output it*/
     function printOneSideDetails(side, sideInput, colorArrayValue, index){
-    	return printInputs(side,sideInput) + printColorValues(colorArrayValue) + printMountValue(index);
+      return printInputs(side,sideInput) + printColorValues(colorArrayValue) + printMountValue(index);
     }
 
-	function addDesc(desc) {
-       	/*Get the inputs of each side and store them into an array variable*/
-	    var inputsA = getInputsForOneSide($('.dimensions-side-a input'));
-	    var inputsB = getInputsForOneSide($('.dimensions-side-b input'));
-	    var inputsC = getInputsForOneSide($('.dimensions-side-c input'));
-	    var inputsD = getInputsForOneSide($('.dimensions-side-d input'));
+    function addDesc(desc) {
+          /*Get the inputs of each side and store them into an array variable*/
+        var inputsA = getInputsForOneSide($('.dimensions-side-a input'));
+        var inputsB = getInputsForOneSide($('.dimensions-side-b input'));
+        var inputsC = getInputsForOneSide($('.dimensions-side-c input'));
+        var inputsD = getInputsForOneSide($('.dimensions-side-d input'));
 
-		//Get the value of the background color
-	    var bgArrayA = [];
-	    var bgArrayB = [];
-	    var bgArrayC = [];
-	    var bgArrayD = [];
+      //Get the value of the background color
+        var bgArrayA = [];
+        var bgArrayB = [];
+        var bgArrayC = [];
+        var bgArrayD = [];
 
-		/*Get the value of the color field selected*/
-	    getColorFieldValues($('.number-of-color-field .sideA'),semiArrayA, coatedArrayA, bgArrayA);
-	    getColorFieldValues($('.number-of-color-field .sideB'),semiArrayB, coatedArrayB, bgArrayB);
-	    getColorFieldValues($('.number-of-color-field .sideC'),semiArrayC, coatedArrayC, bgArrayC);
-	    getColorFieldValues($('.number-of-color-field .sideD'),semiArrayD, coatedArrayD, bgArrayD);
+      /*Get the value of the color field selected*/
+        getColorFieldValues($('.number-of-color-field .sideA'),semiArrayA, coatedArrayA, bgArrayA);
+        getColorFieldValues($('.number-of-color-field .sideB'),semiArrayB, coatedArrayB, bgArrayB);
+        getColorFieldValues($('.number-of-color-field .sideC'),semiArrayC, coatedArrayC, bgArrayC);
+        getColorFieldValues($('.number-of-color-field .sideD'),semiArrayD, coatedArrayD, bgArrayD);
 
-	    /*Pushes the value of the mount stored into the mountArray array variable*/
-	    $('.select-mounts').each(function(){
-	        var myClass = $(this).attr('class');
-	        var splitClass = myClass.split(" ");
-	        var mountSideClass = ("."+splitClass[1]);
+        /*Pushes the value of the mount stored into the mountArray array variable*/
+        $('.select-mounts').each(function(){
+            var myClass = $(this).attr('class');
+            var splitClass = myClass.split(" ");
+            var mountSideClass = ("."+splitClass[1]);
 
-	        mountArray.push($(mountSideClass).val());
-	    });
+            mountArray.push($(mountSideClass).val());
+        });
 
-       	document.ordering.item_name.value = getHowManySides() + printOneSideDetails('SideA', inputsA, bgArrayA, 0) + 
-       															printOneSideDetails('SideB', inputsB, bgArrayB, 1) + 
-       															printOneSideDetails('SideC', inputsC, bgArrayC, 2) + 
-       															printOneSideDetails('SideD', inputsD, bgArrayD, 3);
-	}
+        var sideADetails = printOneSideDetails('SideA', inputsA, bgArrayA, 0);
+        var sideBDetails = printOneSideDetails('SideB', inputsB, bgArrayB, 1);
+        var sideCDetails = printOneSideDetails('SideC', inputsC, bgArrayC, 2);
+        var sideDDetails = printOneSideDetails('SideD', inputsD, bgArrayD, 3);
+        var descOutput = null;
+
+        if(getHowManySides().indexOf('S') == 1){
+          descOutput = sideADetails;
+        }else if(getHowManySides().indexOf('2') == 1){
+          descOutput = sideADetails + sideBDetails;
+        }else if(getHowManySides().indexOf('3') == 1){
+          descOutput = sideADetails + sideBDetails + sideCDetails;
+        }else if(getHowManySides().indexOf('4') == 1){
+          descOutput = sideADetails + sideBDetails + sideCDetails + sideDDetails;
+        }
+
+        document.ordering.item_name.value = getHowManySides() +  descOutput;
+    }
 </script>
 
 <div id="main">
@@ -577,7 +591,7 @@ $(".jCarouselLite").jCarouselLite({
                           <div class="help-header">Choose Track & Trolley Kit</div>
                           <div class="help">Help<span class="fa fa-question-circle"></span></div>
                           <div class="help-notes">
-                          	Determine how the curtain will be hung. Will the curtains be suspended? Or will they be attached on a track directly to the ceiling....or will you be mounting to a truss or I-beam (ceiling connectors allow for direct attachment to the ceiling, beam clamp connectors allow for I-beam attachment or truss attachment and wall mount connector allow for the curtain to be attached to a wall. When suspending a curtain threaded rod or chain link connectors are the most common. Radius Connectors allow for the curtain to slide around corners.... ')<hr>
+                            Determine how the curtain will be hung. Will the curtains be suspended? Or will they be attached on a track directly to the ceiling....or will you be mounting to a truss or I-beam (ceiling connectors allow for direct attachment to the ceiling, beam clamp connectors allow for I-beam attachment or truss attachment and wall mount connector allow for the curtain to be attached to a wall. When suspending a curtain threaded rod or chain link connectors are the most common. Radius Connectors allow for the curtain to slide around corners.... ')<hr>
                               <!-- Image showing the different mounts-->
                               <div class="mount-names">
                                   <img class="mount-image" src="/images/mounts.svg" alt="4 different mount options">
@@ -656,12 +670,12 @@ $(".jCarouselLite").jCarouselLite({
           <!-- <button type="submit" class="add-to-cart">Add to Cart <span class="fa fa-cart-plus"></span></button> -->
         <!-- <input type="hidden" name="descOption" value="Holes on 2 in. centred"/> -->
         <input class="amount" type="hidden" name="amount" value="0" />
-		<input type="hidden" name="item_name" value="stript-curtain" />
+    <input type="hidden" name="item_name" value="stript-curtain" />
         <!-- <input type="hidden" name="refer" value="replacementStrips.php" /> -->
         <input type="hidden" name="sku" value="UWD-random SKU" />
         <!-- <input type='hidden' name='unit' value='2' /> -->
         <input type="hidden" name="weight" value="" />
-		<input type="hidden" name="action" id="action" value="add" /> 
+    <input type="hidden" name="action" id="action" value="add" /> 
         <!-- <input type='submit' name='submit' class="add-to-cart" border='0' alt='Add this product to your shopping cart now.' value="Add To Cart"/><span class="fa fa-cart-plus"></span> -->
         <button type="submit" class="add-to-cart" alt='Add this product to your shopping cart now.'>Add to Cart <span class="fa fa-cart-plus"></span></button>
       </form>
@@ -750,8 +764,8 @@ $(".jCarouselLite").jCarouselLite({
 <a href="/">Home</a> |  <a href="/proCat/">Product Catalogue</a>  |  <a href="/requestQuote/">Request Quote</a>  |  <a href="/resources/">Downloads</a>  |  <a href="/promos/">Promotions</a>  |  <a href="/about/">About Strip-Curtains.com</a>  |  <a href="/contact/">Contact Us</a><br />
 <a href="/privacy.php">Privacy Policy</a>  |  <a href="/shipping.php">Shipping</a>  | <a href="/track_orders.php">Track Your Orders</a>  | <a href="/salesTerms.php">Sales Terms</a>  |  <a href="/services.php">Services & Installations</a> | <a href="/resources/links.php">Resources &amp; Links</a></div>
 <div class="copyright_bar">
-	<a href="http://www.facebook.com/media/albums/?id=163047307067032" target="_blank" class="link_facebook"><strong>Find Strip Curtains on Facebook</strong></a>&nbsp;&nbsp;<a href="http://www.twitter.com/stripdoor" target="_blank" class="link_twitter"><strong>Follow Strip Doors on Twitter</strong></a>&nbsp;&nbsp;<a href="http://pinterest.com/jeffsecord/" target="_blank" class="link_pinterest"><strong>Find Strip Curtains on Pinterest</strong></a><br />
-	Copyright &copy; 2005-2015. <a href="http://www.Strip-Curtains.com">Strip-Curtains.com</a>. All Rights Reserved.</div>
+  <a href="http://www.facebook.com/media/albums/?id=163047307067032" target="_blank" class="link_facebook"><strong>Find Strip Curtains on Facebook</strong></a>&nbsp;&nbsp;<a href="http://www.twitter.com/stripdoor" target="_blank" class="link_twitter"><strong>Follow Strip Doors on Twitter</strong></a>&nbsp;&nbsp;<a href="http://pinterest.com/jeffsecord/" target="_blank" class="link_pinterest"><strong>Find Strip Curtains on Pinterest</strong></a><br />
+  Copyright &copy; 2005-2015. <a href="http://www.Strip-Curtains.com">Strip-Curtains.com</a>. All Rights Reserved.</div>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -768,7 +782,7 @@ pageTracker._trackPageview();
 <!--<script src="js/scripts.js"></script>-->
 <script src="/scripts/jquery-min-1.11.3.js"></script>
 <script type="text/javascript" language="javascript">
-	$(document).ready(function(){
+  $(document).ready(function(){
     var resetValueToZero = 0;
     var maxWidthHeight = 20;
     var minWidthHeight = 0;
@@ -891,7 +905,7 @@ pageTracker._trackPageview();
 
     //Start making the clicks to work when selecting different side of curtains
     $(singleSide).on('click', function(e){
-    	e.preventDefault();
+      e.preventDefault();
         var attrDisabled = $(this).attr('disabled');
 
         if(attrDisabled == 'disabled'){
@@ -921,7 +935,7 @@ pageTracker._trackPageview();
         }
     });
     $(twoSides).on('click', function(e){
-    	e.preventDefault();
+      e.preventDefault();
         var attrDisabled = $(this).attr('disabled');
 
         if(attrDisabled == 'disabled'){
@@ -949,7 +963,7 @@ pageTracker._trackPageview();
         }
     });
     $(threeSides).on('click', function(e){
-    	e.preventDefault();
+      e.preventDefault();
         var attrDisabled = $(this).attr('disabled');
 
         if(attrDisabled == 'disabled'){
@@ -975,7 +989,7 @@ pageTracker._trackPageview();
         }
     });
     $(fourSided).on('click', function(e){
-    	e.preventDefault();
+      e.preventDefault();
         var attrDisabled = $(this).attr('disabled');
 
         if(attrDisabled == 'disabled'){
