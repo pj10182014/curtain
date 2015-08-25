@@ -146,36 +146,57 @@
             var sideDDetails = printOneSideDetails('SideD', inputsD, bgArrayD, 3);
             var descOutput = null;
 
-            var checkEmpty = [];
-            /*determine how many sides are chosen, then decide the sides of description to output in the cart section*/
+            var checkEmpty = [];  //use to store inputs of width / height
+
+            /*Checks if the value of the input is empty, if it is empty then it is false and it'll be stored in the checkEmpty array*/
+            function checkEmptyInputs(sideInputs){
+                sideInputs.each(function(){
+                    if(!$(this).val()){
+                        checkEmpty.push($(this).val());
+                    }
+                })
+            }
+
+            /*determine how many sides are chosen, then decide the sides of description to output in the cart section also checks if width/height input fields are empty*/
             $('.chooseSides').each(function(index){
                 var attr = $(this).attr('disabled');
                 if(attr != 'disabled'){
                     if(index == 0){
-
-                        $('.dimensions-side-a input').each(function(){
-                            if(!$(this).val()){
-                                checkEmpty.push($(this).val());
-                            }
-                        })
-                        console.log(checkEmpty);
+                        //uses the function to check inputs of side a
+                        checkEmptyInputs($('.dimensions-side-a input'));
+                        //output description for side a
                         descOutput = sideADetails;
                     }else if(index == 1){
+                        //uses the function to check inputs of side a, b
+                        checkEmptyInputs($('.dimensions-side-a input'));
+                        checkEmptyInputs($('.dimensions-side-b input'));
+                        //output description for side a, b
                         descOutput = sideADetails + sideBDetails;
                     }else if(index == 2){
+                        //uses the function to check inputs of side a, b, c
+                        checkEmptyInputs($('.dimensions-side-a input'));
+                        checkEmptyInputs($('.dimensions-side-b input'));
+                        checkEmptyInputs($('.dimensions-side-c input'));
+                        //output description for side a, b, c
                         descOutput = sideADetails + sideBDetails + sideCDetails;
                     }else if(index == 3){
+                        //uses the function to check inputs of side a, b, c, d
+                        checkEmptyInputs($('.dimensions-side-a input'));
+                        checkEmptyInputs($('.dimensions-side-b input'));
+                        checkEmptyInputs($('.dimensions-side-c input'));
+                        checkEmptyInputs($('.dimensions-side-d input'));
+                        //output description for side a, b, c, d
                         descOutput = sideADetails + sideBDetails + sideCDetails + sideDDetails;
                     }
                 }
             });
 
+            //checks if the array of checkEmpty has any empty string, if there is an alert will happen and stop the form from submitting
             if(jQuery.inArray("", checkEmpty) !== -1){
-                alert('Please Do not leave any input fields empty.');
+                alert('Please Do not leave any input (feet/inches) fields empty.');
                 return false;
             }else{
                 //outputs the descripts into the cart
-                console.log('done');
                 document.ordering.item_name.value = getHowManySides() +  descOutput;
             }
 
