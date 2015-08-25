@@ -59,7 +59,7 @@ var_dump($_SESSION);
 
     <!-- -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="./uwd_style.css">
+    <link rel="stylesheet" type="text/css" href="css/uwd_style.css">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- -->
 <script language="javascript" type="text/javascript" src="./welding_files/quotator.js"></script>
