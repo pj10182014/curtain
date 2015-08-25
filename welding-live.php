@@ -146,54 +146,86 @@
             var sideDDetails = printOneSideDetails('SideD', inputsD, bgArrayD, 3);
             var descOutput = null;
 
-            var checkEmpty = [];  //use to store inputs of width / height
-
-            /*Checks if the value of the input is empty, if it is empty then it is false and it'll be stored in the checkEmpty array*/
-            function checkEmptyInputs(sideInputs){
+            var emptyInputValues = [];  //use to store inputs of width / height
+            /*Checks if the value of the input is empty, if it is empty then it is false and it'll be stored in the emptyInputValues array*/
+            function validateInputValueEmpty(sideInputs){
                 sideInputs.each(function(){
                     if(!$(this).val()){
-                        checkEmpty.push($(this).val());
+                        emptyInputValues.push($(this).val());
                     }
                 })
             }
 
+            var badInputValue = [];
+            function validateInputValueRange(sideInputs){
+                sideInputs.each(function(){
+                    var value = $(this).val();
+                    if((value > 20) || (value < 0)){
+                        badInputValue.push(false);
+                    }
+                })
+            }
+
+
             /*determine how many sides are chosen, then decide the sides of description to output in the cart section also checks if width/height input fields are empty*/
             $('.chooseSides').each(function(index){
+                var $sideAinput = $('.dimensions-side-a input');
+                var $sideBinput = $('.dimensions-side-b input');
+                var $sideCinput = $('.dimensions-side-c input');
+                var $sideDinput = $('.dimensions-side-d input');
+
                 var attr = $(this).attr('disabled');
                 if(attr != 'disabled'){
                     if(index == 0){
-                        //uses the function to check inputs of side a
-                        checkEmptyInputs($('.dimensions-side-a input'));
+                        //uses the function to check empty inputs of side a
+                        validateInputValueEmpty($sideAinput);
+                        //uses the function to check input ranges of side a
+                        validateInputValueRange($sideAinput);
                         //output description for side a
                         descOutput = sideADetails;
                     }else if(index == 1){
                         //uses the function to check inputs of side a, b
-                        checkEmptyInputs($('.dimensions-side-a input'));
-                        checkEmptyInputs($('.dimensions-side-b input'));
+                        validateInputValueEmpty($sideAinput);
+                        validateInputValueEmpty($sideBinput);
+                        //uses the function to check input ranges of side a, b
+                        validateInputValueRange($sideAinput);
+                        validateInputValueRange($sideBinput);
                         //output description for side a, b
                         descOutput = sideADetails + sideBDetails;
                     }else if(index == 2){
                         //uses the function to check inputs of side a, b, c
-                        checkEmptyInputs($('.dimensions-side-a input'));
-                        checkEmptyInputs($('.dimensions-side-b input'));
-                        checkEmptyInputs($('.dimensions-side-c input'));
+                        validateInputValueEmpty($sideAinput);
+                        validateInputValueEmpty($sideBinput);
+                        validateInputValueEmpty($sideCinput);
+                        //uses the function to check input ranges of side a, b, c
+                        validateInputValueRange($sideAinput);
+                        validateInputValueRange($sideBinput);
+                        validateInputValueRange($sideCinput);
                         //output description for side a, b, c
                         descOutput = sideADetails + sideBDetails + sideCDetails;
                     }else if(index == 3){
                         //uses the function to check inputs of side a, b, c, d
-                        checkEmptyInputs($('.dimensions-side-a input'));
-                        checkEmptyInputs($('.dimensions-side-b input'));
-                        checkEmptyInputs($('.dimensions-side-c input'));
-                        checkEmptyInputs($('.dimensions-side-d input'));
+                        validateInputValueEmpty($sideAinput);
+                        validateInputValueEmpty($sideBinput);
+                        validateInputValueEmpty($sideCinput);
+                        validateInputValueEmpty($sideDinput);
+                        //uses the function to check input ranges of side a, b, c, d
+                        validateInputValueRange($sideAinput);
+                        validateInputValueRange($sideBinput);
+                        validateInputValueRange($sideCinput);
+                        validateInputValueRange($sideDinput);
                         //output description for side a, b, c, d
                         descOutput = sideADetails + sideBDetails + sideCDetails + sideDDetails;
                     }
                 }
             });
 
-            //checks if the array of checkEmpty has any empty string, if there is an alert will happen and stop the form from submitting
-            if(jQuery.inArray("", checkEmpty) !== -1){
+            //checks if the array of emptyInputValues has any empty string, if there is an alert will happen and stop the form from submitting
+            if(jQuery.inArray("", emptyInputValues) !== -1){
                 alert('Please Do not leave any input (feet/inches) fields empty.');
+                return false;
+            }else if(jQuery.inArray(false, badInputValue) !== -1){
+                alert('Please enter in range of ' + minWidthHeight + "-" + maxWidthHeight + " for width and height!");
                 return false;
             }else{
                 //outputs the descripts into the cart
