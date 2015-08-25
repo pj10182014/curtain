@@ -42,7 +42,7 @@ div#product-summary{font-family: 'roboto'; height: 185px; width: 185px; backgrou
         .mount-side-a, .mount-side-b, .mount-side-c, .mount-side-d{float: left; width:165px; border-right: 1px dashed lightgray;}
         .dimensions-side-b, .dimensions-side-c, .dimensions-side-d,
         .mount-side-b, .mount-side-c, .mount-side-d{padding-left: 10px;}
-        .dimensions-side-d,
+        .dimensions-side-d{border-right: none;}
 
         /*Css for all step 1 - curtain selection*/
         .single-side, .two-sided, .three-sided, .four-sided{float: left;}

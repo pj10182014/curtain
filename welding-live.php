@@ -1,47 +1,7 @@
+<?php require($_SERVER['DOCUMENT_ROOT'].'/order/functions/session.php');?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0058)http://www.strip-curtains.com/proCat/replacementStrips.php -->
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Replacement strips, PVC strips, pvc strips, PVC, semi-transparent, pvc replacement, PVC replacement, loop style, velcro, grommets, strip-curtains.com</title>
-<meta name="description" content="strip-curtains.com offer a variety of pvc replacement strips in various common lengths and widths. Common Grades of pvc strips include standard and low temperature, amber weld and ribbed, safety orange and opaque amongst many more. Strips are commonly punched with holes at 2� centers. Other punch styles are also available and include loop style, Velcro, grommets among others."> 
-<meta name="keywords" content="replacement strips, PVC strips, pvc strips, PVC, semi-transparent, pvc replacement, PVC replacement, loop style, velcro, grommets, strip-curtains.com strip-curtains, envirobarrier.com"> 
-<meta name="distribution" content="Global">
-<meta name="rating" content="General">
-<meta name="language" content="en-us">
-<meta name="Robots" content="ALL">
-<style type="text/css"></style>
-
-<link rel="icon" href="/favicon.ico?v=v2" type="image/x-icon" /> 
-
-<script language="javascript" src="/scripts/siteScript.js" type="text/javascript"></script>
-<script src="/scripts/jquery.min.js" type="text/javascript"></script>
-<script language="javascript" type="text/javascript" src="/scripts/jcarousellite_1.0.1.js"></script>
-<script language="javascript" type="text/javascript" src="/scripts/jquery.easing.1.1.js"></script>
-
-<link rel="stylesheet" type="text/css" href="/css/site_style.css">
-<link rel="stylesheet" type="text/css" href="/css/boxes.css">
-<link rel="stylesheet" type="text/css" href="/css/buttons.css">
-<link rel="stylesheet" type="text/css" href="/css/carousel.css">
-
-<script language="javascript" type="text/javascript" src="/scripts/quotator/quotator.js"></script>
-<script language="javascript" src="/scripts/tweet/jquery.tweet.js" type="text/javascript"></script>
-
-<script type='text/javascript'>
-    $(document).ready(function(){
-        $(".tweet").tweet({
-            username: "stripdoor",
-            join_text: "auto",
-            avatar_size: 32,
-            count: 2,
-            auto_join_text_default: "we said,", 
-            auto_join_text_ed: "we",
-            auto_join_text_ing: "we were",
-            auto_join_text_reply: "we replied to",
-            auto_join_text_url: "we were checking out",
-            loading_text: "loading tweets..."
-        });
-    });
-</script>
-
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 
   <!-- ET -->
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
@@ -50,312 +10,157 @@
   <!-- <script src="js/jquery.js"></script> -->
   <!-- ET -->
 
+<title>Design Your Industrial Body Shop Curtains in 3 Easy Steps! - Strip-Curtains.com</title>
 
-<link href="/scripts/tweet/jquery.tweet.css" media="all" rel="stylesheet" type="text/css"/>
-<link href="/css/mobile.css" media="screen and (max-device-width: 480px)" rel="stylesheet" type="text/css"/>
-<!--[if gte IE 9]> 
-    <link type="text/css" rel="stylesheet" href="/css/ie9+.css" /> 
-<![endif]-->
+<?php require("../_inc/head_html.php"); ?>
 <style type="text/css">
 <!--
 .style1 {color: #FF3333}
 -->
 </style>
-</head>
-
-<body>
-<div id="header">
-  <div class="logo_pane"><a href="/"><img src="/images/logo.gif" border="0" alt="Strip-Curtains.com Premier Distributor of Roll Stock and Manufacturer of Custom Strip Curtains." title="Strip-Curtains.com Premier Distributor of Roll Stock and Manufacturer of Custom Strip Curtains." /></a><br />
-    <strong>Strip Doors and Strip Curtains Premier Manufacturer and Distributor</strong> </div>
-  <div class="util_pane_right">
-    <table class="cart-table">
-      <tr>
-        <td colspan="2" valign="bottom" class="toll-free">Toll Free: 1-877-270-3311</td>
-        <td class="cart-info">                   
-          <a href="/order/order-cart.php"><img src="/images/icon-cart.png" alt="Your Cart" style="vertical-align:middle;" border="0"></a>&nbsp;<span class="item-num"><a href="/order/order-cart.php">
-          0 
-          item(s)</a></span>
-                   </td>
-      </tr>
-      <tr>
-        <td width="25%" valign="bottom"><img src="/images/icon_visa.gif" /></td>
-        <td width="40%" valign="bottom"><strong><script language="JavaScript" type="text/javascript" src="/scripts/date.js"></script></strong><br />
-          <div><a href="/contact/" class="link_contact">Contact Us</a> <a href="/" class="link_home">Home</a></div></td>
-        <td width="35%" valign="bottom"><div id="currency_select"><a href="/order/load_prices.php?p=usd&page=http://www.strip-curtains.com/proCat/bodyShopStyleCur.php" class="link_usd" id="link_usd">USA</a>
-            <a href="/order/load_prices.php?p=cad&page=http://www.strip-curtains.com/proCat/bodyShopStyleCur.php" class="link_world_off" id="link_world">Int'l</a> 
-            <div style="padding-top:10px;">
-              <a href="http://www.facebook.com/media/albums/?id=163047307067032" target="_blank" title="Find Strip-Curtains.com on Facebook"><img src="/images/icon-facebook.png" alt="Find Strip-Curtains.com on Facebook"></a>
-              <a href="http://www.twitter.com/stripdoor" target="_blank" title="Follow Strip-Curtains.com on Twitter"><img src="/images/icon-twitter.png" alt="Follow Strip-Curtains.com on Twitter"></a> 
-               <a href="http://www.linkedin.com/company/panamerica-trade-dba-strip-curtains-com" target="_blank" title="Follow Strip-Curtains.com on LinkedIn"><img src="/images/icon-linkedin.png" alt="Follow Strip-Curtains.com on LinkedIn"></a>
-              <a href="http://pinterest.com/jeffsecord/" target="_blank" title="Follow Strip-Curtains.com on Pinterest"><img src="/images/icon-pinterest.png" alt="Follow Strip-Curtains.com on Pinterest"></a>
-            </div>
-             </div></td>
-      </tr>
-    </table>
-  </div>
-  <br clear="all" />
-</div>
-<div id="menu_bar" align="center">
-  <div align="center"> 
-    <!--|**START IMENUS**|imenus0,inline--> 
-    <!-- ****** Infinite Menus Core CSS [Do Not Modify!] ****** -->
-    <style type="text/css">
-.imcm ul,.imcm li,.imcm div,.imcm span,.imcm a{text-align:left;vertical-align:top;padding:0px;margin:0;list-style:none outside none;border-style:none;background-image:none;clear:none;float:none;display:block;position:static;overflow:visible;line-height:normal;}.imcm li a img{display:inline;border-width:0px;}.imcm span{display:inline;}.imcm .imclear,.imclear{clear:both;height:0px;visibility:hidden;line-height:0px;font-size:1px;}.imcm .imsc{position:relative;}.imcm .imsubc{position:absolute;visibility:hidden;}.imcm li{list-style:none;font-size:1px;float:left;}.imcm ul ul li{width:100%;float:none !important;}.imcm a{display:block;position:relative;}.imcm ul .imsc,.imcm ul .imsubc {z-index:10;}.imcm ul ul .imsc,.imcm ul ul .imsubc{z-index:20;}.imcm ul ul ul .imsc,.imcm ul ul ul .imsubc{z-index:30;}.imde ul li:hover .imsubc{visibility:visible;}.imde ul ul li:hover  .imsubc{visibility:visible;}.imde ul ul ul li:hover  .imsubc{visibility:visible;}.imde li:hover ul  .imsubc{visibility:hidden;}.imde li:hover ul ul .imsubc{visibility:hidden;}.imde li:hover ul ul ul  .imsubc{visibility:hidden;}.imcm .imea{display:block;position:relative;left:0px;font-size:1px;line-height:1px;height:0px;width:1px;float:right;}.imcm .imea span{display:block;position:relative;font-size:1px;line-height:0px;}.dvs,.dvm{border-width:0px}/*\*//*/.imcm .imea{visibility:hidden;}/**/
-</style>
-    <!--[if IE]><style type="text/css">.imcm .imea span{position:absolute;}.imcm .imclear,.imclear{display:none;}.imcm{zoom:1;} .imcm li{curosr:hand;} .imcm ul{zoom:1}.imcm a{zoom:1;}</style><![endif]--> 
-    <!--[if gte IE 7]><style type="text/css">.imcm .imsubc{background-image:url(ie_css_fix);}</style><![endif]--> 
-    <!-- ****** Menus CSS Styles ****** -->
-    <link rel="stylesheet" type="text/css" href="/css/menu.css">
-    <!--  ****** Menus Structure & Links ***** -->
-    <div class="imrcmain0 imgl" style="width:877px;z-index:999999;position:relative;"><div class="imcm imde" id="imouter0"><ul id="imenus0">
-<li class="imatm"  style="width:162px;"><a href="/proCat/" style="border-color:#dfdfdf;border-style:solid;border-width:0px 1px 0px 0px;"><span class="imea imeam"><span></span></span>PRODUCT CATALOGUE</a>
-
-  <div class="imsc"><div class="imsubc" style="width:162px;top:0px;left:0px;"><ul style="">
-    
-    <li><a href="/proCat/stripDoors.php"><span class="imea imeas"><span></span></span>Strip Doors</a>
-
-    <div class="imsc"><div class="imsubc" style="width:160px;top:-29px;left:160px;"><ul style="">
-      <li><a href="/proCat/stripdoors/Stripdoorsonline.php">Custom Kit Configurator</a></li>
-      <li><a href="/proCat/stripDoors.php">All Mount Kits</a></li>
-    <li><a href="/proCat/stripDoors_loopMountKits.php">Loop Mount Kits</a></li>
-    <li><a href="/proCat/stripDoors_standOffMountKits.php">Stand Off Mount Kits</a></li>
-    <li><a href="/proCat/stripDoors_accordionMountKits.php">Accordion Mount Kits</a></li>
-    <li><a href="/proCat/stripDoors_slidingMountKits.php">Sliding Strip Kits</a></li>
-    <li><a href="/order/stripDoors_1.php?kit=yellow_amber">Yellow &amp; Amber Kits</a></li>
-    <li><a href="/order/stripDoors_1.php?kit=black_opaque">Black Opaque Kits</a></li>
-    <li class="dvs"><a href="/order/stripDoors_1.php?kit=anti_static">Anti Static Kits</a></li>
-    <li><a href="/proCat/img_stripDoors/stripDoorPics.php">Picture Gallery</a></li>
-    <li><a href="/testimonials.php">View Testimonials</a></li>
-    </ul></div></div></li>
-        
-  <li><a href="/proCat/replacementStrips.php">Replacement Strips</a></li>
-  <li><a href="/proCat/stripDoorHardware.php">PVC Strip Hardware</a></li>
-  <li><a href="/proCat/pvcStripEncl.php">PVC / Strip Enclosures</a></li>
-  <li><a href="/proCat/bulkPVCRolls.php">Bulk PVC Rolls</a></li>
-  <li><a href="/proCat/warehouseDividers.php">Warehouse Dividers</a></li>
-  <li><a href="/proCat/bodyShopStyleCur.php">Body Shop Style Curtains</a></li>
-  <li><a href="/proCat/awnings.php">Awnings</a></li>    
-      <li><a href="/order/track_trolley_hardware.php">Track and Trolley Hardware</a></li>
-  <li><a href="/proCat/pvcSwingDoors.php">PVC Swing Doors</a>
-    
-    <div class="imsc"><div class="imsubc" style="width:160px;top:-29px;left:160px;"><ul style="">
-    <li><a href="/proCat/pvcSwingDoors.php">SC PVC Swing Doors</a></li>
-    <li><a href="/order/swingdoors-aluminum.php">SC Aluminum Swing Doors</a></li>
-    <li><a href="/order/swingdoors-flexible.php">SC Flexible Swing Doors</a></li>
-    <li><a href="/order/swingdoors-retailtraffic.php">SC Retail High Traffic Swing Doors</a></li>
-    <li><a href="/order/swingdoors-solidcore.php">SC Solid Core Swing Doors</a></li>
-    <li><a href="/order/swingdoors-econoclear.php">SC EconoClear Swing Doors</a></li>
-    </ul></div></div>  
-    </li>
-
-  <li><a href="/proCat/pvcSlidingWindows.php">PVC Sliding Windows </a></li>
-  <li><a href="/proCat/pvcHighSpeedDoors.php">PVC High Speed Doors</a></li>
-  <li><a href="/proCat/pvcMeshDoors.php">PVC Mesh Door </a></li>
-  <li><a href="/proCat/dockSealsAccess.php">Dock Seals &amp; Accessories </a></li>
-  <li><a href="/proCat/airCurtains.php">Air Curtains</a></li>
-  </ul></div></div></li>
-
-
-<li class="imatm"  style="width:145px;"><a href="/requestQuote/" style="border-color:#dfdfdf;border-style:solid;border-width:0px 1px 0px 0px;">REQUEST QUOTE</a></li>
-<li class="imatm"  style="width:145px;"><a class="" href="/resources/" style="border-color:#dfdfdf;border-style:solid;border-width:0px 1px 0px 0px;"><span class="imea imeam"><span></span></span>DOWNLOADS</a>
-
-  <div class="imsc"><div class="imsubc" style="width:145px;top:-1px;left:0px;"><ul style="">
-  <li><a href="/resources/">Instructions &amp; Applications</a></li>
-  <li><a href="/resources/">Order Forms</a></li>
-  <li><a href="/resources/">MSDS Sheets</a></li>
-  </ul></div></div></li>
-
-
-<li class="imatm"  style="width:101px;"><a href="/promos/" style="border-color:#dfdfdf;border-style:solid;border-width:0px 1px 0px 0px;">PROMOTIONS</a></li>
-<li class="imatm"  style="width:199px;"><a href="/about/" style="border-color:#dfdfdf;border-style:solid;border-width:0px 1px 0px 0px;">ABOUT STRIP-CURTAINS.COM</a>
-
-<div class="imsc"><div class="imsubc" style="width:145px;top:-1px;left:0px;"><ul style="">
-<li><a href="/about/product-portfolio.php">Product Portfolio</a></li>
-  </ul></div></div>   
-</li>
-<li class="imatm"  style="width:125px;"><a class="" href="/contact/"><span class="imea imeam"><span></span></span>CONTACT US</a>
-
-  <div class="imsc"><div class="imsubc" style="width:125px;top:;left:;"><ul style="">
-  <li><a href="/contact/">Contact Inquiry</a></li>
-  <li><a href="/requestQuote/">Request for Quote</a></li>
-  <li><a href="/shipping.php">Shipping Info</a></li>
-  <li><a href="/track_orders.php">Track Your Orders</a></li>
-  <li><a href="/services.php">Services &amp; Installation</a></li>
-  <li><a href="/salesTerms.php">Sales Terms</a></li>
-  </ul></div></div></li>
-</ul><div class="imclear">&nbsp;</div></div></div>    <!--  ****** Menus Scripted Settings (Hybrid Version) ****** --> 
-    <script language="JavaScript" type="text/javascript" src="/scripts/menu.js"></script> 
-  </div>
-</div>
-<div id="flash_pane" align="center">
-  <div class="carousel"><a href="#" class="prev">&nbsp;</a>
-    <div class="jCarouselLite">
-      <ul>
-        <li><a href="/proCat/stripDoors.php"><img src="/images/carousel_img/1.jpg" alt="Strip doors" title="Strip doors" width="125" height="100"></a></li>
-        <li><a href="/proCat/bulkPVCRolls.php"><img src="/images/carousel_img/2.jpg" alt="bulk PVC rolls" width="125" height="100" /></a></li>
-        <li><a href="/proCat/warehouseDividers.php"><img src="/images/carousel_img/3.jpg" alt="warehouse dividers" title="warehouse dividers" width="125" height="100"></a></li>
-        <li><a href="/proCat/bodyShopStyleCur.php"><img src="/images/carousel_img/4.jpg" alt="bodyshop style curtains" title="bodyshop style curtains" width="125" height="100"></a></li>
-        <li><a href="/proCat/awnings.php"><img src="/images/carousel_img/5.jpg" alt="awnings" title="awnings" width="125" height="100"></a></li>
-        <li><a href="/proCat/pvcStripEncl.php"><img src="/images/carousel_img/6.jpg" alt="PVC strip enclosures" title="PVC strip enclosures" width="125" height="100"></a></li>
-        <li><a href="/proCat/dockSealsAccess.php"><img src="/images/carousel_img/7.jpg" alt="dock seals accessories" title="dock seals accessories" width="125" height="100"></a></li>
-        <li><a href="/proCat/coolerDisplayCase.php"><img src="/images/carousel_img/8.jpg" alt="cooler display case" title="cooler display case" width="125" height="100"></a></li>
-        <li><a href="/proCat/weldingScreens.php"><img src="/images/carousel_img/9.jpg" alt="welding screens" title="welding screens" width="125" height="100"></a></li>
-        <li><a href="/proCat/pvcSwingDoors.php"><img src="/images/carousel_img/10.jpg" alt="PVC swing doors" title="PVC swing doors" width="125" height="100"></a></li>
-        <li><a href="/proCat/pvcHighSpeedDoors.php"><img src="/images/carousel_img/11.jpg" alt="PVC high speed doors" title="PVC high speed doors" width="125" height="100"></a></li>
-        <li><a href="/proCat/pvcMeshDoors.php"><img src="/images/carousel_img/12.jpg" alt="PVC mesh doors" title="PVC mesh doors" width="125" height="100"></a></li>
-      </ul>
-    </div>
-    <a href="#" class="next">&nbsp;</a> </div>
-  <br clear="all" />
-</div>
-<script language="javascript" type="text/javascript"> 
-$(".jCarouselLite").jCarouselLite({
-    btnNext: ".next",
-    btnPrev: ".prev",
-  visible: 6,
-  easing: "backout"
-});
-</script>
 
 <script>
-    var resetValueToZero = 0;
-    var maxWidthHeight = 20;
-    var minWidthHeight = 0;
+  var resetValueToZero = 0;
+  var maxWidthHeight = 20;
+  var minWidthHeight = 0;
 
-    var getSideText = null;  //Get the text of the side chosen e.g. single curtain, 2-sided station
+  var getSideText = null;  //Get the text of the side chosen e.g. single curtain, 2-sided station
 
-    function getHowManySides(){
-      /*Get the text of how many side chosen*/
-        $('.chooseSides p').each(function(){
-           var sideChosen = $(this).hasClass('checkMark');
-            if(sideChosen){
-                getSideText = $(this).text();
-            }
-        });
-        return "*" + getSideText + "*";
-    }
+  function getHowManySides(){
+    /*Get the text of how many side chosen*/
+      $('.chooseSides p').each(function(){
+         var sideChosen = $(this).hasClass('checkMark');
+          if(sideChosen){
+              getSideText = $(this).text();
+          }
+      });
+      return "*" + getSideText + "*";
+  }
 
-    /*Gets all the inputs for one side*/
-    function getInputsForOneSide(side){
-        var inputs = [];
-        side.each(function(){
-            var value = $(this).val();
-            if((value == '') || (isNaN(value)) ||
-                (value > maxWidthHeight) || (value < minWidthHeight)){
-                value = resetValueToZero;
-            }
-            inputs.push(value);
-        });
-        return inputs;
-    }
+  /*Gets all the inputs for one side*/
+  function getInputsForOneSide(side){
+      var inputs = [];
+      side.each(function(){
+          var value = $(this).val();
+          if((value == '') || (isNaN(value)) ||
+              (value > maxWidthHeight) || (value < minWidthHeight)){
+              value = resetValueToZero;
+          }
+          inputs.push(value);
+      });
+      return inputs;
+  }
 
-    //Arrays to check if color chosen is semi or coated *NOT USED YET*
-    var semiArrayA = [];
-    var coatedArrayA = [];
-    var semiArrayB = [];
-    var coatedArrayB = [];
-    var semiArrayC = [];
-    var coatedArrayC = [];
-    var semiArrayD = [];
-    var coatedArrayD = [];
-    
+  //Arrays to check if color chosen is semi or coated *NOT USED YET*
+  var semiArrayA = [];
+  var coatedArrayA = [];
+  var semiArrayB = [];
+  var coatedArrayB = [];
+  var semiArrayC = [];
+  var coatedArrayC = [];
+  var semiArrayD = [];
+  var coatedArrayD = [];
 
-    /*Checks the value for attribute of data-semi, data-coated and value
-     * if semi and coated is undefined, the value will change to false
-     * as for the bg, if undefined that means the user didn't choose the color*/
-    function getColorFieldValues(side,pushSemi,pushCoated,pushBg){
-        side.each(function(){
-            var semi = $(this).attr('data-semi');
-            var coated = $(this).attr('data-coated');
-            var bg = $(this).attr('value');
 
-            if(typeof(semi) == 'undefined'){
-                semi = 'false';
-            }
-            if(typeof(coated) == 'undefined'){
-                coated = 'false';
-            }
-            if(typeof(bg) == 'undefined'){
-                bg = 'None Chosen';
-            }
+  /*Checks the value for attribute of data-semi, data-coated and value
+   * if semi and coated is undefined, the value will change to false
+   * as for the bg, if undefined that means the user didn't choose the color*/
+  function getColorFieldValues(side,pushSemi,pushCoated,pushBg){
+      side.each(function(){
+          var semi = $(this).attr('data-semi');
+          var coated = $(this).attr('data-coated');
+          var bg = $(this).attr('value');
 
-            pushSemi.push(semi);
-            pushCoated.push(coated);
-            pushBg.push(bg);
-        });
-    }
+          if(typeof(semi) == 'undefined'){
+              semi = 'false';
+          }
+          if(typeof(coated) == 'undefined'){
+              coated = 'false';
+          }
+          if(typeof(bg) == 'undefined'){
+              bg = 'None Chosen';
+          }
 
-    var mountArray = [];        //array to store the mount value selected
+          pushSemi.push(semi);
+          pushCoated.push(coated);
+          pushBg.push(bg);
+      });
+  }
 
-    /*Outputs: width (0 feet 0 inches) height (0 feet 0 inches)*/
-    function printInputs(side, sideInput){
-      return (". " + side + " - " + " width: ("+ sideInput[0] + " feet " + sideInput[1] + " inches). height: (" + sideInput[2] + " feet " + sideInput[3] + " inches) ");
-    }
+  var mountArray = [];        //array to store the mount value selected
 
-    /*Outputs: Color-1: red. Color-2: yellow. Color-3: None Chosen*/
-    function printColorValues(colorArrayValue){
-      return "Color-1: " + colorArrayValue[0] + ". Color-2: " + colorArrayValue[1] + ". Color-3: " +colorArrayValue[2];
-    }
+  /*Outputs: width (0 feet 0 inches) height (0 feet 0 inches)*/
+  function printInputs(side, sideInput){
+    return (". " + side + " - " + " width: ("+ sideInput[0] + " feet " + sideInput[1] + " inches). height: (" + sideInput[2] + " feet " + sideInput[3] + " inches) ");
+  }
 
-    /*Outputs: Mount: No Mounts or the mount's name*/
-    function printMountValue(index){
-    return ". Mount: " + mountArray[index];
-    }
+  /*Outputs: Color-1: red. Color-2: yellow. Color-3: None Chosen*/
+  function printColorValues(colorArrayValue){
+    return "Color-1: " + colorArrayValue[0] + ". Color-2: " + colorArrayValue[1] + ". Color-3: " +colorArrayValue[2];
+  }
 
-    /*Combines all three prints, printInputs, printColorValues and printMountValue into one function and output it*/
-    function printOneSideDetails(side, sideInput, colorArrayValue, index){
-      return printInputs(side,sideInput) + printColorValues(colorArrayValue) + printMountValue(index);
-    }
+  /*Outputs: Mount: No Mounts or the mount's name*/
+  function printMountValue(index){
+  return ". Mount: " + mountArray[index];
+  }
 
-    function addDesc(desc) {
-          /*Get the inputs of each side and store them into an array variable*/
-        var inputsA = getInputsForOneSide($('.dimensions-side-a input'));
-        var inputsB = getInputsForOneSide($('.dimensions-side-b input'));
-        var inputsC = getInputsForOneSide($('.dimensions-side-c input'));
-        var inputsD = getInputsForOneSide($('.dimensions-side-d input'));
+  /*Combines all three prints, printInputs, printColorValues and printMountValue into one function and output it*/
+  function printOneSideDetails(side, sideInput, colorArrayValue, index){
+    return printInputs(side,sideInput) + printColorValues(colorArrayValue) + printMountValue(index);
+  }
 
-      //Get the value of the background color
-        var bgArrayA = [];
-        var bgArrayB = [];
-        var bgArrayC = [];
-        var bgArrayD = [];
+  function addDesc(desc) {
+        /*Get the inputs of each side and store them into an array variable*/
+      var inputsA = getInputsForOneSide($('.dimensions-side-a input'));
+      var inputsB = getInputsForOneSide($('.dimensions-side-b input'));
+      var inputsC = getInputsForOneSide($('.dimensions-side-c input'));
+      var inputsD = getInputsForOneSide($('.dimensions-side-d input'));
 
-      /*Get the value of the color field selected*/
-        getColorFieldValues($('.number-of-color-field .sideA'),semiArrayA, coatedArrayA, bgArrayA);
-        getColorFieldValues($('.number-of-color-field .sideB'),semiArrayB, coatedArrayB, bgArrayB);
-        getColorFieldValues($('.number-of-color-field .sideC'),semiArrayC, coatedArrayC, bgArrayC);
-        getColorFieldValues($('.number-of-color-field .sideD'),semiArrayD, coatedArrayD, bgArrayD);
+    //Get the value of the background color
+      var bgArrayA = [];
+      var bgArrayB = [];
+      var bgArrayC = [];
+      var bgArrayD = [];
 
-        /*Pushes the value of the mount stored into the mountArray array variable*/
-        $('.select-mounts').each(function(){
-            var myClass = $(this).attr('class');
-            var splitClass = myClass.split(" ");
-            var mountSideClass = ("."+splitClass[1]);
+    /*Get the value of the color field selected*/
+      getColorFieldValues($('.number-of-color-field .sideA'),semiArrayA, coatedArrayA, bgArrayA);
+      getColorFieldValues($('.number-of-color-field .sideB'),semiArrayB, coatedArrayB, bgArrayB);
+      getColorFieldValues($('.number-of-color-field .sideC'),semiArrayC, coatedArrayC, bgArrayC);
+      getColorFieldValues($('.number-of-color-field .sideD'),semiArrayD, coatedArrayD, bgArrayD);
 
-            mountArray.push($(mountSideClass).val());
-        });
+      /*Pushes the value of the mount stored into the mountArray array variable*/
+      $('.select-mounts').each(function(){
+          var myClass = $(this).attr('class');
+          var splitClass = myClass.split(" ");
+          var mountSideClass = ("."+splitClass[1]);
 
-        var sideADetails = printOneSideDetails('SideA', inputsA, bgArrayA, 0);
-        var sideBDetails = printOneSideDetails('SideB', inputsB, bgArrayB, 1);
-        var sideCDetails = printOneSideDetails('SideC', inputsC, bgArrayC, 2);
-        var sideDDetails = printOneSideDetails('SideD', inputsD, bgArrayD, 3);
-        var descOutput = null;
+          mountArray.push($(mountSideClass).val());
+      });
 
-        /*determine how many sides are chosen, then decide the sides of description to output in the cart section*/
-        $('.chooseSides').each(function(index){
-          var attr = $(this).attr('disabled');
-            if (attr != 'disabled') {
-              if (index == 0) {descOutput = sideADetails;}
-              if (index == 1) {descOutput = sideADetails + sideBDetails;}
-              if (index == 2) {descOutput = sideADetails + sideBDetails + sideCDetails;}
-              if (index == 3) {descOutput = sideADetails + sideBDetails + sideCDetails + sideDDetails;};
-            }
-        });
+      var sideADetails = printOneSideDetails('SideA', inputsA, bgArrayA, 0);
+      var sideBDetails = printOneSideDetails('SideB', inputsB, bgArrayB, 1);
+      var sideCDetails = printOneSideDetails('SideC', inputsC, bgArrayC, 2);
+      var sideDDetails = printOneSideDetails('SideD', inputsD, bgArrayD, 3);
+      var descOutput = null;
 
-        document.ordering.item_name.value = getHowManySides() +  descOutput;
-    }
+      /*determine how many sides are chosen, then decide the sides of description to output in the cart section*/
+      $('.chooseSides').each(function(index){
+        var attr = $(this).attr('disabled');
+          if (attr != 'disabled') {
+            if (index == 0) {descOutput = sideADetails;}
+            if (index == 1) {descOutput = sideADetails + sideBDetails;}
+            if (index == 2) {descOutput = sideADetails + sideBDetails + sideCDetails;}
+            if (index == 3) {descOutput = sideADetails + sideBDetails + sideCDetails + sideDDetails;};
+          }
+      });
+
+      document.ordering.item_name.value = getHowManySides() +  descOutput;
+  }
 </script>
 
+</head>
+<body>
+<?php require("../_inc/header.php"); ?>
 <div id="main">
   <div class="interior_full_pane" style="font-size:14px; color:#000000; background-color:white; background-image:none;">
       <form action="/order/order-cart.php" method="post" name="ordering" id="ordering" onsubmit="addDesc();">
@@ -795,7 +600,7 @@ pageTracker._trackPageview();
     var priceSummary = mountABCDtotal + sideABCDtotal;
 
     $('.help-notes').hide();             // hide the notes for help
-    $('.cart-info').hide();
+    // $('.cart-info').hide();
 
     /*Toggles the help-notes div when help is clicked*/
     $('.help').on('click', function(){
