@@ -341,15 +341,16 @@ $(".jCarouselLite").jCarouselLite({
         var sideDDetails = printOneSideDetails('SideD', inputsD, bgArrayD, 3);
         var descOutput = null;
 
-        if(getHowManySides().indexOf('S') == 1){
-          descOutput = sideADetails;
-        }else if(getHowManySides().indexOf('2') == 1){
-          descOutput = sideADetails + sideBDetails;
-        }else if(getHowManySides().indexOf('3') == 1){
-          descOutput = sideADetails + sideBDetails + sideCDetails;
-        }else if(getHowManySides().indexOf('4') == 1){
-          descOutput = sideADetails + sideBDetails + sideCDetails + sideDDetails;
-        }
+        /*determine how many sides are chosen, then decide the sides of description to output in the cart section*/
+        $('.chooseSides').each(function(index){
+          var attr = $(this).attr('disabled');
+            if (attr != 'disabled') {
+              if (index == 0) {descOutput = sideADetails;}
+              if (index == 1) {descOutput = sideADetails + sideBDetails;}
+              if (index == 2) {descOutput = sideADetails + sideBDetails + sideCDetails;}
+              if (index == 3) {descOutput = sideADetails + sideBDetails + sideCDetails + sideDDetails;};
+            }
+        });
 
         document.ordering.item_name.value = getHowManySides() +  descOutput;
     }
