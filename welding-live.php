@@ -24,263 +24,6 @@
         var resetValueToZero = 0;
         var maxWidthHeight = 20;
         var minWidthHeight = 0;
-
-        var getSideText = null;  //Get the text of the side chosen e.g. single curtain, 2-sided station
-
-        function getHowManySides(){
-            /*Get the text of how many side chosen*/
-            $('.chooseSides p').each(function(){
-                var sideChosen = $(this).hasClass('checkMark');
-                if(sideChosen){
-                    getSideText = $(this).text();
-                }
-            });
-            return "*" + getSideText + "*";
-        }
-
-        /*Gets all the inputs for one side*/
-        function getInputsForOneSide(side){
-            var inputs = [];
-            side.each(function(){
-                var value = $(this).val();
-                if((value == '') || (isNaN(value)) ||
-                    (value > maxWidthHeight) || (value < minWidthHeight)){
-                    value = resetValueToZero;
-                }
-                inputs.push(value);
-            });
-            return inputs;
-        }
-
-        function getTotalSquareFeetForOneSide(side){
-            var inputs = [];
-            side.each(function(){
-                if($(this).val() == ''){
-                    inputs.push(parseInt(0));
-                }else{
-                    inputs.push(parseInt($(this).val()));
-                }
-            })
-            inputs[1] = inputs[1]/12;
-            inputs[3] = inputs[3]/12;
-            return ((inputs[0]+inputs[1])*(inputs[2]+inputs[3]));
-        }
-
-        //Arrays to check if color chosen is semi or coated *NOT USED YET*
-        var semiArrayA = [];
-        var coatedArrayA = [];
-        var semiArrayB = [];
-        var coatedArrayB = [];
-        var semiArrayC = [];
-        var coatedArrayC = [];
-        var semiArrayD = [];
-        var coatedArrayD = [];
-
-
-        /*Checks the value for attribute of data-semi, data-coated and value
-         * if semi and coated is undefined, the value will change to false
-         * as for the bg, if undefined that means the user didn't choose the color*/
-        function getColorFieldValues(side,pushSemi,pushCoated,pushBg){
-            side.each(function(){
-                var semi = $(this).attr('data-semi');
-                var coated = $(this).attr('data-coated');
-                var bg = $(this).attr('value');
-
-                if(typeof(semi) == 'undefined'){
-                    semi = 'false';
-                }
-                if(typeof(coated) == 'undefined'){
-                    coated = 'false';
-                }
-                if(typeof(bg) == 'undefined'){
-                    bg = 'None Chosen';
-                }
-
-                pushSemi.push(semi);
-                pushCoated.push(coated);
-                pushBg.push(bg);
-            });
-        }
-
-        var mountArray = [];        //array to store the mount value selected
-
-        /*Outputs: width (0 feet 0 inches) height (0 feet 0 inches)*/
-        function printInputs(side, sideInput){
-            return (". " + side + " - " + " width: ("+ sideInput[0] + " feet " + sideInput[1] + " inches). height: (" + sideInput[2] + " feet " + sideInput[3] + " inches) ");
-        }
-
-        /*Outputs: Color-1: red. Color-2: yellow. Color-3: None Chosen*/
-        function printColorValues(colorArrayValue){
-            return "Color-1: " + colorArrayValue[0] + ". Color-2: " + colorArrayValue[1] + ". Color-3: " +colorArrayValue[2];
-        }
-
-        /*Outputs: Mount: No Mounts or the mount's name*/
-        function printMountValue(index){
-            return ". Mount: " + mountArray[index];
-        }
-
-        /*Combines all three prints, printInputs, printColorValues and printMountValue into one function and output it*/
-        function printOneSideDetails(side, sideInput, colorArrayValue, index){
-            return printInputs(side,sideInput) + printColorValues(colorArrayValue) + printMountValue(index);
-        }
-
-        function addDesc(desc) {
-            var $sideAinput = $('.dimensions-side-a input');
-            var $sideBinput = $('.dimensions-side-b input');
-            var $sideCinput = $('.dimensions-side-c input');
-            var $sideDinput = $('.dimensions-side-d input');
-
-            /*Get the inputs of each side and store them into an array variable*/
-            var inputsA = getInputsForOneSide($sideAinput);
-            var inputsB = getInputsForOneSide($sideBinput);
-            var inputsC = getInputsForOneSide($sideCinput);
-            var inputsD = getInputsForOneSide($sideDinput);
-
-            /*Get the inputs for and calculate the square feet for each side*/
-            var sideAsqft = getTotalSquareFeetForOneSide($sideAinput);
-            var sideBsqft = getTotalSquareFeetForOneSide($sideBinput);
-            var sideCsqft = getTotalSquareFeetForOneSide($sideCinput);
-            var sideDsqft = getTotalSquareFeetForOneSide($sideDinput);
-
-            // addes sqft from each side and divid by 9 to get the total weight of the curtain and round to two numbers
-            var totalWeight = ((sideAsqft + sideBsqft + sideCsqft + sideDsqft) / 9).toFixed(2);
-
-            var totalWeightInWholeNumber = 0;
-            var unitValueForShipping = 0;
-
-            /*Check if total weight is less than 25lb or more than 140lb
-             *This is used to calculate the shipping which is $1/lb
-             *Minimum shipping is $25 and Maximum is $140*/
-            if(totalWeight < 25){
-                totalWeightInWholeNumber = 25;
-            }else if(totalWeight > 140){
-                totalWeightInWholeNumber = 140;
-            }else{
-                totalWeightInWholeNumber = Math.round(totalWeight);
-            }
-
-            //value passed into the element input with name equals unit which is then used to calculate the shipping cost
-            unitValueForShipping = ((totalWeightInWholeNumber / 9).toFixed(4) - 0.0001).toFixed(4);
-
-            //Get the value of the background color
-            var bgArrayA = [];
-            var bgArrayB = [];
-            var bgArrayC = [];
-            var bgArrayD = [];
-
-            /*Get the value of the color field selected*/
-            getColorFieldValues($('.number-of-color-field .sideA'),semiArrayA, coatedArrayA, bgArrayA);
-            getColorFieldValues($('.number-of-color-field .sideB'),semiArrayB, coatedArrayB, bgArrayB);
-            getColorFieldValues($('.number-of-color-field .sideC'),semiArrayC, coatedArrayC, bgArrayC);
-            getColorFieldValues($('.number-of-color-field .sideD'),semiArrayD, coatedArrayD, bgArrayD);
-
-            /*Pushes the value of the mount stored into the mountArray array variable*/
-            $('.select-mounts').each(function(){
-                var myClass = $(this).attr('class');
-                var splitClass = myClass.split(" ");
-                var mountSideClass = ("."+splitClass[1]);
-
-                mountArray.push($(mountSideClass).val());
-            });
-
-            /*print each side's detail*/
-            var sideADetails = printOneSideDetails('SIDE A', inputsA, bgArrayA, 0);
-            var sideBDetails = printOneSideDetails('SIDE B', inputsB, bgArrayB, 1);
-            var sideCDetails = printOneSideDetails('SIDE C', inputsC, bgArrayC, 2);
-            var sideDDetails = printOneSideDetails('SIDE D', inputsD, bgArrayD, 3);
-            var descOutput = null;
-
-            var storeEmptyInputValues = [];  //use to store inputs of width / height if empty
-            var storeBadInputValueInBoolean = []; //use to store if value is too low / high or not value
-            var storeEmptyColorSelectionValue = []; //use to store if color is not selected for the side
-
-            /*Checks if width and height inputs are empty or too low / high*/
-            function validateWHinputsBeforeSubmit(sideInputs){
-                sideInputs.each(function(){
-                    var value = $(this).val();
-                    if(!value){
-                        storeEmptyInputValues.push($(this).val());
-                    }else if((value > maxWidthHeight) || (value < minWidthHeight) || (!($.isNumeric(value)))){
-                        storeBadInputValueInBoolean.push(false);
-                    }
-                })
-            }
-
-            /*Checks if color selection is selected or not*/
-            function validateNumberOfColorChosenBeforeSubmit(colorSide){
-                if(colorSide.val() == ''){
-                    storeEmptyColorSelectionValue.push(false);
-                }
-            }
-
-            /*determine how many sides are chosen, then decide the sides of description to output in the cart section also checks if width/height input fields are empty*/
-            $('.chooseSides').each(function(index){
-
-
-                var attr = $(this).attr('disabled');
-                if(attr != 'disabled'){
-                    if(index == 0){
-                        //input validation for side a
-                        validateWHinputsBeforeSubmit($sideAinput);
-                        //select number of colors validation for side a
-                        validateNumberOfColorChosenBeforeSubmit($('.color-a'));
-                        //output description for side a
-                        descOutput = sideADetails;
-                    }else if(index == 1){
-                        //input validation for side a, b
-                        validateWHinputsBeforeSubmit($sideAinput);
-                        validateWHinputsBeforeSubmit($sideBinput);
-                        //select number of colors validation for side a, b
-                        validateNumberOfColorChosenBeforeSubmit($('.color-a'));
-                        validateNumberOfColorChosenBeforeSubmit($('.color-b'));
-                        //output description for side a, b
-                        descOutput = sideADetails + sideBDetails;
-                    }else if(index == 2){
-                        //input validation for side a, b, c
-                        validateWHinputsBeforeSubmit($sideAinput);
-                        validateWHinputsBeforeSubmit($sideBinput);
-                        validateWHinputsBeforeSubmit($sideCinput);
-                        //select number of colors validation for side a, b, c
-                        validateNumberOfColorChosenBeforeSubmit($('.color-a'));
-                        validateNumberOfColorChosenBeforeSubmit($('.color-b'));
-                        validateNumberOfColorChosenBeforeSubmit($('.color-c'));
-                        //output description for side a, b, c
-                        descOutput = sideADetails + sideBDetails + sideCDetails;
-                    }else if(index == 3){
-                        //input validation for side a, b, c, d
-                        validateWHinputsBeforeSubmit($sideAinput);
-                        validateWHinputsBeforeSubmit($sideBinput);
-                        validateWHinputsBeforeSubmit($sideCinput);
-                        validateWHinputsBeforeSubmit($sideDinput);
-                        //select number of colors validation for side a, b, c, d
-                        validateNumberOfColorChosenBeforeSubmit($('.color-a'));
-                        validateNumberOfColorChosenBeforeSubmit($('.color-b'));
-                        validateNumberOfColorChosenBeforeSubmit($('.color-c'));
-                        validateNumberOfColorChosenBeforeSubmit($('.color-d'));
-                        //output description for side a, b, c, d
-                        descOutput = sideADetails + sideBDetails + sideCDetails + sideDDetails;
-                    }
-                }
-            });
-
-            //checks if the array of storeEmptyInputValues has any empty string, if there is an alert will happen and stop the form from submitting
-            if(jQuery.inArray("", storeEmptyInputValues) !== -1){
-                alert('Please Do not leave any input (feet/inches) fields empty.');
-                return false;
-            }else if(jQuery.inArray(false, storeBadInputValueInBoolean) !== -1){
-                alert('Please enter number in between ' + minWidthHeight + " - " + maxWidthHeight + " for width and height!");
-                return false;
-            }else if(jQuery.inArray(false, storeEmptyColorSelectionValue) !== -1){
-                alert('Please select at least one color for your side.');
-                return false;
-            }else{
-                $('input[name="weight"]').attr('value', totalWeight);
-                $('input[name="unit"]').attr('value', unitValueForShipping);
-                //outputs the descripts into the cart
-                document.ordering.item_name.value = getHowManySides() +  descOutput;
-            }
-
-        }
         // });
     </script>
 
@@ -289,7 +32,7 @@
 <?php require("../_inc/header.php"); ?>
 <div id="main">
     <div class="interior_full_pane" style="font-size:14px; color:#000000; background-color:white; background-image:none;">
-        <form action="/order/order-cart.php" method="post" name="ordering" id="ordering" onsubmit="return addDesc();">
+        <form action="/order/order-cart.php" method="post" name="ordering" id="ordering">
             <div id="product-summary-position">
                 <div id="product-summary">
                     <header>Product Summary</header>
@@ -719,6 +462,9 @@
         var resetValueToZero = 0;
         var maxWidthHeight = 20;
         var minWidthHeight = 0;
+        var minShipping = 25;
+        var maxShipping = 140;
+
         var defaultColorPickerField1 = "pink";
         var defaultColorPickerField2 = "cyan";
         var defaultColorPickerField3 = "yellow";
@@ -1379,6 +1125,267 @@
             priceSummary = resetValueToZero;
             appendPriceSummary();
         });
+
+
+        var getSideText = null;  //Get the text of the side chosen e.g. single curtain, 2-sided station
+
+        function getHowManySides(){
+            /*Get the text of how many side chosen*/
+            $('.chooseSides p').each(function(){
+                var sideChosen = $(this).hasClass('checkMark');
+                if(sideChosen){
+                    getSideText = $(this).text();
+                }
+            });
+            return "*" + getSideText + "*";
+        }
+
+        /*Gets all the inputs for one side*/
+        function getInputsForOneSide(side){
+            var inputs = [];
+            side.each(function(){
+                var value = $(this).val();
+                if((value == '') || (isNaN(value)) ||
+                    (value > maxWidthHeight) || (value < minWidthHeight)){
+                    value = resetValueToZero;
+                }
+                inputs.push(value);
+            });
+            return inputs;
+        }
+
+        function getTotalSquareFeetForOneSide(side){
+            var inputs = [];
+            side.each(function(){
+                if($(this).val() == ''){
+                    inputs.push(parseInt(0));
+                }else{
+                    inputs.push(parseInt($(this).val()));
+                }
+            })
+            inputs[1] = inputs[1]/12;
+            inputs[3] = inputs[3]/12;
+            return ((inputs[0]+inputs[1])*(inputs[2]+inputs[3]));
+        }
+
+        //Arrays to check if color chosen is semi or coated *NOT USED YET*
+        var semiArrayA = [];
+        var coatedArrayA = [];
+        var semiArrayB = [];
+        var coatedArrayB = [];
+        var semiArrayC = [];
+        var coatedArrayC = [];
+        var semiArrayD = [];
+        var coatedArrayD = [];
+
+
+        /*Checks the value for attribute of data-semi, data-coated and value
+         * if semi and coated is undefined, the value will change to false
+         * as for the bg, if undefined that means the user didn't choose the color*/
+        function getColorFieldValues(side,pushSemi,pushCoated,pushBg){
+            side.each(function(){
+                var semi = $(this).attr('data-semi');
+                var coated = $(this).attr('data-coated');
+                var bg = $(this).attr('value');
+
+                if(typeof(semi) == 'undefined'){
+                    semi = 'false';
+                }
+                if(typeof(coated) == 'undefined'){
+                    coated = 'false';
+                }
+                if(typeof(bg) == 'undefined'){
+                    bg = 'None Chosen';
+                }
+
+                pushSemi.push(semi);
+                pushCoated.push(coated);
+                pushBg.push(bg);
+            });
+        }
+
+        var mountArray = [];        //array to store the mount value selected
+
+        /*Outputs: width (0 feet 0 inches) height (0 feet 0 inches)*/
+        function printInputs(side, sideInput){
+            return (". " + side + " - " + " width: ("+ sideInput[0] + " feet " + sideInput[1] + " inches). height: (" + sideInput[2] + " feet " + sideInput[3] + " inches) ");
+        }
+
+        /*Outputs: Color-1: red. Color-2: yellow. Color-3: None Chosen*/
+        function printColorValues(colorArrayValue){
+            return "Color-1: " + colorArrayValue[0] + ". Color-2: " + colorArrayValue[1] + ". Color-3: " +colorArrayValue[2];
+        }
+
+        /*Outputs: Mount: No Mounts or the mount's name*/
+        function printMountValue(index){
+            return ". Mount: " + mountArray[index];
+        }
+
+        /*Combines all three prints, printInputs, printColorValues and printMountValue into one function and output it*/
+        function printOneSideDetails(side, sideInput, colorArrayValue, index){
+            return printInputs(side,sideInput) + printColorValues(colorArrayValue) + printMountValue(index);
+        }
+
+        function addDesc(desc) {
+            var $sideAinput = $('.dimensions-side-a input');
+            var $sideBinput = $('.dimensions-side-b input');
+            var $sideCinput = $('.dimensions-side-c input');
+            var $sideDinput = $('.dimensions-side-d input');
+
+            /*Get the inputs of each side and store them into an array variable*/
+            var inputsA = getInputsForOneSide($sideAinput);
+            var inputsB = getInputsForOneSide($sideBinput);
+            var inputsC = getInputsForOneSide($sideCinput);
+            var inputsD = getInputsForOneSide($sideDinput);
+
+            /*Get the inputs for and calculate the square feet for each side*/
+            var sideAsqft = getTotalSquareFeetForOneSide($sideAinput);
+            var sideBsqft = getTotalSquareFeetForOneSide($sideBinput);
+            var sideCsqft = getTotalSquareFeetForOneSide($sideCinput);
+            var sideDsqft = getTotalSquareFeetForOneSide($sideDinput);
+
+            // addes sqft from each side and divid by 9 to get the total weight of the curtain and round to two numbers
+            var totalWeight = ((sideAsqft + sideBsqft + sideCsqft + sideDsqft) / 9).toFixed(2);
+
+            var totalWeightInWholeNumber = 0;
+            var unitValueForShipping = 0;
+
+            /*Check if total weight is less than 25lb or more than 140lb
+             *This is used to calculate the shipping which is $1/lb
+             *Minimum shipping is $25 and Maximum is $140*/
+            if(totalWeight < minShipping){
+                totalWeightInWholeNumber = minShipping;
+            }else if(totalWeight > maxShipping){
+                totalWeightInWholeNumber = maxShipping;
+            }else{
+                totalWeightInWholeNumber = Math.round(totalWeight);
+            }
+
+            //value passed into the element input with name equals unit which is then used to calculate the shipping cost
+            unitValueForShipping = ((totalWeightInWholeNumber / 9).toFixed(4) - 0.0001).toFixed(4);
+
+            //Get the value of the background color
+            var bgArrayA = [];
+            var bgArrayB = [];
+            var bgArrayC = [];
+            var bgArrayD = [];
+
+            /*Get the value of the color field selected*/
+            getColorFieldValues($('.number-of-color-field .sideA'),semiArrayA, coatedArrayA, bgArrayA);
+            getColorFieldValues($('.number-of-color-field .sideB'),semiArrayB, coatedArrayB, bgArrayB);
+            getColorFieldValues($('.number-of-color-field .sideC'),semiArrayC, coatedArrayC, bgArrayC);
+            getColorFieldValues($('.number-of-color-field .sideD'),semiArrayD, coatedArrayD, bgArrayD);
+
+            /*Pushes the value of the mount stored into the mountArray array variable*/
+            $('.select-mounts').each(function(){
+                var myClass = $(this).attr('class');
+                var splitClass = myClass.split(" ");
+                var mountSideClass = ("."+splitClass[1]);
+
+                mountArray.push($(mountSideClass).val());
+            });
+
+            /*print each side's detail*/
+            var sideADetails = printOneSideDetails('SIDE A', inputsA, bgArrayA, 0);
+            var sideBDetails = printOneSideDetails('SIDE B', inputsB, bgArrayB, 1);
+            var sideCDetails = printOneSideDetails('SIDE C', inputsC, bgArrayC, 2);
+            var sideDDetails = printOneSideDetails('SIDE D', inputsD, bgArrayD, 3);
+            var descOutput = null;
+
+            var storeEmptyInputValues = [];  //use to store inputs of width / height if empty
+            var storeBadInputValueInBoolean = []; //use to store if value is too low / high or not value
+            var storeEmptyColorSelectionValue = []; //use to store if color is not selected for the side
+
+            /*Checks if width and height inputs are empty or too low / high*/
+            function validateWHinputsBeforeSubmit(sideInputs){
+                sideInputs.each(function(){
+                    var value = $(this).val();
+                    if(!value){
+                        storeEmptyInputValues.push($(this).val());
+                    }else if((value > maxWidthHeight) || (value < minWidthHeight) || (!($.isNumeric(value)))){
+                        storeBadInputValueInBoolean.push(false);
+                    }
+                })
+            }
+
+            /*Checks if color selection is selected or not*/
+            function validateNumberOfColorChosenBeforeSubmit(colorSide){
+                if(colorSide.val() == ''){
+                    storeEmptyColorSelectionValue.push(false);
+                }
+            }
+
+            /*determine how many sides are chosen, then decide the sides of description to output in the cart section also checks if width/height input fields are empty*/
+            $('.chooseSides').each(function(index){
+
+
+                var attr = $(this).attr('disabled');
+                if(attr != 'disabled'){
+                    if(index == 0){
+                        //input validation for side a
+                        validateWHinputsBeforeSubmit($sideAinput);
+                        //select number of colors validation for side a
+                        validateNumberOfColorChosenBeforeSubmit($('.color-a'));
+                        //output description for side a
+                        descOutput = sideADetails;
+                    }else if(index == 1){
+                        //input validation for side a, b
+                        validateWHinputsBeforeSubmit($sideAinput);
+                        validateWHinputsBeforeSubmit($sideBinput);
+                        //select number of colors validation for side a, b
+                        validateNumberOfColorChosenBeforeSubmit($('.color-a'));
+                        validateNumberOfColorChosenBeforeSubmit($('.color-b'));
+                        //output description for side a, b
+                        descOutput = sideADetails + sideBDetails;
+                    }else if(index == 2){
+                        //input validation for side a, b, c
+                        validateWHinputsBeforeSubmit($sideAinput);
+                        validateWHinputsBeforeSubmit($sideBinput);
+                        validateWHinputsBeforeSubmit($sideCinput);
+                        //select number of colors validation for side a, b, c
+                        validateNumberOfColorChosenBeforeSubmit($('.color-a'));
+                        validateNumberOfColorChosenBeforeSubmit($('.color-b'));
+                        validateNumberOfColorChosenBeforeSubmit($('.color-c'));
+                        //output description for side a, b, c
+                        descOutput = sideADetails + sideBDetails + sideCDetails;
+                    }else if(index == 3){
+                        //input validation for side a, b, c, d
+                        validateWHinputsBeforeSubmit($sideAinput);
+                        validateWHinputsBeforeSubmit($sideBinput);
+                        validateWHinputsBeforeSubmit($sideCinput);
+                        validateWHinputsBeforeSubmit($sideDinput);
+                        //select number of colors validation for side a, b, c, d
+                        validateNumberOfColorChosenBeforeSubmit($('.color-a'));
+                        validateNumberOfColorChosenBeforeSubmit($('.color-b'));
+                        validateNumberOfColorChosenBeforeSubmit($('.color-c'));
+                        validateNumberOfColorChosenBeforeSubmit($('.color-d'));
+                        //output description for side a, b, c, d
+                        descOutput = sideADetails + sideBDetails + sideCDetails + sideDDetails;
+                    }
+                }
+            });
+
+            //checks if the array of storeEmptyInputValues has any empty string, if there is an alert will happen and stop the form from submitting
+            if(jQuery.inArray("", storeEmptyInputValues) !== -1){
+                alert('Please Do not leave any input (feet/inches) fields empty.');
+                return false;
+            }else if(jQuery.inArray(false, storeBadInputValueInBoolean) !== -1){
+                alert('Please enter number in between ' + minWidthHeight + " - " + maxWidthHeight + " for width and height!");
+                return false;
+            }else if(jQuery.inArray(false, storeEmptyColorSelectionValue) !== -1){
+                alert('Please select at least one color for your side.');
+                return false;
+            }else{
+                $('input[name="weight"]').attr('value', totalWeight);
+                $('input[name="unit"]').attr('value', unitValueForShipping);
+                //outputs the descripts into the cart
+                document.ordering.item_name.value = getHowManySides() +  descOutput;
+            }
+
+        }
+
+        $('.add-to-cart').on('click', addDesc);
+
     });
 
 
