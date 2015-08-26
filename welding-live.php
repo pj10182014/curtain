@@ -611,7 +611,7 @@
             <input type="hidden" name="item_name" value="stript-curtain" />
             <!-- <input type="hidden" name="refer" value="replacementStrips.php" /> -->
             <input type="hidden" name="sku" value="WHDIV-STR001" />
-            <input type='hidden' name='unit' value='4' />
+            <input type='hidden' name='unit' value='0' />
             <input type="hidden" name="weight" value="" />
             <input type="hidden" name="action" id="action" value="add" />
             <!-- <input type='submit' name='submit' class="add-to-cart" border='0' alt='Add this product to your shopping cart now.' value="Add To Cart"/><span class="fa fa-cart-plus"></span> -->
@@ -728,11 +728,6 @@
         var defaultColorPickerField2 = "cyan";
         var defaultColorPickerField3 = "yellow";
         var widthHeightProductMultiplier = 1.65;
-
-        var singleSideShippingValue = 1;
-        var twoSidedShippingValue = 2;
-        var threeSidedShippingValue = 3;
-        var fourSidedShippingValue = 4;
 
         var priceSummary = mountABCDtotal + sideABCDtotal;
 
@@ -875,8 +870,6 @@
                 mountSideBPrice = resetValueToZero;
                 mountSideCPrice = resetValueToZero;
                 mountSideDPrice = resetValueToZero;
-                // Changes the input element with name attr = unit's value (this will determine the shipping cost)
-                $('input[name="unit"]').attr('value', singleSideShippingValue);
             }
         });
         $(twoSides).on('click', function(e){
@@ -905,8 +898,6 @@
                 sideDtotal = resetValueToZero;
                 mountSideCPrice = resetValueToZero;
                 mountSideDPrice = resetValueToZero;
-                // Changes the input element with name attr = unit's value (this will determine the shipping cost)
-                $('input[name="unit"]').attr('value', twoSidedShippingValue);
             }
         });
         $(threeSides).on('click', function(e){
@@ -933,8 +924,6 @@
                 // Clear the total for side d and mount d
                 sideDtotal = resetValueToZero;
                 mountSideDPrice = resetValueToZero;
-                // Changes the input element with name attr = unit's value (this will determine the shipping cost)
-                $('input[name="unit"]').attr('value', threeSidedShippingValue);
             }
         });
         $(fourSided).on('click', function(e){
@@ -952,8 +941,6 @@
                 curtainFadeOutAndDisabled(threeSides);
                 // Adds the checkMark class
                 addCheckMarkForCurtainSelection(fourSided);
-                // Changes the input element with name attr = unit's value (this will determine the shipping cost)
-                $('input[name="unit"]').attr('value', fourSidedShippingValue);
             }
         });
         //Done with making the curtain selections
