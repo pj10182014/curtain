@@ -144,25 +144,23 @@
 
             // addes sqft from each side and divid by 9 to get the total weight of the curtain and round to two numbers
             var totalWeight = ((sideAsqft + sideBsqft + sideCsqft + sideDsqft) / 9).toFixed(2);
-            // round the totalWeight variable above
-            var totalWeightInWholeNumber = Math.round(totalWeight);
 
-            var finalUnitForShipping = 0;
+            var totalWeightInWholeNumber = 0;
+            var unitValueForShipping = 0;
 
+            /*Check if total weight is less than 25lb or more than 140lb
+             *This is used to calculate the shipping which is $1/lb
+             *Minimum shipping is $25 and Maximum is $140*/
             if(totalWeight < 25){
                 totalWeightInWholeNumber = 25;
             }else if(totalWeight > 140){
                 totalWeightInWholeNumber = 140;
             }else{
-                totalWeightInWholeNumber = totalWeightInWholeNumber;
+                totalWeightInWholeNumber = Math.round(totalWeight);
             }
 
-            finalUnitForShipping = ((totalWeightInWholeNumber / 9).toFixed(4) - 0.0001).toFixed(4);
-
-            console.log('2 decimals: ' + totalWeight);
-            console.log('whole: ' + totalWeightInWholeNumber);
-            console.log('unit value: ' + finalUnitForShipping);
-
+            //value passed into the element input with name equals unit which is then used to calculate the shipping cost
+            unitValueForShipping = ((totalWeightInWholeNumber / 9).toFixed(4) - 0.0001).toFixed(4);
 
             //Get the value of the background color
             var bgArrayA = [];
@@ -282,7 +280,7 @@
                 return false;
             }else{
                 $('input[name="weight"]').attr('value', totalWeight);
-                $('input[name="unit"]').attr('value', finalUnitForShipping);
+                $('input[name="unit"]').attr('value', unitValueForShipping);
                 //outputs the descripts into the cart
                 document.ordering.item_name.value = getHowManySides() +  descOutput;
             }
