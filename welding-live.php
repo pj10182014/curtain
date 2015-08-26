@@ -184,10 +184,10 @@
             });
 
             /*print each side's detail*/
-            var sideADetails = printOneSideDetails('SideA', inputsA, bgArrayA, 0);
-            var sideBDetails = printOneSideDetails('SideB', inputsB, bgArrayB, 1);
-            var sideCDetails = printOneSideDetails('SideC', inputsC, bgArrayC, 2);
-            var sideDDetails = printOneSideDetails('SideD', inputsD, bgArrayD, 3);
+            var sideADetails = printOneSideDetails('SIDE A', inputsA, bgArrayA, 0);
+            var sideBDetails = printOneSideDetails('SIDE B', inputsB, bgArrayB, 1);
+            var sideCDetails = printOneSideDetails('SIDE C', inputsC, bgArrayC, 2);
+            var sideDDetails = printOneSideDetails('SIDE D', inputsD, bgArrayD, 3);
             var descOutput = null;
 
             var storeEmptyInputValues = [];  //use to store inputs of width / height if empty
@@ -213,14 +213,9 @@
                 }
             }
 
-
-
             /*determine how many sides are chosen, then decide the sides of description to output in the cart section also checks if width/height input fields are empty*/
             $('.chooseSides').each(function(index){
-                var $sideAinput = $('.dimensions-side-a input');
-                var $sideBinput = $('.dimensions-side-b input');
-                var $sideCinput = $('.dimensions-side-c input');
-                var $sideDinput = $('.dimensions-side-d input');
+
 
                 var attr = $(this).attr('disabled');
                 if(attr != 'disabled'){
@@ -731,6 +726,11 @@
 
         var priceSummary = mountABCDtotal + sideABCDtotal;
 
+        var $sideAinput = $('.dimensions-side-a input');
+        var $sideBinput = $('.dimensions-side-b input');
+        var $sideCinput = $('.dimensions-side-c input');
+        var $sideDinput = $('.dimensions-side-d input');
+
         $('.help-notes').hide();             // hide the notes for help
         // $('.cart-info').hide();
 
@@ -958,10 +958,10 @@
 
         /*Uses singlePrice() here to get price for all 4 sides when input keyup*/
         $('.step2-selections input').on('keyup', function(){
-            sideAtotal = singlePrice($('.dimensions-side-a input'));
-            sideBtotal = singlePrice($('.dimensions-side-b input'));
-            sideCtotal = singlePrice($('.dimensions-side-c input'));
-            sideDtotal = singlePrice($('.dimensions-side-d input'));
+            sideAtotal = singlePrice($sideAinput);
+            sideBtotal = singlePrice($sideBinput);
+            sideCtotal = singlePrice($sideCinput);
+            sideDtotal = singlePrice($sideDinput);
             sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal +sideDtotal);
 
             appendPriceSummary();
@@ -1360,10 +1360,10 @@
 
         $('.btn-reset').on('click', function(e){
             e.preventDefault();
-            emptyInputValue($('.dimensions-side-a input'), $('.mount-a'), $('.color-a'));
-            emptyInputValue($('.dimensions-side-b input'), $('.mount-b'), $('.color-b'));
-            emptyInputValue($('.dimensions-side-c input'), $('.mount-c'), $('.color-c'));
-            emptyInputValue($('.dimensions-side-d input'), $('.mount-d'), $('.color-d'));
+            emptyInputValue($sideAinput, $('.mount-a'), $('.color-a'));
+            emptyInputValue($sideBinput , $('.mount-b'), $('.color-b'));
+            emptyInputValue($sideCinput , $('.mount-c'), $('.color-c'));
+            emptyInputValue($sideDinput , $('.mount-d'), $('.color-d'));
             sideAtotal = resetValueToZero;
             sideBtotal = resetValueToZero;
             sideCtotal = resetValueToZero;
