@@ -142,7 +142,27 @@
             var sideCsqft = getTotalSquareFeetForOneSide($sideCinput);
             var sideDsqft = getTotalSquareFeetForOneSide($sideDinput);
 
-            var totalWeight = ((sideAsqft + sideBsqft + sideCsqft + sideDsqft) / 9).toFixed(2) ;
+            // addes sqft from each side and divid by 9 to get the total weight of the curtain and round to two numbers
+            var totalWeight = ((sideAsqft + sideBsqft + sideCsqft + sideDsqft) / 9).toFixed(2);
+            // round the totalWeight variable above
+            var totalWeightInWholeNumber = Math.round(totalWeight);
+
+            var finalUnitForShipping = 0;
+
+            if(totalWeight < 25){
+                totalWeightInWholeNumber = 25;
+            }else if(totalWeight > 140){
+                totalWeightInWholeNumber = 140;
+            }else{
+                totalWeightInWholeNumber = totalWeightInWholeNumber;
+            }
+
+            finalUnitForShipping = ((totalWeightInWholeNumber / 9).toFixed(4) - 0.0001).toFixed(4);
+
+            console.log('2 decimals: ' + totalWeight);
+            console.log('whole: ' + totalWeightInWholeNumber);
+            console.log('unit value: ' + finalUnitForShipping);
+
 
             //Get the value of the background color
             var bgArrayA = [];
@@ -262,6 +282,7 @@
                 return false;
             }else{
                 $('input[name="weight"]').attr('value', totalWeight);
+                $('input[name="unit"]').attr('value', finalUnitForShipping);
                 //outputs the descripts into the cart
                 document.ordering.item_name.value = getHowManySides() +  descOutput;
             }
