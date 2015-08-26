@@ -146,40 +146,29 @@
             var sideDDetails = printOneSideDetails('SideD', inputsD, bgArrayD, 3);
             var descOutput = null;
 
-
-            /*Checks if the value of the input is empty, if it is empty then it is false and it'll be stored in the storeEmptyInputValues array*/
-            // function validateInputValueEmpty(sideInputs){
-            //   sideInputs.each(function(){
-            //     if(!$(this).val()){
-            //       storeEmptyInputValues.push($(this).val());
-            //     }
-            //   })
-            // }
-
-
-            // function validateInputValueRange(sideInputs){
-            //   sideInputs.each(function(){
-            //     var value = $(this).val();
-            //     if((value > maxWidthHeight) || (value < minWidthHeight) || (!($.isNumeric(value)))){
-            //       storeBadInputValueInBoolean.push(false);
-            //     }
-            //   })
-            // }
-
-
             var storeEmptyInputValues = [];  //use to store inputs of width / height if empty
             var storeBadInputValueInBoolean = []; //use to store if value is too low / high or not value
+            var storeEmptyColorSelectionValue = []; //use to store if color is not selected for the side
+
+            /*Checks if width and height inputs are empty or too low / high*/
             function validateWHinputsBeforeSubmit(sideInputs){
                 sideInputs.each(function(){
-                    if(!$(this).val()){
-                        storeEmptyInputValues.push($(this).val());
-                    }
                     var value = $(this).val();
-                    if((value > maxWidthHeight) || (value < minWidthHeight) || (!($.isNumeric(value)))){
+                    if(!value){
+                        storeEmptyInputValues.push($(this).val());
+                    }else if((value > maxWidthHeight) || (value < minWidthHeight) || (!($.isNumeric(value)))){
                         storeBadInputValueInBoolean.push(false);
                     }
                 })
             }
+
+            /*Checks if color selection is selected or not*/
+            function validateNumberOfColorChosenBeforeSubmit(colorSide){
+                if(colorSide.val() == ''){
+                    storeEmptyColorSelectionValue.push(false);
+                }
+            }
+
 
 
             /*determine how many sides are chosen, then decide the sides of description to output in the cart section also checks if width/height input fields are empty*/
@@ -194,12 +183,19 @@
                     if(index == 0){
                         //input validation for side a
                         validateWHinputsBeforeSubmit($sideAinput);
+                        //select number of colors validation for side a
+                        validateNumberOfColorChosenBeforeSubmit($('.color-a'));
+                        console.log(storeEmptyColorSelectionValue);
                         //output description for side a
                         descOutput = sideADetails;
                     }else if(index == 1){
                         //input validation for side a, b
                         validateWHinputsBeforeSubmit($sideAinput);
                         validateWHinputsBeforeSubmit($sideBinput);
+                        //select number of colors validation for side a, b
+                        validateNumberOfColorChosenBeforeSubmit($('.color-a'));
+                        validateNumberOfColorChosenBeforeSubmit($('.color-b'));
+                        console.log(storeEmptyColorSelectionValue);
                         //output description for side a, b
                         descOutput = sideADetails + sideBDetails;
                     }else if(index == 2){
@@ -207,6 +203,11 @@
                         validateWHinputsBeforeSubmit($sideAinput);
                         validateWHinputsBeforeSubmit($sideBinput);
                         validateWHinputsBeforeSubmit($sideCinput);
+                        //select number of colors validation for side a, b, c
+                        validateNumberOfColorChosenBeforeSubmit($('.color-a'));
+                        validateNumberOfColorChosenBeforeSubmit($('.color-b'));
+                        validateNumberOfColorChosenBeforeSubmit($('.color-c'));
+                        console.log(storeEmptyColorSelectionValue);
                         //output description for side a, b, c
                         descOutput = sideADetails + sideBDetails + sideCDetails;
                     }else if(index == 3){
@@ -215,6 +216,12 @@
                         validateWHinputsBeforeSubmit($sideBinput);
                         validateWHinputsBeforeSubmit($sideCinput);
                         validateWHinputsBeforeSubmit($sideDinput);
+                        //select number of colors validation for side a, b, c, d
+                        validateNumberOfColorChosenBeforeSubmit($('.color-a'));
+                        validateNumberOfColorChosenBeforeSubmit($('.color-b'));
+                        validateNumberOfColorChosenBeforeSubmit($('.color-c'));
+                        validateNumberOfColorChosenBeforeSubmit($('.color-d'));
+                        console.log(storeEmptyColorSelectionValue);
                         //output description for side a, b, c, d
                         descOutput = sideADetails + sideBDetails + sideCDetails + sideDDetails;
                     }
@@ -227,6 +234,9 @@
                 return false;
             }else if(jQuery.inArray(false, storeBadInputValueInBoolean) !== -1){
                 alert('Please enter number in between ' + minWidthHeight + " - " + maxWidthHeight + " for width and height!");
+                return false;
+            }else if(jQuery.inArray(false, storeEmptyColorSelectionValue) !== -1){
+                alert('Please select at least one color for your side.');
                 return false;
             }else{
                 //outputs the descripts into the cart
@@ -1089,7 +1099,7 @@
 
         //putting the name of mount in array and price will correspond to the same array index
         var diffMountNames = ['', 'Wall Mount', 'Threaded Rod Mount', 'Ceiling Mount', 'Chain Link Mount'];
-        var diffMountPricing = [0,20,33,21,17];
+        var diffMountPricing = [0,5,4.5,5.5,30];
 
         $('.select-mounts').on('change', function(){
             var $clicked = $(this);
