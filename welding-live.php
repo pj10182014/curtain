@@ -52,6 +52,20 @@
             return inputs;
         }
 
+        function getTotalSquareFeetForOneSide(side){
+            var inputs = [];
+            side.each(function(){
+                if($(this).val() == ''){
+                    inputs.push(parseInt(0));
+                }else{
+                    inputs.push(parseInt($(this).val()));
+                }
+            })
+            inputs[1] = inputs[1]/12;
+            inputs[3] = inputs[3]/12;
+            return ((inputs[0]+inputs[1])*(inputs[2]+inputs[3]));
+        }
+
         //Arrays to check if color chosen is semi or coated *NOT USED YET*
         var semiArrayA = [];
         var coatedArrayA = [];
@@ -111,12 +125,24 @@
         }
 
         function addDesc(desc) {
-            /*Get the inputs of each side and store them into an array variable*/
-            var inputsA = getInputsForOneSide($('.dimensions-side-a input'));
-            var inputsB = getInputsForOneSide($('.dimensions-side-b input'));
-            var inputsC = getInputsForOneSide($('.dimensions-side-c input'));
-            var inputsD = getInputsForOneSide($('.dimensions-side-d input'));
+            var $sideAinput = $('.dimensions-side-a input');
+            var $sideBinput = $('.dimensions-side-b input');
+            var $sideCinput = $('.dimensions-side-c input');
+            var $sideDinput = $('.dimensions-side-d input');
 
+            /*Get the inputs of each side and store them into an array variable*/
+            var inputsA = getInputsForOneSide($sideAinput);
+            var inputsB = getInputsForOneSide($sideBinput);
+            var inputsC = getInputsForOneSide($sideCinput);
+            var inputsD = getInputsForOneSide($sideDinput);
+
+            /*Get the inputs for and calculate the square feet for each side*/
+            var sideAsqft = getTotalSquareFeetForOneSide($sideAinput);
+            var sideBsqft = getTotalSquareFeetForOneSide($sideBinput);
+            var sideCsqft = getTotalSquareFeetForOneSide($sideCinput);
+            var sideDsqft = getTotalSquareFeetForOneSide($sideDinput);
+
+            var totalWeight = ((sideAsqft + sideBsqft + sideCsqft + sideDsqft) / 9).toFixed(2) ;
 
             //Get the value of the background color
             var bgArrayA = [];
@@ -185,7 +211,6 @@
                         validateWHinputsBeforeSubmit($sideAinput);
                         //select number of colors validation for side a
                         validateNumberOfColorChosenBeforeSubmit($('.color-a'));
-                        console.log(storeEmptyColorSelectionValue);
                         //output description for side a
                         descOutput = sideADetails;
                     }else if(index == 1){
@@ -195,7 +220,6 @@
                         //select number of colors validation for side a, b
                         validateNumberOfColorChosenBeforeSubmit($('.color-a'));
                         validateNumberOfColorChosenBeforeSubmit($('.color-b'));
-                        console.log(storeEmptyColorSelectionValue);
                         //output description for side a, b
                         descOutput = sideADetails + sideBDetails;
                     }else if(index == 2){
@@ -207,7 +231,6 @@
                         validateNumberOfColorChosenBeforeSubmit($('.color-a'));
                         validateNumberOfColorChosenBeforeSubmit($('.color-b'));
                         validateNumberOfColorChosenBeforeSubmit($('.color-c'));
-                        console.log(storeEmptyColorSelectionValue);
                         //output description for side a, b, c
                         descOutput = sideADetails + sideBDetails + sideCDetails;
                     }else if(index == 3){
@@ -221,7 +244,6 @@
                         validateNumberOfColorChosenBeforeSubmit($('.color-b'));
                         validateNumberOfColorChosenBeforeSubmit($('.color-c'));
                         validateNumberOfColorChosenBeforeSubmit($('.color-d'));
-                        console.log(storeEmptyColorSelectionValue);
                         //output description for side a, b, c, d
                         descOutput = sideADetails + sideBDetails + sideCDetails + sideDDetails;
                     }
@@ -239,6 +261,7 @@
                 alert('Please select at least one color for your side.');
                 return false;
             }else{
+                $('input[name="weight"]').attr('value', totalWeight);
                 //outputs the descripts into the cart
                 document.ordering.item_name.value = getHowManySides() +  descOutput;
             }
@@ -570,7 +593,7 @@
             <!-- <input type="hidden" name="refer" value="replacementStrips.php" /> -->
             <input type="hidden" name="sku" value="WHDIV-STR001" />
             <input type='hidden' name='unit' value='4' />
-            <!-- <input type="hidden" name="weight" value="" /> -->
+            <input type="hidden" name="weight" value="" />
             <input type="hidden" name="action" id="action" value="add" />
             <!-- <input type='submit' name='submit' class="add-to-cart" border='0' alt='Add this product to your shopping cart now.' value="Add To Cart"/><span class="fa fa-cart-plus"></span> -->
             <button type="submit" class="add-to-cart" alt='Add this product to your shopping cart now.'>Add to Cart <span class="fa fa-cart-plus"></span></button>
