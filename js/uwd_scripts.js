@@ -632,5 +632,26 @@ $(document).ready(function(){
 
     $('.btn-restart').on('click', function(){
         location.reload();
-    })
+    });
+
+    $('.btn-reset').on('click', function(){
+        emptyInputValue($('.dimensions-side-a input'), $('.mount-a'), $('.color-a'));
+        emptyInputValue($('.dimensions-side-b input'), $('.mount-b'), $('.color-b'));
+        emptyInputValue($('.dimensions-side-c input'), $('.mount-c'), $('.color-c'));
+        emptyInputValue($('.dimensions-side-d input'), $('.mount-d'), $('.color-d'));
+        sideAtotal = resetValueToZero;
+        sideBtotal = resetValueToZero;
+        sideCtotal = resetValueToZero;
+        sideDtotal = resetValueToZero;
+        sideABCDtotal = resetValueToZero;
+
+        mountSideAPrice = resetValueToZero;
+        mountSideBPrice = resetValueToZero;
+        mountSideCPrice = resetValueToZero;
+        mountSideDPrice = resetValueToZero;
+        mountABCDtotal = resetValueToZero;
+        
+        priceSummary = resetValueToZero;
+        appendPriceSummary();
+    });
 });
