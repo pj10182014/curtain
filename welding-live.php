@@ -259,6 +259,7 @@
                     <div class="price" name="product-summary-price">$0.00</div>
                     <header>Have Questions?</header>
                     <p>Call our Product Experts<br> 1-877-270-3311</p>
+                    <button class="btn-reset">Reset</button>
                 </div>
             </div>
 
@@ -1327,6 +1328,28 @@
         // $('.btn-restart').on('click', function(){
         //     location.reload();
         // })
+
+        $('.btn-reset').on('click', function(e){
+            e.preventDefault();
+            emptyInputValue($('.dimensions-side-a input'), $('.mount-a'), $('.color-a'));
+            emptyInputValue($('.dimensions-side-b input'), $('.mount-b'), $('.color-b'));
+            emptyInputValue($('.dimensions-side-c input'), $('.mount-c'), $('.color-c'));
+            emptyInputValue($('.dimensions-side-d input'), $('.mount-d'), $('.color-d'));
+            sideAtotal = resetValueToZero;
+            sideBtotal = resetValueToZero;
+            sideCtotal = resetValueToZero;
+            sideDtotal = resetValueToZero;
+            sideABCDtotal = resetValueToZero;
+
+            mountSideAPrice = resetValueToZero;
+            mountSideBPrice = resetValueToZero;
+            mountSideCPrice = resetValueToZero;
+            mountSideDPrice = resetValueToZero;
+            mountABCDtotal = resetValueToZero;
+
+            priceSummary = resetValueToZero;
+            appendPriceSummary();
+        });
     });
 
 

@@ -634,7 +634,8 @@ $(document).ready(function(){
         location.reload();
     });
 
-    $('.btn-reset').on('click', function(){
+    $('.btn-reset').on('click', function(e){
+        e.preventDefault();
         emptyInputValue($('.dimensions-side-a input'), $('.mount-a'), $('.color-a'));
         emptyInputValue($('.dimensions-side-b input'), $('.mount-b'), $('.color-b'));
         emptyInputValue($('.dimensions-side-c input'), $('.mount-c'), $('.color-c'));
@@ -650,7 +651,7 @@ $(document).ready(function(){
         mountSideCPrice = resetValueToZero;
         mountSideDPrice = resetValueToZero;
         mountABCDtotal = resetValueToZero;
-        
+
         priceSummary = resetValueToZero;
         appendPriceSummary();
     });
