@@ -1146,7 +1146,8 @@
             return inputs;
         }
 
-        function getTotalSquareFeetForOneSide(side){
+        /*Gets the square feet for one side*/
+        function getSquareFeet(side){
             var inputs = [];
             side.each(function(){
                 if($(this).val() == ''){
@@ -1196,10 +1197,9 @@
             });
         }
 
-
-
-
-
+        /*Calls this function when add to cart is clicked
+         *This would validate the inputs and check if at least one color is selected
+         *Will then get the product final amount, weight and shipping values and pass to the cart page*/
         function addDesc(desc) {
             var mountArray = [];        //array to store the mount value selected
 
@@ -1239,10 +1239,10 @@
             var inputsD = getInputsForOneSide($sideDinput);
 
             /*Get the inputs for and calculate the square feet for each side*/
-            var sideAsqft = getTotalSquareFeetForOneSide($sideAinput);
-            var sideBsqft = getTotalSquareFeetForOneSide($sideBinput);
-            var sideCsqft = getTotalSquareFeetForOneSide($sideCinput);
-            var sideDsqft = getTotalSquareFeetForOneSide($sideDinput);
+            var sideAsqft = getSquareFeet($sideAinput);
+            var sideBsqft = getSquareFeet($sideBinput);
+            var sideCsqft = getSquareFeet($sideCinput);
+            var sideDsqft = getSquareFeet($sideDinput);
 
             // addes sqft from each side and divid by 9 to get the total weight of the curtain and round to two numbers
             var totalWeight = ((sideAsqft + sideBsqft + sideCsqft + sideDsqft) / 9).toFixed(2);
@@ -1308,8 +1308,6 @@
 
             /*determine how many sides are chosen, then decide the sides of description to output in the cart section also checks if width/height input fields are empty*/
             $('.chooseSides').each(function(index){
-
-
                 var attr = $(this).attr('disabled');
                 if(attr != 'disabled'){
                     if(index == 0){
@@ -1375,6 +1373,7 @@
 
         }
 
+        //add to cart when clicked
         $('.add-to-cart').on('click', addDesc);
 
     });
