@@ -19,14 +19,6 @@
         -->
     </style>
 
-    <script>
-        // $(document).ready(function(){
-        var resetValueToZero = 0;
-        var maxWidthHeight = 20;
-        var minWidthHeight = 0;
-        // });
-    </script>
-
 </head>
 <body>
 <?php require("../_inc/header.php"); ?>
@@ -63,7 +55,7 @@
 
                         <!-- Sides Selections -->
                         <div class="clear"></div>
-                        <div class="chooseSides single-side"><input type="image" src="/images/two-sided.png" alt="" value="Single Curtain" /><p>Single Curtain </p></div>
+                        <div class="chooseSides single-side"><input type="image" src="/images/two-sided.png" alt="" value="Single Curtain" /><p>Single Curtain</p></div>
                         <div class="chooseSides two-sided"><input type="image" img src="/images/two-sided.png" alt="" value="2-sided Station"/><p>2-sided Station</p></div>
                         <div class="chooseSides three-sided"><input type="image" img src="/images/two-sided.png" alt="" value="3-sided Station"/><p>3-sided Station</p></div>
                         <div class="chooseSides four-sided"><input type="image" img src="/images/two-sided.png" alt="" value="4-sided Station"/><p class="checkMark">4-sided Station</p></div>
@@ -1204,33 +1196,41 @@
             });
         }
 
-        var mountArray = [];        //array to store the mount value selected
 
-        /*Outputs: width (0 feet 0 inches) height (0 feet 0 inches)*/
-        function printInputs(side, sideInput){
-            return (". " + side + " - " + " width: ("+ sideInput[0] + " feet " + sideInput[1] + " inches). height: (" + sideInput[2] + " feet " + sideInput[3] + " inches) ");
-        }
 
-        /*Outputs: Color-1: red. Color-2: yellow. Color-3: None Chosen*/
-        function printColorValues(colorArrayValue){
-            return "Color-1: " + colorArrayValue[0] + ". Color-2: " + colorArrayValue[1] + ". Color-3: " +colorArrayValue[2];
-        }
 
-        /*Outputs: Mount: No Mounts or the mount's name*/
-        function printMountValue(index){
-            return ". Mount: " + mountArray[index];
-        }
-
-        /*Combines all three prints, printInputs, printColorValues and printMountValue into one function and output it*/
-        function printOneSideDetails(side, sideInput, colorArrayValue, index){
-            return printInputs(side,sideInput) + printColorValues(colorArrayValue) + printMountValue(index);
-        }
 
         function addDesc(desc) {
-            var $sideAinput = $('.dimensions-side-a input');
-            var $sideBinput = $('.dimensions-side-b input');
-            var $sideCinput = $('.dimensions-side-c input');
-            var $sideDinput = $('.dimensions-side-d input');
+            var mountArray = [];        //array to store the mount value selected
+
+            /*Pushes the value of the mount stored into the mountArray array variable*/
+            $('.select-mounts').each(function(){
+                var myClass = $(this).attr('class');
+                var splitClass = myClass.split(" ");
+                var mountSideClass = ("."+splitClass[1]);
+
+                mountArray.push($(mountSideClass).val());
+            });
+
+            /*Outputs: width (0 feet 0 inches) height (0 feet 0 inches)*/
+            function printInputs(side, sideInput){
+                return (". " + side + " - " + " width: ("+ sideInput[0] + " feet " + sideInput[1] + " inches). height: (" + sideInput[2] + " feet " + sideInput[3] + " inches) ");
+            }
+
+            /*Outputs: Color-1: red. Color-2: yellow. Color-3: None Chosen*/
+            function printColorValues(colorArrayValue){
+                return "Color-1: " + colorArrayValue[0] + ". Color-2: " + colorArrayValue[1] + ". Color-3: " +colorArrayValue[2];
+            }
+
+            /*Outputs: Mount: No Mounts or the mount's name*/
+            function printMountValue(index){
+                return ". Mount: " + mountArray[index];
+            }
+
+            /*Combines all three prints, printInputs, printColorValues and printMountValue into one function and output it*/
+            function printOneSideDetails(side, sideInput, colorArrayValue, index){
+                return printInputs(side,sideInput) + printColorValues(colorArrayValue) + printMountValue(index);
+            }
 
             /*Get the inputs of each side and store them into an array variable*/
             var inputsA = getInputsForOneSide($sideAinput);
@@ -1275,15 +1275,6 @@
             getColorFieldValues($('.number-of-color-field .sideB'),semiArrayB, coatedArrayB, bgArrayB);
             getColorFieldValues($('.number-of-color-field .sideC'),semiArrayC, coatedArrayC, bgArrayC);
             getColorFieldValues($('.number-of-color-field .sideD'),semiArrayD, coatedArrayD, bgArrayD);
-
-            /*Pushes the value of the mount stored into the mountArray array variable*/
-            $('.select-mounts').each(function(){
-                var myClass = $(this).attr('class');
-                var splitClass = myClass.split(" ");
-                var mountSideClass = ("."+splitClass[1]);
-
-                mountArray.push($(mountSideClass).val());
-            });
 
             /*print each side's detail*/
             var sideADetails = printOneSideDetails('SIDE A', inputsA, bgArrayA, 0);
@@ -1377,7 +1368,7 @@
                 return false;
             }else{
                 $('input[name="weight"]').attr('value', totalWeight);
-                $('input[name="unit"]').attr('value', unitValueForShipping);
+                // $('input[name="unit"]').attr('value', unitValueForShipping);
                 //outputs the descripts into the cart
                 document.ordering.item_name.value = getHowManySides() +  descOutput;
             }
