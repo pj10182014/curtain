@@ -232,11 +232,14 @@
                             <div class="clear"></div>
                             <div>18 oz Industrial Stength Viyl Coated</div>
                             <div>
-                                <div class="red" value="red"></div>
-                                <div class="blue"></div>
-                                <div class="grey"></div>
-                                <div class="green"></div>
-                                <div class="white"></div>
+                                <div class="yellow" value="yellow"></div>
+                                <div class="blue" value="blue"></div>
+                                <div class="black" value="black"></div>
+                                <div class="brown" value="brown"></div>
+                                <div class="grey" value="grey"></div>
+                                <div class="green" value="green"></div>
+                                <div class="white" value="white"></div>
+                                <div class="orange" value="orange"></div>
                             </div>
                         </div>
 
@@ -339,7 +342,7 @@
             <!-- <input type="hidden" name="descOption" value="Holes on 2 in. centred"/> -->
             <input class="amount" type="hidden" name="amount" value="0" />
             <input type="hidden" name="item_name" value="stript-curtain" />
-            <!-- <input type="hidden" name="refer" value="replacementStrips.php" /> -->
+            <input type="hidden" name="refer" value="welding.php" />
             <input type="hidden" name="sku" value="WHDIV-STR001" />
             <input type='hidden' name='unit' value='0' />
             <input type="hidden" name="weight" value="" />
@@ -811,15 +814,29 @@
                 });
 
             //coated color on click
-            $('div.red')
+            $('div.yellow')
+                .add('div.blue')
+                .add('div.black')
+                .add('div.brown')
+                .add('div.grey')
+                .add('div.green')
+                .add('div.orange')
                 .on('click', function(){
                     var colorAttr = $(this).attr('value');
                     var splitClass = colorHolder.split(" ");
                     side.closest('div').find('.'+splitClass[0] + '.'+splitClass[1])
-                        .css({"background": colorAttr})
+                        .css({"background": colorAttr, "border": "none"})
                         .attr({"value": colorAttr, "data-semi": false, "data-coated": true});
                     $('.colorSelectBox').css({"display": "none"});
                 });
+            $('div.white').on('click', function(){
+                var colorAttr = $(this).attr('value');
+                var splitClass = colorHolder.split(" ");
+                side.closest('div').find('.'+splitClass[0] + '.'+splitClass[1])
+                    .css({"background": colorAttr, "border": "1px solid lightgrey"})
+                    .attr({"value": colorAttr, "data-semi": false, "data-coated": true});
+                $('.colorSelectBox').css({"display": "none"});
+            });
         }
 
         /* Enabling the function to choose colors */
@@ -836,17 +853,17 @@
             var chooseColorValue = $clicked.val();
 
             if(chooseColorValue == 1){
-                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": defaultColorPickerField1, "border-radius": "5px"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
                 $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
                 $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
             }else if(chooseColorValue == 2){
-                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField2, "border-radius": "5px"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-                $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField3, "border-radius": "5px", "margin-top": "5px"}).attr({"value": defaultColorPickerField3, "data-semi": "true"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField2, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+                $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField3, "border-radius": "5px", "margin-top": "5px", "border": "none"}).attr({"value": defaultColorPickerField3, "data-semi": "true"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
                 $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
             }else if(chooseColorValue == 3){
-                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField1, "border-radius": "5px"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-                $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField2, "border-radius": "5px", "margin": "5px 0"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-                $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField3, "border-radius": "5px"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+                $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField2, "border-radius": "5px", "margin": "5px 0", "border": "none"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+                $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField3, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
             }else{
                 $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
                 $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();

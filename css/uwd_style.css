@@ -68,9 +68,14 @@ div#product-summary{font-family: 'roboto'; height: 230px; width: 185px; backgrou
         .colorSelectBox>div{font-size: 14px; font-weight: 300; color: #636363; line-height: 136%;}
         .colorSelectBox>div>div{float: left; width: 20px; height: 20px; border-radius: 5px; border: 1px solid lightgrey; margin-right: 3px;}
         .colorSelectBox .pink{background-color: pink;}
-        .colorSelectBox .black{background-color: black;}
         .colorSelectBox .yellow{background-color: yellow;}
-        .colorSelectBox .red{background-color: red;}
+        .colorSelectBox .blue{background-color: blue;}
+        .colorSelectBox .black{background-color: black;}
+        .colorSelectBox .brown{background-color: brown;}
+        .colorSelectBox .grey{background-color: grey;}
+        .colorSelectBox .green{background-color: green;}
+        .colorSelectBox .white{background-color: white;}
+        .colorSelectBox .orange{background-color: orange;}
         .colorSelectBox{position:absolute;z-index:99999;background-color: #FFF;border: 1px solid lightgray;border-radius: 5px;padding: 15px;}
 
         /*Css for all step 3 - Choose a Track & Trolley Kit*/
