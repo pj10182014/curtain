@@ -137,9 +137,9 @@ $(document).ready(function(){
             mountABCDtotal = (mountSideAPrice).toFixed(2);
             appendPriceSummary();
             // Remove the input values for side b, c, d and mount b, c, d
-            emptyInputValue($('.dimensions-side-b input'), $('.mount-b'), $('.color-b'));
-            emptyInputValue($('.dimensions-side-c input'), $('.mount-c'), $('.color-c'));
-            emptyInputValue($('.dimensions-side-d input'), $('.mount-d'), $('.color-d'));
+            emptyInputValue($sideBinput, $('.mount-b'), $('.color-b'));
+            emptyInputValue($sideCinput, $('.mount-c'), $('.color-c'));
+            emptyInputValue($sideDinput, $('.mount-d'), $('.color-d'));
             // Clear the total for side b, c and d
             sideBtotal = resetValueToZero;
             sideCtotal = resetValueToZero;
@@ -167,8 +167,8 @@ $(document).ready(function(){
             mountABCDtotal = (mountSideAPrice + mountSideBPrice).toFixed(2);
             appendPriceSummary();
             // Remove the input values for side c, d and mount c, d
-            emptyInputValue($('.dimensions-side-c input'), $('.mount-c'), $('.color-c'));
-            emptyInputValue($('.dimensions-side-d input'), $('.mount-d'), $('.color-d'));
+            emptyInputValue($sideCinput, $('.mount-c'), $('.color-c'));
+            emptyInputValue($sideDinput, $('.mount-d'), $('.color-d'));
             // Clear the total for side c, d and mount c, d
             sideCtotal = resetValueToZero;
             sideDtotal = resetValueToZero;
@@ -195,7 +195,7 @@ $(document).ready(function(){
             mountABCDtotal -= mountSideDPrice.toFixed(2);
             appendPriceSummary();
             // Removes the input values for side d
-            emptyInputValue($('.dimensions-side-d input'), $('.mount-d'), $('.color-d'));
+            emptyInputValue($sideDinput, $('.mount-d'), $('.color-d'));
             // Clear the total for side d and mount d
             sideDtotal = resetValueToZero;
             mountSideDPrice = resetValueToZero;
@@ -230,12 +230,17 @@ $(document).ready(function(){
     var sideCtotal      = resetValueToZero;
     var sideDtotal      = resetValueToZero;
 
+    var $sideAinput = $('.dimensions-side-a input');
+    var $sideBinput = $('.dimensions-side-b input');
+    var $sideCinput = $('.dimensions-side-c input');
+    var $sideDinput = $('.dimensions-side-d input');
+
     /*Uses singlePrice() here to get price for all 4 sides when input keyup*/
     $('.step2-selections input').on('keyup', function(){
-        sideAtotal = singlePrice($('.dimensions-side-a input'));
-        sideBtotal = singlePrice($('.dimensions-side-b input'));
-        sideCtotal = singlePrice($('.dimensions-side-c input'));
-        sideDtotal = singlePrice($('.dimensions-side-d input'));
+        sideAtotal = singlePrice($sideAinput);
+        sideBtotal = singlePrice($sideBinput);
+        sideCtotal = singlePrice($sideCinput);
+        sideDtotal = singlePrice($sideDinput);
         sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal +sideDtotal);
 
         appendPriceSummary();
@@ -385,22 +390,27 @@ $(document).ready(function(){
 
         var chooseColorValue = $clicked.val();
 
-        if(chooseColorValue == 1){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-            $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
-            $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
-        }else if(chooseColorValue == 2){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField2, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField3, "border-radius": "5px", "margin-top": "5px", "border": "none"}).attr({"value": defaultColorPickerField3, "data-semi": "true"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-            $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
-        }else if(chooseColorValue == 3){
-            $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-            $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField2, "border-radius": "5px", "margin": "5px 0", "border": "none"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-            $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField3, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
-        }else{
-            $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
-            $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
-            $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+        switch(chooseColorValue){
+            case '1':
+                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+                $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+                $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+                break;
+            case '2':
+                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField2, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+                $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField3, "border-radius": "5px", "margin-top": "5px", "border": "none"}).attr({"value": defaultColorPickerField3, "data-semi": "true"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+                $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+                break;
+            case '3':
+                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+                $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField2, "border-radius": "5px", "margin": "5px 0", "border": "none"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+                $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField3, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='choose-color-message'>Click To Choose Colors</div>");
+                break;
+            default:
+                $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+                $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+                $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+                break;
         }
     });
 
@@ -417,7 +427,7 @@ $(document).ready(function(){
 
     //putting the name of mount in array and price will correspond to the same array index
     var diffMountNames = ['', 'wm', 'trm', 'cm', 'clm'];
-    var diffMountPricing = [0,20,33,21,17];
+    var diffMountPricing = [0,5,4.5,5.5,30];
 
     $('.select-mounts').on('change', function(){
         var $clicked = $(this);
@@ -445,14 +455,19 @@ $(document).ready(function(){
         var splitClass = myClass.split(" ");
         var sc1 = splitClass[1];
 
-        if(sc1 == 'mount-a'){
-            mountSideAPrice = selectedMountPrice;
-        }else if(sc1 == 'mount-b'){
-            mountSideBPrice = selectedMountPrice;
-        }else if(sc1 == 'mount-c'){
-            mountSideCPrice = selectedMountPrice;
-        }else if(sc1 == 'mount-d'){
-            mountSideDPrice = selectedMountPrice;
+        switch(sc1){
+            case 'mount-a':
+                mountSideAPrice = selectedMountPrice;
+                break;
+            case 'mount-b':
+                mountSideBPrice = selectedMountPrice;
+                break;
+            case 'mount-c':
+                mountSideCPrice = selectedMountPrice;
+                break;
+            case 'mount-d':
+                mountSideDPrice = selectedMountPrice;
+                break;
         }
 
         //always calculate the total of all mount sides
@@ -516,10 +531,10 @@ $(document).ready(function(){
         }
 
         /*Get the inputs of each side and store them into an array variable*/
-        var inputsA = getInputsForOneSide($('.dimensions-side-a input'));
-        var inputsB = getInputsForOneSide($('.dimensions-side-b input'));
-        var inputsC = getInputsForOneSide($('.dimensions-side-c input'));
-        var inputsD = getInputsForOneSide($('.dimensions-side-d input'));
+        var inputsA = getInputsForOneSide($sideAinput);
+        var inputsB = getInputsForOneSide($sideBinput);
+        var inputsC = getInputsForOneSide($sideCinput);
+        var inputsD = getInputsForOneSide($sideDinput);
 
         //Arrays to check if color chosen is semi or coated
         var semiArrayA = [];
@@ -650,10 +665,10 @@ $(document).ready(function(){
 
     $('.btn-reset').on('click', function(e){
         e.preventDefault();
-        emptyInputValue($('.dimensions-side-a input'), $('.mount-a'), $('.color-a'));
-        emptyInputValue($('.dimensions-side-b input'), $('.mount-b'), $('.color-b'));
-        emptyInputValue($('.dimensions-side-c input'), $('.mount-c'), $('.color-c'));
-        emptyInputValue($('.dimensions-side-d input'), $('.mount-d'), $('.color-d'));
+        emptyInputValue($sideAinput, $('.mount-a'), $('.color-a'));
+        emptyInputValue($sideBinput, $('.mount-b'), $('.color-b'));
+        emptyInputValue($sideCinput, $('.mount-c'), $('.color-c'));
+        emptyInputValue($sideDinput, $('.mount-d'), $('.color-d'));
         sideAtotal = resetValueToZero;
         sideBtotal = resetValueToZero;
         sideCtotal = resetValueToZero;
