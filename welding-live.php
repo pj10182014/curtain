@@ -717,7 +717,7 @@
             sideInput.each(function() {
                 var $keyUp = $(this);
                 if(($keyUp.val() == "") || (isNaN($keyUp.val()))
-                    || ($keyUp.val() > 20) || ($keyUp.val() < 0)){
+                    || ($keyUp.val() < 0)){
                     values.push(parseInt(0));
                 }else {
                     values.push(parseInt($(this).val()));
@@ -746,7 +746,7 @@
         /*Function to validate all width height inch foot input fields*/
         function widthHeightInputValidation(inputWH){
             inputWH.on('keyup', function(){
-                if((inputWH.val() > maxWidthHeight) || (inputWH.val() < minWidthHeight) || (!($.isNumeric(inputWH.val())))){
+                if((inputWH.val() < minWidthHeight) || (!($.isNumeric(inputWH.val())))){
                     inputWH.css({"border":"1px solid red"});
                 }else{
                     inputWH.css({"border":"none"});
@@ -855,24 +855,24 @@
 
             switch(chooseColorValue){
                 case '1':
-                    $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer gradient'><div class='choose-color-message oneColorMessage'>Click To Choose Colors</div></div>");
-                    $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
-                    $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+                    $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField1}).empty().append("<div class='gradientLayer gradient'><div class='choose-color-message oneColorMessage'>Click To Choose Colors</div></div>");
+                    $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
+                    $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                     break;
                 case '2':
-                    $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField2, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
-                    $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField3, "border-radius": "5px", "margin-top": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField3, "data-semi": "true"}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
-                    $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+                    $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField2, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField1}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                    $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField3, "border-radius": "5px", "margin-top": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "name": defaultColorPickerField2}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                    $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                     break;
                 case '3':
-                    $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
-                    $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField2, "border-radius": "5px", "margin": "5px 0", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
-                    $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField3, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                    $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField1}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                    $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField2, "border-radius": "5px", "margin": "5px 0", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField2}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                    $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField3, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField3}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
                     break;
                 default:
-                    $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
-                    $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
-                    $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+                    $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
+                    $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
+                    $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                     break;
             }
         });
@@ -1166,7 +1166,7 @@
             side.each(function(){
                 var value = $(this).val();
                 if((value == '') || (isNaN(value)) ||
-                    (value > maxWidthHeight) || (value < minWidthHeight)){
+                    (value < minWidthHeight)){
                     value = resetValueToZero;
                 }
                 inputs.push(value);
@@ -1271,6 +1271,7 @@
             var sideBsqft = getSquareFeet($sideBinput);
             var sideCsqft = getSquareFeet($sideCinput);
             var sideDsqft = getSquareFeet($sideDinput);
+            var sqftArray = [sideAsqft, sideBsqft, sideCsqft, sideDsqft];
 
             // addes sqft from each side and divid by 9 to get the total weight of the curtain and round to two numbers
             var totalWeight = ((sideAsqft + sideBsqft + sideCsqft + sideDsqft) / 9).toFixed(2);
@@ -1314,6 +1315,7 @@
             var storeEmptyInputValues = [];  //use to store inputs of width / height if empty
             var storeBadInputValueInBoolean = []; //use to store if value is too low / high or not value
             var storeEmptyColorSelectionValue = []; //use to store if color is not selected for the side
+            var storeBadTotalSQFT = []; //use to store if one side's total sqft is more than 2000
 
             /*Checks if width and height inputs are empty or too low / high*/
             function validateWHinputsBeforeSubmit(sideInputs){
@@ -1321,7 +1323,7 @@
                     var value = $(this).val();
                     if(!value){
                         storeEmptyInputValues.push($(this).val());
-                    }else if((value > maxWidthHeight) || (value < minWidthHeight) || (!($.isNumeric(value)))){
+                    }else if((value < minWidthHeight) || (!($.isNumeric(value)))){
                         storeBadInputValueInBoolean.push(false);
                     }
                 })
@@ -1333,6 +1335,12 @@
                     storeEmptyColorSelectionValue.push(false);
                 }
             }
+
+            $.each(sqftArray, function(index, value){
+                if((value > 2000) || (isNaN(value))){
+                    storeBadTotalSQFT.push(false);
+                }
+            })
 
             /*determine how many sides are chosen, then decide the sides of description to output in the cart section also checks if width/height input fields are empty*/
             $('.chooseSides').each(function(index){
@@ -1390,7 +1398,10 @@
                 alert('Please Do not leave any input (feet/inches) fields empty.');
                 return false;
             }else if(jQuery.inArray(false, storeBadInputValueInBoolean) !== -1){
-                alert('Please enter number in between ' + minWidthHeight + " - " + maxWidthHeight + " for width and height!");
+                alert('Please enter number more than ' + minWidthHeight + " for width and height!");
+                return false;
+            }else if(jQuery.inArray(false, storeBadTotalSQFT) !== -1){
+                alert('Total Square Feet cannot exceed 2000sqft.');
                 return false;
             }else if(jQuery.inArray(false, storeEmptyColorSelectionValue) !== -1){
                 alert('Please select at least one color for your side.');
