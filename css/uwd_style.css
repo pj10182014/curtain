@@ -64,6 +64,17 @@ div#product-summary{font-family: 'roboto'; height: 230px; width: 185px; backgrou
         .number-of-color-field{height: 125px;}
         .number-of-color-field input{border: none;}
         .number-of-color-field > div {font-size: 12px; text-align: center;}
+        .gradientLayer, .gradientLayer2, .gradientLayer3 {height: 125px; width: inherit;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+0,000000+0,000000+100&0.01+0,0.01+0,0.01+0,0.01+0,0.01+0,0.01+0,0.2+100;Neutral+Density */
+            background: -moz-linear-gradient(top, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.01)), color-stop(100%,rgba(0,0,0,0.1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, rgba(0,0,0,0.01) 0%,rgba(0,0,0,0.1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, rgba(0,0,0,0.01) 0%,rgba(0,0,0,0.1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, rgba(0,0,0,0.01) 0%,rgba(0,0,0,0.1) 100%); /* IE10+ */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.01) 0%,rgba(0,0,0,0.1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03000000', endColorstr='#33000000',GradientType=0 ); /* IE6-9 */}
+        .gradientLayer2{height: 60px;}
+        .gradientLayer3{height: 38px;}
         .choose-color-message {position: relative; top: 30%;}
         .colorSelectBox>div{font-size: 14px; font-weight: 300; color: #636363; line-height: 136%;}
         .colorSelectBox>div>div{float: left; width: 20px; height: 20px; border-radius: 5px; border: 1px solid lightgrey; margin-right: 3px;}
