@@ -339,15 +339,15 @@ $(document).ready(function(){
     /* Function which then determine what color is clicked and return the color to the div selected as the div's background color */
     function colorPickerOnClick(side){
         //semi colors on click
-        $('div.black')
-            .add('div.yellow')
-            .add('div.pink')
+        $('div.azRed')
+            .add('div.azYellow')
             .on('click', function(){
             var colorAttr = $(this).attr('value');
+            var nameAttr = $(this).attr('name');
             var splitClass = colorHolder.split(" ");
             side.closest('div').find('.'+splitClass[0] + '.'+splitClass[1])
-                .css({"background": colorAttr})
-                .attr({"value": colorAttr, "data-semi": true, "data-coated": false});
+                .css({"background": colorAttr, "border": "none"})
+                .attr({"value": colorAttr, "data-semi": true, "data-coated": false, "name": nameAttr});
             $('.colorSelectBox').css({"display": "none"});
         });
 
@@ -361,18 +361,20 @@ $(document).ready(function(){
             .add('div.orange')
             .on('click', function(){
                 var colorAttr = $(this).attr('value');
+                var nameAttr = $(this).attr('name');
                 var splitClass = colorHolder.split(" ");
                 side.closest('div').find('.'+splitClass[0] + '.'+splitClass[1])
                     .css({"background": colorAttr, "border": "none"})
-                    .attr({"value": colorAttr, "data-semi": false, "data-coated": true});
+                    .attr({"value": colorAttr, "data-semi": false, "data-coated": true, "name": nameAttr});
                 $('.colorSelectBox').css({"display": "none"});
             });
         $('div.white').on('click', function(){
             var colorAttr = $(this).attr('value');
+            var nameAttr = $(this).attr('name');
             var splitClass = colorHolder.split(" ");
             side.closest('div').find('.'+splitClass[0] + '.'+splitClass[1])
                 .css({"background": colorAttr, "border": "1px solid lightgrey"})
-                .attr({"value": colorAttr, "data-semi": false, "data-coated": true});
+                .attr({"value": colorAttr, "data-semi": false, "data-coated": true, "name": nameAttr});
             $('.colorSelectBox').css({"display": "none"});
         });
     }
@@ -392,19 +394,19 @@ $(document).ready(function(){
 
         switch(chooseColorValue){
             case '1':
-                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer gradient'><div class='choose-color-message oneColorMessage'>Click To Choose Colors</div></div>");
                 $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
                 $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
                 break;
             case '2':
-                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField2, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
-                $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField3, "border-radius": "5px", "margin-top": "5px", "border": "none"}).attr({"value": defaultColorPickerField3, "data-semi": "true"}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField2, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField3, "border-radius": "5px", "margin-top": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField3, "data-semi": "true"}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
                 $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
                 break;
             case '3':
-                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
-                $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField2, "border-radius": "5px", "margin": "5px 0", "border": "none"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
-                $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField3, "border-radius": "5px", "border": "none"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField2, "border-radius": "5px", "margin": "5px 0", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField3, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false"}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
                 break;
             default:
                 $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
@@ -558,7 +560,7 @@ $(document).ready(function(){
             side.each(function(){
                 var semi = $(this).attr('data-semi');
                 var coated = $(this).attr('data-coated');
-                var bg = $(this).attr('value');
+                var bg = $(this).attr('name');
 
                 if(typeof(semi) == 'undefined'){
                     semi = 'false';
@@ -566,7 +568,7 @@ $(document).ready(function(){
                 if(typeof(coated) == 'undefined'){
                     coated = 'false';
                 }
-                if(typeof(bg) == 'undefined'){
+                if((bg == 'color1') || (bg == 'color2') || (bg == 'color3')){
                     bg = 'None Chosen';
                 }
 
