@@ -427,61 +427,127 @@ $(document).ready(function(){
     var mountSideDPrice = resetValueToZero;
     var mountABCDtotal = resetValueToZero;
 
-    //putting the name of mount in array and price will correspond to the same array index
-    var diffMountNames = ['', 'wm', 'trm', 'cm', 'clm'];
-    var diffMountPricing = [0,5,4.5,5.5,30];
+    function getOnlyWidthInput(sideInput){
+        var value = [];
+        sideInput.each(function(){
+
+            var $thisValue = $(this).val();
+            value.push(parseInt($thisValue));
+        });
+        value[1] = value[1]/12;
+        return value[0] + value[1];
+    }
 
     $('.select-mounts').on('change', function(){
         var $clicked = $(this);
-        var valueSelected = $clicked.val();     //check the value being selected
-        var priceIndex = 0;                     //use to get the index of the price
-        var selectedMountPrice = 0;             //price set to 0 initially
+        var valueSelected = $clicked.val();
+        var price = 0;
 
-        //in the array if the value selected matches to the one in the array saves the index to priceIndex
-        $.each(diffMountNames, function(index, value){
-            if(valueSelected == value){
-                priceIndex = index;
-            }
-        });
+        var sideAWidthFT = getOnlyWidthInput($sideAinput);
+        var sideBWidthFT = getOnlyWidthInput($sideBinput);
+        var sideCWidthFT = getOnlyWidthInput($sideCinput);
+        var sideDWidthFT = getOnlyWidthInput($sideDinput);
 
-        //uses the priceIndex found above and loop through the array to find the corresponding index which will the the price of the product
-        $.each(diffMountPricing, function(index, value){
-           if(priceIndex == index){
-               selectedMountPrice = value;
-           }
-        });
-
-        //find the class being clicked and split it to check exactly with side is clicked
-        //then use the class to decide which side variable is used to store the price of the mount selected
         var myClass = $clicked.attr('class');
         var splitClass = myClass.split(" ");
         var sc1 = splitClass[1];
 
-        switch(sc1){
-            case 'mount-a':
-                mountSideAPrice = selectedMountPrice;
-                break;
-            case 'mount-b':
-                mountSideBPrice = selectedMountPrice;
-                break;
-            case 'mount-c':
-                mountSideCPrice = selectedMountPrice;
-                break;
-            case 'mount-d':
-                mountSideDPrice = selectedMountPrice;
-                break;
+        if(valueSelected != ''){
+            switch(sc1){
+                case 'mount-a':
+                    mountSideAPrice = sideAWidthFT * 4.5;
+                    break;
+                case 'mount-b':
+                    mountSideBPrice = sideBWidthFT * 4.5;
+                    break;
+                case 'mount-c':
+                    mountSideCPrice = sideCWidthFT * 4.5;
+                    break;
+                case 'mount-d':
+                    mountSideDPrice = sideDWidthFT * 4.5;
+                    break;
+            }
+        }else{
+            switch(sc1){
+                case 'mount-a':
+                    mountSideAPrice = 0;
+                    break;
+                case 'mount-b':
+                    mountSideBPrice = 0;
+                    break;
+                case 'mount-c':
+                    mountSideCPrice = 0;
+                    break;
+                case 'mount-d':
+                    mountSideDPrice = 0;
+                    break;
+            }
         }
 
         //always calculate the total of all mount sides
         mountABCDtotal = (mountSideAPrice + mountSideBPrice + mountSideCPrice + mountSideDPrice);
-
-        //price of the mount plus price of the sides gives the price summary
-        //priceSummary = (Number(sideABCDtotal) + mountABCDtotal).toFixed(2);
-        //$('.price').empty().append("$" + priceSummary);
-
         appendPriceSummary();
         console.log(mountABCDtotal);
     });
+
+    /*******************/
+    /*fixed mount price*/
+    /*******************/
+    ////putting the name of mount in array and price will correspond to the same array index
+    //var diffMountNames = ['', 'wm', 'trm', 'cm', 'clm'];
+    //var diffMountPricing = [0,5,4.5,5.5,30];
+    //
+    //$('.select-mounts').on('change', function(){
+    //    var $clicked = $(this);
+    //    var valueSelected = $clicked.val();     //check the value being selected
+    //    var priceIndex = 0;                     //use to get the index of the price
+    //    var selectedMountPrice = 0;             //price set to 0 initially
+    //
+    //    //in the array if the value selected matches to the one in the array saves the index to priceIndex
+    //    $.each(diffMountNames, function(index, value){
+    //        if(valueSelected == value){
+    //            priceIndex = index;
+    //        }
+    //    });
+    //
+    //    //uses the priceIndex found above and loop through the array to find the corresponding index which will the the price of the product
+    //    $.each(diffMountPricing, function(index, value){
+    //       if(priceIndex == index){
+    //           selectedMountPrice = value;
+    //       }
+    //    });
+    //
+    //    //find the class being clicked and split it to check exactly with side is clicked
+    //    //then use the class to decide which side variable is used to store the price of the mount selected
+    //    var myClass = $clicked.attr('class');
+    //    var splitClass = myClass.split(" ");
+    //    var sc1 = splitClass[1];
+    //
+    //    switch(sc1){
+    //        case 'mount-a':
+    //            mountSideAPrice = selectedMountPrice;
+    //            break;
+    //        case 'mount-b':
+    //            mountSideBPrice = selectedMountPrice;
+    //            break;
+    //        case 'mount-c':
+    //            mountSideCPrice = selectedMountPrice;
+    //            break;
+    //        case 'mount-d':
+    //            mountSideDPrice = selectedMountPrice;
+    //            break;
+    //    }
+    //
+    //    //always calculate the total of all mount sides
+    //    mountABCDtotal = (mountSideAPrice + mountSideBPrice + mountSideCPrice + mountSideDPrice);
+    //
+    //    //price of the mount plus price of the sides gives the price summary
+    //    //priceSummary = (Number(sideABCDtotal) + mountABCDtotal).toFixed(2);
+    //    //$('.price').empty().append("$" + priceSummary);
+    //
+    //    appendPriceSummary();
+    //    console.log(mountABCDtotal);
+    //});
 
     /*Function to append price summary into the price summary div*/
     function appendPriceSummary(){
