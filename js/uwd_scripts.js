@@ -243,6 +243,44 @@ $(document).ready(function(){
         sideDtotal = singlePrice($sideDinput);
         sideABCDtotal = (sideAtotal + sideBtotal + sideCtotal +sideDtotal);
 
+        var sideAWidthFT = getOnlyWidthInput($sideAinput);
+        var sideBWidthFT = getOnlyWidthInput($sideBinput);
+        var sideCWidthFT = getOnlyWidthInput($sideCinput);
+        var sideDWidthFT = getOnlyWidthInput($sideDinput);
+
+        $('.select-mounts').each(function(){
+           var $this = $(this);
+           var value = $this.val();
+            if(value != ''){
+                var myClass = $this.attr('class');
+                var splitClass = myClass.split(' ');
+                var sc1 = splitClass[1];
+
+                switch(sc1){
+                    case 'mount-a':
+                        mountABCDtotal -= mountSideAPrice;
+                        mountSideAPrice = sideAWidthFT * 4.5;
+                        mountABCDtotal += mountSideAPrice;
+                        break;
+                    case 'mount-b':
+                        mountABCDtotal -= mountSideBPrice;
+                        mountSideBPrice = sideBWidthFT * 4.5;
+                        mountABCDtotal += mountSideBPrice;
+                        break;
+                    case 'mount-c':
+                        mountABCDtotal -= mountSideCPrice;
+                        mountSideCPrice = sideCWidthFT * 4.5;
+                        mountABCDtotal += mountSideCPrice;
+                        break;
+                    case 'mount-d':
+                        mountABCDtotal -= mountSideDPrice;
+                        mountSideDPrice = sideDWidthFT * 4.5;
+                        mountABCDtotal += mountSideDPrice;
+                        break;
+                }
+            }
+        });
+
         appendPriceSummary();
     });
     /*Function to gets the price for single Side*/
@@ -427,12 +465,18 @@ $(document).ready(function(){
     var mountSideDPrice = resetValueToZero;
     var mountABCDtotal = resetValueToZero;
 
+
     function getOnlyWidthInput(sideInput){
         var value = [];
         sideInput.each(function(){
 
             var $thisValue = $(this).val();
-            value.push(parseInt($thisValue));
+            if($thisValue == ''){
+                value.push(parseInt(0));
+            }else{
+                value.push(parseInt($thisValue));
+            }
+
         });
         value[1] = value[1]/12;
         return value[0] + value[1];
@@ -455,16 +499,16 @@ $(document).ready(function(){
         if(valueSelected != ''){
             switch(sc1){
                 case 'mount-a':
-                    mountSideAPrice = sideAWidthFT * 4.5;
+                    mountSideAPrice = (sideAWidthFT * 4.5);
                     break;
                 case 'mount-b':
-                    mountSideBPrice = sideBWidthFT * 4.5;
+                    mountSideBPrice = (sideBWidthFT * 4.5);
                     break;
                 case 'mount-c':
-                    mountSideCPrice = sideCWidthFT * 4.5;
+                    mountSideCPrice = (sideCWidthFT * 4.5);
                     break;
                 case 'mount-d':
-                    mountSideDPrice = sideDWidthFT * 4.5;
+                    mountSideDPrice = (sideDWidthFT * 4.5);
                     break;
             }
         }else{
@@ -485,9 +529,9 @@ $(document).ready(function(){
         }
 
         //always calculate the total of all mount sides
-        mountABCDtotal = (mountSideAPrice + mountSideBPrice + mountSideCPrice + mountSideDPrice);
+        mountABCDtotal = (mountSideAPrice + mountSideBPrice + mountSideCPrice + mountSideDPrice).toFixed(2);
+
         appendPriceSummary();
-        console.log(mountABCDtotal);
     });
 
     /*******************/
@@ -552,6 +596,9 @@ $(document).ready(function(){
     /*Function to append price summary into the price summary div*/
     function appendPriceSummary(){
         priceSummary = (Number(sideABCDtotal) + Number(mountABCDtotal)).toFixed(2);
+        if(isNaN(priceSummary)){
+            priceSummary = 0.00;
+        }
         $('.price').empty().append("$" + priceSummary);
     }
 
