@@ -17,6 +17,34 @@ $(document).ready(function(){
         $(this).next('div').slideToggle( "slow" );
     });
 
+    /*Checking, storing, and returning different values for different functions*/
+    //used in getOnlyWidthInput(), singlePrice() and getInputsForOneSide()
+    function storeInputValues(sideInput, action){
+        var values = [];
+        sideInput.each(function(){
+            var $thisValue = $(this).val();
+            if(($thisValue == "") || (isNaN($thisValue))
+                || ($thisValue > maxWidthHeight) || ($thisValue < minWidthHeight)){
+                values.push(parseInt(resetValueToZero));
+            }else {
+                values.push(parseInt($thisValue));
+            }
+        });
+        values[1] = values[1]/12;
+        values[3] = values[3]/12;
+        switch (action){
+            case ('getWidthInput'):
+                return values[0] + values[1];
+                break;
+            case ('getSinglePrice'):
+                return ((values[0]+values[1])*(values[2]+values[3])) * widthHeightProductMultiplier;
+                break;
+            case ('storeInputs'):
+                return values;
+                break;
+        }
+
+    }
     /******************************************************/
     /****** Enable / Disabling Sides with Its inputs ******/
     /******************************************************/
@@ -290,20 +318,7 @@ $(document).ready(function(){
     //Height    value[2] and value[3] ---> index 2 is foot, 3 is inches
     //value[1]/[3] are inches and always needs to be converted to foot by dividing 12
     function singlePrice(sideInput){
-            var values = [];
-            sideInput.each(function() {
-                var $keyUp = $(this);
-                if(($keyUp.val() == "") || (isNaN($keyUp.val()))
-                || ($keyUp.val() > 20) || ($keyUp.val() < 0)){
-                    values.push(parseInt(0));
-                }else {
-                    values.push(parseInt($(this).val()));
-                }
-            });
-
-            values[1] = values[1]/12;
-            values[3] = values[3]/12;
-            return ((values[0]+values[1])*(values[2]+values[3])) * widthHeightProductMultiplier;
+        return storeInputValues(sideInput, 'getSinglePrice');
     }
 
     /*Function to empty all the value input of one side*/
@@ -465,21 +480,11 @@ $(document).ready(function(){
     var mountSideDPrice = resetValueToZero;
     var mountABCDtotal = resetValueToZero;
 
-
+    /*************************/
+    /*using multiplier of 4.5*/
+    /*************************/
     function getOnlyWidthInput(sideInput){
-        var value = [];
-        sideInput.each(function(){
-
-            var $thisValue = $(this).val();
-            if($thisValue == ''){
-                value.push(parseInt(0));
-            }else{
-                value.push(parseInt($thisValue));
-            }
-
-        });
-        value[1] = value[1]/12;
-        return value[0] + value[1];
+        return storeInputValues(sideInput, 'getWidthInput');
     }
 
     $('.select-mounts').on('change', function(){
@@ -600,6 +605,7 @@ $(document).ready(function(){
             priceSummary = 0.00;
         }
         $('.price').empty().append("$" + priceSummary);
+        $('form input[name="amount"]').attr('value', priceSummary);
     }
 
 
@@ -632,17 +638,8 @@ $(document).ready(function(){
         });
 
         /*Gets all the inputs for one side*/
-        function getInputsForOneSide(side){
-            var inputs = [];
-            side.each(function(){
-                var value = $(this).val();
-                if((value == '') || (isNaN(value)) ||
-                    (value > maxWidthHeight) || (value < minWidthHeight)){
-                    value = resetValueToZero;
-                }
-                inputs.push(value);
-            });
-            return inputs;
+        function getInputsForOneSide(sideInput){
+            return storeInputValues(sideInput, 'storeInputs');
         }
 
         /*Get the inputs of each side and store them into an array variable*/

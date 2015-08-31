@@ -1056,6 +1056,7 @@
                 priceSummary = 0.00;
             }
             $('.price').empty().append("$" + priceSummary);
+            $('form input[name="amount"]').attr('value', priceSummary);
         }
 
 
