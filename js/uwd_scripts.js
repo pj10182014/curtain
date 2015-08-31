@@ -395,13 +395,12 @@ $(document).ready(function(){
     var colorHolder = null; //used to store the location where color is picked
 
     /* Function checks which side's div is clicked and pop put the colorSelectBox with the position of the div popping out */
-    function colorFieldPicker(onClickSide, xValInput, yValInput,side){
+    function colorFieldPicker(onClickSide,side){
         onClickSide.on('click', function(event){
             //store the class of the colorHolder to a global variable
             colorHolder = $(this).attr('class');
-            //x and y value of position where the color picker should pop up / toggle
-            var yVal = (event.pageY - yValInput) + "px";
-            var xVal = (event.pageX / xValInput) + "px";
+            var yVal = (event.clientY) + "px";
+            var xVal = (event.clientX) + "px";
             $('.colorSelectBox').css({"left": xVal, "top": yVal}).toggle();
             //empty the field where it says 'Click to choose colors'
             $(this).closest('div').find('.gradient').children().empty();
@@ -461,10 +460,10 @@ $(document).ready(function(){
     }
 
     /* Enabling the function to choose colors */
-    colorFieldPicker($('.color-side-a .number-of-color-field > div'), 3, 250, $('.color-side-a'));
-    colorFieldPicker($('.color-side-b .number-of-color-field > div'), 2, 225, $('.color-side-b'));
-    colorFieldPicker($('.color-side-c .number-of-color-field > div'), 1.5, 250, $('.color-side-c'));
-    colorFieldPicker($('.color-side-d .number-of-color-field > div'), 1.5, 235, $('.color-side-d'));
+    colorFieldPicker($('.color-side-a .number-of-color-field > div'), $('.color-side-a'));
+    colorFieldPicker($('.color-side-b .number-of-color-field > div'), $('.color-side-b'));
+    colorFieldPicker($('.color-side-c .number-of-color-field > div'), $('.color-side-c'));
+    colorFieldPicker($('.color-side-d .number-of-color-field > div'), $('.color-side-d'));
 
     /* Open the color selection field after number of colors is selected */
     $('.number-of-colors').on('change', function(){

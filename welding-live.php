@@ -88,6 +88,7 @@
                                 <p class="dimension-WHC">Width</p>
                                 <input class='dimension-input-foot' name="a-width-foot" type="text"><span class="foot-inches">'</span>
                                 <input class='dimension-input-inch' name="a-width-inch" type="text"><span class="foot-inches">"</span>
+                                x &nbsp;
                             </div>
                             <div class="dimension-height">
                                 <p class="dimension-WHC">Height</p>
@@ -102,6 +103,7 @@
                                 <p class="dimension-WHC">Width</p>
                                 <input class='dimension-input-foot' name="b-width-foot"  type="text"><span class="foot-inches">'</span>
                                 <input class='dimension-input-inch' name="b-width-inch" type="text"><span class="foot-inches">"</span>
+                                x &nbsp;
                             </div>
                             <div class="dimension-height">
                                 <p class="dimension-WHC">Height</p>
@@ -116,6 +118,7 @@
                                 <p class="dimension-WHC">Width</p>
                                 <input class='dimension-input-foot' name="c-width-foot" type="text"><span class="foot-inches">'</span>
                                 <input class='dimension-input-inch' name="c-width-inch" type="text"><span class="foot-inches">"</span>
+                                x &nbsp;
                             </div>
                             <div class="dimension-height">
                                 <p class="dimension-WHC">Height</p>
@@ -130,6 +133,7 @@
                                 <p class="dimension-WHC">Width</p>
                                 <input class='dimension-input-foot' name="d-width-foot" type="text"><span class="foot-inches">'</span>
                                 <input class='dimension-input-inch' name="d-width-inch" type="text"><span class="foot-inches">"</span>
+                                x &nbsp;
                             </div>
                             <div class="dimension-height">
                                 <p class="dimension-WHC">Height</p>
@@ -261,28 +265,27 @@
                             <div class="help-header">Choose Track & Trolley Kit</div>
                             <div class="help">Help<span class="fa fa-question-circle"></span></div>
                             <div class="help-notes">
-                                Determine how the curtain will be hung. Will the curtains be suspended? Or will they be attached on a track directly to the ceiling....or will you be mounting to a truss or I-beam (ceiling connectors allow for direct attachment to the ceiling, beam clamp connectors allow for I-beam attachment or truss attachment and wall mount connector allow for the curtain to be attached to a wall. When suspending a curtain threaded rod or chain link connectors are the most common. Radius Connectors allow for the curtain to slide around corners.... ')<hr>
-                                <!-- Image showing the different mounts-->
-                                <div class="mount-names">
-                                    <img class="mount-image" src="/images/mounts.svg" alt="4 different mount options">
-                                    <div class="wall">Wall Mount</div>
-                                    <div class="threaded-rod" style="position: relative;">Threaded Rod Mount</div>
-                                    <div class="ceiling">Ceiling Mount</div>
-                                    <div class="chain-link">Chain Link Mount</div>
-
-                                </div><!-- end mount-names div -->
+                                Determine how the curtain will be hung. Will the curtains be suspended? Or will they be attached on a track directly to the ceiling....or will you be mounting to a truss or I-beam (ceiling connectors allow for direct attachment to the ceiling, beam clamp connectors allow for I-beam attachment or truss attachment and wall mount connector allow for the curtain to be attached to a wall. When suspending a curtain threaded rod or chain link connectors are the most common. Radius Connectors allow for the curtain to slide around corners.... ')
                             </div>
                         </div><!-- end help-section div-->
 
                         <div class="clear"></div>
+                        <!-- Image showing the different mounts-->
+                        <div class="mount-names">
+                            <img class="mount-image" src="/images/mounts.svg" alt="4 different mount options">
+                            <div class="wall">Wall Mount</div>
+                            <div class="threaded-rod" style="position: relative;">Threaded Rod Mount</div>
+                            <div class="ceiling">Ceiling Mount</div>
+                            <div class="chain-link">Chain Link Mount</div>
 
+                        </div><!-- end mount-names div -->
 
                         <div class="clear"></div>
                         <div class="mount-side-a">
                             <p class="sideABCD-header">Side A</p>
                             <div class="dimension-width">
                                 <select name="select-mounts" class="select-mounts mount-a">
-                                    <option value="No Mount" group="mounts">Select A Mount</option>
+                                    <option value="No Mount" group="mounts">No Mount</option>
                                     <option value="Wall Mount" group="mounts">Wall Mount</option>
                                     <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
                                     <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
@@ -295,7 +298,7 @@
                             <p class="sideABCD-header">Side B</p>
                             <div class="dimension-width">
                                 <select name="select-mounts" class="select-mounts mount-b">
-                                    <option value="No Mount" group="mounts">Select A Mount</option>
+                                    <option value="No Mount" group="mounts">No Mount</option>
                                     <option value="Wall Mount" group="mounts">Wall Mount</option>
                                     <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
                                     <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
@@ -308,7 +311,7 @@
                             <p class="sideABCD-header">Side C</p>
                             <div class="dimension-width">
                                 <select name="select-mounts" class="select-mounts mount-c">
-                                    <option value="No Mount" group="mounts">Select A Mount</option>
+                                    <option value="No Mount" group="mounts">No Mount</option>
                                     <option value="Wall Mount" group="mounts">Wall Mount</option>
                                     <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
                                     <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
@@ -321,7 +324,7 @@
                             <p class="sideABCD-header">Side D</p>
                             <div class="dimension-width">
                                 <select name="select-mounts" class="select-mounts mount-d">
-                                    <option value="No Mount" group="mounts">Select A Mount</option>
+                                    <option value="No Mount" group="mounts">No Mount</option>
                                     <option value="Wall Mount" group="mounts">Wall Mount</option>
                                     <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
                                     <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
@@ -477,6 +480,25 @@
         /*Toggles the help-notes div when help is clicked*/
         $('.help').on('click', function(){
             $(this).next('div').slideToggle( "slow" );
+        });
+
+        //    $(document).on('mouseup', function (e){
+        //     var container = $(".colorSelectBox");
+
+        //     if (!container.is(e.target) // if the target of the click isn't the container...
+        //         && container.has(e.target).length === 0){ // ... nor a descendant of the container
+        //         // if(container.hasClass('visible')){
+        //             container.hide();
+        //             // container.removeClass('visible');
+        //         // }
+
+        //         //container.removeClass('visible');
+        //     }
+        // });
+
+        $(document).click(function (e) {
+            if ($(e.target).closest('.colorSelectBox').length > 0 || $(e.target).closest('div').length > 0) return;
+            $('.colorSelectBox').hide();
         });
 
         /******************************************************/
@@ -828,8 +850,8 @@
                 //store the class of the colorHolder to a global variable
                 colorHolder = $(this).attr('class');
                 //x and y value of position where the color picker should pop up / toggle
-                var yVal = (event.pageY - yValInput) + "px";
-                var xVal = (event.pageX / xValInput) + "px";
+                var yVal = (event.clientY) + "px";
+                var xVal = (event.clientX) + "px";
                 $('.colorSelectBox').css({"left": xVal, "top": yVal}).toggle();
                 //empty the field where it says 'Click to choose colors'
                 $(this).closest('div').empty();
@@ -899,14 +921,14 @@
                     $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                     break;
                 case '2':
-                    $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField2, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField1}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
-                    $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField3, "border-radius": "5px", "margin-top": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "name": defaultColorPickerField2}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                    $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField2, "border-radius": "5px 5px 0 0", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField1}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                    $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "48%", "background-color": defaultColorPickerField3, "border-radius": "0 0 5px 5px", "border": "2px dashed blue", "border-top": "none"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "name": defaultColorPickerField2}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
                     $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                     break;
                 case '3':
-                    $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField1}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
-                    $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField2, "border-radius": "5px", "margin": "5px 0", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField2}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
-                    $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField3, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField3}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                    $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField1, "border-radius": "5px 5px 0 0", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField1}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                    $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField2,"border-right": "2px dashed blue", "border-left": "2px dashed blue", "border-bottom": "none","border-radius": "initial"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField2}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
+                    $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "30%", "background-color": defaultColorPickerField3, "border-radius": "0 0 5px 5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField3}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message'>Click To Choose Colors</div></div>");
                     break;
                 default:
                     $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
