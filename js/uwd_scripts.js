@@ -17,6 +17,25 @@ $(document).ready(function(){
         $(this).next('div').slideToggle( "slow" );
     });
 
+    //$(document).on('mouseup', function (e){
+    //    var container = $(".colorSelectBox");
+    //
+    //    if (!container.is(e.target) // if the target of the click isn't the container...
+    //        && container.has(e.target).length === 0){ // ... nor a descendant of the container
+    //        //if(container.hasClass('visible')){
+    //            container.hide();
+    //            //container.removeClass('visible');
+    //        //}
+    //
+    //        //container.removeClass('visible');
+    //    }
+    //});
+
+    $(document).click(function (e) {
+        if ($(e.target).closest('.colorSelectBox').length > 0 || $(e.target).closest('div').length > 0) return;
+        $('.colorSelectBox').hide();
+    });
+
     /*Checking, storing, and returning different values for different functions*/
     //used in getOnlyWidthInput(), singlePrice() and getInputsForOneSide()
     function storeInputValues(sideInput, action){
@@ -386,7 +405,16 @@ $(document).ready(function(){
             $('.colorSelectBox').css({"left": xVal, "top": yVal}).toggle();
             //empty the field where it says 'Click to choose colors'
             $(this).closest('div').find('.gradient').children().empty();
+            //var visible = $('.colorSelectBox').hasClass('visible');
+            //if(visible){
+            //    $('.colorSelectBox').hide();
+            //    $('.colorSelectBox').removeClass('visible');
+            //}else{
+            //    $('.colorSelectBox').show();
+            //    $('.colorSelectBox').addClass('visible');
+            //}
             colorPickerOnClick(side);
+
         });
     }
     /* Function which then determine what color is clicked and return the color to the div selected as the div's background color */
