@@ -1052,8 +1052,10 @@
         /*Function to append price summary into the price summary div and also change the hidden input amount field value which will be used to pass into the order-cart.php*/
         function appendPriceSummary(){
             priceSummary = (Number(sideABCDtotal) + Number(mountABCDtotal)).toFixed(2);
+            if(isNaN(priceSummary)){
+                priceSummary = 0.00;
+            }
             $('.price').empty().append("$" + priceSummary);
-            $('form input[name="amount"]').attr('value', priceSummary);
         }
 
 
