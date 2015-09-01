@@ -373,7 +373,7 @@
                             </div>
 
                             <div class="extraAcc">
-                                <label for="" class="extraName">Radius Connector</label>
+                                <label for="" class="extraName">Radius1 Connector</label>
                                 <div class="extraPrice acc2">$60.00
                                     <select name="" id="radius1" class="opt-qty">
                                         <?php
@@ -1629,6 +1629,19 @@
                 }
             });
 
+            /*Gets the extra accessories' names and qty info, if qty 0 then this info will not be printed*/
+            var printExtraAccInfo = '';
+            $('.opt-qty').each(function(){
+                var $this = $(this);
+                var qtySelected = parseInt($this.find('option:selected').text());
+
+                if(qtySelected > 0){
+                    var info = ' ' + $this.closest('div').prev().text() + ' x ' + qtySelected + '. ';
+                    printExtraAccInfo += info;
+                }
+            });
+            printExtraAccInfo = '. ' + printExtraAccInfo
+
             //checks if the array of storeEmptyInputValues has any empty string
             //checks if the array of storeBadInputValueInBoolean has false in it, if there is that means one of the inputs is a bad input
             //checks if the array of storeEmptyColorSelectionValue has false in it, if there is that means one of the side did not choose at least one color
@@ -1649,7 +1662,7 @@
                 $('input[name="weight"]').attr('value', totalWeight);
                 $('input[name="unit"]').attr('value', unitValueForShipping);
                 //outputs the descripts into the cart
-                document.ordering.item_name.value = getHowManySides() +  descOutput;
+                document.ordering.item_name.value = getHowManySides() +  descOutput + printExtraAccInfo;
             }
 
         }

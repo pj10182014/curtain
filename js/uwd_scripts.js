@@ -862,4 +862,27 @@ $(document).ready(function(){
         priceSummary = resetValueToZero;
         appendPriceSummary();
     });
+
+    /*Appends the extra acc info*/
+    var printExtraAccInfo = '';
+    $('.accTest').on('click', function(e){
+        e.preventDefault();
+        $('.accInfoField').empty();
+
+        $('.opt-qty').each(function(){
+            var $this = $(this);
+            var qtySelected = parseInt($this.find('option:selected').text());
+
+
+            if(qtySelected > 0){
+                var info = $this.closest('div').prev().text() + ' x ' + qtySelected + '<br>';
+                printExtraAccInfo += info;
+
+            }else{
+                console.log('none');
+            }
+        });
+        $('.accInfoField').append(printExtraAccInfo);
+        printExtraAccInfo = '';
+    });
 });
