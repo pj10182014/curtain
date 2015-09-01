@@ -360,12 +360,14 @@
                                 <label for="" class="extraName">Radius Connector</label>
                                 <div class="extraPrice acc1">$65.00
                                     <select name="" id="radius" class="opt-qty">
-                                        <option value="radius">0</option>
-                                        <option value="radius">1</option>
-                                        <option value="radius">2</option>
-                                        <option value="radius">3</option>
-                                        <option value="radius">4</option>
-                                        <option value="radius">5</option>
+                                        <?php
+                                        $maxQty = 50;
+                                        for($i = 0; $i <= $maxQty; $i++){
+                                            echo "<option value='radius'>";
+                                            echo $i;
+                                            echo "</option>";
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -374,12 +376,14 @@
                                 <label for="" class="extraName">Radius Connector</label>
                                 <div class="extraPrice acc2">$60.00
                                     <select name="" id="radius1" class="opt-qty">
-                                        <option value="radius1">0</option>
-                                        <option value="radius1">1</option>
-                                        <option value="radius1">2</option>
-                                        <option value="radius1">3</option>
-                                        <option value="radius1">4</option>
-                                        <option value="radius1">5</option>
+                                        <?php
+                                        $maxQty = 50;
+                                        for($i = 0; $i <= $maxQty; $i++){
+                                            echo "<option value='radius1'>";
+                                            echo $i;
+                                            echo "</option>";
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
