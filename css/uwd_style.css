@@ -97,6 +97,7 @@ div#product-summary{font-family: 'roboto'; height: 230px; width: 185px; backgrou
         .mount-names > div {float:left; margin-left: 50px;}
 
         /*Css for step 4 - Extra Options*/
+        .extraAcc{margin-top: 10px;}
         .extraName{float: left;}
         .extraPrice{margin-left: 150px;}
         .opt-qty{float:right;}

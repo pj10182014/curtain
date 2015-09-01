@@ -285,7 +285,7 @@
                             <p class="sideABCD-header">Side A</p>
                             <div class="dimension-width">
                                 <select name="select-mounts" class="select-mounts mount-a">
-                                    <option value="No Mount" group="mounts">No Mount</option>
+                                    <option value="No Mount" group="mounts">No Track</option>
                                     <option value="Wall Mount" group="mounts">Wall Mount</option>
                                     <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
                                     <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
@@ -298,7 +298,7 @@
                             <p class="sideABCD-header">Side B</p>
                             <div class="dimension-width">
                                 <select name="select-mounts" class="select-mounts mount-b">
-                                    <option value="No Mount" group="mounts">No Mount</option>
+                                    <option value="No Mount" group="mounts">No Track</option>
                                     <option value="Wall Mount" group="mounts">Wall Mount</option>
                                     <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
                                     <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
@@ -311,7 +311,7 @@
                             <p class="sideABCD-header">Side C</p>
                             <div class="dimension-width">
                                 <select name="select-mounts" class="select-mounts mount-c">
-                                    <option value="No Mount" group="mounts">No Mount</option>
+                                    <option value="No Mount" group="mounts">No Track</option>
                                     <option value="Wall Mount" group="mounts">Wall Mount</option>
                                     <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
                                     <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
@@ -324,7 +324,7 @@
                             <p class="sideABCD-header">Side D</p>
                             <div class="dimension-width">
                                 <select name="select-mounts" class="select-mounts mount-d">
-                                    <option value="No Mount" group="mounts">No Mount</option>
+                                    <option value="No Mount" group="mounts">No Track</option>
                                     <option value="Wall Mount" group="mounts">Wall Mount</option>
                                     <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
                                     <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
@@ -336,6 +336,41 @@
                     </div><!-- end selections -->
                 </div>  <!-- end step 3 div-->
 
+                <div class="clear"></div>
+                <div id="step4">
+                    <!-- Header-->
+                    <header class="curtain-selection-headers">
+                        <div class="step-arrows">Step 4</div>
+                        <div class="step-headers">Extra Options</div>
+                    </header>
+
+                    <!-- Selections-->
+                    <div class="step4-selections">
+                        <!-- Help notes-->
+                        <div class="help-section">
+                            <div class="help-header">Please select the additions needed</div>
+                            <div class="help">Help<span class="fa fa-question-circle"></span></div>
+                            <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
+                        </div>
+
+                        <div class="clear"></div>
+                        <div class="extraOp">
+                            <div class="extraName">Radius Connector</div>
+                            <div class="extraPrice">$65.00
+                                <select name="" id="" class="opt-qty">
+                                    <?php
+                                    $maxQty = 50;
+                                    for($i = 0; $i <= $maxQty; $i++){
+                                        echo "<option value='$i'>";
+                                        echo $i;
+                                        echo "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div><!-- end selections -->
+                </div>  <!-- end step 4 div-->
 
             </div> <!-- end three steps div -->
 
@@ -482,24 +517,29 @@
             $(this).next('div').slideToggle( "slow" );
         });
 
-        //    $(document).on('mouseup', function (e){
-        //     var container = $(".colorSelectBox");
-
-        //     if (!container.is(e.target) // if the target of the click isn't the container...
-        //         && container.has(e.target).length === 0){ // ... nor a descendant of the container
-        //         // if(container.hasClass('visible')){
-        //             container.hide();
-        //             // container.removeClass('visible');
-        //         // }
-
-        //         //container.removeClass('visible');
-        //     }
-        // });
-
-        $(document).click(function (e) {
-            if ($(e.target).closest('.colorSelectBox').length > 0 || $(e.target).closest('div').length > 0) return;
-            $('.colorSelectBox').hide();
+        $('.opt-qty').on('change', function(){
+            var $this = $(this);
+            console.log($this.val());
         });
+
+        $(document).on('mouseup', function (e){
+            var container = $(".colorSelectBox");
+
+            if (!container.is(e.target) // if the target of the click isn't the container...
+                && container.has(e.target).length === 0){ // ... nor a descendant of the container
+                // if(container.hasClass('visible')){
+                container.hide();
+                // container.removeClass('visible');
+                // }
+
+                //container.removeClass('visible');
+            }
+        });
+
+        // $(document).click(function (e) {
+        //     if ($(e.target).closest('.colorSelectBox').length > 0 || $(e.target).closest('div').length > 0) return;
+        //     $('.colorSelectBox').hide();
+        // });
 
         /******************************************************/
         /****** Enable / Disabling Sides with Its inputs ******/

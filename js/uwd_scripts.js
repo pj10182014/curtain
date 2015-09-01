@@ -616,7 +616,7 @@ $(document).ready(function(){
 
     /*Function to append price summary into the price summary div*/
     function appendPriceSummary(){
-        priceSummary = (Number(sideABCDtotal) + Number(mountABCDtotal)).toFixed(2);
+        priceSummary = (Number(sideABCDtotal) + Number(mountABCDtotal) + Number(extraAccAllTotal)).toFixed(2);
         if(isNaN(priceSummary)){
             priceSummary = 0.00;
         }
@@ -624,8 +624,48 @@ $(document).ready(function(){
         $('form input[name="amount"]').attr('value', priceSummary);
     }
 
+    /***********/
+    /*Extra Acc*/
+    /***********/
+    var extraAcc1Price = 0;
+    var extraAcc2Price = 0;
+    var extraAccAllTotal = 0;
 
+    var extraAccNames = ['radius', 'radius1']; //stores the
+    var extraAccPrices = [65, 60];
 
+    $('.opt-qty').on('change', function(){
+        var $this = $(this);
+        var valueSelected = $this.val();
+        var tempIndex = 0;
+        var qtySelected = parseInt($this.find('option:selected').text());
+        var accPrice = 0;
+
+        $.each(extraAccNames, function(index, value){
+            if(valueSelected == value){
+                tempIndex = index;
+            }
+        });
+
+        $.each(extraAccPrices, function(index, price){
+           if(index == tempIndex){
+                accPrice = price;
+           }
+        });
+
+        switch (valueSelected){
+            case 'radius':
+                extraAcc1Price = accPrice * qtySelected;
+                break;
+            case 'radius1':
+                extraAcc2Price = accPrice * qtySelected;
+        }
+        extraAccAllTotal = extraAcc1Price + extraAcc2Price;
+        console.log(extraAcc1Price);
+        console.log(extraAcc2Price);
+        console.log(extraAccAllTotal);
+        appendPriceSummary();
+    });
 
     /**********************************/
     /********** Cart Summary **********/
@@ -797,6 +837,11 @@ $(document).ready(function(){
         emptyInputValue($sideBinput, $('.mount-b'), $('.color-b'));
         emptyInputValue($sideCinput, $('.mount-c'), $('.color-c'));
         emptyInputValue($sideDinput, $('.mount-d'), $('.color-d'));
+
+        $('.opt-qty').each(function(){
+            $(this).find('option:selected').text(0);
+        });
+
         sideAtotal = resetValueToZero;
         sideBtotal = resetValueToZero;
         sideCtotal = resetValueToZero;
@@ -808,6 +853,10 @@ $(document).ready(function(){
         mountSideCPrice = resetValueToZero;
         mountSideDPrice = resetValueToZero;
         mountABCDtotal = resetValueToZero;
+
+        extraAcc1Price = resetValueToZero;
+        extraAcc2Price = resetValueToZero;
+        extraAccAllTotal = resetValueToZero;
 
         priceSummary = resetValueToZero;
         appendPriceSummary();
