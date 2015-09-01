@@ -32,7 +32,7 @@ $(document).ready(function(){
     //});
 
     $(document).click(function (e) {
-        if ($(e.target).closest('.colorSelectBox').length > 0 || $(e.target).closest('div').length > 0) return;
+        if ($(e.target).closest('.colorSelectBox').length > 0 || $(e.target).closest('div').length < 0) return;
         $('.colorSelectBox').hide();
     });
 

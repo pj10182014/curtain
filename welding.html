@@ -107,7 +107,7 @@
 .imcm ul,.imcm li,.imcm div,.imcm span,.imcm a{text-align:left;vertical-align:top;padding:0px;margin:0;list-style:none outside none;border-style:none;background-image:none;clear:none;float:none;display:block;position:static;overflow:visible;line-height:normal;}.imcm li a img{display:inline;border-width:0px;}.imcm span{display:inline;}.imcm .imclear,.imclear{clear:both;height:0px;visibility:hidden;line-height:0px;font-size:1px;}.imcm .imsc{position:relative;}.imcm .imsubc{position:absolute;visibility:hidden;}.imcm li{list-style:none;font-size:1px;float:left;}.imcm ul ul li{width:100%;float:none !important;}.imcm a{display:block;position:relative;}.imcm ul .imsc,.imcm ul .imsubc {z-index:10;}.imcm ul ul .imsc,.imcm ul ul .imsubc{z-index:20;}.imcm ul ul ul .imsc,.imcm ul ul ul .imsubc{z-index:30;}.imde ul li:hover .imsubc{visibility:visible;}.imde ul ul li:hover  .imsubc{visibility:visible;}.imde ul ul ul li:hover  .imsubc{visibility:visible;}.imde li:hover ul  .imsubc{visibility:hidden;}.imde li:hover ul ul .imsubc{visibility:hidden;}.imde li:hover ul ul ul  .imsubc{visibility:hidden;}.imcm .imea{display:block;position:relative;left:0px;font-size:1px;line-height:1px;height:0px;width:1px;float:right;}.imcm .imea span{display:block;position:relative;font-size:1px;line-height:0px;}.dvs,.dvm{border-width:0px}/*\*//*/.imcm .imea{visibility:hidden;}/**/
 </style>
     <!--[if IE]><style type="text/css">.imcm .imea span{position:absolute;}.imcm .imclear,.imclear{display:none;}.imcm{zoom:1;} .imcm li{curosr:hand;} .imcm ul{zoom:1}.imcm a{zoom:1;}</style><![endif]--> 
-    <!--[if gte IE 7]><style type="text/css">.imcm .imsubc{background-image:url(ie_css_fix);}</style><![endif]--> 
+    <!--[if gte IE 7]><style type="text/css">.imcm .imsubc{background-image:url(ie_css_fix);}</style><![endif]-->
     <!-- ****** Menus CSS Styles ****** -->
     <link rel="stylesheet" type="text/css" href="./welding_files/menu.css">
     <!--  ****** Menus Structure & Links ***** -->
@@ -483,7 +483,7 @@ $(".jCarouselLite").jCarouselLite({
                           <p class="sideABCD-header">Side A</p>
                           <div class="dimension-width">
                               <select name="select-mounts" class="select-mounts mount-a">
-                                  <option value="" group="mounts">No Mount</option>
+                                  <option value="" group="mounts">No Track</option>
                                   <option value="wm" group="mounts">Wall Mount</option>
                                   <option value="trm" group="mounts">Threaded Rod Mount</option>
                                   <option value="cm" group="mounts">Ceiling Mount</option>
@@ -496,7 +496,7 @@ $(".jCarouselLite").jCarouselLite({
                           <p class="sideABCD-header">Side B</p>
                           <div class="dimension-width">
                               <select name="select-mounts" class="select-mounts mount-b">
-                                  <option value="" group="mounts">No Mount</option>
+                                  <option value="" group="mounts">No Track</option>
                                   <option value="wm" group="mounts">Wall Mount</option>
                                   <option value="trm" group="mounts">Threaded Rod Mount</option>
                                   <option value="cm" group="mounts">Ceiling Mount</option>
@@ -509,7 +509,7 @@ $(".jCarouselLite").jCarouselLite({
                           <p class="sideABCD-header">Side C</p>
                           <div class="dimension-width">
                               <select name="select-mounts" class="select-mounts mount-c">
-                                  <option value="" group="mounts">No Mount</option>
+                                  <option value="" group="mounts">No Track</option>
                                   <option value="wm" group="mounts">Wall Mount</option>
                                   <option value="trm" group="mounts">Threaded Rod Mount</option>
                                   <option value="cm" group="mounts">Ceiling Mount</option>
@@ -522,7 +522,7 @@ $(".jCarouselLite").jCarouselLite({
                           <p class="sideABCD-header">Side D</p>
                           <div class="dimension-width">
                               <select name="select-mounts" class="select-mounts mount-d">
-                                  <option value="" group="mounts">No Mount</option>
+                                  <option value="" group="mounts">No Track</option>
                                   <option value="wm" group="mounts">Wall Mount</option>
                                   <option value="trm" group="mounts">Threaded Rod Mount</option>
                                   <option value="cm" group="mounts">Ceiling Mount</option>
@@ -534,6 +534,41 @@ $(".jCarouselLite").jCarouselLite({
                   </div><!-- end selections -->
               </div>  <!-- end step 3 div-->
 
+              <div class="clear"></div>
+              <div id="step4">
+                  <!-- Header-->
+                  <header class="curtain-selection-headers">
+                      <div class="step-arrows">Step 4</div>
+                      <div class="step-headers">Extra Options</div>
+                  </header>
+
+                  <!-- Selections-->
+                  <div class="step4-selections">
+                      <!-- Help notes-->
+                      <div class="help-section">
+                          <div class="help-header">Please select the additions needed</div>
+                          <div class="help">Help<span class="fa fa-question-circle"></span></div>
+                          <div class="help-notes">four-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selectionsfour-steps-curtain-selections</div>
+                      </div>
+
+                      <div class="clear"></div>
+                      <div class="extraOp">
+                          <div class="extraName">Radius Connector</div>
+                          <div class="extraPrice">$65.00
+                              <select name="" id="" class="opt-qty">
+                                  <?php
+                                  $maxQty = 50;
+                                  for($i = 0; $i <= $maxQty; $i++){
+                                      echo "<option value='$i'>";
+                                      echo $i;
+                                      echo "</option>";
+                                  }
+                                  ?>
+                              </select>
+                          </div>
+                      </div>
+                  </div><!-- end selections -->
+              </div>  <!-- end step 4 div-->
 
           </div> <!-- end three steps div -->
 

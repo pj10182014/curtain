@@ -25,7 +25,7 @@ div#product-summary{font-family: 'roboto'; height: 230px; width: 185px; backgrou
     .step-arrows::after {content: ""; border-top: 28px solid transparent; border-bottom: 29px solid transparent; border-left: 28px solid #F9FF00; position: absolute; left: 180px;}
     .step-headers {font-size:24px; color: #FFF; font-weight: 300; line-height: 55px; position: absolute; left: 35%; top: 0;}
     .checkMark:after{ font-family: FontAwesome; content: "\f00c"; color: blue; font-size: 30px;}
-    .step1-selections, .step2-selections, .step3-selections {font-size:16px; color: #636363; font-weight: 500; line-height: 132%;}
+    .step1-selections, .step2-selections, .step3-selections, .step4-selections {font-size:16px; color: #636363; font-weight: 500; line-height: 132%;}
     .clearWmarginForSteps {clear:both; margin-bottom: 50px;}
     .clear{clear:both;}
     .marginTop20{margin-top: 20px;}
@@ -95,6 +95,11 @@ div#product-summary{font-family: 'roboto'; height: 230px; width: 185px; backgrou
         /*.mount-image{width: 100%; background: #EEECFF; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px;}*/
         .mount-names{width: 100%; background: #EEECFF; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; font-size: 15px; color: #636363; line-height: 134%; font-weight: 400; height: 210px; margin-bottom: 15px;}
         .mount-names > div {float:left; margin-left: 50px;}
+
+        /*Css for step 4 - Extra Options*/
+        .extraName{float: left;}
+        .extraPrice{margin-left: 150px;}
+        .opt-qty{float:right;}
 
 /*Cart info after clicking add to cart*/
 .cart-info > h1 {font-size: 22px; text-align: center; text-decoration: underline;}
