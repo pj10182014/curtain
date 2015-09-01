@@ -17,6 +17,7 @@ $(document).ready(function(){
         $(this).next('div').slideToggle( "slow" );
     });
 
+    /*Makes the colorSelect hide when mouse clicked other places*/
     $(document).mouseup(function (e) {
         var container = $(".colorSelectBox");
 
@@ -631,28 +632,31 @@ $(document).ready(function(){
     var extraAcc2Price = 0;
     var extraAccAllTotal = 0;
 
-    var extraAccNames = ['radius', 'radius1']; //stores the
-    var extraAccPrices = [65, 60];
+    var extraAccNames = ['radius', 'radius1']; //stores the short name for the extra acc
+    var extraAccPrices = [65, 60];  //stores the price for the extra acc
 
     $('.opt-qty').on('change', function(){
         var $this = $(this);
-        var valueSelected = $this.val();
+        var valueSelected = $this.val();  //gets the value which is the short name for the extra acc.
         var tempIndex = 0;
-        var qtySelected = parseInt($this.find('option:selected').text());
+        var qtySelected = parseInt($this.find('option:selected').text());  //gets the text of selected field which is the qty
         var accPrice = 0;
 
+        //use value selected to search through the array and gets the index
         $.each(extraAccNames, function(index, value){
             if(valueSelected == value){
                 tempIndex = index;
             }
         });
 
+        //uses the index found above to match the price in the array
         $.each(extraAccPrices, function(index, price){
            if(index == tempIndex){
                 accPrice = price;
            }
         });
 
+        //determines which acc is selected in order to know where to store the price
         switch (valueSelected){
             case 'radius':
                 extraAcc1Price = accPrice * qtySelected;
@@ -661,9 +665,6 @@ $(document).ready(function(){
                 extraAcc2Price = accPrice * qtySelected;
         }
         extraAccAllTotal = extraAcc1Price + extraAcc2Price;
-        console.log(extraAcc1Price);
-        console.log(extraAcc2Price);
-        console.log(extraAccAllTotal);
         appendPriceSummary();
     });
 
@@ -838,10 +839,6 @@ $(document).ready(function(){
         emptyInputValue($sideCinput, $('.mount-c'), $('.color-c'));
         emptyInputValue($sideDinput, $('.mount-d'), $('.color-d'));
 
-        $('.opt-qty').each(function(){
-            $(this).find('option:selected').text(0);
-        });
-
         sideAtotal = resetValueToZero;
         sideBtotal = resetValueToZero;
         sideCtotal = resetValueToZero;
@@ -853,6 +850,10 @@ $(document).ready(function(){
         mountSideCPrice = resetValueToZero;
         mountSideDPrice = resetValueToZero;
         mountABCDtotal = resetValueToZero;
+
+        $('.opt-qty').each(function(){
+            $(this).prop('selectedIndex',0);
+        });
 
         extraAcc1Price = resetValueToZero;
         extraAcc2Price = resetValueToZero;

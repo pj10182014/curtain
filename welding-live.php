@@ -355,18 +355,33 @@
 
                         <div class="clear"></div>
                         <div class="extraOp">
-                            <div class="extraName">Radius Connector</div>
-                            <div class="extraPrice">$65.00
-                                <select name="" id="" class="opt-qty">
-                                    <?php
-                                    $maxQty = 50;
-                                    for($i = 0; $i <= $maxQty; $i++){
-                                        echo "<option value='$i'>";
-                                        echo $i;
-                                        echo "</option>";
-                                    }
-                                    ?>
-                                </select>
+                            <!--<div class="extraName">Radius Connector</div>-->
+                            <div class="extraAcc">
+                                <label for="" class="extraName">Radius Connector</label>
+                                <div class="extraPrice acc1">$65.00
+                                    <select name="" id="radius" class="opt-qty">
+                                        <option value="radius">0</option>
+                                        <option value="radius">1</option>
+                                        <option value="radius">2</option>
+                                        <option value="radius">3</option>
+                                        <option value="radius">4</option>
+                                        <option value="radius">5</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="extraAcc">
+                                <label for="" class="extraName">Radius Connector</label>
+                                <div class="extraPrice acc2">$60.00
+                                    <select name="" id="radius1" class="opt-qty">
+                                        <option value="radius1">0</option>
+                                        <option value="radius1">1</option>
+                                        <option value="radius1">2</option>
+                                        <option value="radius1">3</option>
+                                        <option value="radius1">4</option>
+                                        <option value="radius1">5</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div><!-- end selections -->
@@ -517,11 +532,7 @@
             $(this).next('div').slideToggle( "slow" );
         });
 
-        $('.opt-qty').on('change', function(){
-            var $this = $(this);
-            console.log($this.val());
-        });
-
+        /*Makes the colorSelect hide when mouse clicked other places*/
         $(document).on('mouseup', function (e){
             var container = $(".colorSelectBox");
 
@@ -1113,7 +1124,7 @@
 
         /*Function to append price summary into the price summary div and also change the hidden input amount field value which will be used to pass into the order-cart.php*/
         function appendPriceSummary(){
-            priceSummary = (Number(sideABCDtotal) + Number(mountABCDtotal)).toFixed(2);
+            priceSummary = (Number(sideABCDtotal) + Number(mountABCDtotal) + Number(extraAccAllTotal)).toFixed(2);
             if(isNaN(priceSummary)){
                 priceSummary = 0.00;
             }
@@ -1121,7 +1132,48 @@
             $('form input[name="amount"]').attr('value', priceSummary);
         }
 
+        /***********/
+        /*Extra Acc*/
+        /***********/
+        var extraAcc1Price = 0;
+        var extraAcc2Price = 0;
+        var extraAccAllTotal = 0;
 
+        var extraAccNames = ['radius', 'radius1']; //stores the short name for the extra acc
+        var extraAccPrices = [65, 60];  //stores the price for the extra acc
+
+        $('.opt-qty').on('change', function(){
+            var $this = $(this);
+            var valueSelected = $this.val();  //gets the value which is the short name for the extra acc.
+            var tempIndex = 0;
+            var qtySelected = parseInt($this.find('option:selected').text());  //gets the text of selected field which is the qty
+            var accPrice = 0;
+
+            //use value selected to search through the array and gets the index
+            $.each(extraAccNames, function(index, value){
+                if(valueSelected == value){
+                    tempIndex = index;
+                }
+            });
+
+            //uses the index found above to match the price in the array
+            $.each(extraAccPrices, function(index, price){
+                if(index == tempIndex){
+                    accPrice = price;
+                }
+            });
+
+            //determines which acc is selected in order to know where to store the price
+            switch (valueSelected){
+                case 'radius':
+                    extraAcc1Price = accPrice * qtySelected;
+                    break;
+                case 'radius1':
+                    extraAcc2Price = accPrice * qtySelected;
+            }
+            extraAccAllTotal = extraAcc1Price + extraAcc2Price;
+            appendPriceSummary();
+        });
 
 
         /**********************************/
@@ -1316,6 +1368,14 @@
             mountSideCPrice = resetValueToZero;
             mountSideDPrice = resetValueToZero;
             mountABCDtotal = resetValueToZero;
+
+            $('.opt-qty').each(function(){
+                $(this).prop('selectedIndex',0);
+            });
+
+            extraAcc1Price = resetValueToZero;
+            extraAcc2Price = resetValueToZero;
+            extraAccAllTotal = resetValueToZero;
 
             priceSummary = resetValueToZero;
             appendPriceSummary();
