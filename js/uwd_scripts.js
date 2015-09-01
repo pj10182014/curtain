@@ -17,23 +17,12 @@ $(document).ready(function(){
         $(this).next('div').slideToggle( "slow" );
     });
 
-    //$(document).on('mouseup', function (e){
-    //    var container = $(".colorSelectBox");
-    //
-    //    if (!container.is(e.target) // if the target of the click isn't the container...
-    //        && container.has(e.target).length === 0){ // ... nor a descendant of the container
-    //        //if(container.hasClass('visible')){
-    //            container.hide();
-    //            //container.removeClass('visible');
-    //        //}
-    //
-    //        //container.removeClass('visible');
-    //    }
-    //});
+    $(document).mouseup(function (e) {
+        var container = $(".colorSelectBox");
 
-    $(document).click(function (e) {
-        if ($(e.target).closest('.colorSelectBox').length > 0 || $(e.target).closest('div').length < 0) return;
-        $('.colorSelectBox').hide();
+        if (!container.is(e.target) && container.has(e.target).length === 0){
+            container.hide();
+        }
     });
 
     /*Checking, storing, and returning different values for different functions*/
