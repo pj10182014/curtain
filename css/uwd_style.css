@@ -55,16 +55,17 @@ div#product-summary{font-family: 'roboto'; height: 230px; width: 185px; backgrou
         /*Only for dimensions*/
         div.dimension-width, div.dimension-height{float: left; font-size: 15px;}
         span.foot-inches{font-size: 21px; font-weight: 500;}
+
         input.dimension-input, input.dimension-input-foot, input.dimension-input-inch{font-size: 16px; color: #636363; line-height: 132%; font-weight: 300; width: 20px; background: #EAEAEA; border-radius: 5px; border: 0;}
         /*Only for colors*/
         .color-side-a, .color-side-b, .color-side-c, .color-side-d{float: left; width:165px; border-right: 1px dashed lightgray;}
         .color-side-b, .color-side-c, .color-side-d{padding-left: 10px;}
         .color-side-d{border-right: 0;}
         .number-of-colors{width: 150px;}
-        .number-of-color-field{height: 125px;}
-        .number-of-color-field input{border: none;}
+        .number-of-color-field{height: 160px;}
+        /*.number-of-color-field input{border: none;}*/
         .number-of-color-field > div {font-size: 12px; text-align: center;}
-        .gradientLayer, .gradientLayer2, .gradientLayer3 {height: 125px; width: inherit; border-radius: 5px;
+        .gradientLayer, .gradientLayer2, .gradientLayer3 {height: 160px; width: inherit; border-radius: 5px;
             /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+0,000000+0,000000+100&0.01+0,0.01+0,0.01+0,0.01+0,0.01+0,0.01+0,0.2+100;Neutral+Density */
             background: -moz-linear-gradient(top, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.1) 100%); /* FF3.6+ */
             background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.01)), color-stop(100%,rgba(0,0,0,0.1))); /* Chrome,Safari4+ */
@@ -73,10 +74,22 @@ div#product-summary{font-family: 'roboto'; height: 230px; width: 185px; backgrou
             background: -ms-linear-gradient(top, rgba(0,0,0,0.01) 0%,rgba(0,0,0,0.1) 100%); /* IE10+ */
             background: linear-gradient(to bottom, rgba(0,0,0,0.01) 0%,rgba(0,0,0,0.1) 100%); /* W3C */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03000000', endColorstr='#33000000',GradientType=0 ); /* IE6-9 */}
-        .gradientLayer2{height: 60px;}
-        .gradientLayer3{height: 38px;}
-        .choose-color-message {position: relative; top: 30%;}
-        .choose-color-message.oneColorMessage{top: 38%;}
+        .gradientLayer2{height: 80px;}
+        .gradientLayer3{height: 52px;}
+        .top-color.color1-1,
+        .top-color.color2-1, .middle-color.color2-2,
+        .top-color.color3-1, .middle-color.color3-2, .bottom-color.color3-3{float: left; width: 36px; border-radius: 5px;}
+        .foot-inches.color-selector{float: left;}
+        .total-sqft-input{font-family: 'roboto'; font-size: 16px; font-weight: 100; position: relative; left: 10px;}
+        .total-sqft-input input::-webkit-outer-spin-button,
+        .total-sqft-input input::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
+        .total-sqft-input input{-moz-appearance:textfield;}
+        /*.choose-color-message {position: relative; top: 30%;}*/
+        .choose-color-message1{float: right; margin-right: 10px; margin-top: 60px;}
+        .choose-color-message2-1{position: relative; top: 36px;}
+        .choose-color-message2-2{float: left; margin-left: 12px; margin-top: 7px;}
+        .choose-color-message3-1{float: right; position: relative; top: 28px; right: 10px;}
+        .choose-color-message3-2, .choose-color-message3-3{float:right; margin-right: 10px;}
         .colorSelectBox>div{font-size: 14px; font-weight: 300; color: #636363; line-height: 136%;}
         .colorSelectBox>div>div{float: left; width: 20px; height: 20px; border-radius: 5px; border: 1px solid lightgrey; margin-right: 3px;}
         .colorSelectBox .azRed {background-color: #DD2A13;}
@@ -93,6 +106,7 @@ div#product-summary{font-family: 'roboto'; height: 230px; width: 185px; backgrou
 
         /*Css for all step 3 - Choose a Track & Trolley Kit*/
         /*.mount-image{width: 100%; background: #EEECFF; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px;}*/
+        .mount-options{height: 90px;}
         .mount-names{width: 100%; background: #EEECFF; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; font-size: 15px; color: #636363; line-height: 134%; font-weight: 400; height: 210px; margin-bottom: 15px;}
         .mount-names > div {float:left; margin-left: 50px;}
 

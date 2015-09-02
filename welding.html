@@ -361,9 +361,13 @@ $(".jCarouselLite").jCarouselLite({
                               </select>
                               <div class="number-of-color-field">
                                   <div name="color1" class="sideA color1" data-semi="false"  data-coated="false"></div>
+                                  <div class="total-sqft-input sqftInputTop"><input class="top-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                   <div name="color2" class="sideA color2" data-semi="false"  data-coated="false"></div>
+                                  <div class="total-sqft-input sqftInputMiddle"><input class="middle-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                   <div name="color3" class="sideA color3" data-semi="false"  data-coated="false"></div>
+                                  <div class="total-sqft-input sqftInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                               </div>
+                              <div class="total-sqft"></div>
                           </div>
                       </div><!-- end color side A -->
 
@@ -379,8 +383,11 @@ $(".jCarouselLite").jCarouselLite({
                               </select>
                               <div class="number-of-color-field">
                                   <div name="color1" class="sideB color1"></div>
+                                  <div class="total-sqft-input sqftInputTop"><input class="top-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                   <div name="color2" class="sideB color2"></div>
+                                  <div class="total-sqft-input sqftInputMiddle"><input class="middle-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                   <div name="color3" class="sideB color3"></div>
+                                  <div class="total-sqft-input sqftInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                               </div>
                           </div>
                       </div><!-- end color side B -->
@@ -397,8 +404,12 @@ $(".jCarouselLite").jCarouselLite({
                               </select>
                               <div class="number-of-color-field">
                                   <div name="color1" class="sideC color1"></div>
+                                  <div class="total-sqft-input sqftInputTop"><input class="top-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                   <div name="color2" class="sideC color2"></div>
+                                  <div class="total-sqft-input sqftInputMiddle"><input class="middle-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                   <div name="color3" class="sideC color3"></div>
+                                  <div class="total-sqft-input sqftInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+
                               </div>
                           </div>
                       </div><!-- end color side c -->
@@ -415,8 +426,12 @@ $(".jCarouselLite").jCarouselLite({
                               </select>
                               <div class="number-of-color-field">
                                   <div name="color1" class="sideD color1"></div>
+                                  <div class="total-sqft-input sqftInputTop"><input class="top-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                   <div name="color2" class="sideD color2"></div>
+                                  <div class="total-sqft-input sqftInputMiddle"><input class="middle-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                   <div name="color3" class="sideD color3"></div>
+                                  <div class="total-sqft-input sqftInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+
                               </div>
                           </div>
                       </div><!-- end color side d -->
@@ -479,57 +494,59 @@ $(".jCarouselLite").jCarouselLite({
                       </div><!-- end mount-names div -->
 
                       <div class="clear"></div>
-                      <div class="mount-side-a">
-                          <p class="sideABCD-header">Side A</p>
-                          <div class="dimension-width">
-                              <select name="select-mounts" class="select-mounts mount-a">
-                                  <option value="" group="mounts">No Track</option>
-                                  <option value="wm" group="mounts">Wall Mount</option>
-                                  <option value="trm" group="mounts">Threaded Rod Mount</option>
-                                  <option value="cm" group="mounts">Ceiling Mount</option>
-                                  <option value="clm" group="mounts">Chain Link Mount</option>
-                              </select>
-                          </div>
-                      </div><!-- end mount side A -->
+                      <div class="mount-options">
+                          <div class="mount-side-a">
+                              <p class="sideABCD-header">Side A</p>
+                              <div class="dimension-width">
+                                  <select name="select-mounts" class="select-mounts mount-a">
+                                      <option value="" group="mounts">No Track</option>
+                                      <option value="wm" group="mounts">Wall Mount</option>
+                                      <option value="trm" group="mounts">Threaded Rod Mount</option>
+                                      <option value="cm" group="mounts">Ceiling Mount</option>
+                                      <option value="clm" group="mounts">Chain Link Mount</option>
+                                  </select>
+                              </div>
+                          </div><!-- end mount side A -->
 
-                      <div class="mount-side-b">
-                          <p class="sideABCD-header">Side B</p>
-                          <div class="dimension-width">
-                              <select name="select-mounts" class="select-mounts mount-b">
-                                  <option value="" group="mounts">No Track</option>
-                                  <option value="wm" group="mounts">Wall Mount</option>
-                                  <option value="trm" group="mounts">Threaded Rod Mount</option>
-                                  <option value="cm" group="mounts">Ceiling Mount</option>
-                                  <option value="clm" group="mounts">Chain Link Mount</option>
-                              </select>
-                          </div>
-                      </div><!-- end mount side B -->
+                          <div class="mount-side-b">
+                              <p class="sideABCD-header">Side B</p>
+                              <div class="dimension-width">
+                                  <select name="select-mounts" class="select-mounts mount-b">
+                                      <option value="" group="mounts">No Track</option>
+                                      <option value="wm" group="mounts">Wall Mount</option>
+                                      <option value="trm" group="mounts">Threaded Rod Mount</option>
+                                      <option value="cm" group="mounts">Ceiling Mount</option>
+                                      <option value="clm" group="mounts">Chain Link Mount</option>
+                                  </select>
+                              </div>
+                          </div><!-- end mount side B -->
 
-                      <div class="mount-side-c">
-                          <p class="sideABCD-header">Side C</p>
-                          <div class="dimension-width">
-                              <select name="select-mounts" class="select-mounts mount-c">
-                                  <option value="" group="mounts">No Track</option>
-                                  <option value="wm" group="mounts">Wall Mount</option>
-                                  <option value="trm" group="mounts">Threaded Rod Mount</option>
-                                  <option value="cm" group="mounts">Ceiling Mount</option>
-                                  <option value="clm" group="mounts">Chain Link Mount</option>
-                              </select>
-                          </div>
-                      </div><!-- end mount side c -->
+                          <div class="mount-side-c">
+                              <p class="sideABCD-header">Side C</p>
+                              <div class="dimension-width">
+                                  <select name="select-mounts" class="select-mounts mount-c">
+                                      <option value="" group="mounts">No Track</option>
+                                      <option value="wm" group="mounts">Wall Mount</option>
+                                      <option value="trm" group="mounts">Threaded Rod Mount</option>
+                                      <option value="cm" group="mounts">Ceiling Mount</option>
+                                      <option value="clm" group="mounts">Chain Link Mount</option>
+                                  </select>
+                              </div>
+                          </div><!-- end mount side c -->
 
-                      <div class="mount-side-d">
-                          <p class="sideABCD-header">Side D</p>
-                          <div class="dimension-width">
-                              <select name="select-mounts" class="select-mounts mount-d">
-                                  <option value="" group="mounts">No Track</option>
-                                  <option value="wm" group="mounts">Wall Mount</option>
-                                  <option value="trm" group="mounts">Threaded Rod Mount</option>
-                                  <option value="cm" group="mounts">Ceiling Mount</option>
-                                  <option value="clm" group="mounts">Chain Link Mount</option>
-                              </select>
-                          </div>
-                      </div><!-- end mount side d -->
+                          <div class="mount-side-d">
+                              <p class="sideABCD-header">Side D</p>
+                              <div class="dimension-width">
+                                  <select name="select-mounts" class="select-mounts mount-d">
+                                      <option value="" group="mounts">No Track</option>
+                                      <option value="wm" group="mounts">Wall Mount</option>
+                                      <option value="trm" group="mounts">Threaded Rod Mount</option>
+                                      <option value="cm" group="mounts">Ceiling Mount</option>
+                                      <option value="clm" group="mounts">Chain Link Mount</option>
+                                  </select>
+                              </div>
+                          </div><!-- end mount side d -->
+                      </div><!-- end mount options -->
 
                   </div><!-- end selections -->
               </div>  <!-- end step 3 div-->
