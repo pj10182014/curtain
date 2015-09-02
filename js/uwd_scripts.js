@@ -342,6 +342,7 @@ $(document).ready(function(){
         numberOfColorInput.closest('div').find('.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
         numberOfColorInput.closest('div').find('.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
         numberOfColorInput.closest('div').find('.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
+        numberOfColorInput.closest('div').find('.total-sqft-input').hide();
     }
 
     /*Function to validate all width height inch foot input fields*/
@@ -501,7 +502,7 @@ $(document).ready(function(){
                 $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                 $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                 $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
-                $('.total-sqft-input').hide();
+                $closestDiv.find('.total-sqft-input').hide();
                 break;
         }
     });
