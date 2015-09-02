@@ -343,6 +343,7 @@ $(document).ready(function(){
         numberOfColorInput.closest('div').find('.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
         numberOfColorInput.closest('div').find('.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
         numberOfColorInput.closest('div').find('.total-sqft-input').hide();
+        numberOfColorInput.closest('div').find('.total-sqft-input input').val(0);
     }
 
     /*Function to validate all width height inch foot input fields*/
@@ -383,7 +384,7 @@ $(document).ready(function(){
     $('.colorSelectBox').hide();  //Hides the picker box
 
     $('div.color1 div.color2 div.color3').hide();  //hide number of colors until a value is selected
-    $('.total-sqft-input').hide();
+    $('.total-sqft-input').hide();  //hide the inputs in the color field
     var colorHolder = null; //used to store the location where color is picked
 
     /* Function checks which side's div is clicked and pop put the colorSelectBox with the position of the div popping out */
@@ -507,8 +508,8 @@ $(document).ready(function(){
         }
     });
 
+    //This is to prevent the colorSelectBox from opening when clicking the number input field
     $('.total-sqft-input').on('click', function(e){
-        console.log('hi');
         e.stopPropagation();
        $('.colorSelectBox').hide();
 
