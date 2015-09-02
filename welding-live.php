@@ -281,57 +281,59 @@
                         </div><!-- end mount-names div -->
 
                         <div class="clear"></div>
-                        <div class="mount-side-a">
-                            <p class="sideABCD-header">Side A</p>
-                            <div class="dimension-width">
-                                <select name="select-mounts" class="select-mounts mount-a">
-                                    <option value="No Mount" group="mounts">No Track</option>
-                                    <option value="Wall Mount" group="mounts">Wall Mount</option>
-                                    <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
-                                    <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
-                                    <option value="Chain Link Mount" group="mounts">Chain Link Mount</option>
-                                </select>
-                            </div>
-                        </div><!-- end mount side A -->
+                        <div class="mount-options">
+                            <div class="mount-side-a">
+                                <p class="sideABCD-header">Side A</p>
+                                <div class="dimension-width">
+                                    <select name="select-mounts" class="select-mounts mount-a">
+                                        <option value="No Mount" group="mounts">No Track</option>
+                                        <option value="Wall Mount" group="mounts">Wall Mount</option>
+                                        <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
+                                        <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
+                                        <option value="Chain Link Mount" group="mounts">Chain Link Mount</option>
+                                    </select>
+                                </div>
+                            </div><!-- end mount side A -->
 
-                        <div class="mount-side-b">
-                            <p class="sideABCD-header">Side B</p>
-                            <div class="dimension-width">
-                                <select name="select-mounts" class="select-mounts mount-b">
-                                    <option value="No Mount" group="mounts">No Track</option>
-                                    <option value="Wall Mount" group="mounts">Wall Mount</option>
-                                    <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
-                                    <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
-                                    <option value="Chain Link Mount" group="mounts">Chain Link Mount</option>
-                                </select>
-                            </div>
-                        </div><!-- end mount side B -->
+                            <div class="mount-side-b">
+                                <p class="sideABCD-header">Side B</p>
+                                <div class="dimension-width">
+                                    <select name="select-mounts" class="select-mounts mount-b">
+                                        <option value="No Mount" group="mounts">No Track</option>
+                                        <option value="Wall Mount" group="mounts">Wall Mount</option>
+                                        <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
+                                        <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
+                                        <option value="Chain Link Mount" group="mounts">Chain Link Mount</option>
+                                    </select>
+                                </div>
+                            </div><!-- end mount side B -->
 
-                        <div class="mount-side-c">
-                            <p class="sideABCD-header">Side C</p>
-                            <div class="dimension-width">
-                                <select name="select-mounts" class="select-mounts mount-c">
-                                    <option value="No Mount" group="mounts">No Track</option>
-                                    <option value="Wall Mount" group="mounts">Wall Mount</option>
-                                    <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
-                                    <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
-                                    <option value="Chain Link Mount" group="mounts">Chain Link Mount</option>
-                                </select>
-                            </div>
-                        </div><!-- end mount side c -->
+                            <div class="mount-side-c">
+                                <p class="sideABCD-header">Side C</p>
+                                <div class="dimension-width">
+                                    <select name="select-mounts" class="select-mounts mount-c">
+                                        <option value="No Mount" group="mounts">No Track</option>
+                                        <option value="Wall Mount" group="mounts">Wall Mount</option>
+                                        <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
+                                        <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
+                                        <option value="Chain Link Mount" group="mounts">Chain Link Mount</option>
+                                    </select>
+                                </div>
+                            </div><!-- end mount side c -->
 
-                        <div class="mount-side-d">
-                            <p class="sideABCD-header">Side D</p>
-                            <div class="dimension-width">
-                                <select name="select-mounts" class="select-mounts mount-d">
-                                    <option value="No Mount" group="mounts">No Track</option>
-                                    <option value="Wall Mount" group="mounts">Wall Mount</option>
-                                    <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
-                                    <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
-                                    <option value="Chain Link Mount" group="mounts">Chain Link Mount</option>
-                                </select>
-                            </div>
-                        </div><!-- end mount side d -->
+                            <div class="mount-side-d">
+                                <p class="sideABCD-header">Side D</p>
+                                <div class="dimension-width">
+                                    <select name="select-mounts" class="select-mounts mount-d">
+                                        <option value="No Mount" group="mounts">No Track</option>
+                                        <option value="Wall Mount" group="mounts">Wall Mount</option>
+                                        <option value="Threaded Rod Mount" group="mounts">Threaded Rod Mount</option>
+                                        <option value="Ceiling Mount" group="mounts">Ceiling Mount</option>
+                                        <option value="Chain Link Mount" group="mounts">Chain Link Mount</option>
+                                    </select>
+                                </div>
+                            </div><!-- end mount side d -->
+                        </div><!-- end mount-options -->
 
                     </div><!-- end selections -->
                 </div>  <!-- end step 3 div-->
@@ -402,6 +404,7 @@
             <input type="hidden" name="sku" value="WHDIV-STR001" />
             <input type='hidden' name='unit' value='0' />
             <input type="hidden" name="weight" value="" />
+            <input type="hidden" name="welding" value="1" />
             <input type="hidden" name="action" id="action" value="add" />
             <!-- <input type='submit' name='submit' class="add-to-cart" border='0' alt='Add this product to your shopping cart now.' value="Add To Cart"/><span class="fa fa-cart-plus"></span> -->
             <button type="submit" class="add-to-cart" alt='Add this product to your shopping cart now.'>Add to Cart <span class="fa fa-cart-plus"></span></button>
