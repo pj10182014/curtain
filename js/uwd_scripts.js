@@ -344,6 +344,7 @@ $(document).ready(function(){
         numberOfColorInput.closest('div').find('.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
         numberOfColorInput.closest('div').find('.total-sqft-input').hide();
         numberOfColorInput.closest('div').find('.total-sqft-input input').val(0);
+        numberOfColorInput.closest('div').find('.sqft-message').empty();
     }
 
     /*Function to validate all width height inch foot input fields*/
@@ -475,6 +476,8 @@ $(document).ready(function(){
                 $closestDiv.find('div.sqftInputMiddle').hide();
                 $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                 $closestDiv.find('div.sqftInputBottom').hide();
+                $closestDiv.find('.total-sqft-input input').val(0);
+                $closestDiv.find('.sqft-message').empty();
                 break;
             case '2':
                 $closestDiv.find('.total-sqft-input').css({"top":"-70px"});
@@ -486,6 +489,8 @@ $(document).ready(function(){
                 $closestDiv.find('div.sqftInputMiddle').show();
                 $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                 $closestDiv.find('div.sqftInputBottom').hide();
+                $closestDiv.find('.total-sqft-input input').val(0);
+                $closestDiv.find('.sqft-message').empty();
                 break;
             case '3':
                 $closestDiv.find('.total-sqft-input').css({"top":"-50px"});
@@ -498,11 +503,15 @@ $(document).ready(function(){
                 $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "32.5%", "background-color": defaultColorPickerField3, "border-radius": "0 0 5px 5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField3}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message3-3'>Click To Choose Colors</div></div>");
                 $closestDiv.find('input.bottom-color').attr({"class": "bottom-color color3-3", "value": "0"});
                 $closestDiv.find('div.sqftInputBottom').show();
+                $closestDiv.find('.total-sqft-input input').val(0);
+                $closestDiv.find('.sqft-message').empty();
                 break;
             default:
                 $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                 $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                 $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
+                $closestDiv.find('.total-sqft-input input').val(0);
+                $closestDiv.find('.sqft-message').empty();
                 $closestDiv.find('.total-sqft-input').hide();
                 break;
         }
@@ -524,25 +533,40 @@ $(document).ready(function(){
             }else{
                 inputs.push(parseInt($(this).val()));
             }
-        })
+        });
         inputs[1] = inputs[1]/12;
         inputs[3] = inputs[3]/12;
         return ((inputs[0]+inputs[1])*(inputs[2]+inputs[3]));
     }
 
-    /*Get the inputs for and calculate the square feet for each side*/
-    var sideAsqft = getSquareFeet($sideAinput);
-    var sideBsqft = getSquareFeet($sideBinput);
-    var sideCsqft = getSquareFeet($sideCinput);
-    var sideDsqft = getSquareFeet($sideDinput);
-    var sqftArray = [sideAsqft, sideBsqft, sideCsqft, sideDsqft];
+    function getSumOfColorInput(sideInput){
+        var total = 0;
+        sideInput.each(function() {
+            total += parseInt($(this).val(), 10) || 0;
+        });
+        return total;
+    }
 
-    $('.color-side-a input').on('keyup', function(index, value){
-        var inputs = [];
-        var $this = $(this);
-        inputs.push($this.val());
-    });
+    function totalHeightOutput(sideInput, sumOutput, error, $sideInput){
+        sideInput.on('keyup', function(){
+            var totalInput = getSumOfColorInput(sideInput);
+            var totalSqft = Math.round(getSquareFeet($sideInput));
 
+            sumOutput.empty().append(totalInput + '" Total');
+            if(totalSqft != totalInput){
+                error.empty().append('Total Sum Must be ' + totalSqft + '"');
+            }else if(totalSqft > 2000){
+                error.empty().append('Total sqft cannot exceed 2000.');
+            }else{
+                error.empty();
+            }
+        });
+    }
+
+    totalHeightOutput($('.color-side-a input'),$('.color-a-total-sqft'),$('.color-a-total-sqft-error'),$sideAinput);
+    totalHeightOutput($('.color-side-b input'),$('.color-b-total-sqft'),$('.color-b-total-sqft-error'),$sideBinput);
+    totalHeightOutput($('.color-side-c input'),$('.color-c-total-sqft'),$('.color-c-total-sqft-error'),$sideCinput);
+    totalHeightOutput($('.color-side-d input'),$('.color-d-total-sqft'),$('.color-d-total-sqft-error'),$sideDinput);
 
     /*************************************/
     /**** Mounting Select Calculation ****/
@@ -897,6 +921,8 @@ $(document).ready(function(){
         emptyInputValue($sideCinput, $('.mount-c'), $('.color-c'));
         emptyInputValue($sideDinput, $('.mount-d'), $('.color-d'));
         $('.total-sqft-input').hide();
+        $('.total-sqft-input input').val(0);
+        $('.sqft-message').empty();
 
         sideAtotal = resetValueToZero;
         sideBtotal = resetValueToZero;

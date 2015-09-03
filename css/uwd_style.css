@@ -103,6 +103,8 @@ div#product-summary{font-family: 'roboto'; height: 230px; width: 185px; backgrou
         .colorSelectBox .white{background-color: white;}
         .colorSelectBox .orange{background-color: orange;}
         .colorSelectBox{position:fixed;z-index:99999;background-color: #FFF;border: 1px solid lightgray;border-radius: 5px;padding: 15px;}
+        .color-a-total-sqft, .color-b-total-sqft, .color-c-total-sqft, .color-d-total-sqft{margin-top: 10px;}
+        .color-a-total-sqft-error, .color-b-total-sqft-error, .color-c-total-sqft-error, .color-d-total-sqft-error{color: red; float: left;}
 
         /*Css for all step 3 - Choose a Track & Trolley Kit*/
         /*.mount-image{width: 100%; background: #EEECFF; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px;}*/
