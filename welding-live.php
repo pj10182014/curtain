@@ -164,14 +164,14 @@
                                 </select>
                                 <div class="number-of-color-field">
                                     <div name="color1" class="sideA color1" data-semi="false"  data-coated="false"></div>
-                                    <div class="total-sqft-input sqftInputTop"><input class="top-color" type="number" min="0"><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-height-input heightInputTop"><input class="top-color" type="number" min="0"><span class="foot-inches color-selector">"</span></div>
                                     <div name="color2" class="sideA color2" data-semi="false"  data-coated="false"></div>
-                                    <div class="total-sqft-input sqftInputMiddle"><input class="middle-color" type="number" min="0"><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-height-input heightInputMiddle"><input class="middle-color" type="number" min="0"><span class="foot-inches color-selector">"</span></div>
                                     <div name="color3" class="sideA color3" data-semi="false"  data-coated="false"></div>
-                                    <div class="total-sqft-input sqftInputBottom"><input class="bottom-color" type="number" min="0"><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-height-input heightInputBottom"><input class="bottom-color" type="number" min="0"><span class="foot-inches color-selector">"</span></div>
                                 </div>
-                                <div class="sqft-message color-a-total-sqft"></div>
-                                <div class="sqft-message color-a-total-sqft-error"></div>
+                                <div class="height-message color-a-total-height"></div>
+                                <div class="height-message color-a-total-height-error"></div>
                             </div>
                         </div><!-- end color side A -->
 
@@ -187,14 +187,14 @@
                                 </select>
                                 <div class="number-of-color-field">
                                     <div name="color1" class="sideB color1"></div>
-                                    <div class="total-sqft-input sqftInputTop"><input class="top-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-height-input heightInputTop"><input class="top-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                     <div name="color2" class="sideB color2"></div>
-                                    <div class="total-sqft-input sqftInputMiddle"><input class="middle-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-height-input heightInputMiddle"><input class="middle-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                     <div name="color3" class="sideB color3"></div>
-                                    <div class="total-sqft-input sqftInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-height-input heightInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                 </div>
-                                <div class="sqft-message color-b-total-sqft"></div>
-                                <div class="sqft-message color-b-total-sqft-error"></div>
+                                <div class="height-message color-b-total-height"></div>
+                                <div class="height-message color-b-total-height-error"></div>
                             </div>
                         </div><!-- end color side B -->
 
@@ -210,14 +210,14 @@
                                 </select>
                                 <div class="number-of-color-field">
                                     <div name="color1" class="sideC color1"></div>
-                                    <div class="total-sqft-input sqftInputTop"><input class="top-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-height-input heightInputTop"><input class="top-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                     <div name="color2" class="sideC color2"></div>
-                                    <div class="total-sqft-input sqftInputMiddle"><input class="middle-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-height-input heightInputMiddle"><input class="middle-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                     <div name="color3" class="sideC color3"></div>
-                                    <div class="total-sqft-input sqftInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-height-input heightInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                 </div>
-                                <div class="sqft-message color-c-total-sqft"></div>
-                                <div class="sqft-message color-c-total-sqft-error"></div>
+                                <div class="height-message color-c-total-height"></div>
+                                <div class="height-message color-c-total-height-error"></div>
                             </div>
                         </div><!-- end color side c -->
 
@@ -233,14 +233,14 @@
                                 </select>
                                 <div class="number-of-color-field">
                                     <div name="color1" class="sideD color1"></div>
-                                    <div class="total-sqft-input sqftInputTop"><input class="top-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-height-input heightInputTop"><input class="top-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                     <div name="color2" class="sideD color2"></div>
-                                    <div class="total-sqft-input sqftInputMiddle"><input class="middle-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-height-input heightInputMiddle"><input class="middle-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                     <div name="color3" class="sideD color3"></div>
-                                    <div class="total-sqft-input sqftInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-height-input heightInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                 </div>
-                                <div class="sqft-message color-d-total-sqft"></div>
-                                <div class="sqft-message color-d-total-sqft-error"></div>
+                                <div class="height-message color-d-total-height"></div>
+                                <div class="height-message color-d-total-height-error"></div>
                             </div>
                         </div><!-- end color side d -->
 
@@ -358,7 +358,7 @@
                     </div><!-- end selections -->
                 </div>  <!-- end step 3 div-->
 
-                <div class="clear"></div>
+                <div class="clearWmarginForSteps"></div>
                 <div id="step4">
                     <!-- Header-->
                     <header class="curtain-selection-headers">
@@ -424,7 +424,7 @@
             <input type="hidden" name="sku" value="WHDIV-STR001" />
             <input type='hidden' name='unit' value='0' />
             <input type="hidden" name="weight" value="" />
-            <input type="hidden" name="welding" value="1" />
+            <!-- <input type="hidden" name="welding" value="1" /> -->
             <input type="hidden" name="action" id="action" value="add" />
             <!-- <input type='submit' name='submit' class="add-to-cart" border='0' alt='Add this product to your shopping cart now.' value="Add To Cart"/><span class="fa fa-cart-plus"></span> -->
             <button type="submit" class="add-to-cart" alt='Add this product to your shopping cart now.'>Add to Cart <span class="fa fa-cart-plus"></span></button>
@@ -574,10 +574,41 @@
             }
         });
 
-        // $(document).click(function (e) {
-        //     if ($(e.target).closest('.colorSelectBox').length > 0 || $(e.target).closest('div').length > 0) return;
-        //     $('.colorSelectBox').hide();
-        // });
+        /*Checking, storing, and returning different values for different functions*/
+        //used in getOnlyWidthInput(), singlePrice(), getInputsForOneSide() and getHeightInInches()
+        function storeInputValues(sideInput, action){
+            var values = [];
+            sideInput.each(function(){
+                var $thisValue = $(this).val();
+                if(($thisValue == "") || (isNaN($thisValue))
+                    || ($thisValue < minWidthHeight)){
+                    values.push(parseInt(resetValueToZero));
+                }else {
+                    values.push(parseInt($thisValue));
+                }
+            });
+            values[1] = values[1]/12;
+            values[3] = values[3]/12;
+            switch (action){
+                case ('getWidthInput'):
+                    return values[0] + values[1];
+                    break;
+                case ('getSinglePrice'):
+                    return ((values[0]+values[1])*(values[2]+values[3])) * widthHeightProductMultiplier;
+                    break;
+                case ('storeInputs'):
+                    values[1] = values[1]*12;
+                    values[3] = values[3]*12;
+                    return values;
+                    break;
+                case ('getHeightInInch'):
+                    values[2] = values[2]*12;
+                    values[3] = values[3]*12;
+                    return values[2] + values[3];
+                    break;
+            }
+
+        }
 
         /******************************************************/
         /****** Enable / Disabling Sides with Its inputs ******/
@@ -852,20 +883,7 @@
         //Height    value[2] and value[3] ---> index 2 is foot, 3 is inches
         //value[1]/[3] are inches and always needs to be converted to foot by dividing 12
         function singlePrice(sideInput){
-            var values = [];
-            sideInput.each(function() {
-                var $keyUp = $(this);
-                if(($keyUp.val() == "") || (isNaN($keyUp.val()))
-                    || ($keyUp.val() < 0)){
-                    values.push(parseInt(0));
-                }else {
-                    values.push(parseInt($(this).val()));
-                }
-            });
-
-            values[1] = values[1]/12;
-            values[3] = values[3]/12;
-            return ((values[0]+values[1])*(values[2]+values[3])) * widthHeightProductMultiplier;
+            return storeInputValues(sideInput, 'getSinglePrice');
         }
 
         /*Function to empty all the value input of one side*/
@@ -880,9 +898,9 @@
             numberOfColorInput.closest('div').find('.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
             numberOfColorInput.closest('div').find('.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
             numberOfColorInput.closest('div').find('.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
-            numberOfColorInput.closest('div').find('.total-sqft-input').hide();
-            numberOfColorInput.closest('div').find('.total-sqft-input input').val(0);
-            numberOfColorInput.closest('div').find('.sqft-message').empty();
+            numberOfColorInput.closest('div').find('.total-height-input').hide();
+            numberOfColorInput.closest('div').find('.total-height-input input').val(0);
+            numberOfColorInput.closest('div').find('.height-message').empty();
         }
 
         /*Function to validate all width height inch foot input fields*/
@@ -923,7 +941,7 @@
         $('.colorSelectBox').hide();  //Hides the picker box
 
         $('div.color1 div.color2 div.color3').hide();  //hide number of colors until a value is selected
-        $('.total-sqft-input').hide();  //hide the inputs in the color field
+        $('.total-height-input').hide();  //hide the inputs in the color field
         var colorHolder = null; //used to store the location where color is picked
 
         /* Function checks which side's div is clicked and pop put the colorSelectBox with the position of the div popping out */
@@ -998,57 +1016,57 @@
 
             switch(chooseColorValue){
                 case '1':
-                    $closestDiv.find('.total-sqft-input').css({"top":"-155px"});
+                    $closestDiv.find('.total-height-input').css({"top":"-155px"});
                     $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField1}).empty().append("<div class='gradientLayer gradient'><div class='choose-color-message1'>Click To Choose Colors</div></div>");
                     $closestDiv.find('input.top-color').attr({"class": "top-color color1-1", "value": "0"});
-                    $closestDiv.find('div.sqftInputTop').show();
+                    $closestDiv.find('div.heightInputTop').show();
                     $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
-                    $closestDiv.find('div.sqftInputMiddle').hide();
+                    $closestDiv.find('div.heightInputMiddle').hide();
                     $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
-                    $closestDiv.find('div.sqftInputBottom').hide();
-                    $closestDiv.find('.total-sqft-input input').val(0);
-                    $closestDiv.find('.sqft-message').empty();
+                    $closestDiv.find('div.heightInputBottom').hide();
+                    $closestDiv.find('.total-height-input input').val(0);
+                    $closestDiv.find('.height-message').empty();
                     break;
                 case '2':
-                    $closestDiv.find('.total-sqft-input').css({"top":"-70px"});
+                    $closestDiv.find('.total-height-input').css({"top":"-70px"});
                     $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "50%", "background-color": defaultColorPickerField2, "border-radius": "5px 5px 0 0", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField1}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message2-1'>Click To Choose Colors</div></div>");
                     $closestDiv.find('input.top-color').attr({"class": "top-color color2-1", "value": "0"});
-                    $closestDiv.find('div.sqftInputTop').show();
+                    $closestDiv.find('div.heightInputTop').show();
                     $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "50%", "background-color": defaultColorPickerField3, "border-radius": "0 0 5px 5px", "border": "2px dashed blue", "border-top": "none"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "name": defaultColorPickerField2}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message2-2'>Click To Choose Colors</div></div>");
                     $closestDiv.find('input.middle-color').attr({"class": "middle-color color2-2", "value": "0"});
-                    $closestDiv.find('div.sqftInputMiddle').show();
+                    $closestDiv.find('div.heightInputMiddle').show();
                     $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
-                    $closestDiv.find('div.sqftInputBottom').hide();
-                    $closestDiv.find('.total-sqft-input input').val(0);
-                    $closestDiv.find('.sqft-message').empty();
+                    $closestDiv.find('div.heightInputBottom').hide();
+                    $closestDiv.find('.total-height-input input').val(0);
+                    $closestDiv.find('.height-message').empty();
                     break;
                 case '3':
-                    $closestDiv.find('.total-sqft-input').css({"top":"-50px"});
+                    $closestDiv.find('.total-height-input').css({"top":"-50px"});
                     $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "32.5%", "background-color": defaultColorPickerField1, "border-radius": "5px 5px 0 0", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField1}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message3-1'>Click To Choose Colors</div></div>");
                     $closestDiv.find('input.top-color').attr({"class": "top-color color3-1", "value": "0"});
-                    $closestDiv.find('div.sqftInputTop').show();
+                    $closestDiv.find('div.heightInputTop').show();
                     $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "32.5%", "background-color": defaultColorPickerField2,"border-right": "2px dashed blue", "border-left": "2px dashed blue", "border-bottom": "none","border-radius": "initial"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField2}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message3-2'>Click To Choose Colors</div></div>");
                     $closestDiv.find('input.middle-color').attr({"class": "middle-color color3-2", "value": "0"});
-                    $closestDiv.find('div.sqftInputMiddle').show();
+                    $closestDiv.find('div.heightInputMiddle').show();
                     $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "32.5%", "background-color": defaultColorPickerField3, "border-radius": "0 0 5px 5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField3}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message3-3'>Click To Choose Colors</div></div>");
                     $closestDiv.find('input.bottom-color').attr({"class": "bottom-color color3-3", "value": "0"});
-                    $closestDiv.find('div.sqftInputBottom').show();
-                    $closestDiv.find('.total-sqft-input input').val(0);
-                    $closestDiv.find('.sqft-message').empty();
+                    $closestDiv.find('div.heightInputBottom').show();
+                    $closestDiv.find('.total-height-input input').val(0);
+                    $closestDiv.find('.height-message').empty();
                     break;
                 default:
                     $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                     $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                     $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
-                    $closestDiv.find('.total-sqft-input input').val(0);
-                    $closestDiv.find('.sqft-message').empty();
-                    $closestDiv.find('.total-sqft-input').hide();
+                    $closestDiv.find('.total-height-input input').val(0);
+                    $closestDiv.find('.height-message').empty();
+                    $closestDiv.find('.total-height-input').hide();
                     break;
             }
         });
 
         //This is to prevent the colorSelectBox from opening when clicking the number input field
-        $('.total-sqft-input').on('click', function(e){
+        $('.total-height-input').on('click', function(e){
             e.stopPropagation();
             $('.colorSelectBox').hide();
 
@@ -1066,19 +1084,7 @@
         var mountABCDtotal = resetValueToZero;
 
         function getOnlyWidthInput(sideInput){
-            var value = [];
-            sideInput.each(function(){
-
-                var $thisValue = $(this).val();
-                if($thisValue == ''){
-                    value.push(parseInt(0));
-                }else{
-                    value.push(parseInt($thisValue));
-                }
-
-            });
-            value[1] = value[1]/12;
-            return value[0] + value[1];
+            return storeInputValues(sideInput, 'getWidthInput');
         }
 
         $('.select-mounts').on('change', function(){
@@ -1422,9 +1428,9 @@
             emptyInputValue($sideBinput , $('.mount-b'), $('.color-b'));
             emptyInputValue($sideCinput , $('.mount-c'), $('.color-c'));
             emptyInputValue($sideDinput , $('.mount-d'), $('.color-d'));
-            $('.total-sqft-input').hide();
-            $('.total-sqft-input input').val(0);
-            $('.sqft-message').empty();
+            $('.total-height-input').hide();
+            $('.total-height-input input').val(0);
+            $('.height-message').empty();
 
             sideAtotal = resetValueToZero;
             sideBtotal = resetValueToZero;
@@ -1465,17 +1471,8 @@
         }
 
         /*Gets all the inputs for one side*/
-        function getInputsForOneSide(side){
-            var inputs = [];
-            side.each(function(){
-                var value = $(this).val();
-                if((value == '') || (isNaN(value)) ||
-                    (value < minWidthHeight)){
-                    value = resetValueToZero;
-                }
-                inputs.push(value);
-            });
-            return inputs;
+        function getInputsForOneSide(sideInput){
+            return storeInputValues(sideInput, 'storeInputs');
         }
 
         /*Gets the square feet for one side*/
@@ -1502,27 +1499,30 @@
             return total;
         }
 
+        /*Gets the height in inches*/
+        function getHeightInInches(sideInput){
+            return storeInputValues(sideInput, 'getHeightInInch');
+        }
+
         /*Outputs the sum of the inputs and make sure the sum equals to the total sqft else error message will show up*/
-        function totalHeightOutput(sideInput, sumOutput, error, $sideInput){
+        function appendHeightMessage(sideInput, sumOutput, error, $sideInput){
             sideInput.on('keyup', function(){
                 var totalInput = getSumOfColorInput(sideInput);
-                var totalSqft = Math.round(getSquareFeet($sideInput));
+                var totalHeight = getHeightInInches($sideInput);
 
                 sumOutput.empty().append(totalInput + '" Total');
-                if(totalSqft != totalInput){
-                    error.empty().append('Total Sum Must be ' + totalSqft + '"');
-                }else if(totalSqft > 2000){
-                    error.empty().append('Total sqft cannot exceed 2000.');
+                if(totalHeight != totalInput){
+                    error.empty().append('Total Sum Must be ' + totalHeight + '"');
                 }else{
                     error.empty();
                 }
             });
         }
 
-        totalHeightOutput($('.color-side-a input'),$('.color-a-total-sqft'),$('.color-a-total-sqft-error'),$sideAinput);
-        totalHeightOutput($('.color-side-b input'),$('.color-b-total-sqft'),$('.color-b-total-sqft-error'),$sideBinput);
-        totalHeightOutput($('.color-side-c input'),$('.color-c-total-sqft'),$('.color-c-total-sqft-error'),$sideCinput);
-        totalHeightOutput($('.color-side-d input'),$('.color-d-total-sqft'),$('.color-d-total-sqft-error'),$sideDinput);
+        appendHeightMessage($('.color-side-a input'),$('.color-a-total-height'),$('.color-a-total-height-error'),$sideAinput);
+        appendHeightMessage($('.color-side-b input'),$('.color-b-total-height'),$('.color-b-total-height-error'),$sideBinput);
+        appendHeightMessage($('.color-side-c input'),$('.color-c-total-height'),$('.color-c-total-height-error'),$sideCinput);
+        appendHeightMessage($('.color-side-d input'),$('.color-d-total-height'),$('.color-d-total-height-error'),$sideDinput);
 
         //Arrays to check if color chosen is semi or coated *NOT USED YET*
         var semiArrayA = [];
@@ -1538,7 +1538,7 @@
         /*Checks the value for attribute of data-semi, data-coated and value
          * if semi and coated is undefined, the value will change to false
          * as for the bg, if undefined that means the user didn't choose the color*/
-        function getColorFieldValues(side,pushSemi,pushCoated,pushBg){
+        function getColorFieldValues(side,pushSemi,pushCoated,pushBg, colorInput, pushColorInput){
             side.each(function(){
                 var semi = $(this).attr('data-semi');
                 var coated = $(this).attr('data-coated');
@@ -1557,6 +1557,11 @@
                 pushSemi.push(semi);
                 pushCoated.push(coated);
                 pushBg.push(bg);
+            });
+
+            colorInput.each(function(){
+                var values = parseInt($(this).val());
+                pushColorInput.push(values);
             });
         }
 
@@ -1581,8 +1586,8 @@
             }
 
             /*Outputs: Color-1: red. Color-2: yellow. Color-3: None Chosen*/
-            function printColorValues(colorArrayValue){
-                return "Color-1: " + colorArrayValue[0] + ". Color-2: " + colorArrayValue[1] + ". Color-3: " +colorArrayValue[2];
+            function printColorValues(colorArrayValue, colorArrayInput){
+                return "Color-1: " + colorArrayValue[0] + " (height: " + colorArrayInput[0] + "). Color-2: " + colorArrayValue[1] + " (height: " + colorArrayInput[1] + "). Color-3: " + colorArrayValue[2] + " (height: " + colorArrayInput[2] + ")";
             }
 
             /*Outputs: Mount: No Mounts or the mount's name*/
@@ -1591,8 +1596,8 @@
             }
 
             /*Combines all three prints, printInputs, printColorValues and printMountValue into one function and output it*/
-            function printOneSideDetails(side, sideInput, colorArrayValue, index){
-                return printInputs(side,sideInput) + printColorValues(colorArrayValue) + printMountValue(index);
+            function printOneSideDetails(side, sideInput, colorArrayValue, colorArrayInput, index){
+                return printInputs(side,sideInput) + printColorValues(colorArrayValue, colorArrayInput) + printMountValue(index);
             }
 
             /*Get the inputs of each side and store them into an array variable*/
@@ -1634,17 +1639,22 @@
             var bgArrayC = [];
             var bgArrayD = [];
 
+            var colorInputValuesArrayA = [];
+            var colorInputValuesArrayB = [];
+            var colorInputValuesArrayC = [];
+            var colorInputValuesArrayD = [];
+
             /*Get the value of the color field selected*/
-            getColorFieldValues($('.number-of-color-field .sideA'),semiArrayA, coatedArrayA, bgArrayA);
-            getColorFieldValues($('.number-of-color-field .sideB'),semiArrayB, coatedArrayB, bgArrayB);
-            getColorFieldValues($('.number-of-color-field .sideC'),semiArrayC, coatedArrayC, bgArrayC);
-            getColorFieldValues($('.number-of-color-field .sideD'),semiArrayD, coatedArrayD, bgArrayD);
+            getColorFieldValues($('.number-of-color-field .sideA'),semiArrayA, coatedArrayA, bgArrayA, $('.color-side-a input'), colorInputValuesArrayA);
+            getColorFieldValues($('.number-of-color-field .sideB'),semiArrayB, coatedArrayB, bgArrayB, $('.color-side-b input'), colorInputValuesArrayB);
+            getColorFieldValues($('.number-of-color-field .sideC'),semiArrayC, coatedArrayC, bgArrayC, $('.color-side-c input'), colorInputValuesArrayC);
+            getColorFieldValues($('.number-of-color-field .sideD'),semiArrayD, coatedArrayD, bgArrayD, $('.color-side-d input'), colorInputValuesArrayD);
 
             /*print each side's detail*/
-            var sideADetails = printOneSideDetails('SIDE A', inputsA, bgArrayA, 0);
-            var sideBDetails = printOneSideDetails('SIDE B', inputsB, bgArrayB, 1);
-            var sideCDetails = printOneSideDetails('SIDE C', inputsC, bgArrayC, 2);
-            var sideDDetails = printOneSideDetails('SIDE D', inputsD, bgArrayD, 3);
+            var sideADetails = printOneSideDetails('SIDE A', inputsA, bgArrayA, colorInputValuesArrayA, 0);
+            var sideBDetails = printOneSideDetails('SIDE B', inputsB, bgArrayB, colorInputValuesArrayB, 1);
+            var sideCDetails = printOneSideDetails('SIDE C', inputsC, bgArrayC, colorInputValuesArrayC, 2);
+            var sideDDetails = printOneSideDetails('SIDE D', inputsD, bgArrayD, colorInputValuesArrayD, 3);
             var descOutput = null;
 
             var storeEmptyInputValues = [];  //use to store inputs of width / height if empty
