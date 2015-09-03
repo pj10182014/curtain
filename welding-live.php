@@ -1493,6 +1493,7 @@
             return ((inputs[0]+inputs[1])*(inputs[2]+inputs[3]));
         }
 
+        /*Get the sum for the input of top, middle, bot color*/
         function getSumOfColorInput(sideInput){
             var total = 0;
             sideInput.each(function() {
@@ -1501,6 +1502,7 @@
             return total;
         }
 
+        /*Outputs the sum of the inputs and make sure the sum equals to the total sqft else error message will show up*/
         function totalHeightOutput(sideInput, sumOutput, error, $sideInput){
             sideInput.on('keyup', function(){
                 var totalInput = getSumOfColorInput(sideInput);
