@@ -27,7 +27,7 @@ $(document).ready(function(){
     });
 
     /*Checking, storing, and returning different values for different functions*/
-    //used in getOnlyWidthInput(), singlePrice() and getInputsForOneSide()
+    //used in getOnlyWidthInput(), singlePrice(), getInputsForOneSide() and getHeightInInches
     function storeInputValues(sideInput, action){
         var values = [];
         sideInput.each(function(){
@@ -49,7 +49,14 @@ $(document).ready(function(){
                 return ((values[0]+values[1])*(values[2]+values[3])) * widthHeightProductMultiplier;
                 break;
             case ('storeInputs'):
+                values[1] = values[1]*12;
+                values[3] = values[3]*12;
                 return values;
+                break;
+            case ('getHeightInInch'):
+                values[2] = values[2]*12;
+                values[3] = values[3]*12;
+                return values[2] + values[3];
                 break;
         }
 
@@ -342,9 +349,9 @@ $(document).ready(function(){
         numberOfColorInput.closest('div').find('.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
         numberOfColorInput.closest('div').find('.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
         numberOfColorInput.closest('div').find('.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
-        numberOfColorInput.closest('div').find('.total-sqft-input').hide();
-        numberOfColorInput.closest('div').find('.total-sqft-input input').val(0);
-        numberOfColorInput.closest('div').find('.sqft-message').empty();
+        numberOfColorInput.closest('div').find('.total-height-input').hide();
+        numberOfColorInput.closest('div').find('.total-height-input input').val(0);
+        numberOfColorInput.closest('div').find('.height-message').empty();
     }
 
     /*Function to validate all width height inch foot input fields*/
@@ -385,7 +392,7 @@ $(document).ready(function(){
     $('.colorSelectBox').hide();  //Hides the picker box
 
     $('div.color1 div.color2 div.color3').hide();  //hide number of colors until a value is selected
-    $('.total-sqft-input').hide();  //hide the inputs in the color field
+    $('.total-height-input').hide();  //hide the inputs in the color field
     var colorHolder = null; //used to store the location where color is picked
 
     /* Function checks which side's div is clicked and pop put the colorSelectBox with the position of the div popping out */
@@ -468,57 +475,57 @@ $(document).ready(function(){
 
         switch(chooseColorValue){
             case '1':
-                $closestDiv.find('.total-sqft-input').css({"top":"-155px"});
+                $closestDiv.find('.total-height-input').css({"top":"-155px"});
                 $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "100%", "background-color": defaultColorPickerField1, "border-radius": "5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField1}).empty().append("<div class='gradientLayer gradient'><div class='choose-color-message1'>Click To Choose Colors</div></div>");
                 $closestDiv.find('input.top-color').attr({"class": "top-color color1-1", "value": "0"});
-                $closestDiv.find('div.sqftInputTop').show();
+                $closestDiv.find('div.heightInputTop').show();
                 $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
-                $closestDiv.find('div.sqftInputMiddle').hide();
+                $closestDiv.find('div.heightInputMiddle').hide();
                 $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
-                $closestDiv.find('div.sqftInputBottom').hide();
-                $closestDiv.find('.total-sqft-input input').val(0);
-                $closestDiv.find('.sqft-message').empty();
+                $closestDiv.find('div.heightInputBottom').hide();
+                $closestDiv.find('.total-height-input input').val(0);
+                $closestDiv.find('.height-message').empty();
                 break;
             case '2':
-                $closestDiv.find('.total-sqft-input').css({"top":"-70px"});
+                $closestDiv.find('.total-height-input').css({"top":"-70px"});
                 $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "50%", "background-color": defaultColorPickerField2, "border-radius": "5px 5px 0 0", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField1}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message2-1'>Click To Choose Colors</div></div>");
                 $closestDiv.find('input.top-color').attr({"class": "top-color color2-1", "value": "0"});
-                $closestDiv.find('div.sqftInputTop').show();
+                $closestDiv.find('div.heightInputTop').show();
                 $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "50%", "background-color": defaultColorPickerField3, "border-radius": "0 0 5px 5px", "border": "2px dashed blue", "border-top": "none"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "name": defaultColorPickerField2}).empty().append("<div class='gradientLayer2 gradient'><div class='choose-color-message2-2'>Click To Choose Colors</div></div>");
                 $closestDiv.find('input.middle-color').attr({"class": "middle-color color2-2", "value": "0"});
-                $closestDiv.find('div.sqftInputMiddle').show();
+                $closestDiv.find('div.heightInputMiddle').show();
                 $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
-                $closestDiv.find('div.sqftInputBottom').hide();
-                $closestDiv.find('.total-sqft-input input').val(0);
-                $closestDiv.find('.sqft-message').empty();
+                $closestDiv.find('div.heightInputBottom').hide();
+                $closestDiv.find('.total-height-input input').val(0);
+                $closestDiv.find('.height-message').empty();
                 break;
             case '3':
-                $closestDiv.find('.total-sqft-input').css({"top":"-50px"});
+                $closestDiv.find('.total-height-input').css({"top":"-50px"});
                 $closestDiv.find('div.color1').show().css({"width": "inherit", "height": "32.5%", "background-color": defaultColorPickerField1, "border-radius": "5px 5px 0 0", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField1, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField1}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message3-1'>Click To Choose Colors</div></div>");
                 $closestDiv.find('input.top-color').attr({"class": "top-color color3-1", "value": "0"});
-                $closestDiv.find('div.sqftInputTop').show();
+                $closestDiv.find('div.heightInputTop').show();
                 $closestDiv.find('div.color2').show().css({"width": "inherit", "height": "32.5%", "background-color": defaultColorPickerField2,"border-right": "2px dashed blue", "border-left": "2px dashed blue", "border-bottom": "none","border-radius": "initial"}).attr({"value": defaultColorPickerField2, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField2}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message3-2'>Click To Choose Colors</div></div>");
                 $closestDiv.find('input.middle-color').attr({"class": "middle-color color3-2", "value": "0"});
-                $closestDiv.find('div.sqftInputMiddle').show();
+                $closestDiv.find('div.heightInputMiddle').show();
                 $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "32.5%", "background-color": defaultColorPickerField3, "border-radius": "0 0 5px 5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField3}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message3-3'>Click To Choose Colors</div></div>");
                 $closestDiv.find('input.bottom-color').attr({"class": "bottom-color color3-3", "value": "0"});
-                $closestDiv.find('div.sqftInputBottom').show();
-                $closestDiv.find('.total-sqft-input input').val(0);
-                $closestDiv.find('.sqft-message').empty();
+                $closestDiv.find('div.heightInputBottom').show();
+                $closestDiv.find('.total-height-input input').val(0);
+                $closestDiv.find('.height-message').empty();
                 break;
             default:
                 $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                 $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                 $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
-                $closestDiv.find('.total-sqft-input input').val(0);
-                $closestDiv.find('.sqft-message').empty();
-                $closestDiv.find('.total-sqft-input').hide();
+                $closestDiv.find('.total-height-input input').val(0);
+                $closestDiv.find('.height-message').empty();
+                $closestDiv.find('.total-height-input').hide();
                 break;
         }
     });
 
     //This is to prevent the colorSelectBox from opening when clicking the number input field
-    $('.total-sqft-input').on('click', function(e){
+    $('.total-height-input').on('click', function(e){
         e.stopPropagation();
        $('.colorSelectBox').hide();
 
@@ -548,27 +555,30 @@ $(document).ready(function(){
         return total;
     }
 
-    /*Outputs the sum of the inputs and make sure the sum equals to the total sqft else error message will show up*/
-    function totalHeightOutput(sideInput, sumOutput, error, $sideInput){
+    /*Gets the height in inches*/
+    function getHeightInInches(sideInput){
+        return storeInputValues(sideInput, 'getHeightInInch');
+    }
+
+    /*Outputs the sum of the inputs and make sure the sum equals to the total height in inches else error message will show up*/
+    function appendHeightMessage(sideInput, sumOutput, error, $sideInput){
         sideInput.on('keyup', function(){
             var totalInput = getSumOfColorInput(sideInput);
-            var totalSqft = Math.round(getSquareFeet($sideInput));
+            var totalHeight = getHeightInInches($sideInput);
 
             sumOutput.empty().append(totalInput + '" Total');
-            if(totalSqft != totalInput){
-                error.empty().append('Total Sum Must be ' + totalSqft + '"');
-            }else if(totalSqft > 2000){
-                error.empty().append('Total sqft cannot exceed 2000.');
+            if(totalHeight != totalInput){
+                error.empty().append('Total Sum Must be ' + totalHeight + '"');
             }else{
                 error.empty();
             }
         });
     }
 
-    totalHeightOutput($('.color-side-a input'),$('.color-a-total-sqft'),$('.color-a-total-sqft-error'),$sideAinput);
-    totalHeightOutput($('.color-side-b input'),$('.color-b-total-sqft'),$('.color-b-total-sqft-error'),$sideBinput);
-    totalHeightOutput($('.color-side-c input'),$('.color-c-total-sqft'),$('.color-c-total-sqft-error'),$sideCinput);
-    totalHeightOutput($('.color-side-d input'),$('.color-d-total-sqft'),$('.color-d-total-sqft-error'),$sideDinput);
+    appendHeightMessage($('.color-side-a input'),$('.color-a-total-height'),$('.color-a-total-height-error'),$sideAinput);
+    appendHeightMessage($('.color-side-b input'),$('.color-b-total-height'),$('.color-b-total-height-error'),$sideBinput);
+    appendHeightMessage($('.color-side-c input'),$('.color-c-total-height'),$('.color-c-total-height-error'),$sideCinput);
+    appendHeightMessage($('.color-side-d input'),$('.color-d-total-height'),$('.color-d-total-height-error'),$sideDinput);
 
     /*************************************/
     /**** Mounting Select Calculation ****/
@@ -922,9 +932,9 @@ $(document).ready(function(){
         emptyInputValue($sideBinput, $('.mount-b'), $('.color-b'));
         emptyInputValue($sideCinput, $('.mount-c'), $('.color-c'));
         emptyInputValue($sideDinput, $('.mount-d'), $('.color-d'));
-        $('.total-sqft-input').hide();
-        $('.total-sqft-input input').val(0);
-        $('.sqft-message').empty();
+        $('.total-height-input').hide();
+        $('.total-height-input input').val(0);
+        $('.height-message').empty();
 
         sideAtotal = resetValueToZero;
         sideBtotal = resetValueToZero;
