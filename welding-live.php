@@ -164,13 +164,14 @@
                                 </select>
                                 <div class="number-of-color-field">
                                     <div name="color1" class="sideA color1" data-semi="false"  data-coated="false"></div>
-                                    <div class="total-sqft-input sqftInputTop"><input class="top-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-sqft-input sqftInputTop"><input class="top-color" type="number" min="0"><span class="foot-inches color-selector">"</span></div>
                                     <div name="color2" class="sideA color2" data-semi="false"  data-coated="false"></div>
-                                    <div class="total-sqft-input sqftInputMiddle"><input class="middle-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-sqft-input sqftInputMiddle"><input class="middle-color" type="number" min="0"><span class="foot-inches color-selector">"</span></div>
                                     <div name="color3" class="sideA color3" data-semi="false"  data-coated="false"></div>
-                                    <div class="total-sqft-input sqftInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
+                                    <div class="total-sqft-input sqftInputBottom"><input class="bottom-color" type="number" min="0"><span class="foot-inches color-selector">"</span></div>
                                 </div>
-                                <div class="total-sqft"></div>
+                                <div class="sqft-message color-a-total-sqft"></div>
+                                <div class="sqft-message color-a-total-sqft-error"></div>
                             </div>
                         </div><!-- end color side A -->
 
@@ -192,6 +193,8 @@
                                     <div name="color3" class="sideB color3"></div>
                                     <div class="total-sqft-input sqftInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                 </div>
+                                <div class="sqft-message color-b-total-sqft"></div>
+                                <div class="sqft-message color-b-total-sqft-error"></div>
                             </div>
                         </div><!-- end color side B -->
 
@@ -212,8 +215,9 @@
                                     <div class="total-sqft-input sqftInputMiddle"><input class="middle-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                     <div name="color3" class="sideC color3"></div>
                                     <div class="total-sqft-input sqftInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
-
                                 </div>
+                                <div class="sqft-message color-c-total-sqft"></div>
+                                <div class="sqft-message color-c-total-sqft-error"></div>
                             </div>
                         </div><!-- end color side c -->
 
@@ -234,8 +238,9 @@
                                     <div class="total-sqft-input sqftInputMiddle"><input class="middle-color" type="number" ><span class="foot-inches color-selector">"</span></div>
                                     <div name="color3" class="sideD color3"></div>
                                     <div class="total-sqft-input sqftInputBottom"><input class="bottom-color" type="number" ><span class="foot-inches color-selector">"</span></div>
-
                                 </div>
+                                <div class="sqft-message color-d-total-sqft"></div>
+                                <div class="sqft-message color-d-total-sqft-error"></div>
                             </div>
                         </div><!-- end color side d -->
 
@@ -877,6 +882,7 @@
             numberOfColorInput.closest('div').find('.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen"}).hide();
             numberOfColorInput.closest('div').find('.total-sqft-input').hide();
             numberOfColorInput.closest('div').find('.total-sqft-input input').val(0);
+            numberOfColorInput.closest('div').find('.sqft-message').empty();
         }
 
         /*Function to validate all width height inch foot input fields*/
@@ -1000,6 +1006,8 @@
                     $closestDiv.find('div.sqftInputMiddle').hide();
                     $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                     $closestDiv.find('div.sqftInputBottom').hide();
+                    $closestDiv.find('.total-sqft-input input').val(0);
+                    $closestDiv.find('.sqft-message').empty();
                     break;
                 case '2':
                     $closestDiv.find('.total-sqft-input').css({"top":"-70px"});
@@ -1011,6 +1019,8 @@
                     $closestDiv.find('div.sqftInputMiddle').show();
                     $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                     $closestDiv.find('div.sqftInputBottom').hide();
+                    $closestDiv.find('.total-sqft-input input').val(0);
+                    $closestDiv.find('.sqft-message').empty();
                     break;
                 case '3':
                     $closestDiv.find('.total-sqft-input').css({"top":"-50px"});
@@ -1023,11 +1033,15 @@
                     $closestDiv.find('div.color3').show().css({"width": "inherit", "height": "32.5%", "background-color": defaultColorPickerField3, "border-radius": "0 0 5px 5px", "border": "2px dashed blue"}).attr({"value": defaultColorPickerField3, "data-semi": "true", "data-coated": "false", "name": defaultColorPickerField3}).empty().append("<div class='gradientLayer3 gradient'><div class='choose-color-message3-3'>Click To Choose Colors</div></div>");
                     $closestDiv.find('input.bottom-color').attr({"class": "bottom-color color3-3", "value": "0"});
                     $closestDiv.find('div.sqftInputBottom').show();
+                    $closestDiv.find('.total-sqft-input input').val(0);
+                    $closestDiv.find('.sqft-message').empty();
                     break;
                 default:
                     $closestDiv.find('div.color1').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                     $closestDiv.find('div.color2').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
                     $closestDiv.find('div.color3').attr({"data-semi": "false", "data-coated": "false", "value": "None Chosen", "name": "None Chosen"}).hide();
+                    $closestDiv.find('.total-sqft-input input').val(0);
+                    $closestDiv.find('.sqft-message').empty();
                     $closestDiv.find('.total-sqft-input').hide();
                     break;
             }
@@ -1409,6 +1423,8 @@
             emptyInputValue($sideCinput , $('.mount-c'), $('.color-c'));
             emptyInputValue($sideDinput , $('.mount-d'), $('.color-d'));
             $('.total-sqft-input').hide();
+            $('.total-sqft-input input').val(0);
+            $('.sqft-message').empty();
 
             sideAtotal = resetValueToZero;
             sideBtotal = resetValueToZero;
@@ -1476,6 +1492,35 @@
             inputs[3] = inputs[3]/12;
             return ((inputs[0]+inputs[1])*(inputs[2]+inputs[3]));
         }
+
+        function getSumOfColorInput(sideInput){
+            var total = 0;
+            sideInput.each(function() {
+                total += parseInt($(this).val(), 10) || 0;
+            });
+            return total;
+        }
+
+        function totalHeightOutput(sideInput, sumOutput, error, $sideInput){
+            sideInput.on('keyup', function(){
+                var totalInput = getSumOfColorInput(sideInput);
+                var totalSqft = Math.round(getSquareFeet($sideInput));
+
+                sumOutput.empty().append(totalInput + '" Total');
+                if(totalSqft != totalInput){
+                    error.empty().append('Total Sum Must be ' + totalSqft + '"');
+                }else if(totalSqft > 2000){
+                    error.empty().append('Total sqft cannot exceed 2000.');
+                }else{
+                    error.empty();
+                }
+            });
+        }
+
+        totalHeightOutput($('.color-side-a input'),$('.color-a-total-sqft'),$('.color-a-total-sqft-error'),$sideAinput);
+        totalHeightOutput($('.color-side-b input'),$('.color-b-total-sqft'),$('.color-b-total-sqft-error'),$sideBinput);
+        totalHeightOutput($('.color-side-c input'),$('.color-c-total-sqft'),$('.color-c-total-sqft-error'),$sideCinput);
+        totalHeightOutput($('.color-side-d input'),$('.color-d-total-sqft'),$('.color-d-total-sqft-error'),$sideDinput);
 
         //Arrays to check if color chosen is semi or coated *NOT USED YET*
         var semiArrayA = [];
