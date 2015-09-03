@@ -515,6 +515,35 @@ $(document).ready(function(){
 
     });
 
+    /*Gets the square feet for one side*/
+    function getSquareFeet(side){
+        var inputs = [];
+        side.each(function(){
+            if($(this).val() == ''){
+                inputs.push(parseInt(0));
+            }else{
+                inputs.push(parseInt($(this).val()));
+            }
+        })
+        inputs[1] = inputs[1]/12;
+        inputs[3] = inputs[3]/12;
+        return ((inputs[0]+inputs[1])*(inputs[2]+inputs[3]));
+    }
+
+    /*Get the inputs for and calculate the square feet for each side*/
+    var sideAsqft = getSquareFeet($sideAinput);
+    var sideBsqft = getSquareFeet($sideBinput);
+    var sideCsqft = getSquareFeet($sideCinput);
+    var sideDsqft = getSquareFeet($sideDinput);
+    var sqftArray = [sideAsqft, sideBsqft, sideCsqft, sideDsqft];
+
+    $('.color-side-a input').on('keyup', function(index, value){
+        var inputs = [];
+        var $this = $(this);
+        inputs.push($this.val());
+    });
+
+
     /*************************************/
     /**** Mounting Select Calculation ****/
     /*************************************/
