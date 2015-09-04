@@ -1022,7 +1022,7 @@ $(document).ready(function(){
 
     //Makes the product summary div change fixed position when it reaches the footer
     $(window).scroll(function() {
-        if($(window).scrollTop() + $(window).height() > $(document).height() - 425) {
+        if($(window).scrollTop() + $(window).height() > $(document).height() - 150) {
             $('#product-summary').addClass('product-summary-bottom').removeClass('product-summary-top');
         }else{
             $('#product-summary').addClass('product-summary-top').removeClass('product-summary-bottom');
