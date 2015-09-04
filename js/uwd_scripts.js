@@ -776,6 +776,28 @@ $(document).ready(function(){
         //    window.location.href='toCart.php';
         //})
 
+        //Gets the sum of height of one side in inches
+        var sideAheightColorInputsTotal = getSumOfColorInput($('.color-side-a input'));
+        var sideBheightColorInputsTotal = getSumOfColorInput($('.color-side-b input'));
+        var sideCheightColorInputsTotal = getSumOfColorInput($('.color-side-c input'));
+        var sideDheightColorInputsTotal = getSumOfColorInput($('.color-side-d input'));
+        //puts the sum of height of each side in an array
+        var allSideHeightColorInputsTotal = [sideAheightColorInputsTotal, sideBheightColorInputsTotal, sideCheightColorInputsTotal, sideDheightColorInputsTotal];
+
+        //Gets the sum of the height inputs when choosing colors
+        var sideAheightInputTotal = getHeightInInches($sideAinput);
+        var sideBheightInputTotal = getHeightInInches($sideBinput);
+        var sideCheightInputTotal = getHeightInInches($sideCinput);
+        var sideDheightInputTotal = getHeightInInches($sideDinput);
+        //stores the sum of each side in an array
+        var allSideHeightInputsTotal = [sideAheightInputTotal, sideBheightInputTotal, sideCheightInputTotal,sideDheightInputTotal];
+
+        //if((allSideHeightColorInputsTotal.sort(function(a, b){return a-b}).join(',')) === ((allSideHeightInputsTotal.sort(function(a, b){return a-b}).join(',')))){
+        //    alert('same');
+        //}else{
+        //    alert('different');
+        //}
+
         var sideA_color1_val = $(".color-side-a .number-of-color-field div[name='color1']").attr('value');
 
         var getSideText = null;  //Get the text of the side chosen e.g. single curtain, 2-sided station

@@ -1735,6 +1735,22 @@
                 }
             });
 
+            //Gets the sum of height of one side in inches
+            var sideAheightColorInputsTotal = getSumOfColorInput($('.color-side-a input'));
+            var sideBheightColorInputsTotal = getSumOfColorInput($('.color-side-b input'));
+            var sideCheightColorInputsTotal = getSumOfColorInput($('.color-side-c input'));
+            var sideDheightColorInputsTotal = getSumOfColorInput($('.color-side-d input'));
+            //puts the sum of height of each side in an array
+            var allSideHeightColorInputsTotal = [sideAheightColorInputsTotal, sideBheightColorInputsTotal, sideCheightColorInputsTotal, sideDheightColorInputsTotal];
+
+            //Gets the sum of the height inputs when choosing colors
+            var sideAheightInputTotal = getHeightInInches($sideAinput);
+            var sideBheightInputTotal = getHeightInInches($sideBinput);
+            var sideCheightInputTotal = getHeightInInches($sideCinput);
+            var sideDheightInputTotal = getHeightInInches($sideDinput);
+            //stores the sum of each side in an array
+            var allSideHeightInputsTotal = [sideAheightInputTotal, sideBheightInputTotal, sideCheightInputTotal,sideDheightInputTotal];
+
             /*Gets the extra accessories' names and qty info, if qty 0 then this info will not be printed*/
             var printExtraAccInfo = '';
             $('.opt-qty').each(function(){
@@ -1750,7 +1766,9 @@
 
             //checks if the array of storeEmptyInputValues has any empty string
             //checks if the array of storeBadInputValueInBoolean has false in it, if there is that means one of the inputs is a bad input
+            //checks if the array of storeBadTotalSQFT has false in it, if there is that means one of the sides' sqft is more than 2000sqft
             //checks if the array of storeEmptyColorSelectionValue has false in it, if there is that means one of the side did not choose at least one color
+            //sorts the array of allSideHeightColorInputsTotal and allSideHeightInputsTotal then compare if they are the same, if not that means the total height entered in dimension is different from the total height entered in the color 
             //If all above are good then value of weight, unit and item_name will be submitted to the cart
             if(jQuery.inArray("", storeEmptyInputValues) !== -1){
                 alert('Please Do not leave any input (feet/inches) fields empty.');
@@ -1763,6 +1781,9 @@
                 return false;
             }else if(jQuery.inArray(false, storeEmptyColorSelectionValue) !== -1){
                 alert('Please select at least one color for your side.');
+                return false;
+            }else if((allSideHeightColorInputsTotal.sort(function(a, b){return a-b}).join(',')) !== ((allSideHeightInputsTotal.sort(function(a, b){return a-b}).join(',')))){
+                alert('Total Height entered in color section does not match the total height in inches provided.');
                 return false;
             }else{
                 $('input[name="weight"]').attr('value', totalWeight);
