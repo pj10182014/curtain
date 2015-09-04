@@ -986,22 +986,46 @@ $(document).ready(function(){
     var printExtraAccInfo = '';
     $('.accTest').on('click', function(e){
         e.preventDefault();
-        $('.accInfoField').empty();
+        //$('.accInfoField').empty();
+        //
+        //$('.opt-qty').each(function(){
+        //    var $this = $(this);
+        //    var qtySelected = parseInt($this.find('option:selected').text());
+        //
+        //
+        //    if(qtySelected > 0){
+        //        var info = $this.closest('div').prev().text() + ' x ' + qtySelected + '<br>';
+        //        printExtraAccInfo += info;
+        //
+        //    }else{
+        //        console.log('none');
+        //    }
+        //});
+        //$('.accInfoField').append(printExtraAccInfo);
+        //printExtraAccInfo = '';
 
-        $('.opt-qty').each(function(){
-            var $this = $(this);
-            var qtySelected = parseInt($this.find('option:selected').text());
+        console.log($(window).scrollTop);
+    });
 
+    ////Used to make sure product summary doesn't go pass the footer
+    //$(window).scroll(function(){
+    //    $("#product-summary").css("top",Math.max(20,250-$(this).scrollTop()));
+    //});
 
-            if(qtySelected > 0){
-                var info = $this.closest('div').prev().text() + ' x ' + qtySelected + '<br>';
-                printExtraAccInfo += info;
+    //$(window).scroll(function(){
+    //    if($(window).scrollTop() > 1250){
+    //        $('#product-summary').addClass('product-summary-bottom').removeClass('product-summary-top');
+    //    }else if($(window).scrollTop() < 1250){
+    //        $('#product-summary').addClass('product-summary-top').removeClass('product-summary-bottom');
+    //    }
+    //})
 
-            }else{
-                console.log('none');
-            }
-        });
-        $('.accInfoField').append(printExtraAccInfo);
-        printExtraAccInfo = '';
+    //Makes the product summary div change fixed position when it reaches the footer
+    $(window).scroll(function() {
+        if($(window).scrollTop() + $(window).height() > $(document).height() - 425) {
+            $('#product-summary').addClass('product-summary-bottom').removeClass('product-summary-top');
+        }else{
+            $('#product-summary').addClass('product-summary-top').removeClass('product-summary-bottom');
+        }
     });
 });

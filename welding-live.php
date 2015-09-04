@@ -509,23 +509,7 @@
 
 </div>
 <div class="clear"></div>
-<div id="footer">
-    <div class="footer_bar">
-        <a href="/">Home</a> |  <a href="/proCat/">Product Catalogue</a>  |  <a href="/requestQuote/">Request Quote</a>  |  <a href="/resources/">Downloads</a>  |  <a href="/promos/">Promotions</a>  |  <a href="/about/">About Strip-Curtains.com</a>  |  <a href="/contact/">Contact Us</a><br />
-        <a href="/privacy.php">Privacy Policy</a>  |  <a href="/shipping.php">Shipping</a>  | <a href="/track_orders.php">Track Your Orders</a>  | <a href="/salesTerms.php">Sales Terms</a>  |  <a href="/services.php">Services & Installations</a> | <a href="/resources/links.php">Resources &amp; Links</a></div>
-    <div class="copyright_bar">
-        <a href="http://www.facebook.com/media/albums/?id=163047307067032" target="_blank" class="link_facebook"><strong>Find Strip Curtains on Facebook</strong></a>&nbsp;&nbsp;<a href="http://www.twitter.com/stripdoor" target="_blank" class="link_twitter"><strong>Follow Strip Doors on Twitter</strong></a>&nbsp;&nbsp;<a href="http://pinterest.com/jeffsecord/" target="_blank" class="link_pinterest"><strong>Find Strip Curtains on Pinterest</strong></a><br />
-        Copyright &copy; 2005-2015. <a href="http://www.Strip-Curtains.com">Strip-Curtains.com</a>. All Rights Reserved.</div>
-    <script type="text/javascript">
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-        try {
-            var pageTracker = _gat._getTracker("UA-11480089-1");
-            pageTracker._trackPageview();
-        } catch(err) {}</script>
-</div>
+<?php require("../_inc/footer.php"); ?>
 
 <!--ET-->
 <!-- <script src="js/uwd_scripts.js"></script> -->
@@ -571,6 +555,15 @@
                 // }
 
                 //container.removeClass('visible');
+            }
+        });
+
+        //Makes the product summary div change fixed position when it reaches the footer
+        $(window).scroll(function() {
+            if($(window).scrollTop() + $(window).height() > $(document).height() - 425) {
+                $('#product-summary').addClass('product-summary-bottom').removeClass('product-summary-top');
+            }else{
+                $('#product-summary').addClass('product-summary-top').removeClass('product-summary-bottom');
             }
         });
 
