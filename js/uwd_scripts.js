@@ -1021,11 +1021,22 @@ $(document).ready(function(){
     //})
 
     //Makes the product summary div change fixed position when it reaches the footer
-    $(window).scroll(function() {
-        if($(window).scrollTop() + $(window).height() > $(document).height() - 150) {
-            $('#product-summary').addClass('product-summary-bottom').removeClass('product-summary-top');
-        }else{
-            $('#product-summary').addClass('product-summary-top').removeClass('product-summary-bottom');
-        }
+    //$(window).scroll(function() {
+    //    if($(window).scrollTop() + $(window).height() > $(document).height() - 150) {
+    //        $('#product-summary').addClass('product-summary-bottom').removeClass('product-summary-top');
+    //    }else{
+    //        $('#product-summary').addClass('product-summary-top').removeClass('product-summary-bottom');
+    //    }
+    //});
+
+    function checkOffset() {
+        if($('#product-summary').offset().top + $('#product-summary').height()
+            >= $('div.footer2').offset().top - 10)
+            $('#product-summary').css('position', 'fixed');
+        if($(document).scrollTop() + window.innerHeight < $('div.footer2').offset().top)
+            $('#product-summary').css('position', 'fixed'); // restore when you scroll up
+    }
+    $(document).scroll(function() {
+        checkOffset();
     });
 });
