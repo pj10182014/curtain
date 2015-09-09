@@ -1029,14 +1029,24 @@ $(document).ready(function(){
     //    }
     //});
 
-    function checkOffset() {
-        if($('#product-summary').offset().top + $('#product-summary').height()
-            >= $('div.footer2').offset().top - 10)
-            $('#product-summary').css('position', 'fixed');
-        if($(document).scrollTop() + window.innerHeight < $('div.footer2').offset().top)
-            $('#product-summary').css('position', 'fixed'); // restore when you scroll up
-    }
-    $(document).scroll(function() {
-        checkOffset();
+    //makes the prodcut summary won't go pass the footer
+    var doc = $(document);
+
+    doc.scroll(function () {
+        // make sure to wrap yours entire footer in some css selector
+        var footer = $('#wholeFooter');
+        var p = $('#product-fixed');
+        var s = $('#product-summary-position');
+
+        var top = doc.scrollTop() + s.offset().top + p.height() + 20;
+        var footerTop = footer.offset().top;
+
+        var offset = footerTop - top;
+
+        if (offset < 0) {
+            p.css({'margin-top': '' + offset + 'px'});
+        } else {
+            p.css({'margin-top': 0});
+        }
     });
 });

@@ -26,12 +26,14 @@
     <div class="interior_full_pane" style="font-size:14px; color:#000000; background-color:white; background-image:none;">
         <form action="/order/order-cart.php" method="post" name="ordering" id="ordering">
             <div id="product-summary-position">
-                <div id="product-summary">
-                    <header>Product Summary</header>
-                    <div class="price" name="product-summary-price">$0.00</div>
-                    <header>Have Questions?</header>
-                    <p>Call our Product Experts<br> 1-877-270-3311</p>
-                    <button class="btn-reset">Reset</button>
+                <div id="product-fixed">
+                    <div id="product-summary">
+                        <header>Product Summary</header>
+                        <div class="price" name="product-summary-price">$0.00</div>
+                        <header>Have Questions?</header>
+                        <p>Call our Product Experts<br> 1-877-270-3311</p>
+                        <button class="btn-reset">Reset</button>
+                    </div>
                 </div>
             </div>
 
@@ -383,12 +385,12 @@
                                 <div class="extraPrice acc1">$65.00
                                     <select name="" id="radius" class="opt-qty">
                                         <?php
-                                        $maxQty = 50;
-                                        for($i = 0; $i <= $maxQty; $i++){
-                                            echo "<option value='radius'>";
-                                            echo $i;
-                                            echo "</option>";
-                                        }
+                                            $maxQty = 50;
+                                            for($i = 0; $i <= $maxQty; $i++){
+                                                echo "<option value='radius'>";
+                                                echo $i;
+                                                echo "</option>";
+                                            }
                                         ?>
                                     </select>
                                 </div>
@@ -399,12 +401,12 @@
                                 <div class="extraPrice acc2">$60.00
                                     <select name="" id="radius1" class="opt-qty">
                                         <?php
-                                        $maxQty = 50;
-                                        for($i = 0; $i <= $maxQty; $i++){
-                                            echo "<option value='radius1'>";
-                                            echo $i;
-                                            echo "</option>";
-                                        }
+                                            $maxQty = 50;
+                                            for($i = 0; $i <= $maxQty; $i++){
+                                                echo "<option value='radius1'>";
+                                                echo $i;
+                                                echo "</option>";
+                                            }
                                         ?>
                                     </select>
                                 </div>
@@ -509,7 +511,9 @@
 
 </div>
 <div class="clear"></div>
-<?php require("../_inc/footer.php"); ?>
+<footer id="wholeFooter">
+    <?php require("../_inc/footer.php"); ?>
+</footer>
 
 <!--ET-->
 <!-- <script src="js/uwd_scripts.js"></script> -->
@@ -558,12 +562,25 @@
             }
         });
 
-        //Makes the product summary div change fixed position when it reaches the footer
-        $(window).scroll(function() {
-            if($(window).scrollTop() + $(window).height() > $(document).height() - 425) {
-                $('#product-summary').addClass('product-summary-bottom').removeClass('product-summary-top');
-            }else{
-                $('#product-summary').addClass('product-summary-top').removeClass('product-summary-bottom');
+        /*Makes the product summary div change fixed position when it reaches the footer*/
+        //makes the prodcut summary won't go pass the footer
+        var doc = $(document);
+
+        doc.scroll(function () {
+            // make sure to wrap yours entire footer in some css selector
+            var footer = $('#wholeFooter');
+            var p = $('#product-fixed');
+            var s = $('#product-summary-position');
+
+            var top = doc.scrollTop() + s.offset().top + p.height() + 20;
+            var footerTop = footer.offset().top;
+
+            var offset = footerTop - top;
+
+            if (offset < 0) {
+                p.css({'margin-top': '' + offset + 'px'});
+            } else {
+                p.css({'margin-top': 0});
             }
         });
 
