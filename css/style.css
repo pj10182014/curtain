@@ -1,0 +1,136 @@
+input, select, textarea {color: #000066;font-family: Arial,Verdana,Geneva,helvetica,sans-serif;font-size: 12px;font-weight: bolder;margin-bottom: 3px;padding: 3px;vertical-align: middle;}
+
+/* product summary div*/
+#product-summary-position{float: right; height: 185px; width: 185px;}
+div#product-summary {font-family: 'roboto'; height: 230px; width: 185px; background-color: #2A0092; border-radius: 5px; text-align: center; color: #FFF; top: 250px;}
+div#product-fixed {position: fixed; }
+/*div#product-summary.product-summary-top{top: 250px;}*/
+/*div#product-summary.product-summary-bottom{top: 10px;}*/
+#product-summary>header {color: yellow; font-size: 20px; padding-top: 10px;}
+#product-summary .price{padding: 35px 0 20px 0; font-size: 23px;}
+#product-summary .btn-reset{background: yellow; border: none; border-radius: 0 0 5px 5px; cursor: pointer; font-size: 17px; height: 40px; width: inherit;}
+
+/* Add to cart */
+/*.add-to-cart:after{content:url(sample-images/cart-yellow.png); position: relative; top: 3px; left: 10px;}*/
+.add-to-cart{font-family: roboto; font-weight: 400; color: #FFFF09; font-size: 24px; text-align: center; height: 55px; width: 260px; background-color: #2A0092; padding: 0; border: none; border-radius: 5px; margin-top: 50px; margin-left: 215px; cursor: pointer;}
+.add-to-cart>span{font-size: 30px;}
+
+/* Sizing for the whole four step selections */
+#three-steps-curtain-selections{font-family: 'roboto';width:700px; float: left;}
+
+    /* Global CSS for all curtain selections */
+    /*****************************************/
+    .curtain-selection-headers {background-color: #2A0092; position: relative; white-space: nowrap; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+    .step-arrows {
+        background: -webkit-linear-gradient(75deg, #C0CC00, #F9FF00); /* For Safari*/
+        background: -o-linear-gradient(75deg, #C0CC00, #F9FF00);     /* For Opera*/
+        background: -moz-linear-gradient(75deg, #C0CC00, #F9FF00);   /* For Firefox*/
+        background: linear-gradient(75deg, #C0CC00 , #F9FF00);    /* Standard syntax */
+        font-size:24px; color: #404040; font-weight: 400; line-height: 55px; width: 180px; height: 55px; text-align: center; border-top-left-radius: 5px; border-bottom-left-radius: 5px;}
+    .step-arrows::after {content: ""; border-top: 28px solid transparent; border-bottom: 29px solid transparent; border-left: 28px solid #F9FF00; position: absolute; left: 180px;}
+    .step-headers {font-size:24px; color: #FFF; font-weight: 300; line-height: 55px; position: absolute; left: 35%; top: 0;}
+    .checkMark:after{ font-family: FontAwesome; content: "\f00c"; color: blue; font-size: 30px;}
+    .step1-selections, .step2-selections, .step3-selections, .step4-selections {font-size:16px; color: #636363; font-weight: 500; line-height: 132%;}
+    .clearWmarginForSteps {clear:both; margin-bottom: 50px;}
+    .clear{clear:both;}
+    .marginTop20{margin-top: 20px;}
+    .sideABCD-header {font-size: 15px; color: #636363; line-height: 134%; font-weight: 400; margin:0;}
+
+    /* Help Section for all */
+    .help-section {clear: both; margin-top: 10px;}
+    .help-header{float: left;}
+    .help{float: right; color: #2A0092; font-size: 13px;}
+    span.fa.fa-question-circle{margin-left: 5px; font-size: 15px;}
+    .help-notes{clear: both; font-size: 12px; color: #7676A9; line-height: 150%; border: 1px solid blue; border-radius: 5px; background-color: #EEECFF; padding: 10px; margin-bottom: 20px;}
+
+        /*Css for step 2 and 3 div layout*/
+        .dimensions-side-a, .dimensions-side-b, .dimensions-side-c, .dimensions-side-d,
+        .mount-side-a, .mount-side-b, .mount-side-c, .mount-side-d{float: left; width:165px; border-right: 1px dashed lightgray;}
+        .dimensions-side-b, .dimensions-side-c, .dimensions-side-d,
+        .mount-side-b, .mount-side-c, .mount-side-d{padding-left: 10px;}
+        .dimensions-side-d{border-right: none;}
+
+        /*Css for all step 1 - curtain selection*/
+        .single-side, .two-sided, .three-sided, .four-sided{float: left;}
+        div > input[type='image'] + p {text-align: center;}
+
+        /*Css for all step 2 - enter  dimensions & colors  */
+        .mount-side-d{border-right: 0;}
+        .dimension-WHC{font-size: 14px; color: purple; font-weight: 300; line-height: 136%; margin: 0;}
+        /*Only for dimensions*/
+        div.dimension-width, div.dimension-height{float: left; font-size: 15px;}
+        span.foot-inches{font-size: 21px; font-weight: 500;}
+
+        input.dimension-input, input.dimension-input-foot, input.dimension-input-inch{font-size: 16px; color: #636363; line-height: 132%; font-weight: 300; width: 20px; background: #EAEAEA; border-radius: 5px; border: 0;}
+        /*Only for colors*/
+        .color-side-a, .color-side-b, .color-side-c, .color-side-d{float: left; width:165px; border-right: 1px dashed lightgray;}
+        .color-side-b, .color-side-c, .color-side-d{padding-left: 10px;}
+        .color-side-d{border-right: 0;}
+        .number-of-colors{width: 150px;}
+        .number-of-color-field{height: 160px;}
+        /*.number-of-color-field input{border: none;}*/
+        .number-of-color-field > div {font-size: 12px; text-align: center;}
+        .gradientLayer, .gradientLayer2, .gradientLayer3 {height: 160px; width: inherit; border-radius: 5px;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+0,000000+0,000000+100&0.01+0,0.01+0,0.01+0,0.01+0,0.01+0,0.01+0,0.2+100;Neutral+Density */
+            background: -moz-linear-gradient(top, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.01)), color-stop(100%,rgba(0,0,0,0.1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, rgba(0,0,0,0.01) 0%,rgba(0,0,0,0.1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, rgba(0,0,0,0.01) 0%,rgba(0,0,0,0.1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, rgba(0,0,0,0.01) 0%,rgba(0,0,0,0.1) 100%); /* IE10+ */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.01) 0%,rgba(0,0,0,0.1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03000000', endColorstr='#33000000',GradientType=0 ); /* IE6-9 */}
+        .gradientLayer2{height: 80px;}
+        .gradientLayer3{height: 52px;}
+        .top-color.color1-1,
+        .top-color.color2-1, .middle-color.color2-2,
+        .top-color.color3-1, .middle-color.color3-2, .bottom-color.color3-3{float: left; width: 36px; border-radius: 5px;}
+        .foot-inches.color-selector{float: left;}
+        .total-height-input{font-family: 'roboto'; font-size: 16px; font-weight: 100; position: relative; left: 10px;}
+        .total-height-input input::-webkit-outer-spin-button,
+        .total-height-input input::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
+        .total-height-input input{-moz-appearance:textfield;}
+        /*.choose-color-message {position: relative; top: 30%;}*/
+        .choose-color-message1{float: right; margin-right: 10px; margin-top: 60px;}
+        .choose-color-message2-1{position: relative; top: 36px;}
+        .choose-color-message2-2{float: left; margin-left: 12px; margin-top: 7px;}
+        .choose-color-message3-1{float: right; position: relative; top: 28px; right: 10px;}
+        .choose-color-message3-2, .choose-color-message3-3{float:right; margin-right: 10px;}
+        .colorSelectBox>div{font-size: 14px; font-weight: 300; color: #636363; line-height: 136%;}
+        .colorSelectBox>div>div{float: left; width: 20px; height: 20px; border-radius: 5px; border: 1px solid lightgrey; margin-right: 3px;}
+        .colorSelectBox .azRed {background-color: #DD2A13;}
+        .colorSelectBox .azYellow {background-color: #E5BC0A;}
+        .colorSelectBox .yellow{background-color: yellow;}
+        .colorSelectBox .blue{background-color: blue;}
+        .colorSelectBox .black{background-color: black;}
+        .colorSelectBox .brown{background-color: brown;}
+        .colorSelectBox .grey{background-color: grey;}
+        .colorSelectBox .green{background-color: green;}
+        .colorSelectBox .white{background-color: white;}
+        .colorSelectBox .orange{background-color: orange;}
+        .colorSelectBox{position:fixed;z-index:99999;background-color: #FFF;border: 1px solid lightgray;border-radius: 5px;padding: 15px;}
+        .color-a-total-height, .color-b-total-height, .color-c-total-height, .color-d-total-height {margin-top: 10px;}
+        .color-a-total-height-error, .color-b-total-height-error, .color-c-total-height-error, .color-d-total-height-error {color: red; float: left;}
+
+        /*Css for all step 3 - Choose a Track & Trolley Kit*/
+        /*.mount-image{width: 100%; background: #EEECFF; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px;}*/
+        /*.mount-options{height: 90px;}*/
+        .mount-names{width: 100%; background: #EEECFF; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; font-size: 15px; color: #636363; line-height: 134%; font-weight: 400; height: 210px; margin-bottom: 15px;}
+        .mount-names > div {float:left; margin-left: 100px;}
+
+        /*Css for step 4 - Extra Options*/
+        .extraAcc{margin-top: 10px;}
+        .extraName{float: left;}
+        .extraPrice{margin-left: 200px;}
+        .opt-qty{float:right;}
+
+/*Cart info after clicking add to cart*/
+.cart-info > h1 {font-size: 22px; text-align: center; text-decoration: underline;}
+.cart-info .sides{font-size: 20px; font-style: italic; padding-left: 100px;}
+.cart-info .sides + hr {margin-top: 2px;}
+.cart-info .sides > span{font-size: 18px; font-style: normal; background-color: lightskyblue;}
+    .side-info{font-family: 'roboto';font-size: 14px; float:left; padding: 20px; border-right: 1px dashed lightgray;}
+    .side-info header{font-size: 15px;font-style: italic;font-weight: 500;text-decoration: underline; margin-top: 5px;}
+    .side-info span.dimension-symbol{font-size: 17px;}
+    .side-info.btn-restart-pay{border-right: none; padding: 0; margin: 20px;}
+    .side-info .btn-restart{background-color: #d9534f; color: #FFF; width: 175px; height: 40px; font-size: 16px; border-radius: 5px; border: none; cursor: pointer; }
+    .side-info .btn-restart:hover{background-color: #c9302c;}

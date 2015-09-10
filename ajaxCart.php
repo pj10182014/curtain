@@ -33,8 +33,8 @@ $data['coatedBooleanA'] = in_array('true', $_POST['coatedArrayA']);
 /*All the chosen mount value's shorthand but changes them to proper name before passing back to front end*/
 $data['mountValues'] = [];
 foreach($_POST['mountArray'] as $key => $value){
-    if($value == 'wm'){
-        $data['mountValues'][$key] = 'Wall Mount';
+    if($value == 'k1'){
+        $data['mountValues'][$key] = 'Kit - #FKS1439-1';
     }else if($value == 'trm'){
         $data['mountValues'][$key] = 'Threaded Rod Mount';
     }else if($value == 'cm'){
