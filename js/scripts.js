@@ -903,6 +903,9 @@ $(document).ready(function(){
             }
         });
 
+        //Gets the final product price amount
+        var finalPrice = $('.price').text();;
+
         $.ajax({
             method: 'post',
             url: "ajaxCart.php",
@@ -960,6 +963,9 @@ $(document).ready(function(){
 
                 /*Appends the extra acc info*/
                 $('.extra-acc-info').append(printExtraAccInfo);
+
+                /*Appends the final product price*/
+                $('.finalAmount').append(finalPrice);
             }
         });// end ajax
 

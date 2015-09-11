@@ -467,6 +467,9 @@
 
             <div class="clear"></div>
             <hr>
+            <div class="finalAmount">
+                Total:
+            </div>
             <div class="side-info btn-restart-pay">
                 <button class="btn-restart">Restart</button>
             </div>
