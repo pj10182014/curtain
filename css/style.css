@@ -11,7 +11,7 @@ div#product-fixed {position: fixed; }
 #product-summary .btn-reset{background: yellow; border: none; border-radius: 0 0 5px 5px; cursor: pointer; font-size: 17px; height: 40px; width: inherit;}
 
 /* Add to cart */
-/*.add-to-cart:after{content:url(sample-images/cart-yellow.png); position: relative; top: 3px; left: 10px;}*/
+/*.add-to-cart:after{content:url(images/cart-yellow.png); position: relative; top: 3px; left: 10px;}*/
 .add-to-cart{font-family: roboto; font-weight: 400; color: #FFFF09; font-size: 24px; text-align: center; height: 55px; width: 260px; background-color: #2A0092; padding: 0; border: none; border-radius: 5px; margin-top: 50px; margin-left: 215px; cursor: pointer;}
 .add-to-cart>span{font-size: 30px;}
 
@@ -63,7 +63,7 @@ div#product-fixed {position: fixed; }
 
         input.dimension-input, input.dimension-input-foot, input.dimension-input-inch{font-size: 16px; color: #636363; line-height: 132%; font-weight: 300; width: 20px; background: #EAEAEA; border-radius: 5px; border: 0;}
         /*Only for colors*/
-        .color-side-a, .color-side-b, .color-side-c, .color-side-d{float: left; width:165px; border-right: 1px dashed lightgray;}
+        .color-side-a, .color-side-b, .color-side-c, .color-side-d{float: left; width:165px; border-right: 1px dashed black;}
         .color-side-b, .color-side-c, .color-side-d{padding-left: 10px;}
         .color-side-d{border-right: 0;}
         .number-of-colors{width: 150px;}
@@ -127,10 +127,11 @@ div#product-fixed {position: fixed; }
 .cart-info > h1 {font-size: 22px; text-align: center; text-decoration: underline;}
 .cart-info .sides{font-size: 20px; font-style: italic; padding-left: 100px;}
 .cart-info .sides + hr {margin-top: 2px;}
-.cart-info .sides > span{font-size: 18px; font-style: normal; background-color: lightskyblue;}
-    .side-info{font-family: 'roboto';font-size: 14px; float:left; padding: 20px; border-right: 1px dashed lightgray;}
+.cart-info .sides > span{font-size: 18px; font-style: normal; background-color: yellow;}
+    .side-info{font-family: 'roboto';font-size: 14px; float:left; padding: 20px; border-right: 1px dashed black;}
     .side-info header{font-size: 15px;font-style: italic;font-weight: 500;text-decoration: underline; margin-top: 5px;}
     .side-info span.dimension-symbol{font-size: 17px;}
     .side-info.btn-restart-pay{border-right: none; padding: 0; margin: 20px;}
     .side-info .btn-restart{background-color: #d9534f; color: #FFF; width: 175px; height: 40px; font-size: 16px; border-radius: 5px; border: none; cursor: pointer; }
     .side-info .btn-restart:hover{background-color: #c9302c;}
+    .extra-acc{float: right; font-family: 'roboto'; margin-right: 10px;}

@@ -6,6 +6,7 @@ $(document).ready(function(){
     var defaultColorPickerField2 = "white";
     var defaultColorPickerField3 = "white";
     var widthHeightProductMultiplier = 1.65;
+    var mountPriceMultiplier = 4.5;
 
     var priceSummary = mountABCDtotal + sideABCDtotal;
 
@@ -323,22 +324,22 @@ $(document).ready(function(){
                 switch(sc1){
                     case 'mount-a':
                         mountABCDtotal -= mountSideAPrice;
-                        mountSideAPrice = sideAWidthFT * 4.5;
+                        mountSideAPrice = sideAWidthFT * mountPriceMultiplier;
                         mountABCDtotal += mountSideAPrice;
                         break;
                     case 'mount-b':
                         mountABCDtotal -= mountSideBPrice;
-                        mountSideBPrice = sideBWidthFT * 4.5;
+                        mountSideBPrice = sideBWidthFT * mountPriceMultiplier;
                         mountABCDtotal += mountSideBPrice;
                         break;
                     case 'mount-c':
                         mountABCDtotal -= mountSideCPrice;
-                        mountSideCPrice = sideCWidthFT * 4.5;
+                        mountSideCPrice = sideCWidthFT * mountPriceMultiplier;
                         mountABCDtotal += mountSideCPrice;
                         break;
                     case 'mount-d':
                         mountABCDtotal -= mountSideDPrice;
-                        mountSideDPrice = sideDWidthFT * 4.5;
+                        mountSideDPrice = sideDWidthFT * mountPriceMultiplier;
                         mountABCDtotal += mountSideDPrice;
                         break;
                 }
@@ -635,31 +636,31 @@ $(document).ready(function(){
         if(valueSelected != ''){
             switch(sc1){
                 case 'mount-a':
-                    mountSideAPrice = (sideAWidthFT * 4.5);
+                    mountSideAPrice = (sideAWidthFT * mountPriceMultiplier);
                     break;
                 case 'mount-b':
-                    mountSideBPrice = (sideBWidthFT * 4.5);
+                    mountSideBPrice = (sideBWidthFT * mountPriceMultiplier);
                     break;
                 case 'mount-c':
-                    mountSideCPrice = (sideCWidthFT * 4.5);
+                    mountSideCPrice = (sideCWidthFT * mountPriceMultiplier);
                     break;
                 case 'mount-d':
-                    mountSideDPrice = (sideDWidthFT * 4.5);
+                    mountSideDPrice = (sideDWidthFT * mountPriceMultiplier);
                     break;
             }
         }else{
             switch(sc1){
                 case 'mount-a':
-                    mountSideAPrice = 0;
+                    mountSideAPrice = resetValueToZero;
                     break;
                 case 'mount-b':
-                    mountSideBPrice = 0;
+                    mountSideBPrice = resetValueToZero;
                     break;
                 case 'mount-c':
-                    mountSideCPrice = 0;
+                    mountSideCPrice = resetValueToZero;
                     break;
                 case 'mount-d':
-                    mountSideDPrice = 0;
+                    mountSideDPrice = resetValueToZero;
                     break;
             }
         }
@@ -674,7 +675,7 @@ $(document).ready(function(){
     /*fixed mount price*/
     /*******************/
     ////putting the name of mount in array and price will correspond to the same array index
-    //var diffMountNames = ['', 'wm', 'trm', 'cm', 'clm'];
+    //var diffMountNames = ['', 'k1', 'k2', 'k3', 'k4'];
     //var diffMountPricing = [0,5,4.5,5.5,30];
     //
     //$('.select-mounts').on('change', function(){
@@ -746,7 +747,7 @@ $(document).ready(function(){
     var extraAcc2Price = 0;
     var extraAccAllTotal = 0;
 
-    var extraAccNames = ['radius', 'radius1']; //stores the short name for the extra acc
+    var extraAccNames = ['extraAcc1', 'extraAcc2']; //stores the short name for the extra acc
     var extraAccPrices = [65, 60];  //stores the price for the extra acc
 
     $('.opt-qty').on('change', function(){
@@ -772,10 +773,10 @@ $(document).ready(function(){
 
         //determines which acc is selected in order to know where to store the price
         switch (valueSelected){
-            case 'radius':
+            case 'extraAcc1':
                 extraAcc1Price = accPrice * qtySelected;
                 break;
-            case 'radius1':
+            case 'extraAcc2':
                 extraAcc2Price = accPrice * qtySelected;
         }
         extraAccAllTotal = extraAcc1Price + extraAcc2Price;
@@ -889,6 +890,19 @@ $(document).ready(function(){
             mountArray.push($(mountSideClass).val());
         });
 
+        //If extra accessories is added, it'll be stored in the following variable
+        var printExtraAccInfo = '';
+        $('.opt-qty').each(function(){
+            var $this = $(this);
+            var qtySelected = parseInt($this.find('option:selected').text());
+
+            if(qtySelected > 0){
+                var info = $this.closest('div').prev().text() + ' x ' + qtySelected + '<br>';
+                printExtraAccInfo += info;
+
+            }
+        });
+
         $.ajax({
             method: 'post',
             url: "ajaxCart.php",
@@ -939,10 +953,13 @@ $(document).ready(function(){
                 appendSideColors($('.cart-info .colorC div'),data['bgColorsC']);
                 appendSideColors($('.cart-info .colorD div'),data['bgColorsD']);
 
-                //Append all mount chosen even if empty
+                /*Append all mount chosen even if empty*/
                 $('.cart-info .mount-selected').each(function(index){
                     $(this).children().append(data['mountValues'][index]);
                 });
+
+                /*Appends the extra acc info*/
+                $('.extra-acc-info').append(printExtraAccInfo);
             }
         });// end ajax
 
@@ -953,10 +970,7 @@ $(document).ready(function(){
         $('body select').val('');
     });// end cart on click
 
-    $('.btn-restart').on('click', function(){
-        location.reload();
-    });
-
+    //Reset all values to 0 or empty fields
     $('.btn-reset').on('click', function(e){
         e.preventDefault();
         emptyInputValue($sideAinput, $('.mount-a'), $('.color-a'));
@@ -991,49 +1005,9 @@ $(document).ready(function(){
         appendPriceSummary();
     });
 
-    /*Appends the extra acc info*/
-    var printExtraAccInfo = '';
-    $('.accTest').on('click', function(e){
-        e.preventDefault();
-        //$('.accInfoField').empty();
-        //
-        //$('.opt-qty').each(function(){
-        //    var $this = $(this);
-        //    var qtySelected = parseInt($this.find('option:selected').text());
-        //
-        //
-        //    if(qtySelected > 0){
-        //        var info = $this.closest('div').prev().text() + ' x ' + qtySelected + '<br>';
-        //        printExtraAccInfo += info;
-        //
-        //    }else{
-        //        console.log('none');
-        //    }
-        //});
-        //$('.accInfoField').append(printExtraAccInfo);
-        //printExtraAccInfo = '';
-
+    //Reloads the page
+    $('.btn-restart').on('click', function(){
+        location.reload();
     });
 
-    ////Used to make sure product summary doesn't go pass the footer
-    //$(window).scroll(function(){
-    //    $("#product-summary").css("top",Math.max(20,250-$(this).scrollTop()));
-    //});
-
-    //$(window).scroll(function(){
-    //    if($(window).scrollTop() > 1250){
-    //        $('#product-summary').addClass('product-summary-bottom').removeClass('product-summary-top');
-    //    }else if($(window).scrollTop() < 1250){
-    //        $('#product-summary').addClass('product-summary-top').removeClass('product-summary-bottom');
-    //    }
-    //})
-
-    //Makes the product summary div change fixed position when it reaches the footer
-    //$(window).scroll(function() {
-    //    if($(window).scrollTop() + $(window).height() > $(document).height() - 150) {
-    //        $('#product-summary').addClass('product-summary-bottom').removeClass('product-summary-top');
-    //    }else{
-    //        $('#product-summary').addClass('product-summary-top').removeClass('product-summary-bottom');
-    //    }
-    //});
 });

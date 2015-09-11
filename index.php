@@ -1,3 +1,4 @@
+<?php include '_inc/_functions.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +21,10 @@
 <body style="background-color: lightblue;">
     <div id="wrapper" style="width: 890px; padding: 0 20px; margin: auto; background-color: lightblue;">
         <header id="logo" style="text-align: center;">
-            <a href="http://et4891.com"><img src="sample-images/logo.png" alt="logo"></a>
+            <a href="http://et4891.com"><img src="images/logo.png" alt="logo"></a>
         </header>
         <nav id="menu" style="text-align: center;">
-            <img src="sample-images/navigation.png" alt="navigation">
+            <img src="images/navigation.png" alt="navigation">
         </nav>
 
         <div id="main">
@@ -61,10 +62,10 @@
 
                         <!-- Sides Selections -->
                         <div class="clear"></div>
-                        <div class="chooseSides single-side"><input type="image" style="width: 163px; height: 128px;" src="./sample-images/fence.svg" alt="" /><p>1-side Fence</p></div>
-                        <div class="chooseSides two-sided"><input type="image" style="width: 163px; height: 128px;" src="./sample-images/fence.svg" alt="" /><p>2-sides Fences</p></div>
-                        <div class="chooseSides three-sided"><input type="image" style="width: 163px; height: 128px;" src="./sample-images/fence.svg" alt="" /><p>3-sides Fences</p></div>
-                        <div class="chooseSides four-sided"><input type="image" style="width: 163px; height: 128px;" src="./sample-images/fence.svg" alt="" /><p class="checkMark">4-side Fences</p></div>
+                        <div class="chooseSides single-side"><input type="image" style="width: 163px; height: 128px;" src="images/fence.svg" alt="" /><p>1-side Fence</p></div>
+                        <div class="chooseSides two-sided"><input type="image" style="width: 163px; height: 128px;" src="images/fence.svg" alt="" /><p>2-sides Fences</p></div>
+                        <div class="chooseSides three-sided"><input type="image" style="width: 163px; height: 128px;" src="images/fence.svg" alt="" /><p>3-sides Fences</p></div>
+                        <div class="chooseSides four-sided"><input type="image" style="width: 163px; height: 128px;" src="images/fence.svg" alt="" /><p class="checkMark">4-side Fences</p></div>
                     </div><!-- end selections -->
                 </div>  <!-- end step 1 div-->
 
@@ -253,13 +254,13 @@
                         <!-- Picker for customer to choose the color -->
                         <div class="clear"></div>
                         <div class="colorSelectBox">
-                            <div>14 Guage Semi-Transparent</div>
+                            <div>Semi-Transparent</div>
                             <div>
-                                <div class="azRed" value="#DD2A13" name="Aztec Red"></div>
-                                <div class="azYellow" value="#E5BC0A" name="Aztec Yellow"></div>
+                                <div class="azRed" value="#DD2A13" name="Trans Red"></div>
+                                <div class="azYellow" value="#E5BC0A" name="Trans Yellow"></div>
                             </div>
                             <div class="clear"></div>
-                            <div>18 oz Industrial Stength Viyl Coated</div>
+                            <div>Industrial Coated</div>
                             <div>
                                 <div class="yellow" value="yellow" name="yellow"></div>
                                 <div class="blue" value="blue" name="blue"></div>
@@ -296,7 +297,7 @@
                         <div class="clear"></div>
 
                         <div class="mount-names">
-                            <img class="mount-image" style="width: 651px; height: 178px;" src="sample-images/kits.png" alt="4 different kit options">
+                            <img class="mount-image" style="width: 651px; height: 178px;" src="images/kits.png" alt="4 different kit options">
                             <div class="k1">Kit - 1</div>
                             <div class="k2">Kit - 2</div>
                             <div class="k3">Kit - 3</div>
@@ -312,9 +313,9 @@
                                     <select name="select-mounts" class="select-mounts mount-a">
                                         <option value="" group="mounts">No Kit Needed</option>
                                         <option value="k1" group="mounts">Set Kit - #FKS1439-1</option>
-                                        <option value="trm" group="mounts">Set Kit - #FKS1439-2</option>
-                                        <option value="cm" group="mounts">Set Kit - #FKS1439-3</option>
-                                        <option value="clm" group="mounts">Set Kit - #FKS1439-4</option>
+                                        <option value="k2" group="mounts">Set Kit - #FKS1439-2</option>
+                                        <option value="k3" group="mounts">Set Kit - #FKS1439-3</option>
+                                        <option value="k4" group="mounts">Set Kit - #FKS1439-4</option>
                                     </select>
                                 </div>
                             </div><!-- end mount side A -->
@@ -323,11 +324,11 @@
                                 <p class="sideABCD-header">Side B</p>
                                 <div class="dimension-width">
                                     <select name="select-mounts" class="select-mounts mount-b">
-                                        <option value="" group="mounts">No Track</option>
-                                        <option value="k1" group="mounts">Wall Mount</option>
-                                        <option value="trm" group="mounts">Threaded Rod Mount</option>
-                                        <option value="cm" group="mounts">Ceiling Mount</option>
-                                        <option value="clm" group="mounts">Chain Link Mount</option>
+                                        <option value="" group="mounts">No Kit Needed</option>
+                                        <option value="k1" group="mounts">Set Kit - #FKS1439-1</option>
+                                        <option value="k2" group="mounts">Set Kit - #FKS1439-2</option>
+                                        <option value="k3" group="mounts">Set Kit - #FKS1439-3</option>
+                                        <option value="k4" group="mounts">Set Kit - #FKS1439-4</option>
                                     </select>
                                 </div>
                             </div><!-- end mount side B -->
@@ -336,11 +337,11 @@
                                 <p class="sideABCD-header">Side C</p>
                                 <div class="dimension-width">
                                     <select name="select-mounts" class="select-mounts mount-c">
-                                        <option value="" group="mounts">No Track</option>
-                                        <option value="k1" group="mounts">Wall Mount</option>
-                                        <option value="trm" group="mounts">Threaded Rod Mount</option>
-                                        <option value="cm" group="mounts">Ceiling Mount</option>
-                                        <option value="clm" group="mounts">Chain Link Mount</option>
+                                        <option value="" group="mounts">No Kit Needed</option>
+                                        <option value="k1" group="mounts">Set Kit - #FKS1439-1</option>
+                                        <option value="k2" group="mounts">Set Kit - #FKS1439-2</option>
+                                        <option value="k3" group="mounts">Set Kit - #FKS1439-3</option>
+                                        <option value="k4" group="mounts">Set Kit - #FKS1439-4</option>
                                     </select>
                                 </div>
                             </div><!-- end mount side c -->
@@ -349,11 +350,11 @@
                                 <p class="sideABCD-header">Side D</p>
                                 <div class="dimension-width">
                                     <select name="select-mounts" class="select-mounts mount-d">
-                                        <option value="" group="mounts">No Track</option>
-                                        <option value="k1" group="mounts">Wall Mount</option>
-                                        <option value="trm" group="mounts">Threaded Rod Mount</option>
-                                        <option value="cm" group="mounts">Ceiling Mount</option>
-                                        <option value="clm" group="mounts">Chain Link Mount</option>
+                                        <option value="" group="mounts">No Kit Needed</option>
+                                        <option value="k1" group="mounts">Set Kit - #FKS1439-1</option>
+                                        <option value="k2" group="mounts">Set Kit - #FKS1439-2</option>
+                                        <option value="k3" group="mounts">Set Kit - #FKS1439-3</option>
+                                        <option value="k4" group="mounts">Set Kit - #FKS1439-4</option>
                                     </select>
                                 </div>
                             </div><!-- end mount side d -->
@@ -381,34 +382,9 @@
 
                         <div class="clear"></div>
                         <div class="extraOp">
-                            <div class="extraAcc">
-                                <label class="extraName">Extra accessories 1</label>
-                                <div class="extraPrice acc1">$65.00
-                                    <select name="" id="radius" class="opt-qty">
-                                        <option value="radius">0</option>
-                                        <option value="radius">1</option>
-                                        <option value="radius">2</option>
-                                        <option value="radius">3</option>
-                                        <option value="radius">4</option>
-                                        <option value="radius">5</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="extraAcc">
-                                <label class="extraName">Extra accessories 2</label>
-                                <div class="extraPrice acc2">$60.00
-                                    <select name="" id="radius1" class="opt-qty">
-                                        <option value="radius1">0</option>
-                                        <option value="radius1">1</option>
-                                        <option value="radius1">2</option>
-                                        <option value="radius1">3</option>
-                                        <option value="radius1">4</option>
-                                        <option value="radius1">5</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                            <?php echo printExtraAcc('Extra accessories 1', 25, 'acc1', 'extraAcc1', 65)?>
+                            <?php echo printExtraAcc('Extra accessories 2', 50, 'acc2', 'extraAcc2', 60)?>
+                        </div><!-- end extraOp -->
                     </div><!-- end selections -->
                 </div>  <!-- end step 4 div-->
 
@@ -417,10 +393,7 @@
             <div class="clear"></div>
             <button type="submit" class="add-to-cart">Add to Cart <span class="fa fa-cart-plus"></span></button>
             <!--</form>-->
-            <button class="accTest">OUTPUTS</button>
-            <div class="accInfoField"></div>
-
-        </div>
+        </div><!-- end full-panel -->
 
         <div class="cart-info">
             <h1>Cart Summary</h1>
@@ -488,6 +461,10 @@
                 </div>
             </div>
 
+            <div class="extra-acc">
+                <div class="extra-acc-info"></div>
+            </div>
+
             <div class="clear"></div>
             <hr>
             <div class="side-info btn-restart-pay">
@@ -499,7 +476,7 @@
         <div class="clear"></div>
         <footer id="wholeFooter">
             <footer id="footer" style="text-align: center;">
-                <img src="sample-images/footer.png" alt="Footer">
+                <img src="images/footer.png" alt="Footer">
             </footer>
         </footer>
     </div>
@@ -530,3 +507,4 @@
     <script src="js/scripts.js"></script>
     <!--ET-->
 </html>
+

@@ -35,12 +35,12 @@ $data['mountValues'] = [];
 foreach($_POST['mountArray'] as $key => $value){
     if($value == 'k1'){
         $data['mountValues'][$key] = 'Kit - #FKS1439-1';
-    }else if($value == 'trm'){
-        $data['mountValues'][$key] = 'Threaded Rod Mount';
-    }else if($value == 'cm'){
-        $data['mountValues'][$key] = 'Ceiling Mount';
-    }else if($value == 'clm'){
-        $data['mountValues'][$key] = 'Chain link Mount';
+    }else if($value == 'k2'){
+        $data['mountValues'][$key] = 'Kit - #FKS1439-2';
+    }else if($value == 'k3'){
+        $data['mountValues'][$key] = 'Kit - #FKS1439-3';
+    }else if($value == 'k4'){
+        $data['mountValues'][$key] = 'Kit - #FKS1439-4';
     }else{
         $data['mountValues'][$key] = 'None Chosen';
     }
