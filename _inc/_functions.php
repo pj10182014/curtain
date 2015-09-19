@@ -6,11 +6,7 @@
      * Time: 1:36 PM
      */
 
-    $counts = array(0,1);
-    $sideClass = array('mount-side-a', 'mount-side-b');
-    $sideLabel = array('Side A', 'Side B');
-    $selectMountSide = array('mount-a', 'mount-b');
-    $i = 0;
+
 
     /*
      * printExtraAcc()
@@ -21,26 +17,25 @@
      * param $id                - id name for the select element, example: extraAcc1
      * param $price             - price of the */
     function printExtraAcc($accName, $maxQty, $accClass, $id, $price){
-        $output[] = "<div class='extraAcc'>";
-        $output[] = "<label class='extraName'>$accName</label>";
+        $output[] = "<div class='extraAcc'>\r\n";
+        $output[] = "<label class='extraName'>$accName</label>\r\n";
         $output[] = "<div class='extraPrice $accClass'>$";
         $output[] = $price . ".00";
-        $output[] = "<select id='$id' class='opt-qty'>";
+        $output[] = "<select id='$id' class='opt-qty'>\r\n";
         for($i = 0; $i <= $maxQty; $i++){
             $output[] = "<option value='$id'>";
             $output[] = $i;
-            $output[] = "</option>";
+            $output[] = "</option>\r\n";
         };
-        $output[] = "</select>";
-        $output[] = "</div>";
-        $output[] = "</div>";
+        $output[] = "</select>\r\n";
+        $output[] = "</div>\r\n";
+        $output[] = "</div><!-- end $accName-->\r\n";
 
         return join('',$output);
     }
 
     function printMountSelections($sideClass, $sideLabel, $selectMountSide){
         $output[] = "<div class='$sideClass'>";
-        $output[] = "\r\n";
         $output[] = "<p class='sideABCD-header'>$sideLabel</p>";
         $output[] = "<div class='dimension-width'>";
         $output[] = "<select name='select-mounts' class='select-mounts $selectMountSide'>";
