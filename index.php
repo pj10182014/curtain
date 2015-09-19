@@ -307,31 +307,41 @@
 
                         <div class="clear"></div>
                         <div class="mount-options">
-                            <div class="mount-side-a">
-                                <p class="sideABCD-header">Side A</p>
-                                <div class="dimension-width">
-                                    <select name="select-mounts" class="select-mounts mount-a">
-                                        <option value="" group="mounts">No Kit Needed</option>
-                                        <option value="k1" group="mounts">Set Kit - #FKS1439-1</option>
-                                        <option value="k2" group="mounts">Set Kit - #FKS1439-2</option>
-                                        <option value="k3" group="mounts">Set Kit - #FKS1439-3</option>
-                                        <option value="k4" group="mounts">Set Kit - #FKS1439-4</option>
-                                    </select>
-                                </div>
-                            </div><!-- end mount side A -->
+                            <?php if(count($counts) > $i):?>
+                                <?php foreach($counts as $count): ?>
+                                <div class="<?php echo $sideClass[$i]; ?>">
+                                    <p class="sideABCD-header"><?php echo $sideLabel[$i]; ?></p>
+                                    <div class="dimension-width">
+                                        <select name="select-mounts" class="select-mounts <?php echo $selectMountSide[$i]; ?>">
+                                            <option value="" group="mounts">No Kit Needed</option>
+                                            <option value="k1" group="mounts">Set Kit - #FKS1439-1</option>
+                                            <option value="k2" group="mounts">Set Kit - #FKS1439-2</option>
+                                            <option value="k3" group="mounts">Set Kit - #FKS1439-3</option>
+                                            <option value="k4" group="mounts">Set Kit - #FKS1439-4</option>
+                                        </select>
+                                    </div>
+                                </div><!-- end mount <?php echo $sideLabel[$i]; ?> -->
+                                <?php $i++; ?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
 
-                            <div class="mount-side-b">
-                                <p class="sideABCD-header">Side B</p>
-                                <div class="dimension-width">
-                                    <select name="select-mounts" class="select-mounts mount-b">
-                                        <option value="" group="mounts">No Kit Needed</option>
-                                        <option value="k1" group="mounts">Set Kit - #FKS1439-1</option>
-                                        <option value="k2" group="mounts">Set Kit - #FKS1439-2</option>
-                                        <option value="k3" group="mounts">Set Kit - #FKS1439-3</option>
-                                        <option value="k4" group="mounts">Set Kit - #FKS1439-4</option>
-                                    </select>
-                                </div>
-                            </div><!-- end mount side B -->
+<!--                            <div class="mount-side-a">-->
+<!--                                <p class="sideABCD-header">Side A</p>-->
+<!--                                <div class="dimension-width">-->
+<!--                                    <select name="select-mounts" class="select-mounts mount-a">-->
+<!--                                        <option value="" group="mounts">No Kit Needed</option>-->
+<!--                                        <option value="k1" group="mounts">Set Kit - #FKS1439-1</option>-->
+<!--                                        <option value="k2" group="mounts">Set Kit - #FKS1439-2</option>-->
+<!--                                        <option value="k3" group="mounts">Set Kit - #FKS1439-3</option>-->
+<!--                                        <option value="k4" group="mounts">Set Kit - #FKS1439-4</option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                            </div><!-- end mount side A -->
+
+
+
+
+
 
                             <div class="mount-side-c">
                                 <p class="sideABCD-header">Side C</p>
