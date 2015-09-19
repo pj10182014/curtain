@@ -1010,6 +1010,7 @@ $(document).ready(function(){
 
         extraAcc1Price = resetValueToZero;
         extraAcc2Price = resetValueToZero;
+        extraAcc3Price = resetValueToZero;
         extraAccAllTotal = resetValueToZero;
 
         priceSummary = resetValueToZero;
