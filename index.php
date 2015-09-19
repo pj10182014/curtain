@@ -351,8 +351,20 @@
 
                         <div class="clear"></div>
                         <div class="extraOp">
-                            <?php echo printExtraAcc('Extra accessories 1', 25, 'acc1', 'extraAcc1', 65)?>
-                            <?php echo printExtraAcc('Extra accessories 2', 50, 'acc2', 'extraAcc2', 60)?>
+                            <?php if($extraAccOptions != null): ?>
+                            <?php foreach($extraAccOptions as $option):?>
+                                <div class="extraAcc">
+                                    <label class="extraName"><?php echo $option[0]; ?></label>
+                                    <div class="extraPrice <?php echo $option[1];?>">$<?php echo $option[2];?>.00
+                                        <select id="<?php echo $option[3]; ?>" class="opt-qty">
+                                        <?php for($i = 0; $i <= $option[4]; $i++):?>
+                                            <option value="<?php echo $option[3]?>"><?php echo $i;?></option>
+                                        <?php endfor ?>
+                                        </select>
+                                    </div>
+                                </div> <!-- end <?php echo $option[0]; ?>-->
+                            <?php endforeach ?>
+                            <?php endif ?>
                         </div><!-- end extraOp -->
                     </div><!-- end selections -->
                 </div>  <!-- end step 4 div-->

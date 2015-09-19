@@ -745,10 +745,11 @@ $(document).ready(function(){
     /***********/
     var extraAcc1Price = 0;
     var extraAcc2Price = 0;
+    var extraAcc3Price = 0;
     var extraAccAllTotal = 0;
 
-    var extraAccNames = ['extraAcc1', 'extraAcc2']; //stores the short name for the extra acc
-    var extraAccPrices = [65, 60];  //stores the price for the extra acc
+    var extraAccNames = ['extraAcc1', 'extraAcc2', 'extraAcc3']; //stores the short name for the extra acc
+    var extraAccPrices = [65, 60, 10];  //stores the price for the extra acc
 
     $('.opt-qty').on('change', function(){
         var $this = $(this);
@@ -778,8 +779,12 @@ $(document).ready(function(){
                 break;
             case 'extraAcc2':
                 extraAcc2Price = accPrice * qtySelected;
+                break;
+            case 'extraAcc3':
+                extraAcc3Price = accPrice * qtySelected;
+                break;
         }
-        extraAccAllTotal = extraAcc1Price + extraAcc2Price;
+        extraAccAllTotal = extraAcc1Price + extraAcc2Price + extraAcc3Price;
         appendPriceSummary();
     });
 
